@@ -12,6 +12,12 @@
     }
   },
   themeConfig: {
+    smoothScroll: true,
+    lastUpdated: true,
+    editLinks: true,
+    repo: 'MouriNaruto/MouriDocs',
+    docsDir: 'docs',
+    docsBranch: 'main',
     locales: {
       '/en-US/': {
         selectText: 'Languages',
@@ -45,6 +51,10 @@
         ]
       }     
     }
-  }
+  },
+  plugins: [
+    ['@vuepress/back-to-top',true],
+    ['@vuepress/medium-zoom', true],
+  ],
 }
 
