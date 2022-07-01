@@ -1,0 +1,12 @@
+<script language="JavaScript">
+    var la = (navigator.language || navigator.browserLanguage || '').toLowerCase().split('-');
+    switch (la[0]) {
+        case 'zh':
+            la = 'zh-Hans'; break;
+        case 'wuu': case 'yue':
+            la = 'zh-Hans'; break;
+        default: /* all other languages go to English */
+            la = 'en-US'; break;
+    }
+    document.location = './' + la + '/index.html';
+</script>
