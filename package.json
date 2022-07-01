@@ -1,0 +1,9 @@
+{
+  "name": "MouriDocs",
+  "version": "1.0.0",
+  "description": "Technical documentation website created by Kenji Mouri",
+  "main": "index.js",
+  "repository": "https://github.com/MouriNaruto/MouriDocs",
+  "author": "MouriNaruto <Mouri_Naruto@Outlook.com>",
+  "license": "MIT"
+}
