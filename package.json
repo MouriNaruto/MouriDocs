@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/MouriNaruto/MouriDocs",
   "author": "MouriNaruto <Mouri_Naruto@Outlook.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
 }
