@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{281:function(t,e,i){"use strict";i.r(e),i.d(e,"GiscusWidget",(function(){return yt}));
+(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{281:function(t,e,i){"use strict";i.r(e),i.d(e,"GiscusWidget",(function(){return yt}));
 /**
  * @license
  * Copyright 2019 Google LLC
