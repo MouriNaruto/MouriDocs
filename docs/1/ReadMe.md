@@ -2,7 +2,7 @@
 
 Work In Progress.
 
-## Configure your virtual machine
+## Modify your virtual machine configurations
 
 ### NanaBox
 
@@ -59,10 +59,8 @@ built-in client directly. This is one of reasons I created NanaBox.
 
 If you want to do that. I think these information will be helpful for you.
 
-- Easy-GPU-PV: A Project dedicated to making GPU Partitioning on Windows easier!
-  (https://github.com/jamesstringerparsec/Easy-GPU-PV)
-- Hyperv Linux Guest GPU PV
-  (https://gist.github.com/OlfillasOdikno/f87a4444f00984625558dad053255ace)
+- [Easy-GPU-PV: A Project dedicated to making GPU Partitioning on Windows easier!](https://github.com/jamesstringerparsec/Easy-GPU-PV)
+- [Hyperv Linux Guest GPU PV](https://gist.github.com/OlfillasOdikno/f87a4444f00984625558dad053255ace)
 
 ## Reference
 
