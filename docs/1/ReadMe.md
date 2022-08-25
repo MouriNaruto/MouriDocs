@@ -62,7 +62,27 @@ If you want to do that. I think these information will be helpful for you.
 - [Easy-GPU-PV: A Project dedicated to making GPU Partitioning on Windows easier!](https://github.com/jamesstringerparsec/Easy-GPU-PV)
 - [Hyperv Linux Guest GPU PV](https://gist.github.com/OlfillasOdikno/f87a4444f00984625558dad053255ace)
 
-## Reference
+## Configure the guest OS in your virtual machine
 
-- DirectX ❤ Linux - DirectX Developer Blog
-  (https://devblogs.microsoft.com/directx/directx-heart-linux/)
+### Windows
+
+If you are using Windows, it's relatively easier.
+
+You only need to copy GPU driver files from host's 
+`%SystemRoot%\System32\DriverStore\FileRepository` folder to guest's 
+`%SystemRoot%\System32\HostDriverStore\FileRepository` folder.
+
+### Linux
+
+If you are using Linux, it's relatively harder.
+
+You only need to copy GPU driver files from host's 
+`%SystemRoot%\System32\DriverStore\FileRepository` folder to guest's 
+`usr/lib/wsl/drivers` folder.
+
+You also need to copy Direct3D 12 binaries for Linux from host's 
+`%SystemRoot%\System32\lxss\lib` folder to guest's 
+`usr/lib/wsl/lib` folder.
+
+For more information about Direct3D 12 for Linux, please read
+[DirectX ❤ Linux - DirectX Developer Blog](https://devblogs.microsoft.com/directx/directx-heart-linux/).
