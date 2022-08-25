@@ -76,7 +76,7 @@ You only need to copy GPU driver files from host's
 
 If you are using Linux, it's relatively harder.
 
-You only need to copy GPU driver files from host's 
+You need to copy GPU driver files from host's 
 `%SystemRoot%\System32\DriverStore\FileRepository` folder to guest's 
 `usr/lib/wsl/drivers` folder.
 
@@ -86,3 +86,30 @@ You also need to copy Direct3D 12 binaries for Linux from host's
 
 For more information about Direct3D 12 for Linux, please read
 [DirectX ❤ Linux - DirectX Developer Blog](https://devblogs.microsoft.com/directx/directx-heart-linux/).
+
+You also need to compile `dxgkrnl` kernel module separately is you still want
+to use your current kernel source code. It's relatively easy for making 
+`dxgkrnl` kernel module out of the WSL2's Linux kernel source code tree.
+
+I will provide the out of tree version of `dxgkrnl` in recent days.
+
+You also need to compile a newer version of mesa. Here is my compile option:
+`meson -D gallium-drivers=d3d12 builddir/`
+
+## Limitations
+
+GPU-PV is a feature which is nice for most people. But there are still some
+painful limitations when using GPU-PV.
+
+- The version of GPU drivers in the guest needs to be as same as the host's in
+  the most of cases.
+- The version of Direct3D 12 binaries for Linux needs to be as same as the 
+  files provided by the host.
+- Some softwares in Windows guests can't get the GPU information correctly 
+  because of the design of GPU-PV: It will act as the Render Only Device in
+  Windows guests and the kernel mode driver used in guests is called Microsoft
+  Virtual Render Driver (vrd.sys).
+- You can't use Vulkan in Linux guests because of the design of GPU-PV: GPU-PV
+  only expose the Direct3D 12 interface to Linux. OpenCL and OpenGL support is
+  implemented in the mesa's d3d12 backend. But the Vulkan support in mesa is
+  experimental and only for Windows.
