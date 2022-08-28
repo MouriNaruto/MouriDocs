@@ -7,3 +7,4 @@ Fire a GitHub issue if you want feedback or suggest something. Please read
 ## Contents
 
 - [MD1: Notes for using GPU-PV on Hyper-V/NanaBox](docs/1)
+- [MD2: Host Compute System API JSON configuration dump samples](docs/2)
