@@ -1,6 +1,8 @@
 ﻿# MD2: Host Compute System API JSON configuration dump samples
 
-Note: Dumped via WinDbg.
+## Dump method
+
+https://gist.github.com/steffengy/62a0b5baa124830a4b0fe4334ccc2606
 
 ## Windows Sandbox (WSB)
 
