@@ -1,5 +1,16 @@
 ﻿# MD4: Notes for using Host Compute System API
 
+## References
+
+- Host Compute System API
+  - Overview, https://learn.microsoft.com/en-us/virtualization/api/hcs/overview
+  - JSON Reference, https://learn.microsoft.com/en-us/virtualization/api/hcs/schemareference
+- Host Compute Network API
+  - Overview, https://learn.microsoft.com/en-us/windows-server/networking/technologies/hcn/hcn-top
+  - JSON Reference, https://learn.microsoft.com/en-us/virtualization/api/hcn/hns_schema
+- Projects uses Host Compute System API and Host Compute Network API
+  - NanaBox, https://github.com/M2Team/NanaBox
+
 ## Limitations
 
 - The virtual machine created by Host Compute System API only supports UEFI
