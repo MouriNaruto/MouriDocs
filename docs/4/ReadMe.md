@@ -20,3 +20,7 @@
   ERROR_ACCESS_DENIED even add the current user to the Hyper-V Administrators 
   user group. Windows 10 don't have that issue. It's confirmed as a Host 
   Compute Network API bug via Kris Harper and will fix it in the future.
+
+## Thanks
+
+- Kris Harper, https://github.com/kharpMSFT
