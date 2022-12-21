@@ -24,3 +24,9 @@ rename ISO\Sources\boot.new.wim boot.wim
 
 Extract windows10.0-kb5020377-x64_aa63fed981cc761dd28de9e0a0a204f6b7003d23.cab
 to ISO\Sources.
+
+## Update install.wim
+
+```
+DISM /Mount-Wim /WimFile:ISO\Sources\install.wim /Index:1 /MountDir:Mount
+```
