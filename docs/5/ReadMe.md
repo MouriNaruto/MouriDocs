@@ -21,7 +21,7 @@ rename ISO\Sources\boot.new.wim boot.wim
 ## Update Setup Media
 
 Extract windows10.0-kb5020377-x64_aa63fed981cc761dd28de9e0a0a204f6b7003d23.cab
-to ISO\Sources.
+to ISO\Sources and Sources in install.wim.
 
 ## Update Windows\System32\Recovery\Winre.wim in install.wim
 
