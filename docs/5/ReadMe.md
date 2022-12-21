@@ -19,3 +19,8 @@ DISM /Export-Image /SourceImageFile:ISO\Sources\boot.wim /SourceIndex:2 /Bootabl
 del ISO\Sources\boot.wim
 rename ISO\Sources\boot.new.wim boot.wim
 ```
+
+## Update Setup Media
+
+Extract windows10.0-kb5020377-x64_aa63fed981cc761dd28de9e0a0a204f6b7003d23.cab
+to ISO\Sources.
