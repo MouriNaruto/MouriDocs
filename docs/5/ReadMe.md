@@ -65,3 +65,35 @@ del ISO\Sources\install.wim
 rename ISO\Sources\install.new.wim install.wim
 rd /s /q ISO\Sources\sxs
 ```
+
+## Disable Windows Defender
+
+```
+DISM /Mount-Wim /WimFile:ISO\Sources\install.wim /Index:1 /MountDir:Mount
+reg load HKLM\OfflineSystem Mount\Windows\System32\config\SYSTEM
+reg add HKLM\OfflineSystem\ControlSet001\Services\SecurityHealthService /t REG_DWORD /v Start /d 4 /f
+reg add HKLM\OfflineSystem\ControlSet001\Services\WdBoot /t REG_DWORD /v Start /d 4 /f
+reg add HKLM\OfflineSystem\ControlSet001\Services\WdFilter /t REG_DWORD /v Start /d 4 /f
+reg add HKLM\OfflineSystem\ControlSet001\Services\WdNisDrv /t REG_DWORD /v Start /d 4 /f
+reg add HKLM\OfflineSystem\ControlSet001\Services\WdNisSvc /t REG_DWORD /v Start /d 4 /f
+reg add HKLM\OfflineSystem\ControlSet001\Services\WinDefend /t REG_DWORD /v Start /d 4 /f
+reg unload HKLM\OfflineSystem
+reg load HKLM\OfflineSoftware Mount\Windows\System32\config\SOFTWARE
+reg add HKLM\OfflineSoftware\Microsoft\PolicyManager\default\Defender\AllowArchiveScanning /t REG_DWORD /v value /d 0 /f
+reg add HKLM\OfflineSoftware\Microsoft\PolicyManager\default\Defender\AllowBehaviorMonitoring /t REG_DWORD /v value /d 0 /f
+reg add HKLM\OfflineSoftware\Microsoft\PolicyManager\default\Defender\AllowCloudProtection /t REG_DWORD /v value /d 0 /f
+reg add HKLM\OfflineSoftware\Microsoft\PolicyManager\default\Defender\AllowEmailScanning /t REG_DWORD /v value /d 0 /f
+reg add HKLM\OfflineSoftware\Microsoft\PolicyManager\default\Defender\AllowFullScanOnMappedNetworkDrives /t REG_DWORD /v value /d 0 /f
+reg add HKLM\OfflineSoftware\Microsoft\PolicyManager\default\Defender\AllowFullScanRemovableDriveScanning /t REG_DWORD /v value /d 0 /f
+reg add HKLM\OfflineSoftware\Microsoft\PolicyManager\default\Defender\AllowIntrusionPreventionSystem /t REG_DWORD /v value /d 0 /f
+reg add HKLM\OfflineSoftware\Microsoft\PolicyManager\default\Defender\AllowIOAVProtection /t REG_DWORD /v value /d 0 /f
+reg add HKLM\OfflineSoftware\Microsoft\PolicyManager\default\Defender\AllowOnAccessProtection /t REG_DWORD /v value /d 0 /f
+reg add HKLM\OfflineSoftware\Microsoft\PolicyManager\default\Defender\AllowRealtimeMonitoring /t REG_DWORD /v value /d 0 /f
+reg add HKLM\OfflineSoftware\Microsoft\PolicyManager\default\Defender\AllowScanningNetworkFiles /t REG_DWORD /v value /d 0 /f
+reg add HKLM\OfflineSoftware\Microsoft\PolicyManager\default\Defender\AllowScriptScanning /t REG_DWORD /v value /d 0 /f
+reg unload HKLM\OfflineSoftware
+DISM /Unmount-Image /MountDir:Mount /Commit
+DISM /Export-Image /SourceImageFile:ISO\Sources\install.wim /SourceIndex:1 /DestinationImageFile:ISO\Sources\install.new.wim
+del ISO\Sources\install.wim
+rename ISO\Sources\install.new.wim install.wim
+```
