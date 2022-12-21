@@ -97,3 +97,7 @@ DISM /Export-Image /SourceImageFile:ISO\Sources\install.wim /SourceIndex:1 /Dest
 del ISO\Sources\install.wim
 rename ISO\Sources\install.new.wim install.wim
 ```
+
+## Update ISO
+
+Use UltraISO or similar tools.
