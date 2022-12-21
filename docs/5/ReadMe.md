@@ -25,8 +25,21 @@ rename ISO\Sources\boot.new.wim boot.wim
 Extract windows10.0-kb5020377-x64_aa63fed981cc761dd28de9e0a0a204f6b7003d23.cab
 to ISO\Sources.
 
-## Update install.wim
+## Update Windows\System32\Recovery\Winre.wim in install.wim
 
 ```
 DISM /Mount-Wim /WimFile:ISO\Sources\install.wim /Index:1 /MountDir:Mount
+DISM /Mount-Wim /WimFile:Mount\Windows\System32\Recovery\Winre.wim /Index:1 /MountDir:MountRE
+DISM /Image:MountRE /Add-Package /PackagePath:ssu-19041.1704-x64_70e350118b85fdae082ab7fde8165a947341ba1a.msu
+DISM /Image:MountRE /Add-Package /PackagePath:windows10.0-kb5021233-x64_00bbf75a829a2cb4f37e4a2b876ea9503acfaf4d.msu
+DISM /Image:MountRE /Cleanup-Image /StartComponentCleanup /ResetBase
+DISM /Unmount-Image /MountDir:MountRE /Commit
+DISM /Export-Image /SourceImageFile:Mount\Windows\System32\Recovery\Winre.wim /SourceIndex:1 /Bootable /DestinationImageFile:Mount\Windows\System32\Recovery\Winre.new.wim
+del Mount\Windows\System32\Recovery\Winre.wim
+DISM /Unmount-Image /MountDir:Mount /Commit
+DISM /Export-Image /SourceImageFile:ISO\Sources\install.wim /SourceIndex:1 /DestinationImageFile:ISO\Sources\install.new.wim
+del ISO\Sources\install.wim
+rename ISO\Sources\install.new.wim install.wim
 ```
+
+## Update install.wim
