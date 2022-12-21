@@ -43,3 +43,25 @@ rename ISO\Sources\install.new.wim install.wim
 ```
 
 ## Update install.wim
+
+```
+DISM /Mount-Wim /WimFile:ISO\Sources\install.wim /Index:1 /MountDir:Mount
+DISM /Image:Mount /Add-Package /PackagePath:ssu-19041.1704-x64_70e350118b85fdae082ab7fde8165a947341ba1a.msu
+DISM /Image:Mount /Add-Package /PackagePath:windows10.0-kb5021233-x64_00bbf75a829a2cb4f37e4a2b876ea9503acfaf4d.msu
+DISM /Image:Mount /Cleanup-Image /StartComponentCleanup /ResetBase
+DISM /Image:Mount /Disable-Feature /FeatureName:Windows-Defender-Default-Definitions /Remove
+DISM /Image:Mount /Add-Package /PackagePath:ISO\Sources\sxs
+DISM /Image:Mount /Add-Package /PackagePath:dotnetfx481
+DISM /Image:Mount /Add-Package /PackagePath:windows10.0-kb5020881-x64-ndp481_6f6447528c9634510aa1bc83b8f9003bc5bb6ab6.msu
+DISM /Image:Mount /Add-Package /PackagePath:windows10.0-kb5021233-x64_00bbf75a829a2cb4f37e4a2b876ea9503acfaf4d.msu
+DISM /Image:Mount /Add-ProvisionedAppxPackage /PackagePath:AppX\Microsoft.ScreenSketch_8wekyb3d8bbwe.appxbundle /LicensePath:AppX\Microsoft.ScreenSketch_8wekyb3d8bbwe.xml /DependencyPackagePath:AppX\Microsoft.VCLibs.x64.14.00.appx /DependencyPackagePath:AppX\Microsoft.UI.Xaml.x64.2.4.appx
+DISM /Image:Mount /Add-ProvisionedAppxPackage /PackagePath:AppX\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle /LicensePath:AppX\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.xml /DependencyPackagePath:AppX\Microsoft.VCLibs.x64.14.00.appx /DependencyPackagePath:AppX\Microsoft.VCLibs.x64.14.00.Desktop.appx /DependencyPackagePath:AppX\Microsoft.UI.Xaml.x64.2.7.appx
+DISM /Image:Mount /Add-ProvisionedAppxPackage /PackagePath:AppX\Microsoft.StorePurchaseApp_8wekyb3d8bbwe.appxbundle /LicensePath:AppX\Microsoft.StorePurchaseApp_8wekyb3d8bbwe.xml /DependencyPackagePath:AppX\Microsoft.VCLibs.x64.14.00.appx /DependencyPackagePath:AppX\Microsoft.NET.Native.Runtime.x64.2.2.appx /DependencyPackagePath:AppX\Microsoft.NET.Native.Framework.x64.2.2.appx
+DISM /Image:Mount /Add-ProvisionedAppxPackage /PackagePath:AppX\Microsoft.XboxIdentityProvider_8wekyb3d8bbwe.appxbundle /LicensePath:AppX\Microsoft.XboxIdentityProvider_8wekyb3d8bbwe.xml /DependencyPackagePath:AppX\Microsoft.VCLibs.x64.14.00.appx /DependencyPackagePath:AppX\Microsoft.NET.Native.Runtime.x64.2.2.appx /DependencyPackagePath:AppX\Microsoft.NET.Native.Framework.x64.2.2.appx
+DISM /Image:Mount /Add-ProvisionedAppxPackage /PackagePath:AppX\Microsoft.WindowsStore_8wekyb3d8bbwe.msixbundle /LicensePath:AppX\Microsoft.WindowsStore_8wekyb3d8bbwe.xml /DependencyPackagePath:AppX\Microsoft.VCLibs.x64.14.00.appx /DependencyPackagePath:AppX\Microsoft.NET.Native.Runtime.x64.2.2.appx /DependencyPackagePath:AppX\Microsoft.NET.Native.Framework.x64.2.2.appx /DependencyPackagePath:AppX\Microsoft.UI.Xaml.x64.2.7.appx
+DISM /Unmount-Image /MountDir:Mount /Commit
+DISM /Export-Image /SourceImageFile:ISO\Sources\install.wim /SourceIndex:1 /DestinationImageFile:ISO\Sources\install.new.wim
+del ISO\Sources\install.wim
+rename ISO\Sources\install.new.wim install.wim
+rd /s /q ISO\Sources\sxs
+```
