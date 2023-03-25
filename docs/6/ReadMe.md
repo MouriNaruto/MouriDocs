@@ -9,7 +9,8 @@
   restrictions if they really want to do, even you distributed your source code
   under the strictest copyleft license, they can use clean room to resolve it.
 
-- Use copyleft licenses make you feel anxious because you always need to worry
-  about someone uses your source code in proprietary software. So, I choose to
-  give the maximum respect to users and I also hope every people treat others
-  kindly.
+- I prefer permissive licenses because using copyleft licenses will make you
+  feel anxious in most cases because you always need to worry about someone
+  using your source code in proprietary software. So, I choose to give the
+  maximum respect to users, and I also hope people can try their best to treat
+  others kindly.
