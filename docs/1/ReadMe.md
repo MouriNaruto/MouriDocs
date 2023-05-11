@@ -116,8 +116,7 @@ VK_ICD_FILENAMES=/home/mouri/Workspace/mesa/build/install/share/vulkan/icd.d/dzn
 GPU-PV is a feature which is nice for most people. But there are still some
 painful limitations when using GPU-PV.
 
-- The version of GPU drivers in the guest needs to be as same as the host's in
-  the most of cases.
+- The version of GPU drivers in the guest needs to be as same as the host's.
 - Some softwares in Windows guests can't get the GPU information correctly 
   because of the design of GPU-PV: It will act as the Render Only Device in
   Windows guests and the kernel mode driver used in guests is called Microsoft
