@@ -93,8 +93,21 @@ to use your current kernel source code. It's relatively easy for making
 
 I will provide the out of tree version of `dxgkrnl` in recent days.
 
-You also need to compile a newer version of mesa. Here is my compile option:
-`meson -D gallium-drivers=d3d12 builddir/`
+You also need to compile mainline version of mesa. Here is my compile option:
+
+```
+meson setup --prefix="${PWD}/build/install" --strip -D gallium-drivers=swrast,d3d12 -D vulkan-drivers=swrast,microsoft-experimental -D gallium-opencl=icd -D microsoft-clc=enabled -D video-codecs=h264dec,h264enc,h265dec,h265enc,vc1dec -D osmesa=true build/
+ninja -C build/
+ninja -C build/ install
+```
+
+Here are examples which how to use the Vulkan support over mesa dozen backend:
+
+```
+VK_ICD_FILENAMES=/home/mouri/Workspace/mesa/build/install/share/vulkan/icd.d/dzn_icd.x86_64.json vkcube
+VK_ICD_FILENAMES=/home/mouri/Workspace/mesa/build/install/share/vulkan/icd.d/dzn_icd.x86_64.json vulkaninfo
+VK_ICD_FILENAMES=/home/mouri/Workspace/mesa/build/install/share/vulkan/icd.d/dzn_icd.x86_64.json ./vkpeak 0
+```
 
 ## Limitations
 
@@ -109,7 +122,3 @@ painful limitations when using GPU-PV.
   because of the design of GPU-PV: It will act as the Render Only Device in
   Windows guests and the kernel mode driver used in guests is called Microsoft
   Virtual Render Driver (vrd.sys).
-- You can't use Vulkan in Linux guests because of the design of GPU-PV: GPU-PV
-  only expose the Direct3D 12 interface to Linux. OpenCL and OpenGL support is
-  implemented in the mesa's d3d12 backend. But the Vulkan support in mesa is
-  experimental and only for Windows.
