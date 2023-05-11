@@ -80,9 +80,11 @@ You need to copy GPU driver files from host's
 `%SystemRoot%\System32\DriverStore\FileRepository` folder to guest's 
 `usr/lib/wsl/drivers` folder.
 
-You also need to copy Direct3D 12 binaries for Linux from host's 
-`%SystemRoot%\System32\lxss\lib` folder to guest's 
-`usr/lib/wsl/lib` folder.
+You also need to extract Direct3D 12 binaries for Linux guests in 
+`Microsoft.WSL_{the version you want}_{the CPU target you want}.msix\lib`
+folder from [the latest version package of Windows Subsystem for Linux](https://github.com/microsoft/WSL/releases/latest)
+to guest's `usr/lib/wsl/lib` folder via file archiver like [7-Zip](https://www.7-zip.org/)
+or [NanaZip](https://github.com/M2Team/NanaZip).
 
 For more information about Direct3D 12 for Linux, please read
 [DirectX ❤ Linux - DirectX Developer Blog](https://devblogs.microsoft.com/directx/directx-heart-linux/).
@@ -116,8 +118,6 @@ painful limitations when using GPU-PV.
 
 - The version of GPU drivers in the guest needs to be as same as the host's in
   the most of cases.
-- The version of Direct3D 12 binaries for Linux needs to be as same as the 
-  files provided by the host.
 - Some softwares in Windows guests can't get the GPU information correctly 
   because of the design of GPU-PV: It will act as the Render Only Device in
   Windows guests and the kernel mode driver used in guests is called Microsoft
