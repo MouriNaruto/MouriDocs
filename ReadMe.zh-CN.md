@@ -13,4 +13,4 @@ Mouri Docs 是由毛利创建的技术文档库。如果你想进行反馈或提
 - [MD3: Notes for using openSUSE Tumbleweed](docs/3)
 - [MD4: Notes for using Host Compute System API](docs/4)
 - [MD5: Notes for building Windows 10 Enterprise LTSC 2021 x64 ISO](docs/5)
-- [MD6: The philosophy about open-source software from Kenji Mouri](docs/6)
+- [MD6: 毛利的开源软件哲学](docs/6/ReadMe.zh-CN.md)

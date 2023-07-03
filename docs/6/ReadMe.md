@@ -1,5 +1,7 @@
 ﻿# MD6: The philosophy about open-source software from Kenji Mouri
 
+[简体中文](ReadMe.zh-CN.md)
+
 - The source code from the third-party projects should be distributed under 
   their original licenses to give the maximum respect for the upstream 
   projects.
