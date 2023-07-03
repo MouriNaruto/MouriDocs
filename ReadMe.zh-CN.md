@@ -1,12 +1,11 @@
 ﻿# Mouri Docs
 
-[简体中文](ReadMe.zh-CN.md)
+[English](ReadMe.md)
 
-Mouri Docs is repository of technical documentations created by Kenji Mouri.
-Fire a GitHub issue if you want feedback or suggest something. Please read 
-[license](License.md) first if you want to use contents from this repository.
+Mouri Docs 是由毛利创建的技术文档库。如果你想进行反馈或提出建议，请在 GitHub
+上创建一个 issue。如果你想使用本仓库的内容，请首先阅读[许可证](License.md)。
 
-## Contents
+## 目录
 
 - [MD0: Document template for Mouri Docs](docs/0)
 - [MD1: Notes for using GPU-PV on Hyper-V/NanaBox](docs/1)
