@@ -7,7 +7,7 @@ Mouri Docs 是由毛利创建的技术文档库。如果你想进行反馈或提
 
 ## 目录
 
-- [MD0: Document template for Mouri Docs](docs/0)
+- [MD0: Mouri Docs 文档模板](docs/0/ReadMe.zh-CN.md)
 - [MD1: Notes for using GPU-PV on Hyper-V/NanaBox](docs/1)
 - [MD2: Host Compute System API JSON configuration dump samples](docs/2)
 - [MD3: Notes for using openSUSE Tumbleweed](docs/3)
