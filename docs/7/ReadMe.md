@@ -1,5 +1,5 @@
-﻿# MD7: To-do list for open-source projects maintained by Kenji Mouri
+﻿# MD7: To-do list for Kenji Mouri
 
 [简体中文](ReadMe.zh-CN.md)
 
-Work In Progress.
+Note: This list may sort in priority order.

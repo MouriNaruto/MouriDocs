@@ -14,4 +14,4 @@ Mouri Docs 是由毛利创建的技术文档库。如果你想进行反馈或提
 - [MD4: Notes for using Host Compute System API](docs/4)
 - [MD5: Notes for building Windows 10 Enterprise LTSC 2021 x64 ISO](docs/5)
 - [MD6: 毛利的开源软件哲学](docs/6/ReadMe.zh-CN.md)
-- [MD7: 由毛利维护的开源项目的待办事项清单](docs/7/ReadMe.zh-CN.md)
+- [MD7: 毛利的待办事项清单](docs/7/ReadMe.zh-CN.md)

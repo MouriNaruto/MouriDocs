@@ -15,4 +15,4 @@ Fire a GitHub issue if you want feedback or suggest something. Please read
 - [MD4: Notes for using Host Compute System API](docs/4)
 - [MD5: Notes for building Windows 10 Enterprise LTSC 2021 x64 ISO](docs/5)
 - [MD6: The philosophy about open-source software from Kenji Mouri](docs/6/ReadMe.md)
-- [MD7: To-do list for open-source projects maintained by Kenji Mouri](docs/7/ReadMe.md)
+- [MD7: To-do list for Kenji Mouri](docs/7/ReadMe.md)
