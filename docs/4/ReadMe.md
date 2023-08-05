@@ -8,8 +8,6 @@
 - Host Compute Network API
   - Overview, https://learn.microsoft.com/en-us/windows-server/networking/technologies/hcn/hcn-top
   - JSON Reference, https://learn.microsoft.com/en-us/virtualization/api/hcn/hns_schema
-- Projects uses Host Compute System API and Host Compute Network API
-  - NanaBox, https://github.com/M2Team/NanaBox
 
 ## Relationship
 
@@ -19,6 +17,14 @@
   You can think of Host Compute Network API as Host Networking Service v2 API.
 - Host Compute Service API and Host Networking Service API are both undocumented
   and Kris Harper told me should not use them because they are deprecated.
+
+## Related Projects
+
+- Microsoft Projects
+  - hcsshim, https://github.com/microsoft/hcsshim
+  - dotnet-computevirtualization, https://github.com/microsoft/dotnet-computevirtualization
+- Third-party Projects
+  - NanaBox, https://github.com/M2Team/NanaBox
 
 ## Limitations
 
