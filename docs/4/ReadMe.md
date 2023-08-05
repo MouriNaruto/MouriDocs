@@ -1,13 +1,13 @@
 ﻿# MD4: Notes for using Host Compute System API
 
-## References
+## API References
 
 - Host Compute System API
-  - Overview, https://learn.microsoft.com/en-us/virtualization/api/hcs/overview
-  - JSON Reference, https://learn.microsoft.com/en-us/virtualization/api/hcs/schemareference
+  - Overview: https://learn.microsoft.com/en-us/virtualization/api/hcs/overview
+  - JSON Reference: https://learn.microsoft.com/en-us/virtualization/api/hcs/schemareference
 - Host Compute Network API
-  - Overview, https://learn.microsoft.com/en-us/windows-server/networking/technologies/hcn/hcn-top
-  - JSON Reference, https://learn.microsoft.com/en-us/virtualization/api/hcn/hns_schema
+  - Overview: https://learn.microsoft.com/en-us/windows-server/networking/technologies/hcn/hcn-top
+  - JSON Reference: https://learn.microsoft.com/en-us/virtualization/api/hcn/hns_schema
 
 ## Relationship
 
