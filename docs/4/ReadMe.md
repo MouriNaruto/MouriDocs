@@ -11,6 +11,15 @@
 - Projects uses Host Compute System API and Host Compute Network API
   - NanaBox, https://github.com/M2Team/NanaBox
 
+## Relationship
+
+- Host Compute Service API is the predecessor of Host Compute System API. You
+  can think of Host Compute System API as Host Compute Service v2 API.
+- Host Networking Service API is the predecessor of Host Compute Network API.
+  You can think of Host Compute Network API as Host Networking Service v2 API.
+- Host Compute Service API and Host Networking Service API are both undocumented
+  and Kris Harper told me should not use them because they are deprecated.
+
 ## Limitations
 
 - The virtual machine created by Host Compute System API only supports UEFI
