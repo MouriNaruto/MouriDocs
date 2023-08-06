@@ -26,6 +26,12 @@
 - Third-party Projects
   - NanaBox, https://github.com/M2Team/NanaBox
 
+## Notable Exclusive Features
+
+- Support to expose 9p (Plan 9) shares to the guest.
+- Support to expose Virtual SMB shares to the guest.
+- Support to load the Linux kernel directly when the guest is powered on.
+
 ## Limitations
 
 - The virtual machine created by Host Compute System API only supports UEFI
