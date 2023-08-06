@@ -9,7 +9,7 @@
   - Overview: https://learn.microsoft.com/en-us/windows-server/networking/technologies/hcn/hcn-top
   - JSON Reference: https://learn.microsoft.com/en-us/virtualization/api/hcn/hns_schema
 
-## Relationship
+## Relationships
 
 - Host Compute Service API is the predecessor of Host Compute System API. You
   can think of Host Compute System API as Host Compute Service v2 API.
