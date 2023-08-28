@@ -16,4 +16,4 @@ Fire a GitHub issue if you want feedback or suggest something. Please read
 - [MD6: The philosophy about open-source software from Kenji Mouri](docs/6/ReadMe.md)
 - [MD7: 毛利的待办事项清单](docs/7/ReadMe.md)
 - [MD8: Tips for Using Git](docs/8/ReadMe.md)
-
+- [MD9: Hyper-V Enhanced Session mode over VMBus for Linux](docs/9/ReadMe.md)
