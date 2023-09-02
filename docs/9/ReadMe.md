@@ -15,10 +15,6 @@ Terminal Service and xrdp and all failed.
 I think may be I can get help from people through the Wireshark capture and log
 from FreeRDP Sample Server.
 
-Here is the Wireshark capture file: [rdp_packets_redirected_from_vmbus.pcapng].
-
-[rdp_packets_redirected_from_vmbus.pcapng]: rdp_packets_redirected_from_vmbus.pcapng
-
 Here is the log:
 
 ```
