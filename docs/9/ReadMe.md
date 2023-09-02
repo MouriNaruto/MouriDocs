@@ -17,7 +17,7 @@ from FreeRDP Sample Server.
 
 Here is the Wireshark capture file: [rdp_packets_redirected_from_vmbus.pcapng].
 
-[rdp_packets_redirected_from_vmbus.pcapng]:rdp_packets_redirected_from_vmbus.pcapng
+[rdp_packets_redirected_from_vmbus.pcapng]: rdp_packets_redirected_from_vmbus.pcapng
 
 Here is the log:
 
@@ -572,3 +572,8 @@ Remote Desktop Protocol
 0200  05 03 00 00                                       ....
 
 ```
+
+Here is the [API Monitor] capture file: [TermServiceCapture.apmx64].
+
+[API Monitor]: http://www.rohitab.com/apimonitor
+[TermServiceCapture.apmx64]: TermServiceCapture.apmx64
