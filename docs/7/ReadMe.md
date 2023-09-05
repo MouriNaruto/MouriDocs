@@ -1,5 +1,11 @@
 ﻿# MD7: 毛利的待办事项清单
 
+本列表已弃用，请参阅 https://github.com/MouriNaruto#things-i-currently-working-on
+
+毕竟感觉还是在个人首页写待办事项更容易被看到
+
+倒是本列表暂时保留，等全部事务基本完工或者已经移动到新的定期待办列表后彻底移除
+
 注: 此列表也许按优先级顺序排序
 
 - [ ] 发布 NanaGet 1.2
@@ -31,7 +37,4 @@
   - [ ] 键盘导航重定向工具链开关和配置文件支持（图标使用 SymbolIcon 里面的
         Keyboard）
   - [ ] Hyper-V WMI Provider 后端
-- [ ] 发布 NanaZip 3.0 Preview 1
-  - [ ] 继续提升对 LZMA SDK 的复用率
-  - [ ] 7-Zip 源代码同步到 23.01
 - [ ] 开始写一篇可能叫《可移植生态系统》的长文。
