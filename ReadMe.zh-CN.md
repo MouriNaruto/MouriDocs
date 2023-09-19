@@ -15,3 +15,4 @@ Mouri Docs 是由毛利创建的技术文档库。如果你想进行反馈或提
 - [MD6: 毛利的开源软件哲学](docs/6/ReadMe.zh-CN.md)
 - [MD8: Git 使用技巧](docs/8/ReadMe.zh-CN.md)
 - [MD9: Hyper-V Enhanced Session mode over VMBus for Linux](docs/9/ReadMe.md)
+- [MD10: Archived list for things I currently working on](docs/10/ReadMe.md)
