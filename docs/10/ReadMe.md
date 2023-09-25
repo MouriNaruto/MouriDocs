@@ -13,3 +13,18 @@ module because 7-Zip maintains good ABI compatibility for that.
 So, I have a better plan for achieve the original goal: Create NanaZip.Core
 project for making me track the modifications from upstreams better in the
 future.
+
+#### Create NanaZip.Core project for rewriting the core implementation.
+
+Status: Finished
+
+The development work on NanaZip.Core project has been completed successfully.
+In the next version of NanaZip will use this implementation.
+
+#### Synchronize the LZMA SDK and 7-Zip implementations to 23.01 in NanaZip.
+
+Status: Finished
+
+This task had been finished because the development work on NanaZip.Core project
+has been completed successfully. Because NanaZip.Core project is based on 7-Zip
+23.01 at the beginning.
