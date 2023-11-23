@@ -1,5 +1,13 @@
 ﻿# MD10: Archived list for things I currently working on
 
+## November 2023
+
+#### NanaBox 1.1 (Late November 2023)
+
+Status: Finished
+
+https://github.com/M2Team/NanaBox/releases/tag/1.1.600.0
+
 ## September 2023
 
 #### Split the LZMA SDK as a separate module in NanaZip. 
