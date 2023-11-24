@@ -52,6 +52,14 @@
   ERROR_ACCESS_DENIED even add the current user to the Hyper-V Administrators 
   user group. Windows 10 don't have that issue. It's confirmed as a Host 
   Compute Network API bug via Kris Harper and will fix it in the future.
+- You should not put vmgs and vmrs files at the root of the drive, or you will
+  meet the access denied error when you create it.
+- Execute update operation for network adapters using HcsModifyComputeSystem API
+  is not implemented.
+- The Host Compute System Device Virtualization APIs are exported from 
+  vmdevicehost.dll instead of computecore.dll mentioned in the documents.
+- The virtual machine won't support save the virtual machine state when the 
+  virtual machine at least has GPU-PV, Virtual SMB or Plan 9 virtual devices.
 
 ## JSON Schema References
 
