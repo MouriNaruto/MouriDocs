@@ -9,16 +9,28 @@ sudo zypper ar -cfg 'https://mirrors.tuna.tsinghua.edu.cn/opensuse/tumbleweed/re
 sudo zypper ref
 ```
 
+## Install essential utils
+
+```
+sudo zypper in git neofetch htop
+```
+
+## Install essential development tools
+
+```
+sudo zypper in --no-recommends patterns-devel-C-C++-devel_C_C++ patterns-devel-base-devel_kernel clang lld
+```
+
 ## Install Noto series fonts
 
 ```
 sudo zypper in noto-fonts google-noto-coloremoji-fonts google-noto-sans-cjk-fonts google-noto-*-fonts-full google-noto-sans-*-mono-fonts
 ```
 
-## Install TeX Live with all components
+## Install TeX Live with essential components
 
 ```
-sudo zypper in texlive-scheme-full
+sudo zypper in --no-recommends texlive-collection-basic texlive-collection-langcjk texlive-collection-langenglish texlive-collection-langchinese texlive-collection-langjapanese texlive-gnu-freefont texlive-xelatex-dev texlive-latexmk texlive-nth
 ```
 
 ## Install the Chinese and Japanese IME based on Fcitx 5
