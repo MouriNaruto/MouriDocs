@@ -18,7 +18,7 @@ sudo zypper in git neofetch htop
 ## Install essential development tools
 
 ```
-sudo zypper in --no-recommends patterns-devel-C-C++-devel_C_C++ patterns-devel-base-devel_kernel clang lld
+sudo zypper in --no-recommends patterns-devel-C-C++-devel_C_C++ patterns-devel-base-devel_kernel clang lld libelf-devel bc libopenssl-devel
 ```
 
 ## Install Noto series fonts
