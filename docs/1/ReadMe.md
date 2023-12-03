@@ -95,7 +95,9 @@ to use your current kernel source code. It's relatively easy for making
 
 I will provide the out of tree version of `dxgkrnl` in recent days.
 
-You also need to compile mainline version of mesa. Here is my compile option:
+You also need to compile 23.2.1 or later version of mesa.
+
+Here is my compile option:
 
 ```
 meson setup --prefix="${PWD}/build/install" --strip -D gallium-drivers=swrast,d3d12 -D vulkan-drivers=swrast,microsoft-experimental -D gallium-opencl=icd -D microsoft-clc=enabled -D video-codecs=h264dec,h264enc,h265dec,h265enc,vc1dec -D osmesa=true build/
