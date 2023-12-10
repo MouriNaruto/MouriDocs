@@ -80,11 +80,14 @@ You need to copy GPU driver files from host's
 `%SystemRoot%\System32\DriverStore\FileRepository` folder to guest's 
 `usr/lib/wsl/drivers` folder.
 
-You also need to extract Direct3D 12 binaries for Linux guests in 
+You also need to extract Direct3D 12 for Linux binaries in 
 `Microsoft.WSL_{the version you want}_{the CPU target you want}.msix\lib`
 folder from [the latest version package of Windows Subsystem for Linux](https://github.com/microsoft/WSL/releases/latest)
 to guest's `usr/lib/wsl/lib` folder via file archiver like [7-Zip](https://www.7-zip.org/)
 or [NanaZip](https://github.com/M2Team/NanaZip).
+
+Or you can get Direct3D 12 for Linux binaries directly from 
+https://github.com/SherryPlatform/Microsoft.DirectX.Linux.Binaries.
 
 For more information about Direct3D 12 for Linux, please read
 [DirectX ❤ Linux - DirectX Developer Blog](https://devblogs.microsoft.com/directx/directx-heart-linux/).
