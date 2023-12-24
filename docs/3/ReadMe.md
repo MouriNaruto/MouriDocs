@@ -12,7 +12,7 @@ sudo zypper ref
 ## Install essential utils
 
 ```
-sudo zypper in git neofetch htop
+sudo zypper in git neofetch htop git-filter-repo
 ```
 
 ## Install essential development tools
