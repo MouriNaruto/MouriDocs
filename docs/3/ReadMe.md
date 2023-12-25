@@ -76,7 +76,10 @@ sudo update-bootloader
 ## Change time
 
 ```
+sudo timedatectl set-ntp off
 sudo timedatectl set-time '2022-09-25 00:00:00'
+
+sudo systemctl restart systemd-timesyncd.service
 ```
 
 ## Access with hostname
