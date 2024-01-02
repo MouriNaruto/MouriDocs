@@ -18,7 +18,7 @@ sudo zypper in git neofetch htop git-filter-repo
 ## Install essential development tools
 
 ```
-sudo zypper in --no-recommends patterns-devel-C-C++-devel_C_C++ patterns-devel-base-devel_kernel clang lld
+sudo zypper in --no-recommends patterns-devel-C-C++-devel_C_C++ clang lld
 sudo zypper in --no-recommends libelf-devel bc libopenssl-devel kernel-install-tools dwarves
 sudo zypper in --no-recommends meson python311-Mako llvm-devel libclc clang-devel spirv-tools-devel libLLVMSPIRVLib-devel libvdpau-devel DirectX-Headers libdrm-devel wayland-devel libX11-devel libXext-devel libXfixes-devel libxshmfence-devel libXxf86vm-devel libXrandr-devel
 ```
