@@ -1,5 +1,47 @@
 ﻿# MD10: Archived list for things I currently working on
 
+## December 2023
+
+#### NanaZip 3.0 Preview 1
+
+Status: Working In Progress
+
+NanaZip 3.0 and onwards will have two distribution flavors called NanaZip and
+NanaZip Classic.
+
+I feel tired due to health issues but I still keep up the development.
+
+#### Porting Hyper-V Enhanced Session mode over VMBus to Hyper-V Linux guests.
+
+Status: Working In Progress
+
+I have written a validation demo for Windows 8 guests before I write the Linux
+kernel module. Here is the demonstration video:
+https://twitter.com/MouriNaruto/status/1700922160905359757
+
+Note: Hyper-V Enhanced Session mode over VMBus transport originally needs
+Windows 8.1 or later in the guest.
+
+#### Implement the new Windows backend for LVGL. (Early December 2023)
+
+Status: Working In Progress
+
+OSAL is ready. I'm working on the new Windows backend.
+
+The LVGL input device abstraction is ready.
+
+#### Implement the optimized parser version of RaySoul.
+
+Status: Paused
+
+I had read the RISC-V ISA manual in 2023 Q4 but had found lot of design issues.
+
+For example, the C extension will make us more difficult to write a decoder
+which higher performance than others.
+
+I also found I am not good at write a bytecode VM. I am good at build platform 
+abstraction.
+
 ## November 2023
 
 #### NanaBox 1.1 (Late November 2023)
