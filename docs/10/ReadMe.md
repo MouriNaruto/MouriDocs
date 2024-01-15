@@ -1,5 +1,13 @@
 ﻿# MD10: Archived list for things I currently working on
 
+## January 2024
+
+#### Implement the new Windows backend for LVGL.
+
+Status: Finished
+
+Merged in the mainline via https://github.com/lvgl/lvgl/pull/5313.
+
 ## December 2023
 
 #### NanaZip 3.0 Preview 1
