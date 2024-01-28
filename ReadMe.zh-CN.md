@@ -16,3 +16,4 @@ Mouri Docs 是由毛利创建的技术文档库。如果你想进行反馈或提
 - [MD8: Git 使用技巧](docs/8/ReadMe.zh-CN.md)
 - [MD9: Hyper-V Enhanced Session mode over VMBus for Linux](docs/9/ReadMe.md)
 - [MD10: Archived list for things I currently working on](docs/10/ReadMe.md)
+- [MD11: Building UEFI Applications for Hyper-V Generation 2 Virtual Machines](docs/11/ReadMe.md)
