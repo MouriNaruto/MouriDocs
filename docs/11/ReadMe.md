@@ -13,3 +13,9 @@ Work In Progress.
 - The RTC clock is available but the RTC timer not. You need the local APIC
   timer and use the RTC clock to do the timer calibration (very brute-force way)
   if you don't want to use Hyper-V specific infrastructures.
+
+## Thanks
+
+- Justin Miller, https://github.com/DarkFire01
+- Timo Kreuzer, https://github.com/tkreuzer
+- Todd Sharpe, https://github.com/toddsharpe
