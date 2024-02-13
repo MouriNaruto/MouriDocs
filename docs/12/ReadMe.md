@@ -160,3 +160,24 @@ memory size for paging file, and compression method you are using.
 
 System partition bigger than 50 GiB is highly recommend when you are using
 Vista / Server 2008 or later in the production environments.
+
+## Firmware
+
+### x86 (32-Bit)
+
+- Legacy BIOS firmware or UEFI firmware.
+- Beginning with Vista / Server 2008, ACPI-compliant firmware is required that
+  is dated January 1, 1999 or later.
+- Reference: https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/acpi-bios
+- Reference: https://www.geoffchappell.com/studies/windows/km/hal/history/index.htm
+
+### x86 (64-Bit)
+
+- Legacy BIOS firmware or UEFI firmware.
+- ACPI-compliant firmware is required.
+- Reference: https://www.geoffchappell.com/studies/windows/km/hal/history/index.htm
+
+### ARM (64-Bit)
+
+- UEFI firmware.
+- ACPI-compliant firmware is required.
