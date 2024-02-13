@@ -2,6 +2,10 @@
 
 Note: This document only talk about NT-based Windows in the current stage.
 
+I hope this document will help developers decide the base minimum hardware
+requirements for their softwares adapted for Windows easier. It's also helpful
+for users who have old devices.
+
 ## Processor
 
 ### x86 (32-Bit)
