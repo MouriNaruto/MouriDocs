@@ -15,12 +15,17 @@ because they talk so less about that.
 
 - NT 3.1 / NT 3.5x (Uniprocessor Only)
   - Stepping D1 80386 (i386) or compatible.
+  - Reference: https://www.geoffchappell.com/studies/windows/km/cpu/precpuid.htm
 - NT 3.5x (Multiprocessor) / NT 4.0 / 2000
   - 80486 (i486) or compatible.
+  - Reference: https://www.geoffchappell.com/studies/windows/km/cpu/precpuid.htm
 - XP (NT 5.1) / Server 2003 / Vista / Server 2008 / 7 (Before 2018)
   - x86 processors since the original Pentium (i586 / P5) or compatible, with 
     16-Bit and 32-Bit mode available, because CPUID and CMPXCHG8B are
     required.
+  - Reference: https://winhistory.de/more/386/xpmini.htm
+  - Reference: https://winhistory.de/more/386/vistamini.htm
+  - Reference: https://www.youtube.com/watch?v=Zs8-rQKvptM
 - 7 (Since 2018)
   - x86 processors since the original Pentium (i586 / P5) or compatible, with 
     16-Bit and 32-Bit mode available.
@@ -129,7 +134,6 @@ Vista / Server 2008 or later in the production environments.
 
 ## References
 
-- https://www.geoffchappell.com/studies/windows/km/cpu/precpuid.htm
 - https://www.geoffchappell.com/studies/windows/km/cpu/cx8.htm
 - https://en.wikipedia.org/wiki/X86-64
 - https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
