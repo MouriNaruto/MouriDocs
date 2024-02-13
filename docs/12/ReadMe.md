@@ -36,11 +36,8 @@ because they talk so less about that.
   - PAE, NX and SSE2 are required.
   - Reference: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
   - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
-- 10 (All Versions except 1809, 2004, 20H2, 21H1, 21H2 and 22H2)
-  - x86 processors since the original Pentium (i586 / P5) or compatible, with
-    16-Bit and 32-Bit mode available.
-  - PAE, NX and SSE2 are required.
-  - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
+- 10 (1809, 2004, 20H2, 21H1, 21H2 and 22H2)
+  - The minimum processor requirement is as same as their x86 (64-Bit) versions.
   - Reference: https://www.tenforums.com/performance-maintenance/6909-lets-run-win10-really-really-old-hardware.html
 
 ### x86 (64-Bit)
@@ -205,3 +202,5 @@ Vista / Server 2008 or later in the production environments.
 - Running as the guest in Generation 2 Virtual Machines is available since
   8 / Server 2012.
   - Reference: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
+
+For people who want to
