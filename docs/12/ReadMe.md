@@ -68,6 +68,32 @@ because they talk so less about that.
   - Compatible with ARMv8-A instruction set.
   - Large System Extensions (atomic instructions) are required.
 
+## Memory
+
+Note: This section is basically follow the Microsoft's specification because
+memory size is important for a usable Windows experience.
+
+### 32-Bit
+
+- 12 MiB for NT 3.1 / NT 3.5x
+- 16 MiB for NT 4.0
+- 32 MiB for 2000
+- 64 MiB for XP (NT 5.1)
+- 128 MiB for Server 2003
+- 512 MiB for Vista / Server 2008
+- 1 GiB for 7 / 8 / 8.1 / 10 (All Versions)
+
+### 64-Bit
+
+- 256 MiB for XP x64 / Server 2003
+- 512 MiB for Vista / Server 2008 / Server 2008 R2 / Server 2012 / Server 2012
+  R2 / Server 2016 (Server Core) / Server 2019 (Server Core) / Server 2022
+  (Server Core)
+- 2 GiB for 7 / 8 / 8.1 / 10 (All Versions) / Server 2016 (Server with Desktop
+  Experience) / Server 2019 (Server with Desktop Experience) / Server 2022
+  (Server with Desktop Experience)
+- 4 GiB for 11 (All Versions)
+
 ## References
 
 - https://www.geoffchappell.com/studies/windows/km/cpu/precpuid.htm
@@ -83,3 +109,9 @@ because they talk so less about that.
 - https://en.wikipedia.org/wiki/Comparison_of_ARM_processors#ARMv8-A
 - https://en.wikichip.org/wiki/arm/armv8#ARMv8_Extensions_and_Processor_Features
 - https://learn.arm.com/learning-paths/servers-and-cloud-computing/lse/intro/
+- https://web.archive.org/web/20101225000120/http://technet.microsoft.com/en-us/windowsserver/bb430827
+- https://web.archive.org/web/20080101144743/http://www.microsoft.com/windows/products/windowsvista/editions/systemrequirements.mspx
+- https://web.archive.org/web/20080923012137/http://www.microsoft.com:80/windowsserver2008/en/us/system-requirements.aspx
+- https://web.archive.org/web/20091002082955/http://www.microsoft.com/windowsserver2008/en/us/system-requirements.aspx
+- https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134246(v=ws.11)
+- https://learn.microsoft.com/en-us/windows-server/get-started/hardware-requirements
