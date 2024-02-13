@@ -121,8 +121,8 @@ for this section if you really want to beyond the limitation.
 
 ## Storage
 
-The minimal size should be determined by your Windows WIM image size, memory
-size for paging file, and compression method you are using.
+The minimal storage size should be determined by your Windows WIM image size,
+memory size for paging file, and compression method you are using.
 
 System partition bigger than 50 GiB is highly recommend when you are using
 Vista / Server 2008 or later in the production environments.
