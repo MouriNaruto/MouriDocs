@@ -65,7 +65,7 @@ for users who have old devices.
   - Compatible with ARMv8-A instruction set.
   - Large System Extensions (atomic instructions) are required.
 
-### References
+## References
 
 - https://www.geoffchappell.com/studies/windows/km/cpu/precpuid.htm
 - https://www.geoffchappell.com/studies/windows/km/cpu/cx8.htm
@@ -75,6 +75,7 @@ for users who have old devices.
 - https://en.wikipedia.org/wiki/X86-64
 - https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
 - https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
+- https://www.tenforums.com/performance-maintenance/6909-lets-run-win10-really-really-old-hardware.html
 - https://twitter.com/TheBobPony/status/1756771051634135277
 - https://en.wikipedia.org/wiki/Comparison_of_ARM_processors#ARMv8-A
 - https://en.wikichip.org/wiki/arm/armv8#ARMv8_Extensions_and_Processor_Features
