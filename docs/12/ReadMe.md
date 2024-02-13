@@ -210,9 +210,9 @@ in Generation 2 Virtual Machines.
 - Adapt for UEFI Graphics Output Protocol.
 - The legacy Programmable Interrupt Controller (PIC) and the legacy Programmable
   Interval Timer (PIT) is not available in Generation 2 Virtual Machines. It
-  also caused RTC clock is available but the RTC timer not. So, you need the
-  local APIC timer and use the RTC clock to do the timer calibration (it's a
-  very brute-force way) if you don't want to use Hyper-V specific
-  infrastructures.
+  also caused the RTC clock is available but the RTC timer not. So, you need the
+  local APIC timer, and use the RTC clock to do something brute-force way for
+  implementing the timer calibration if you don't want to use Hyper-V specific
+  guest infrastructures.
   - Reference: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
-  - Reference: https://github.com/MouriNaruto/MouriDocs/blob/main/docs/11/ReadMe.md#limitations
+  - Reference: https://github.com/MouriNaruto/MouriDocs/blob/main/docs/11/ReadMe.md
