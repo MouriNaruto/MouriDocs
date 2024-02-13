@@ -207,4 +207,12 @@ Here are some notes may be helpful for people who want to make x86 (64-Bit) of
 XP x64 / Server 2003 / Vista / Server 2008 / 7 / Server 2008 R2 be able to run
 in Generation 2 Virtual Machines.
 
-[Work In Progress]
+- Adapt for UEFI Graphics Output Protocol.
+- The legacy Programmable Interrupt Controller (PIC) and the legacy Programmable
+  Interval Timer (PIT) is not available in Generation 2 Virtual Machines. It
+  also caused RTC clock is available but the RTC timer not. So, you need the
+  local APIC timer and use the RTC clock to do the timer calibration (it's a
+  very brute-force way) if you don't want to use Hyper-V specific
+  infrastructures.
+  - Reference: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
+  - Reference: https://github.com/MouriNaruto/MouriDocs/blob/main/docs/11/ReadMe.md#limitations
