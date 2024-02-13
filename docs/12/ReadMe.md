@@ -165,7 +165,8 @@ Vista / Server 2008 or later in the production environments.
 
 ### x86 (32-Bit)
 
-- Legacy BIOS firmware or UEFI firmware.
+- Legacy BIOS firmware is supported for all x86 (32-Bit) Windows versions.
+- UEFI firmware is supported for 8 / 8.1 / 10 (All Versions).
 - Beginning with Vista / Server 2008, ACPI-compliant firmware is required that
   is dated January 1, 1999 or later.
 - Reference: https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/acpi-bios
@@ -173,8 +174,13 @@ Vista / Server 2008 or later in the production environments.
 
 ### x86 (64-Bit)
 
-- Legacy BIOS firmware or UEFI firmware.
+- Legacy BIOS firmware is supported for all x86 (64-Bit) Windows versions.
+- UEFI firmware with CSM enabled is supported for Vista SP1 or later / Server
+  2008 / 7 / Server 2008 R2 unless you try to use some workarounds like
+  https://github.com/manatails/uefiseven.
+- UEFI firmware is supported since 8 / Server 2012.
 - ACPI-compliant firmware is required.
+- Reference: https://download.microsoft.com/download/7/e/7/7e7662cf-cbea-470b-a97e-ce7ce0d98dc2/uefi_windows.docx
 - Reference: https://www.geoffchappell.com/studies/windows/km/hal/history/index.htm
 
 ### ARM (64-Bit)
