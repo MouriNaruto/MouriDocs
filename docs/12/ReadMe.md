@@ -70,10 +70,13 @@ because they talk so less about that.
 
 ## Memory
 
-Note: This section is basically follow the Microsoft's specification because
-memory size is important for a usable Windows experience.
+Follow the Microsoft's specification of the minimum memory size requirement is
+good choice because memory size is important for a usable Windows experience.
 
-### 32-Bit
+But I will also add some real values which below the Microsoft's specification
+for this section if you really want to beyond the limitation.
+
+### 32-Bit (Microsoft's specification)
 
 - 12 MiB for NT 3.1 / NT 3.5x
 - 16 MiB for NT 4.0
@@ -83,7 +86,24 @@ memory size is important for a usable Windows experience.
 - 512 MiB for Vista / Server 2008
 - 1 GiB for 7 / 8 / 8.1 / 10 (All Versions)
 
-### 64-Bit
+### 32-Bit (Actually)
+
+- 8 MiB for NT 3.1 / NT 3.5x / NT 4.0
+  - Reference: https://winhistory.de/more/386/winq.htm
+- 12 MiB for 2000
+  - Reference: https://winhistory.de/more/386/winq.htm
+- 16 MiB for XP (NT 5.1)
+  - Reference: https://www.youtube.com/watch?v=oMnABjaDbhE
+- 32 MiB for Server 2003
+  - Reference: https://winhistory.de/more/386/winq.htm
+- 224 MiB for Vista
+  - Reference: https://winhistory.de/more/386/vistamini.htm
+- 32 MiB for 7
+  - Reference: https://www.youtube.com/watch?v=ezympDfJolA
+- 132 MiB for 10
+  - Reference: https://www.youtube.com/watch?v=celWaRRf8uw
+
+### 64-Bit (Microsoft's specification)
 
 - 256 MiB for XP x64 / Server 2003
 - 512 MiB for Vista / Server 2008 / Server 2008 R2 / Server 2012 / Server 2012
@@ -93,6 +113,11 @@ memory size is important for a usable Windows experience.
   Experience) / Server 2019 (Server with Desktop Experience) / Server 2022
   (Server with Desktop Experience)
 - 4 GiB for 11 (All Versions)
+
+### 64-Bit (Actually)
+
+- 176 MiB for 11
+  - Reference: https://www.youtube.com/watch?v=bVTZMP-F98s)
 
 ## Storage
 
@@ -106,9 +131,6 @@ Vista / Server 2008 or later in the production environments.
 
 - https://www.geoffchappell.com/studies/windows/km/cpu/precpuid.htm
 - https://www.geoffchappell.com/studies/windows/km/cpu/cx8.htm
-- https://winhistory.de/more/386/winq.htm
-- https://winhistory.de/more/386/xpmini.htm
-- https://winhistory.de/more/386/vistamini.htm
 - https://en.wikipedia.org/wiki/X86-64
 - https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
 - https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
