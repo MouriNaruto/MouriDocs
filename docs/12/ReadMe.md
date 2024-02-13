@@ -203,4 +203,8 @@ Vista / Server 2008 or later in the production environments.
   8 / Server 2012.
   - Reference: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
 
-For people who want to
+Here are some notes may be helpful for people who want to make x86 (64-Bit) of
+XP x64 / Server 2003 / Vista / Server 2008 / 7 / Server 2008 R2 be able to run
+in Generation 2 Virtual Machines.
+
+[Work In Progress]
