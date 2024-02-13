@@ -94,6 +94,14 @@ memory size is important for a usable Windows experience.
   (Server with Desktop Experience)
 - 4 GiB for 11 (All Versions)
 
+## Storage
+
+The minimal size should be determined by your Windows WIM image size, memory
+size for paging file, and compression method you are using.
+
+System partition bigger than 50 GiB is highly recommend when you are using
+Vista / Server 2008 or later in the production environments.
+
 ## References
 
 - https://www.geoffchappell.com/studies/windows/km/cpu/precpuid.htm
