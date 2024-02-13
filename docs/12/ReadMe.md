@@ -187,3 +187,21 @@ Vista / Server 2008 or later in the production environments.
 
 - UEFI firmware.
 - ACPI-compliant firmware is required.
+
+## Hyper-V Guest Specific
+
+- Legacy versions before XP (NT 5.1) may not be able to run as the guest
+  unless setting CompatibilityForOlderOperatingSystemsEnabled to $true via 
+  Set-VMProcessor PowerShell cmdlet for Generation 1 Virtual Machines.
+  - Reference: https://blacktree.nl/2020/07/16/windows-2000-on-hyper-v/
+- The standalone Hyper-V Integration Components is available from 2000 to
+  8 / Server 2012.
+  - Earliest Hyper-V Integration Components: https://dl.bobpony.com/vmtools/hyperv/legacy/Hyper-V2008-vmguest.iso
+  - Latest Hyper-V Integration Components: https://dl.bobpony.com/vmtools/hyperv/vmguest.iso
+- Generation 2 Virtual Machines only support x86 (64-Bit) guest OS on x86
+  (64-Bit) host and ARM (64-Bit) guest OS on ARM (64-Bit) host because it's
+  using UEFI Class 3 compliant firmware.
+  - Reference: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
+- Running as the guest in Generation 2 Virtual Machines is available since
+  8 / Server 2012.
+  - Reference: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
