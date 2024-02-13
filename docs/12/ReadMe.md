@@ -8,11 +8,14 @@ for users who have old devices.
 
 ## Processor
 
+Note: This section is more real and detailed than Microsoft's specification 
+because they talk so less about that.
+
 ### x86 (32-Bit)
 
-- NT 3.1 / NT 3.5 (Uniprocessor Only)
+- NT 3.1 / NT 3.5x (Uniprocessor Only)
   - Stepping D1 80386 (i386) or compatible.
-- NT 3.5 (Multiprocessor) / NT 4.0 / 2000
+- NT 3.5x (Multiprocessor) / NT 4.0 / 2000
   - 80486 (i486) or compatible.
 - XP (NT 5.1) / Server 2003 / Vista / Server 2008 / 7 (Before 2018)
   - x86 processors since the original Pentium (i586 / P5) or compatible, with 
