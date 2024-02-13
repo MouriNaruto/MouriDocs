@@ -34,10 +34,14 @@ because they talk so less about that.
   - x86 processors since the original Pentium (i586 / P5) or compatible, with
     16-Bit and 32-Bit mode available.
   - PAE, NX and SSE2 are required.
+  - Reference: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
+  - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 - 10 (All Versions except 1809, 2004, 20H2, 21H1, 21H2 and 22H2)
   - x86 processors since the original Pentium (i586 / P5) or compatible, with
     16-Bit and 32-Bit mode available.
   - PAE, NX and SSE2 are required.
+  - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
+  - Reference: https://www.tenforums.com/performance-maintenance/6909-lets-run-win10-really-really-old-hardware.html
 
 ### x86 (64-Bit)
 
@@ -49,6 +53,8 @@ because they talk so less about that.
   - NX is required. Only care about that when you have early Intel CPUs with
     Intel 64 support. It was added in the stepping E0 (0F41h) Pentium 4 in
     October 2004.
+  - Reference: https://en.wikipedia.org/wiki/X86-64
+  - Reference: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
 - 8.1 / Server 2012 R2 / 10 (All Versions) / Server 2016 / Server 2019 / Server
   2022 / 11 (21H2, 22H2, 23H2) 
   - x86 processors or compatible, with 16-Bit, 32-Bit and 64-Bit mode available.
@@ -57,6 +63,9 @@ because they talk so less about that.
     Intel 64 support. It was added in the stepping E0 (0F41h) Pentium 4 in
     October 2004.
   - CMPXCHG16B, LAHF/SAHF and PREFETCHW are required.
+  - Reference: https://en.wikipedia.org/wiki/X86-64
+  - Reference: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
+  - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 - 11 (24H2 or later)
   - x86 processors or compatible, with 16-Bit, 32-Bit and 64-Bit mode available.
     So, PAE and SSE2 are existed in all of them.
@@ -64,14 +73,22 @@ because they talk so less about that.
     Intel 64 support. It was added in the stepping E0 (0F41h) Pentium 4 in
     October 2004.
   - CMPXCHG16B, LAHF/SAHF, PREFETCHW and POPCNT are required.
+  - Reference: https://en.wikipedia.org/wiki/X86-64
+  - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
+  - Reference: https://twitter.com/TheBobPony/status/1756771051634135277
 
 ### ARM (64-Bit)
 
 - 10 (Since 1709)
   - Compatible with ARMv8-A instruction set.
+  - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 - 11 (All Versions)
   - Compatible with ARMv8-A instruction set.
   - Large System Extensions (atomic instructions) are required.
+  - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
+  - Reference: https://en.wikipedia.org/wiki/Comparison_of_ARM_processors#ARMv8-A
+  - Reference: https://en.wikichip.org/wiki/arm/armv8#ARMv8_Extensions_and_Processor_Features
+  - Reference: https://learn.arm.com/learning-paths/servers-and-cloud-computing/lse/intro/
 
 ## Memory
 
@@ -88,8 +105,12 @@ for this section if you really want to beyond the limitation.
 - 32 MiB for 2000
 - 64 MiB for XP (NT 5.1)
 - 128 MiB for Server 2003
+  - Reference: https://web.archive.org/web/20101225000120/http://technet.microsoft.com/en-us/windowsserver/bb430827
 - 512 MiB for Vista / Server 2008
+  - Reference: https://web.archive.org/web/20080101144743/http://www.microsoft.com/windows/products/windowsvista/editions/systemrequirements.mspx
+  - Reference: https://web.archive.org/web/20080923012137/http://www.microsoft.com:80/windowsserver2008/en/us/system-requirements.aspx
 - 1 GiB for 7 / 8 / 8.1 / 10 (All Versions)
+  - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 
 ### 32-Bit (Actually)
 
@@ -114,10 +135,18 @@ for this section if you really want to beyond the limitation.
 - 512 MiB for Vista / Server 2008 / Server 2008 R2 / Server 2012 / Server 2012
   R2 / Server 2016 (Server Core) / Server 2019 (Server Core) / Server 2022
   (Server Core)
+  - Reference: https://web.archive.org/web/20080101144743/http://www.microsoft.com/windows/products/windowsvista/editions/systemrequirements.mspx
+  - Reference: https://web.archive.org/web/20080923012137/http://www.microsoft.com:80/windowsserver2008/en/us/system-requirements.aspx
+  - Reference: https://web.archive.org/web/20091002082955/http://www.microsoft.com/windowsserver2008/en/us/system-requirements.aspx
+  - Reference: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134246(v=ws.11)
+  - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
+  - Reference: https://learn.microsoft.com/en-us/windows-server/get-started/hardware-requirements
 - 2 GiB for 7 / 8 / 8.1 / 10 (All Versions) / Server 2016 (Server with Desktop
   Experience) / Server 2019 (Server with Desktop Experience) / Server 2022
   (Server with Desktop Experience)
+  - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 - 4 GiB for 11 (All Versions)
+  - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 
 ### 64-Bit (Actually)
 
@@ -131,21 +160,3 @@ memory size for paging file, and compression method you are using.
 
 System partition bigger than 50 GiB is highly recommend when you are using
 Vista / Server 2008 or later in the production environments.
-
-## References
-
-- https://www.geoffchappell.com/studies/windows/km/cpu/cx8.htm
-- https://en.wikipedia.org/wiki/X86-64
-- https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
-- https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
-- https://www.tenforums.com/performance-maintenance/6909-lets-run-win10-really-really-old-hardware.html
-- https://twitter.com/TheBobPony/status/1756771051634135277
-- https://en.wikipedia.org/wiki/Comparison_of_ARM_processors#ARMv8-A
-- https://en.wikichip.org/wiki/arm/armv8#ARMv8_Extensions_and_Processor_Features
-- https://learn.arm.com/learning-paths/servers-and-cloud-computing/lse/intro/
-- https://web.archive.org/web/20101225000120/http://technet.microsoft.com/en-us/windowsserver/bb430827
-- https://web.archive.org/web/20080101144743/http://www.microsoft.com/windows/products/windowsvista/editions/systemrequirements.mspx
-- https://web.archive.org/web/20080923012137/http://www.microsoft.com:80/windowsserver2008/en/us/system-requirements.aspx
-- https://web.archive.org/web/20091002082955/http://www.microsoft.com/windowsserver2008/en/us/system-requirements.aspx
-- https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134246(v=ws.11)
-- https://learn.microsoft.com/en-us/windows-server/get-started/hardware-requirements
