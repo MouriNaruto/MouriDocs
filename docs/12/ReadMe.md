@@ -27,12 +27,10 @@ because they talk so less about that.
   - Reference: https://winhistory.de/more/386/vistamini.htm
   - Reference: https://www.youtube.com/watch?v=Zs8-rQKvptM
 - 7 (Since 2018)
-  - x86 processors since the original Pentium (i586 / P5) or compatible, with 
-    16-Bit and 32-Bit mode available.
+  - Inherit the processor requirements from 7 (Before 2018).
   - SSE2 is required.
 - 8 / 8.1 / 10 (All Versions except 1809, 2004, 20H2, 21H1, 21H2 and 22H2)
-  - x86 processors since the original Pentium (i586 / P5) or compatible, with
-    16-Bit and 32-Bit mode available.
+  - Inherit the processor requirements from 7.
   - PAE, NX and SSE2 are required.
   - Reference: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
   - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
@@ -45,8 +43,8 @@ because they talk so less about that.
 - XP x64 / Server 2003 / Vista / Server 2008 / 7 / Server 2008 R2
   - x86 processors or compatible, with 16-Bit, 32-Bit and 64-Bit mode available.
 - 8 / Server 2012
-  - x86 processors or compatible, with 16-Bit, 32-Bit and 64-Bit mode available.
-    So, PAE and SSE2 are existed in all of them.
+  - Inherit the processor requirements from 7 / Server 2008 R2. So, PAE and SSE2
+    are existed in all of them.
   - NX is required. Only care about that when you have early Intel CPUs with
     Intel 64 support. It was added in the stepping E0 (0F41h) Pentium 4 in
     October 2004.
@@ -54,19 +52,13 @@ because they talk so less about that.
   - Reference: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
 - 8.1 / Server 2012 R2 / 10 (All Versions) / Server 2016 / Server 2019 / Server
   2022 / 11 (21H2, 22H2, 23H2) 
-  - x86 processors or compatible, with 16-Bit, 32-Bit and 64-Bit mode available.
-    So, PAE and SSE2 are existed in all of them.
-  - NX is required. Only care about that when you have early Intel CPUs with
-    Intel 64 support. It was added in the stepping E0 (0F41h) Pentium 4 in
-    October 2004.
+  - Inherit the processor requirements from 8 / Server 2012.
   - CMPXCHG16B, LAHF/SAHF and PREFETCHW are required.
-  - Reference: https://en.wikipedia.org/wiki/X86-64
   - Reference: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
   - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 - 11 (24H2 or later)
-  - x86 processors since Intel Core i (1st gen) / AMD K10 or compatible, with
-    16-Bit, 32-Bit and 64-Bit mode available. So, PAE, NX, SSE2, CMPXCHG16B,
-    LAHF/SAHF, PREFETCHW and POPCNT are existed in all of them.
+  - Inherit the processor requirements from 11 (21H2, 22H2, 23H2).
+  - POPCNT is required.
   - Reference: https://en.wikipedia.org/wiki/X86-64
   - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
   - Reference: https://twitter.com/TheBobPony/status/1756771051634135277
@@ -81,7 +73,7 @@ because they talk so less about that.
   - Compatible with ARMv8-A instruction set.
   - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 - 11 (All Versions)
-  - Compatible with ARMv8-A instruction set.
+  - Inherit the processor requirements from 10 (Since 1709).
   - Large System Extensions (atomic instructions) are required.
   - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
   - Reference: https://en.wikipedia.org/wiki/Comparison_of_ARM_processors#ARMv8-A
