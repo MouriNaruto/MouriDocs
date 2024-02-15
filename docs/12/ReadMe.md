@@ -64,15 +64,16 @@ because they talk so less about that.
   - Reference: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
   - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 - 11 (24H2 or later)
-  - x86 processors or compatible, with 16-Bit, 32-Bit and 64-Bit mode available.
-    So, PAE and SSE2 are existed in all of them.
-  - NX is required. Only care about that when you have early Intel CPUs with
-    Intel 64 support. It was added in the stepping E0 (0F41h) Pentium 4 in
-    October 2004.
-  - CMPXCHG16B, LAHF/SAHF, PREFETCHW and POPCNT are required.
+  - x86 processors since Intel Core i (1st gen) / AMD K10 or compatible, with
+    16-Bit, 32-Bit and 64-Bit mode available. So, PAE, NX, SSE2, CMPXCHG16B,
+    LAHF/SAHF, PREFETCHW and POPCNT are existed in all of them.
   - Reference: https://en.wikipedia.org/wiki/X86-64
   - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
   - Reference: https://twitter.com/TheBobPony/status/1756771051634135277
+  - Reference: https://twitter.com/TheBobPony/status/1758023533064565076
+  - Reference: https://twitter.com/MouriNaruto/status/1758082961570955523
+  - Reference: https://www.cpu-world.com/cgi-bin/CPUID.pl?CPUID=74119
+  - Reference: https://www.cpu-world.com/cgi-bin/CPUID.pl?CPUID=74121
 
 ### ARM (64-Bit)
 
