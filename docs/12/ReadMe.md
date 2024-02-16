@@ -26,15 +26,15 @@ because they talk so less about that.
   - Reference: https://winhistory.de/more/386/vistamini.htm
   - Reference: https://www.youtube.com/watch?v=Zs8-rQKvptM
 - 7 (Since 2018)
-  - Inherit the processor requirements from 7 (Before 2018).
-  - SSE2 is required.
+  - Inherit the processor requirements from 7 (Before 2018)
+  - SSE2 is required
 - 8 / 8.1 / 10 (All Versions except 1809, 2004, 20H2, 21H1, 21H2 and 22H2)
-  - Inherit the processor requirements from 7.
-  - PAE, NX and SSE2 are required.
+  - Inherit the processor requirements from 7
+  - PAE, NX and SSE2 are required
   - Reference: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
   - Reference: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 - 10 (1809, 2004, 20H2, 21H1, 21H2 and 22H2)
-  - The minimum processor requirement is as same as their x86 (64-Bit) versions.
+  - The minimum processor requirement is as same as their x86 (64-Bit) versions
   - Reference: https://www.tenforums.com/performance-maintenance/6909-lets-run-win10-really-really-old-hardware.html
 
 ### x86 (64-Bit)
@@ -167,14 +167,14 @@ Vista / Server 2008 or later in the production environments.
 - UEFI firmware with CSM enabled is supported for Vista SP1 or later / Server
   2008 / 7 / Server 2008 R2 unless you try to use some workarounds like
   https://github.com/manatails/uefiseven.
-- UEFI firmware is supported since 8 / Server 2012.
-- ACPI-compliant firmware is required.
+- UEFI firmware is supported since 8 / Server 2012
+- ACPI-compliant firmware is required
 - Reference: https://download.microsoft.com/download/7/e/7/7e7662cf-cbea-470b-a97e-ce7ce0d98dc2/uefi_windows.docx
 - Reference: https://www.geoffchappell.com/studies/windows/km/hal/history/index.htm
 
 ### ARM (64-Bit)
 
-- ACPI-compliant UEFI firmware is required.
+- ACPI-compliant UEFI firmware is required
 
 ## Hyper-V Guest Specific
 

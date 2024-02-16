@@ -1,38 +1,38 @@
 ﻿# MD12: 探讨 Windows 真正的最低硬件要求
 
-注：本文现阶段仅讨论基于 NT 内核的 Windows 版本。
+注：本文现阶段仅讨论基于 NT 内核的 Windows 版本
 
-我希望本文能帮助为 Windows 开发软件的开发人员更轻松地确定其软件的最低硬件要求。
-当然，对于那些使用旧设备的用户也有帮助。
+我希望本文能帮助为 Windows 开发软件的开发人员更轻松地确定其软件的最低硬件要求
+
+当然，对于那些使用旧设备的用户也有帮助
 
 ## 处理器
 
-注：这一部分比微软的规范更真实、更详细，因为他们在这方面谈得太少了。
+注：这一部分比微软的规范更真实、更详细，因为他们在这方面谈得太少了
 
 ### x86 (32 位)
 
-- NT 3.1 / NT 3.5x (Uniprocessor Only)
-  - x86 processors compatible with the Stepping D1 80386 (i386)
+- NT 3.1 / NT 3.5x (仅限单处理器)
+  - 与步进 D1 的 80386 (i386) 兼容的 x86 处理器
   - 参考资料: https://www.geoffchappell.com/studies/windows/km/cpu/precpuid.htm
-- NT 3.5x (Multiprocessor) / NT 4.0 / 2000
-  - x86 processors compatible with the 80486 (i486)
+- NT 3.5x (多处理器) / NT 4.0 / 2000
+  - 与 80486 (i486) 兼容的 x86 处理器
   - 参考资料: https://www.geoffchappell.com/studies/windows/km/cpu/precpuid.htm
-- XP (NT 5.1) / Server 2003 / Vista / Server 2008 / 7 (Before 2018)
-  - x86 processors compatible with the original Pentium (i586 / P5) because
-    CPUID and CMPXCHG8B are required
+- XP (NT 5.1) / Server 2003 / Vista / Server 2008 / 7 (2018 年之前)
+  - 与初代 Pentium（i586 / P5）兼容的 x86 处理器，因为需要 CPUID 和 CMPXCHG8B
   - 参考资料: https://winhistory.de/more/386/xpmini.htm
   - 参考资料: https://winhistory.de/more/386/vistamini.htm
   - 参考资料: https://www.youtube.com/watch?v=Zs8-rQKvptM
-- 7 (Since 2018)
-  - Inherit the processor requirements from 7 (Before 2018).
-  - SSE2 is required.
-- 8 / 8.1 / 10 (All Versions except 1809, 2004, 20H2, 21H1, 21H2 and 22H2)
-  - Inherit the processor requirements from 7.
-  - PAE, NX and SSE2 are required.
+- 7 (2018 年开始)
+  - 继承 7（2018 年之前）的处理器要求
+  - 需要 SSE2.
+- 8 / 8.1 / 10 (除了 1809, 2004, 20H2, 21H1, 21H2 和 22H2 之外的所有版本)
+  - 继承 7 的处理器要求
+  - 需要 PAE, NX 和 SSE2
   - 参考资料: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
-- 10 (1809, 2004, 20H2, 21H1, 21H2 and 22H2)
-  - The minimum processor requirement is as same as their x86 (64 位) versions.
+- 10 (1809, 2004, 20H2, 21H1, 21H2 和 22H2)
+  - 最低处理器要求与对应的 x86（64 位）版本相同
   - 参考资料: https://www.tenforums.com/performance-maintenance/6909-lets-run-win10-really-really-old-hardware.html
 
 ### x86 (64 位)
@@ -77,13 +77,12 @@
   - 参考资料: https://en.wikichip.org/wiki/arm/armv8#ARMv8_Extensions_and_Processor_Features
   - 参考资料: https://learn.arm.com/learning-paths/servers-and-cloud-computing/lse/intro/
 
-## Memory
+## 内存
 
-Follow the Microsoft's specification of the minimum memory size requirement is
-good choice because memory size is important for a usable Windows experience.
+遵循微软规定的最小内存大小要求是不错的选择，因为内存大小对于 Windows 体验的可用
+性非常重要
 
-But I will also add some real values which below the Microsoft's specification
-for this section if you really want to beyond the limitation.
+不过，如果你真的想超越限制，我也会在本节中添加一些低于微软规定的实际值
 
 ### 32 位 (微软的规范)
 
@@ -140,15 +139,14 @@ for this section if you really want to beyond the limitation.
 - 176 MiB for 11
   - 参考资料: https://www.youtube.com/watch?v=bVTZMP-F98s)
 
-## Storage
+## 存储
 
-The minimal storage size should be determined by your Windows WIM image size,
-memory size for paging file, and compression method you are using.
+最小存储大小应根据 Windows WIM 映像大小、根据内存大小设定的分页文件和你使用的压
+缩方法来确定
 
-System partition bigger than 50 GiB is highly recommend when you are using
-Vista / Server 2008 or later in the production environments.
+在生产环境中使用 Vista / Server 2008 或更高版本时，强烈建议系统分区大于 50 GiB
 
-## Firmware
+## 固件
 
 ### x86 (32 位)
 
@@ -165,14 +163,14 @@ Vista / Server 2008 or later in the production environments.
 - UEFI firmware with CSM enabled is supported for Vista SP1 or later / Server
   2008 / 7 / Server 2008 R2 unless you try to use some workarounds like
   https://github.com/manatails/uefiseven.
-- UEFI firmware is supported since 8 / Server 2012.
-- ACPI-compliant firmware is required.
+- 自 8 / Server 2012 起支持 UEFI 固件
+- 需要兼容 ACPI 的固件
 - 参考资料: https://download.microsoft.com/download/7/e/7/7e7662cf-cbea-470b-a97e-ce7ce0d98dc2/uefi_windows.docx
 - 参考资料: https://www.geoffchappell.com/studies/windows/km/hal/history/index.htm
 
 ### ARM (64 位)
 
-- ACPI-compliant UEFI firmware is required.
+- 需要兼容 ACPI 的 UEFI 固件
 
 ## Hyper-V Guest Specific
 
