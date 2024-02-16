@@ -14,15 +14,14 @@ because they talk so less about that.
 ### x86 (32-Bit)
 
 - NT 3.1 / NT 3.5x (Uniprocessor Only)
-  - Stepping D1 80386 (i386) or compatible.
+  - x86 processors compatible with the Stepping D1 80386 (i386)
   - Reference: https://www.geoffchappell.com/studies/windows/km/cpu/precpuid.htm
 - NT 3.5x (Multiprocessor) / NT 4.0 / 2000
-  - 80486 (i486) or compatible.
+  - x86 processors compatible with the 80486 (i486)
   - Reference: https://www.geoffchappell.com/studies/windows/km/cpu/precpuid.htm
 - XP (NT 5.1) / Server 2003 / Vista / Server 2008 / 7 (Before 2018)
-  - x86 processors since the original Pentium (i586 / P5) or compatible, with 
-    16-Bit and 32-Bit mode available, because CPUID and CMPXCHG8B are
-    required.
+  - x86 processors compatible with the original Pentium (i586 / P5) because
+    CPUID and CMPXCHG8B are required
   - Reference: https://winhistory.de/more/386/xpmini.htm
   - Reference: https://winhistory.de/more/386/vistamini.htm
   - Reference: https://www.youtube.com/watch?v=Zs8-rQKvptM
@@ -175,8 +174,7 @@ Vista / Server 2008 or later in the production environments.
 
 ### ARM (64-Bit)
 
-- UEFI firmware.
-- ACPI-compliant firmware is required.
+- ACPI-compliant UEFI firmware is required.
 
 ## Hyper-V Guest Specific
 
