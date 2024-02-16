@@ -134,7 +134,7 @@
 ### 64 位 (实际情况)
 
 - 11 为 176 MiB
-  - 参考资料: https://www.youtube.com/watch?v=bVTZMP-F98s)
+  - 参考资料: https://www.youtube.com/watch?v=bVTZMP-F98s
 
 ## 存储
 

@@ -141,7 +141,7 @@ for this section if you really want to beyond the limitation.
 ### 64-Bit (Actually)
 
 - 176 MiB for 11
-  - Reference: https://www.youtube.com/watch?v=bVTZMP-F98s)
+  - Reference: https://www.youtube.com/watch?v=bVTZMP-F98s
 
 ## Storage
 
