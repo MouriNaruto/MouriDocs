@@ -25,7 +25,7 @@
   - 参考资料: https://www.youtube.com/watch?v=Zs8-rQKvptM
 - 7 (2018 年开始)
   - 继承 7（2018 年之前）的处理器要求
-  - 需要 SSE2.
+  - 需要 SSE2
 - 8 / 8.1 / 10 (除了 1809, 2004, 20H2, 21H1, 21H2 和 22H2 之外的所有版本)
   - 继承 7 的处理器要求
   - 需要 PAE, NX 和 SSE2
@@ -38,25 +38,22 @@
 ### x86 (64 位)
 
 - XP x64 / Server 2003 / Vista / Server 2008 / 7 / Server 2008 R2
-  - x86 processors compatible with the original x86-64 design (a.k.a except
-    processors which only support x86S)
+  - 与原始 x86-64 设计兼容的 x86 处理器 (即只支持 x86S 的处理器除外)
 - 8 / Server 2012
-  - Inherit the processor requirements from 7 / Server 2008 R2 (PAE and SSE2 are
-    existed in all of them)
-  - NX is required (Only care about that when you have early Intel CPUs with
-    Intel 64 support. It was added in the stepping E0 (0F41h) Pentium 4 in
-    October 2004.)
+  - 继承 7 / Server 2008 R2 的处理器要求 (PAE 和 SSE2 在符合条件的处理器都存在)
+  - 需要 NX (只有你手头有早期 Intel x86-64 处理器的情况才需要考虑这个问题。该特
+    性于 2004 年 10 月在 E0 (0F41h) 步进的 Pentium 4 引入。)
   - 参考资料: https://en.wikipedia.org/wiki/X86-64
   - 参考资料: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
-- 8.1 / Server 2012 R2 / 10 (All Versions) / Server 2016 / Server 2019 / Server
+- 8.1 / Server 2012 R2 / 10 (所有版本) / Server 2016 / Server 2019 / Server
   2022 / 11 (21H2, 22H2, 23H2) 
-  - Inherit the processor requirements from 8 / Server 2012
-  - CMPXCHG16B, LAHF/SAHF and PREFETCHW are required
+  - 继承 8 / Server 2012 的处理器要求
+  - 需要 CMPXCHG16B, LAHF/SAHF 和 PREFETCHW
   - 参考资料: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
-- 11 (24H2 or later)
-  - Inherit the processor requirements from 11 (21H2, 22H2, 23H2)
-  - POPCNT is required
+- 11 (24H2 及之后版本)
+  - 继承 11 (21H2, 22H2, 23H2) 的处理器要求
+  - 需要 POPCNT
   - 参考资料: https://en.wikipedia.org/wiki/X86-64
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
   - 参考资料: https://twitter.com/TheBobPony/status/1756771051634135277
@@ -67,12 +64,12 @@
 
 ### ARM (64 位)
 
-- 10 (Since 1709)
-  - ARM processors compatible with the ARMv8-A instruction set
+- 10 (1709 开始)
+  - 与 ARMv8-A 指令集兼容的 ARM 处理器
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
-- 11 (All Versions)
-  - Inherit the processor requirements from 10 (Since 1709)
-  - Large System Extensions (atomic instructions) are required
+- 11 (所有版本)
+  - 继承 10 (Since 1709) 的处理器要求
+  - 需要 Large System Extensions (原子操作)
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
   - 参考资料: https://en.wikipedia.org/wiki/Comparison_of_ARM_processors#ARMv8-A
   - 参考资料: https://en.wikichip.org/wiki/arm/armv8#ARMv8_Extensions_and_Processor_Features
@@ -87,57 +84,56 @@
 
 ### 32 位 (微软的规范)
 
-- 12 MiB for NT 3.1 / NT 3.5x
-- 16 MiB for NT 4.0
-- 32 MiB for 2000
-- 64 MiB for XP (NT 5.1)
-- 128 MiB for Server 2003
+- NT 3.1 / NT 3.5x 为 12 MiB
+- NT 4.0 为 16 MiB
+- 2000 为 32 MiB
+- XP (NT 5.1) 为 64 MiB 
+- Server 2003 为 128 MiB
   - 参考资料: https://web.archive.org/web/20101225000120/http://technet.microsoft.com/en-us/windowsserver/bb430827
-- 512 MiB for Vista / Server 2008
+- Vista / Server 2008 为 512 MiB 
   - 参考资料: https://web.archive.org/web/20080101144743/http://www.microsoft.com/windows/products/windowsvista/editions/systemrequirements.mspx
   - 参考资料: https://web.archive.org/web/20080923012137/http://www.microsoft.com:80/windowsserver2008/en/us/system-requirements.aspx
-- 1 GiB for 7 / 8 / 8.1 / 10 (All Versions)
+- 7 / 8 / 8.1 / 10 (所有版本) 为 1 GiB
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 
 ### 32 位 (实际情况)
 
-- 8 MiB for NT 3.1 / NT 3.5x / NT 4.0
+- NT 3.1 / NT 3.5x / NT 4.0 为 8 MiB
   - 参考资料: https://winhistory.de/more/386/winq.htm
-- 12 MiB for 2000
+- 2000 为 12 MiB
   - 参考资料: https://winhistory.de/more/386/winq.htm
-- 16 MiB for XP (NT 5.1)
+- XP (NT 5.1) 为 16 MiB
   - 参考资料: https://www.youtube.com/watch?v=oMnABjaDbhE
-- 32 MiB for Server 2003
+- Server 2003 为 32 MiB
   - 参考资料: https://winhistory.de/more/386/winq.htm
-- 224 MiB for Vista
+- Vista 为 224 MiB
   - 参考资料: https://winhistory.de/more/386/vistamini.htm
-- 32 MiB for 7
+- 7 为 32 MiB
   - 参考资料: https://www.youtube.com/watch?v=ezympDfJolA
-- 132 MiB for 10
+- 10 为 132 MiB
   - 参考资料: https://www.youtube.com/watch?v=celWaRRf8uw
 
 ### 64 位 (微软的规范)
 
-- 256 MiB for XP x64 / Server 2003
-- 512 MiB for Vista / Server 2008 / Server 2008 R2 / Server 2012 / Server 2012
-  R2 / Server 2016 (Server Core) / Server 2019 (Server Core) / Server 2022
-  (Server Core)
+- XP x64 / Server 2003 为 256 MiB
+- Vista / Server 2008 / Server 2008 R2 / Server 2012 / Server 2012 R2 / Server
+  2016 (服务器核心安装) / Server 2019 (服务器核心安装) / Server 2022
+  (服务器核心安装) 为 512 MiB
   - 参考资料: https://web.archive.org/web/20080101144743/http://www.microsoft.com/windows/products/windowsvista/editions/systemrequirements.mspx
   - 参考资料: https://web.archive.org/web/20080923012137/http://www.microsoft.com:80/windowsserver2008/en/us/system-requirements.aspx
   - 参考资料: https://web.archive.org/web/20091002082955/http://www.microsoft.com/windowsserver2008/en/us/system-requirements.aspx
   - 参考资料: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134246(v=ws.11)
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
   - 参考资料: https://learn.microsoft.com/en-us/windows-server/get-started/hardware-requirements
-- 2 GiB for 7 / 8 / 8.1 / 10 (All Versions) / Server 2016 (Server with Desktop
-  Experience) / Server 2019 (Server with Desktop Experience) / Server 2022
-  (Server with Desktop Experience)
+- 7 / 8 / 8.1 / 10 (所有版本) / Server 2016 (带桌面体验的服务器安装) / Server
+  2019 (带桌面体验的服务器安装) / Server 2022 (带桌面体验的服务器安装) 为 2 GiB
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
-- 4 GiB for 11 (All Versions)
+- 11 (所有版本) 为 4 GiB
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 
 ### 64 位 (实际情况)
 
-- 176 MiB for 11
+- 11 为 176 MiB
   - 参考资料: https://www.youtube.com/watch?v=bVTZMP-F98s)
 
 ## 存储
@@ -151,19 +147,17 @@
 
 ### x86 (32 位)
 
-- Legacy BIOS firmware is supported for all x86 (32 位) Windows versions.
-- UEFI firmware is supported for 8 / 8.1 / 10 (All Versions).
-- Beginning with Vista / Server 2008, ACPI-compliant firmware is required that
-  is dated January 1, 1999 or later.
+- 所有 x86（32 位）Windows 版本支持传统 BIOS 固件
+- 8 / 8.1 / 10 (所有版本) 支持 UEFI 固件
+- 自 Vista / Server 2008 开始，需使用 1999 年 1 月 1 日或之后的兼容 ACPI 的固件
 - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/acpi-bios
 - 参考资料: https://www.geoffchappell.com/studies/windows/km/hal/history/index.htm
 
 ### x86 (64 位)
 
-- Legacy BIOS firmware is supported for all x86 (64 位) Windows versions.
-- UEFI firmware with CSM enabled is supported for Vista SP1 or later / Server
-  2008 / 7 / Server 2008 R2 unless you try to use some workarounds like
-  https://github.com/manatails/uefiseven.
+- 所有 x86（64 位）Windows 版本支持传统 BIOS 固件
+- Vista SP1 and SP2 / Server 2008 / 7 / Server 2008 R2 支持启用 CSM 的 UEFI 固件
+  (除非您尝试使用一些类似 https://github.com/manatails/uefiseven 的变通方法)
 - 自 8 / Server 2012 起支持 UEFI 固件
 - 需要兼容 ACPI 的固件
 - 参考资料: https://download.microsoft.com/download/7/e/7/7e7662cf-cbea-470b-a97e-ce7ce0d98dc2/uefi_windows.docx
