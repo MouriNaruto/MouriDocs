@@ -41,8 +41,8 @@
   - 与原始 x86-64 设计兼容的 x86 处理器 (即只支持 x86S 的处理器除外)
 - 8 / Server 2012
   - 继承 7 / Server 2008 R2 的处理器要求 (PAE 和 SSE2 在符合条件的处理器都存在)
-  - 需要 NX (只有你手头有早期 Intel x86-64 处理器的情况才需要考虑这个问题。该特
-    性于 2004 年 10 月在 E0 (0F41h) 步进的 Pentium 4 引入。)
+  - 需要 NX (只有你手头有早期 Intel x86-64 处理器的情况才需要考虑这个问题。
+    该特性于 2004 年 10 月在 E0 (0F41h) 步进的 Pentium 4 引入。)
   - 参考资料: https://en.wikipedia.org/wiki/X86-64
   - 参考资料: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
 - 8.1 / Server 2012 R2 / 10 (所有版本) / Server 2016 / Server 2019 / Server
@@ -138,8 +138,8 @@
 
 ## 存储
 
-最小存储大小应根据 Windows WIM 映像大小、根据内存大小设定的分页文件和你使用的压
-缩方法来确定
+最小存储大小应根据 Windows WIM 映像大小、
+根据内存大小设定的分页文件和你使用的压缩方法来确定
 
 在生产环境中使用 Vista / Server 2008 或更高版本时，强烈建议系统分区大于 50 GiB
 
@@ -167,34 +167,29 @@
 
 - 需要兼容 ACPI 的 UEFI 固件
 
-## Hyper-V Guest Specific
+## 特定于 Hyper-V 虚拟机的需求
 
-- Legacy versions before XP (NT 5.1) may not be able to run as the guest
-  unless setting CompatibilityForOlderOperatingSystemsEnabled to $true via 
-  Set-VMProcessor PowerShell cmdlet for Generation 1 Virtual Machines.
+- 除非通过 PowerShell 的 Set-VMProcessor 命令为你的 1 代虚拟机设置
+  CompatibilityForOlderOperatingSystemsEnabled 选项为 $true，否则 XP (NT 5.1)
+  之前的旧版本可能无法在虚拟机中运行。
   - 参考资料: https://blacktree.nl/2020/07/16/windows-2000-on-hyper-v/
-- The standalone Hyper-V Integration Components is available from 2000 to
-  8 / Server 2012.
-  - Earliest Hyper-V Integration Components: https://dl.bobpony.com/vmtools/hyperv/legacy/Hyper-V2008-vmguest.iso
-  - Latest Hyper-V Integration Components: https://dl.bobpony.com/vmtools/hyperv/vmguest.iso
-- Generation 2 Virtual Machines only support x86 (64 位) guest OS on x86
-  (64 位) host and ARM (64 位) guest OS on ARM (64 位) host because it's
-  using UEFI Class 3 compliant firmware.
+- 独立版 Hyper-V 集成组件适用于 2000 至 8 / Server 2012
+  - 最旧的 Hyper-V 集成组件: https://dl.bobpony.com/vmtools/hyperv/legacy/Hyper-V2008-vmguest.iso
+  - 最新的 Hyper-V 集成组件: https://dl.bobpony.com/vmtools/hyperv/vmguest.iso
+- 由于 2 代虚拟机使用符合 UEFI Class 3 规范的固件，于是仅支持在 x86 (64 位)
+  宿主机的虚拟机运行 x86 (64 位) 操作系统和在 ARM (64 位) 宿主机的虚拟机运行
+  ARM (64 位) 操作系统
   - 参考资料: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
-- Running as the guest in Generation 2 Virtual Machines is available since
-  8 / Server 2012.
+- 自 8 / Server 2012 起支持在 2 代虚拟机中运行
   - 参考资料: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
 
-Here are some notes may be helpful for people who want to make x86 (64 位) of
-XP x64 / Server 2003 / Vista / Server 2008 / 7 / Server 2008 R2 be able to run
-in Generation 2 Virtual Machines.
+下面的一些说明可能会对想让 x86 (64 位) 的 XP x64 / Server 2003 / Vista / Server
+2008 / 7 / Server 2008 R2 在 2 代虚拟机中运行的人有所帮助
 
-- Adapt for UEFI Graphics Output Protocol.
-- The legacy Programmable Interrupt Controller (PIC) and the legacy Programmable
-  Interval Timer (PIT) is not available in Generation 2 Virtual Machines. It
-  also caused the RTC clock is available but the RTC timer not. So, you need the
-  local APIC timer, and use the RTC clock to do something brute-force way for
-  implementing the timer calibration if you don't want to use Hyper-V specific
-  guest infrastructures.
+- 适配 UEFI Graphics Output Protocol
+- 由于传统的可编程中断控制器 (PIC) 和传统的可编程间隔定时器 (PIT) 在 2
+  代虚拟机中不可用，这个特性也导致了 RTC 时钟可用但 RTC 定时器不可用；
+  因此，如果不想使用 Hyper-V 特定的客户基础架构，就需要使用本地 APIC
+  定时器，并使用 RTC 时钟以暴力方式实现定时器校准
   - 参考资料: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
   - 参考资料: https://github.com/MouriNaruto/MouriDocs/blob/main/docs/11/ReadMe.md
