@@ -38,24 +38,25 @@
 ### x86 (64 位)
 
 - XP x64 / Server 2003 / Vista / Server 2008 / 7 / Server 2008 R2
-  - x86 processors or compatible, with 16 位, 32 位 and 64 位 mode available.
+  - x86 processors compatible with the original x86-64 design (a.k.a except
+    processors which only support x86S)
 - 8 / Server 2012
-  - Inherit the processor requirements from 7 / Server 2008 R2. So, PAE and SSE2
-    are existed in all of them.
-  - NX is required. Only care about that when you have early Intel CPUs with
+  - Inherit the processor requirements from 7 / Server 2008 R2 (PAE and SSE2 are
+    existed in all of them)
+  - NX is required (Only care about that when you have early Intel CPUs with
     Intel 64 support. It was added in the stepping E0 (0F41h) Pentium 4 in
-    October 2004.
+    October 2004.)
   - 参考资料: https://en.wikipedia.org/wiki/X86-64
   - 参考资料: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
 - 8.1 / Server 2012 R2 / 10 (All Versions) / Server 2016 / Server 2019 / Server
   2022 / 11 (21H2, 22H2, 23H2) 
-  - Inherit the processor requirements from 8 / Server 2012.
-  - CMPXCHG16B, LAHF/SAHF and PREFETCHW are required.
+  - Inherit the processor requirements from 8 / Server 2012
+  - CMPXCHG16B, LAHF/SAHF and PREFETCHW are required
   - 参考资料: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 - 11 (24H2 or later)
-  - Inherit the processor requirements from 11 (21H2, 22H2, 23H2).
-  - POPCNT is required.
+  - Inherit the processor requirements from 11 (21H2, 22H2, 23H2)
+  - POPCNT is required
   - 参考资料: https://en.wikipedia.org/wiki/X86-64
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
   - 参考资料: https://twitter.com/TheBobPony/status/1756771051634135277
@@ -67,11 +68,11 @@
 ### ARM (64 位)
 
 - 10 (Since 1709)
-  - Compatible with ARMv8-A instruction set.
+  - ARM processors compatible with the ARMv8-A instruction set
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 - 11 (All Versions)
-  - Inherit the processor requirements from 10 (Since 1709).
-  - Large System Extensions (atomic instructions) are required.
+  - Inherit the processor requirements from 10 (Since 1709)
+  - Large System Extensions (atomic instructions) are required
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
   - 参考资料: https://en.wikipedia.org/wiki/Comparison_of_ARM_processors#ARMv8-A
   - 参考资料: https://en.wikichip.org/wiki/arm/armv8#ARMv8_Extensions_and_Processor_Features
