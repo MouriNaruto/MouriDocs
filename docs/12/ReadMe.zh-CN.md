@@ -38,7 +38,9 @@
 ### x86 (64 位)
 
 - XP x64 / Server 2003 / Vista / Server 2008 / 7 / Server 2008 R2
-  - 与原始 x86-64 设计兼容的 x86 处理器 (即只支持 x86S 的处理器除外)
+  - 与 x86-64 (又名 x86-64-v1) 指令集兼容的 x86 处理器
+  - 仅支持 x86S 的处理器除外
+  - 参考资料: https://en.wikipedia.org/wiki/X86-64
 - 8 / Server 2012
   - 继承 7 / Server 2008 R2 的处理器要求 (PAE 和 SSE2 在符合条件的处理器都存在)
   - 需要 NX (只有你手头有早期 Intel x86-64 处理器的情况才需要考虑这个问题。
@@ -46,34 +48,30 @@
   - 参考资料: https://en.wikipedia.org/wiki/X86-64
   - 参考资料: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
 - 8.1 / Server 2012 R2 / 10 (所有版本) / Server 2016 / Server 2019 / Server
-  2022 / 11 (21H2, 22H2, 23H2) 
+  2022 / 11 (21H2, 22H2, 23H2)
   - 继承 8 / Server 2012 的处理器要求
   - 需要 CMPXCHG16B, LAHF/SAHF 和 PREFETCHW
   - 参考资料: https://support.microsoft.com/en-us/windows/system-requirements-2f327e5a-2bae-4011-8848-58180a4353a7
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
 - 11 (24H2 及之后版本)
-  - 继承 11 (21H2, 22H2, 23H2) 的处理器要求
-  - 需要 POPCNT
+  - 与 x86-64-v2 指令集兼容的 x86 处理器，因为需要 POPCNT 和 SSE4.2
+  - 仅支持 x86S 的处理器除外
   - 参考资料: https://en.wikipedia.org/wiki/X86-64
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
-  - 参考资料: https://twitter.com/TheBobPony/status/1756771051634135277
-  - 参考资料: https://twitter.com/TheBobPony/status/1758023533064565076
-  - 参考资料: https://twitter.com/MouriNaruto/status/1758082961570955523
-  - 参考资料: https://www.cpu-world.com/cgi-bin/CPUID.pl?CPUID=74119
-  - 参考资料: https://www.cpu-world.com/cgi-bin/CPUID.pl?CPUID=74121
+  - 参考资料: https://twitter.com/MouriNaruto/status/1761945388280598984
 
 ### ARM (64 位)
 
-- 10 (1709 开始)
+- 10 (1709 开始) / 11 (21H2, 22H2, 23H2)
   - 与 ARMv8-A 指令集兼容的 ARM 处理器
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
-- 11 (所有版本)
-  - 继承 10 (Since 1709) 的处理器要求
-  - 需要 Large System Extensions (原子操作)
+  - 参考资料: https://en.wikichip.org/wiki/arm/armv8
+  - 参考资料: http://www.emulators.com/docs/abc_history_of_woa.htm
+- 11 (24H2 及之后版本)
+  - 与 ARMv8.1-A 指令集兼容的 ARM 处理器
   - 参考资料: https://learn.microsoft.com/en-us/windows-hardware/design/minimum/minimum-hardware-requirements-overview
-  - 参考资料: https://en.wikipedia.org/wiki/Comparison_of_ARM_processors#ARMv8-A
-  - 参考资料: https://en.wikichip.org/wiki/arm/armv8#ARMv8_Extensions_and_Processor_Features
-  - 参考资料: https://learn.arm.com/learning-paths/servers-and-cloud-computing/lse/intro/
+  - 参考资料: https://en.wikichip.org/wiki/arm/armv8.1
+  - 参考资料: http://www.emulators.com/docs/abc_history_of_woa.htm
 
 ## 内存
 
