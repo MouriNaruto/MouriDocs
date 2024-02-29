@@ -19,3 +19,4 @@ Fire a GitHub issue if you want feedback or suggest something. Please read
 - [MD10: Archived list for things I currently working on](docs/10/ReadMe.md)
 - [MD11: Building UEFI Applications for Hyper-V Generation 2 Virtual Machines](docs/11/ReadMe.md)
 - [MD12: Talk about the real minimum hardware requirements for Windows](docs/12/ReadMe.md)
+- [MD13: The list of my technical articles and speeches](docs/13/ReadMe.md)
