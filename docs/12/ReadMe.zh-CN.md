@@ -1,5 +1,7 @@
 ﻿# MD12: 探讨 Windows 真正的最低硬件要求
 
+[English](ReadMe.md)
+
 注：本文现阶段仅讨论基于 NT 内核的 Windows 版本
 
 我希望本文能帮助为 Windows 开发软件的开发人员更轻松地确定其软件的最低硬件要求

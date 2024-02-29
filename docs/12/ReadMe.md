@@ -1,5 +1,7 @@
 ﻿# MD12: Talk about the real minimum hardware requirements for Windows
 
+[简体中文](ReadMe.zh-CN.md)
+
 Note: This document only talk about NT-based Windows in the current stage.
 
 I hope this document will help developers decide the base minimum hardware
