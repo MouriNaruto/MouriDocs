@@ -23,7 +23,7 @@ I have revised these articles.
 
 ## December 2023
 
-I have made a speech in Microsoft China in the Christmas Eve. The title is
+I have made a speech at Microsoft China in the Christmas Eve. The title is
 构建适用于 .NET 环境的最小可启动 Linux 发行版 a.k.a Build a minimal bootable
 Linux distro for .NET environment in English.
 
