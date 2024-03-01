@@ -25,21 +25,21 @@
 - Application Icons
   - SVG Vector Icons
     - [Project]/Standard/Standard.svg
-      [Project]Preview/Standard/Standard.svg
+    - [Project]Preview/Standard/Standard.svg
     - [Project]/ContrastBlack/ContrastBlack.svg
-      [Project]Preview/ContrastBlack/ContrastBlack.svg
+    - [Project]Preview/ContrastBlack/ContrastBlack.svg
     - [Project]/ContrastWhite/ContrastWhite.svg
-      [Project]Preview/ContrastWhite/ContrastWhite.svg
+    - [Project]Preview/ContrastWhite/ContrastWhite.svg
   - Square PNG Icons
     - [Project]/Standard/Standard_[Width].png
-      [Project]Preview/Standard/Standard_[Width].png
+    - [Project]Preview/Standard/Standard_[Width].png
     - [Project]/ContrastBlack/ContrastBlack_[Width].png
-      [Project]Preview/ContrastBlack/ContrastBlack_[Width].png
+    - [Project]Preview/ContrastBlack/ContrastBlack_[Width].png
     - [Project]/ContrastWhite/ContrastWhite_[Width].png
-      [Project]Preview/ContrastWhite/ContrastWhite_[Width].png
+    - [Project]Preview/ContrastWhite/ContrastWhite_[Width].png
   - ICO Icons
     - [Project]/Standard/Standard.ico
-      [Project]Preview/Standard/Standard.ico
+    - [Project]Preview/Standard/Standard.ico
 - Non-application Icons
   - SVG Vector Icons
     - [Project]/[Identifier]/[Identifier].svg

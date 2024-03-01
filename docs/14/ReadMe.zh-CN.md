@@ -20,21 +20,21 @@
 - 应用程序图标
   - SVG 矢量图标
     - [项目名]/Standard/Standard.svg
-      [项目名]Preview/Standard/Standard.svg
+    - [项目名]Preview/Standard/Standard.svg
     - [项目名]/ContrastBlack/ContrastBlack.svg
-      [项目名]Preview/ContrastBlack/ContrastBlack.svg
+    - [项目名]Preview/ContrastBlack/ContrastBlack.svg
     - [项目名]/ContrastWhite/ContrastWhite.svg
-      [项目名]Preview/ContrastWhite/ContrastWhite.svg
+    - [项目名]Preview/ContrastWhite/ContrastWhite.svg
   - 正方形 PNG 图标
     - [项目名]/Standard/Standard_[宽度数字].png
-      [项目名]Preview/Standard/Standard_[宽度数字].png
+    - [项目名]Preview/Standard/Standard_[宽度数字].png
     - [项目名]/ContrastBlack/ContrastBlack_[宽度数字].png
-      [项目名]Preview/ContrastBlack/ContrastBlack_[宽度数字].png
+    - [项目名]Preview/ContrastBlack/ContrastBlack_[宽度数字].png
     - [项目名]/ContrastWhite/ContrastWhite_[宽度数字].png
-      [项目名]Preview/ContrastWhite/ContrastWhite_[宽度数字].png
+    - [项目名]Preview/ContrastWhite/ContrastWhite_[宽度数字].png
   - ICO 图标
     - [项目名]/Standard/Standard.ico
-      [项目名]Preview/Standard/Standard.ico
+    - [项目名]Preview/Standard/Standard.ico
 - 非应用程序图标
   - SVG 矢量图标
     - [项目名]/[图标标识名]/[图标标识名].svg
