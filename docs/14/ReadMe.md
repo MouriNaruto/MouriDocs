@@ -8,6 +8,7 @@
   16px, 20px, 24px, 30px, 32px, 36px, 40px, 48px, 60px, 64px, 72px, 80px, 90px,
   96px, 108px, 120px, 128px, 144px, 160px, 192px, 216px, 256px, 288px, 320px,
   384px, 512px, 768px, 1024px
+  - Basis: [IconSizes.xlsx](IconSizes.xlsx)
 - The square PNG icons may need to be fine-tuned where appropriate
 - Provide SVG vector icons and the corresponding widths square PNG icons
 - All icons except the file association icons need to be provided in high

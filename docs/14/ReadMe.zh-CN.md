@@ -6,6 +6,7 @@
 - 基于 SVG 图标提供以下宽度的正方形 PNG 图标: 16px, 20px, 24px, 30px, 32px,
   36px, 40px, 48px, 60px, 64px, 72px, 80px, 90px, 96px, 108px, 120px, 128px,
   144px, 160px, 192px, 216px, 256px, 288px, 320px, 384px, 512px, 768px, 1024px
+  - 依据: [IconSizes.xlsx](IconSizes.xlsx)
 - png 图标在可能需酌情进行微调
 - 提供 SVG 矢量图标和 PNG 对应宽度的正方形图标
 - 除文件关联图标外，其他图标需要提供高对比度明暗版本
