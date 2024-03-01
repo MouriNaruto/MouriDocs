@@ -19,3 +19,4 @@ Mouri Docs 是由毛利创建的技术文档库。如果你想进行反馈或提
 - [MD11: Building UEFI Applications for Hyper-V Generation 2 Virtual Machines](docs/11/ReadMe.md)
 - [MD12: 探讨 Windows 真正的最低硬件要求](docs/12/ReadMe.zh-CN.md)
 - [MD13: The list of my technical articles and speeches](docs/13/ReadMe.md)
+- [MD14: Nana 系列开源项目图标设计规范](docs/14/ReadMe.zh-CN.md)
