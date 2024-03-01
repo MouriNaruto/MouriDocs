@@ -37,10 +37,10 @@
 - 非应用程序图标
   - SVG 矢量图标
     - [项目名]/[图标标识名]/[图标标识名].svg
-      [项目名]Preview/[图标标识名]/[图标标识名].svg
+    - [项目名]Preview/[图标标识名]/[图标标识名].svg
   - 正方形 PNG 图标
     - [项目名]/[图标标识名]/[图标标识名]_[宽度数字].png
-      [项目名]Preview/[图标标识名]/[图标标识名]_[宽度数字].png
+    - [项目名]Preview/[图标标识名]/[图标标识名]_[宽度数字].png
   - ICO 图标
     - [项目名]/[图标标识名]/[图标标识名].ico
     - [项目名]Preview/[图标标识名]/[图标标识名].ico
@@ -61,3 +61,8 @@
 - https://www.figma.com/community/plugin/875501505522624941/Icon-Scaling-Tool
 - https://www.figma.com/community/plugin/742318143106037364/icns%2Fico-Generator
 - https://www.figma.com/community/plugin/1043591651911818218/Icon-Pixel-Preview
+
+## 感谢
+
+Belleve, https://github.com/be5invis
+Denissssse, https://github.com/Shomnipotence

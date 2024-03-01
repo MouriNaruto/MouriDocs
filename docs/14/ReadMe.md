@@ -42,10 +42,10 @@
 - Non-application Icons
   - SVG Vector Icons
     - [Project]/[Identifier]/[Identifier].svg
-      [Project]Preview/[Identifier]/[Identifier].svg
+    - [Project]Preview/[Identifier]/[Identifier].svg
   - Square PNG Icons
     - [Project]/[Identifier]/[Identifier]_[Width].png
-      [Project]Preview/[Identifier]/[Identifier]_[Width].png
+    - [Project]Preview/[Identifier]/[Identifier]_[Width].png
   - ICO Icons
     - [Project]/[Identifier]/[Identifier].ico
     - [Project]Preview/[Identifier]/[Identifier].ico
@@ -67,3 +67,7 @@
 - https://www.figma.com/community/plugin/742318143106037364/icns%2Fico-Generator
 - https://www.figma.com/community/plugin/1043591651911818218/Icon-Pixel-Preview
 
+## Thanks
+
+Belleve, https://github.com/be5invis
+Denissssse, https://github.com/Shomnipotence
