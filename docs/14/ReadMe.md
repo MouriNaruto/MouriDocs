@@ -69,5 +69,5 @@
 
 ## Thanks
 
-Belleve, https://github.com/be5invis
-Denissssse, https://github.com/Shomnipotence
+- Belleve, https://github.com/be5invis
+- Denissssse, https://github.com/Shomnipotence
