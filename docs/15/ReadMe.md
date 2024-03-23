@@ -18,7 +18,7 @@ typedef struct _RESTOREPTINFOA
     DWORD dwEventType;
     DWORD dwRestorePtType;
     INT64 llSequenceNumber;
-    CHAR szDescription[MAX_DESC];
+    CHAR szDescription[64];
 } RESTOREPOINTINFOA, *PRESTOREPOINTINFOA;
 ```
 
@@ -30,7 +30,7 @@ typedef struct _RESTOREPTINFOW
     DWORD dwEventType;
     DWORD dwRestorePtType;
     INT64 llSequenceNumber;
-    WCHAR szDescription[MAX_DESC_W];
+    WCHAR szDescription[256];
 } RESTOREPOINTINFOW, *PRESTOREPOINTINFOW;
 ```
 
@@ -38,7 +38,76 @@ Contains information used by the [SRSetRestorePoint] function.
 
 **dwEventType**
 
+The type of event. This member can be one of the following values.
+
+
+- BEGIN_SYSTEM_CHANGE ( 100 )
+  - A system change has begun.
+  - A subsequent call must use END_SYSTEM_CHANGE, not END_NESTED_SYSTEM_CHANGE.
+- END_SYSTEM_CHANGE ( 101 )
+  - A system change has ended.
+- BEGIN_NESTED_SYSTEM_CHANGE ( 102 )
+  - A system change has begun. A subsequent nested call does not create a new
+    restore point.
+  - Subsequent calls must use END_NESTED_SYSTEM_CHANGE, not END_SYSTEM_CHANGE.
+  - Use this to prevent nested restore points.
+  - NT-based Windows (starting with Whistler) only.
+- END_NESTED_SYSTEM_CHANGE ( 103 )
+  - A system change has ended.
+  - Use this to prevent nested restore points.
+  - NT-based Windows (starting with Whistler) only.
+- BEGIN_NESTED_SYSTEM_CHANGE_NORP ( 104 )
+- END_NESTED_SYSTEM_CHANGE_NORP ( END_NESTED_SYSTEM_CHANGE )
+
 **dwRestorePtType**
+
+The type of restore point. This member can be one of the following values.
+
+- APPLICATION_INSTALL ( 0 )
+  - An application has been installed. 
+- APPLICATION_UNINSTALL ( 1 )
+  - An application has been uninstalled.
+- DESKTOP_SETTING ( 2 )
+  - Not implemented.
+- ACCESSIBILITY_SETTING ( 3 )
+  - Not implemented.
+- OE_SETTING ( 4 )
+  - Not implemented.
+- APPLICATION_RUN ( 5 )
+  - Not implemented.
+- RESTORE ( 6 )
+  - The description in System Restore Wizard is Restore Operation.
+  - The restore point for undoing System Restore.
+- CHECKPOINT ( 7 )
+  - The description in System Restore Wizard is Scheduled Checkpoint.
+  - In Windows 7 and later versions, System Restore creates a scheduled restore
+    point only if no other restore points have been created in the previous
+    seven days. In Windows Vista, System Restore creates a checkpoint every 24
+    hours if no other restore points were created on that day. In Windows XP,
+    System Restore creates a checkpoint every 24 hours, regardless of other
+    operations.
+- WINDOWS_SHUTDOWN ( 8 )
+  - Not implemented.
+- WINDOWS_BOOT ( 9 )
+  - Not implemented.
+- DEVICE_DRIVER_INSTALL ( 10 )
+  - A device driver has been installed.
+- FIRSTRUN ( 11 )
+- MODIFY_SETTINGS ( 12 )
+  - An application has had features added or removed.
+- CANCELLED_OPERATION ( 13 )
+  - An application needs to delete the restore point it created. For example,
+    an application would use this flag when a user cancels an installation.
+  - Only valid for END_SYSTEM_CHANGE.
+- BACKUP_RECOVERY ( 14 )
+- BACKUP ( 15 )
+- MANUAL_CHECKPOINT ( 16 )
+  - The manually created restore point.
+- WINDOWS_UPDATE ( 17 )
+  - The description in System Restore Wizard is Windows Update.
+  - The restore point created by Windows Update.
+- CRITICAL_UPDATE ( 18 )
+  - The restore point created when installing critical updates.
 
 **llSequenceNumber**
 
@@ -48,8 +117,8 @@ the sequence number returned by the previous call to [SRSetRestorePoint].
 **szDescription**
 
 The description to be displayed so the user can easily identify a restore 
-point. The maximum length of an ANSI string is MAX_DESC. The maximum length
-of a Unicode string is MAX_DESC_W.
+point. The maximum length of an ANSI string is 64. The maximum length of a
+Unicode string is 256.
 
 The following table shows the recommended description text.
 
@@ -100,15 +169,68 @@ The sequence number of the restore point.
 
 ### DisableSR (Undocumented)
 
+```cpp
+EXTERN_C DWORD WINAPI DisableSR(
+    _In_ LPCWSTR pszDrive);
+```
+
 ### DisableSRInternal (Undocumented)
+
+```cpp
+EXTERN_C DWORD WINAPI DisableSRInternal(
+    _In_ LPCWSTR pszDrive,
+    _In_ BOOL fForceSurrogate);
+```
+
+Disables monitoring on a particular drive.
+
+If the function succeeds, the return value is ERROR_SUCCESS. Otherwise, the
+method returns one of error codes defined in WinError.h.
+
+**pszDrive**
+
+The drive to be disabled. The drive string should be of the form "C:\". If this
+parameter is the system drive or an empty string (""), no drives are monitored.
 
 ### EnableSR (Undocumented)
 
+```cpp
+EXTERN_C DWORD WINAPI EnableSR(
+    _In_ LPCWSTR pszDrive);
+```
+
 ### EnableSREx (Undocumented)
+
+```cpp
+EXTERN_C DWORD WINAPI EnableSREx(
+    _In_ LPCWSTR pszDrive);
+```
+
+Note: EnableSREx seems to be the alias of EnableSR starting with Windows Vista.
 
 ### EnableSRInternal (Undocumented)
 
+```cpp
+EXTERN_C DWORD WINAPI EnableSRInternal(
+    _In_ LPCWSTR pszDrive,
+    _In_ BOOL fForceSurrogate);
+```
+
+Enables monitoring on a particular drive.
+
+If the function succeeds, the return value is ERROR_SUCCESS. Otherwise, the
+method returns one of error codes defined in WinError.h.
+
+**pszDrive**
+
+The drive to be enabled. The drive string should be of the form "C:\". If this
+parameter is the system drive or an empty string (""), all drives are monitored.
+
 ### SRNewSystemId (Undocumented)
+
+```cpp
+EXTERN_C DWORD WINAPI SRNewSystemId();
+```
 
 ### SRRemoveRestorePoint
 
@@ -177,9 +299,21 @@ A pointer to a [STATEMGRSTATUS] structure that receives the status information.
 
 ### SetSRStateAfterSetup (Undocumented)
 
+```cpp
+EXTERN_C DWORD WINAPI SetSRStateAfterSetup();
+```
+
 ### SysprepCleanup (Undocumented)
 
+```cpp
+EXTERN_C DWORD WINAPI SysprepCleanup();
+```
+
 ### SysprepGeneralize (Undocumented)
+
+```cpp
+EXTERN_C DWORD WINAPI SysprepGeneralize();
+```
 
 ## Registry
 
