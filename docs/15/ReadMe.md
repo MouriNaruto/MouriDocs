@@ -15,6 +15,18 @@ Work In Progress.
 
 #### DisableConfig (REG_DWORD)
 
+If this registry key value is 1, the option to configure System Restore through
+System Protection is disabled. If this value is 0 or deleted, users can change
+the System Restore settings through System Protection. 
+
+#### DisableSR (REG_DWORD)
+
+If this registry key value is 1, System Restore is turned off, and the System
+Restore Wizard cannot be accessed. The option to configure System Restore or
+create a restore point through System Protection is also disabled. If this
+value is 0 or deleted, users can perform System Restore and configure System
+Restore settings through System Protection.
+
 ### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore
 
 #### FirstRun (REG_DWORD)
