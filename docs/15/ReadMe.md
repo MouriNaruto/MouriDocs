@@ -8,40 +8,42 @@ Work In Progress.
 
 - https://learn.microsoft.com/en-us/windows/win32/sr/system-restore-portal
 
-## System Restore WMI Classes Internals
+## WMI Classes
 
-### SystemRestore class
+### SystemRestore
 
 > PowerShell -NoLogo -NoProfile -NonInteractive -InputFormat None -ExecutionPolicy Bypass Get-WmiObject -Class SystemRestore -Namespace "Root\Default"
 
-- CreationTime (String)
-- Description (String)
-- SequenceNumber (UInt32)
-- EventType (UInt32)
-- RestorePointType (UInt32)
-- UInt32 CreateRestorePoint(String Description, UInt32 RestorePointType, UInt32 EventType);
-- UInt32 Enable(String Drive, Boolean WaitTillEnabled);
-- UInt32 Disable(String Drive);
-- UInt32 Restore(UInt32 SequenceNumber);
-- UInt32 GetLastRestoreStatus();
+- String CreationTime
+- String Description
+- UInt32 SequenceNumber
+- UInt32 EventType
+- UInt32 RestorePointType
+- UInt32 CreateRestorePoint(String Description, UInt32 RestorePointType, UInt32 EventType)
+- UInt32 Enable(String Drive, Boolean WaitTillEnabled)
+- UInt32 Disable(String Drive)
+- UInt32 Restore(UInt32 SequenceNumber)
+- UInt32 GetLastRestoreStatus()
 
-### SystemRestoreConfig class
+### SystemRestoreConfig
 
 > PowerShell -NoLogo -NoProfile -NonInteractive -InputFormat None -ExecutionPolicy Bypass Get-WmiObject -Class SystemRestoreConfig -Namespace "Root\Default"
 
-- DiskPercent (UInt32)
+- UInt32 DiskPercent
   - Registry Key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\cfg
   - Registry Value: DiskPercent (REG_DWORD)
   - Default Value: 15
-- RPGlobalInterval (UInt32)
+- String MyKey
+  - Value: "SR" (Constant)
+- UInt32 RPGlobalInterval
   - Registry Key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore
   - Registry Value: RPGlobalInterval (REG_DWORD)
   - Default Value: 86400
-- RPLifeInterval (UInt32)
+- UInt32 RPLifeInterval
   - Registry Key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore
   - Registry Value: RPLifeInterval (REG_DWORD)
   - Default Value: (None)
-- RPSessionInterval (UInt32)
+- UInt32 RPSessionInterval
   - Registry Key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore
   - Registry Value: RPSessionInterval (REG_DWORD)
   - Default Value: (None)
