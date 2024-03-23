@@ -136,14 +136,21 @@ EXTERN_C BOOL WINAPI SRSetRestorePointA(
     _Out_ PSTATEMGRSTATUS pSMgrStatus);
 ```
 
-### SRSetRestorePointInternal (Undocumented)
-
 ### SRSetRestorePointW
 
 ```cpp
 EXTERN_C BOOL WINAPI SRSetRestorePointW(
     _In_ PRESTOREPOINTINFOW pRestorePtSpec,
     _Out_ PSTATEMGRSTATUS pSMgrStatus);
+```
+
+### SRSetRestorePointInternal (Undocumented)
+
+```cpp
+EXTERN_C BOOL WINAPI SRSetRestorePointInternal(
+    _In_ PRESTOREPOINTINFOW pRestorePtSpec,
+    _Out_ PSTATEMGRSTATUS pSMgrStatus,
+    _In_ BOOL fForceSurrogate);
 ```
 
 Specifies the beginning and the ending of a set of changes so that System 
@@ -155,6 +162,9 @@ of pSMgrStatus receives the sequence number of the restore point.
 If the function fails, the return value is FALSE. The nStatus member of
 pSMgrStatus receives error information.
 
+Read https://learn.microsoft.com/en-us/windows/win32/api/srrestoreptapi/nf-srrestoreptapi-srsetrestorepointw#remarks
+for more detailed usage.
+
 **pRestorePtSpec**
 
 A pointer to a [RESTOREPOINTINFO] structure that specifies the restore point.
@@ -163,8 +173,7 @@ A pointer to a [RESTOREPOINTINFO] structure that specifies the restore point.
 
 A pointer to a [STATEMGRSTATUS] structure that receives the status information.
 
-Read https://learn.microsoft.com/en-us/windows/win32/api/srrestoreptapi/nf-srrestoreptapi-srsetrestorepointw#remarks
-for more detailed usage.
+**fForceSurrogate (Undocumented)**
 
 ### SetSRStateAfterSetup (Undocumented)
 
@@ -200,21 +209,21 @@ The last sequence number of the restore point.
 
 #### LastMainenanceTaskRunTimeStamp (REG_QWORD)
 
-#### LastRestoreId
+#### LastRestoreId (Unknown)
 
-#### RestoreStatusDescription
+#### RestoreStatusDescription (Unknown)
 
-#### RestoreStatusDetails
+#### RestoreStatusDetails (Unknown)
 
-#### RestoreStatusRestore
+#### RestoreStatusRestore (Unknown)
 
-#### RestoreStatusResult
+#### RestoreStatusResult (Unknown)
 
-#### RestoreStatusSource
+#### RestoreStatusSource (Unknown)
 
-#### RestoreStatusTimeStamp
+#### RestoreStatusTimeStamp (Unknown)
 
-#### RestoreStatusUndo
+#### RestoreStatusUndo (Unknown)
 
 #### RestoreStatusResult (REG_DWORD)
 
