@@ -7,10 +7,37 @@ Work In Progress.
 ## References
 
 - https://learn.microsoft.com/en-us/windows/win32/sr/system-restore-portal
+- https://forums.mydigitallife.net/threads/dude-this-system-restore.48269/#post-807722
 
 ## Registry
 
+### HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore
+
+#### DisableConfig (REG_DWORD)
+
 ### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore
+
+#### FirstRun (REG_DWORD)
+
+#### LastIndex (REG_DWORD)
+
+#### LastMainenanceTaskRunTimeStamp (REG_QWORD)
+
+#### LastRestoreId
+
+#### RestoreStatusDescription
+
+#### RestoreStatusDetails
+
+#### RestoreStatusRestore
+
+#### RestoreStatusResult
+
+#### RestoreStatusSource
+
+#### RestoreStatusTimeStamp
+
+#### RestoreStatusUndo
 
 #### RestoreStatusResult (REG_DWORD)
 
@@ -46,6 +73,49 @@ turned off.
 
 Windows Vista: Receives zero if System Restore is disabled.
 
+#### ScopeSnapshots (REG_DWORD)
+
+This option is available starting with Windows 8.
+
+System Restore running on Windows 8 monitors files in the boot volume that 
+are relevant for system restore only. Snapshots of the boot volume created 
+by System Restore running on Windows 8 may be deleted if the snapshot is 
+subsequently exposed by an earlier version of Windows. Note that although
+there is only one system volume, there is one boot volume for each operating
+system in a multi-boot system.
+
+If this registry key value is 0, System Restore creates snapshots of the boot
+volume in the same way as in earlier versions of Windows. If this value is
+deleted, System Restore running on Windows 8 resumes creating snapshots that
+monitor files in the boot volume that are relevant for system restore only.
+
+#### SRInitDone (REG_DWORD)
+
+#### SystemRestorePointCreationFrequency (REG_DWORD)
+
+This option is available starting with Windows 8.
+
+The value of this registry key can change the frequency of restore point
+creation. The value of this registry key can change the frequency of restore
+point creation.
+
+If the application calls SRSetRestorePoint to create a restore point, and the
+registry key value is 0, system restore does not skip creating the new restore
+point.
+
+If the application calls SRSetRestorePoint to create a restore point, and the
+registry key value is the integer N, system restore skips creating a new restore
+point if any restore points were created in the previous N minutes.
+
+Applications should create this key to use it because it will not preexist in
+the system. The following will apply by default if the key does not exist. If 
+an application calls the SRSetRestorePoint function to create a restore point,
+Windows skips creating this new restore point if any restore points have been
+created in the last 24 hours. System Restore sets the IISequenceNumber member
+of the STATEMGRSTATUS structure to the sequence number for the restore point
+created previously in the day and sets the value of the nStatus member to
+ERROR_SUCCESS. The SRSetRestorePoint function returns TRUE.
+
 ### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\cfg
 
 #### DiskPercent (REG_DWORD)
@@ -58,6 +128,54 @@ Windows Vista: Receives a value from the Volume Shadow Copy Service (VSS).
 This is the maximum amount of disk space on each drive that can be used by
 System Restore. The default value is 15 percent of the total drive space or
 30 percent of the available free space, whichever is smaller.
+
+### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\Setup
+
+### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\Setup\Generalize
+
+#### DisableSR (REG_DWORD)
+
+### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\Setup\PreviousOSUpgrade
+
+### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\Setup\Unattend
+
+#### DisableSR (REG_DWORD)
+
+### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\Setup_Last
+
+#### AoACAPIError (REG_DWORD)
+
+#### AoACAPIResult (REG_DWORD)
+
+#### Generalize_DisableSR (REG_DWORD)
+
+#### Unattend_DisableSR (REG_DWORD)
+
+#### Upgrade_DisableSR (REG_DWORD)
+
+#### Upgrade_\{GUID\} (REG_MULTI_SZ)
+
+Here is the example of the name:
+
+> Upgrade_{09F7EDC5-294E-4180-AF6A-FB0E6A0E9513}
+
+Here is the example of the value:
+
+```
+\\?\Volume{e4ceb3cd-d963-421f-b738-34e52a27670e}\:Windows (C%3A)
+```
+
+Here is the format may for the each line I guess.
+
+> \{VolumeName\}:\{DriveLabel\} (\{DriveLetter\}%3A)
+
+### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\Volatile
+
+#### NestingLevel (REG_DWORD)
+
+#### StartNesting (REG_QWORD)
+
+### HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\VSS\Diag\SystemRestore
 
 ## WMI Classes
 
