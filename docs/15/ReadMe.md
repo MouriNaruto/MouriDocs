@@ -517,13 +517,18 @@ Here is the format may for the each line I guess.
 - String Description
 - UInt32 SequenceNumber
 - UInt32 EventType
+  - See [RESTOREPOINTINFO] for more information.
 - UInt32 RestorePointType
+  - See [RESTOREPOINTINFO] for more information.
 - UInt32 CreateRestorePoint(String Description, UInt32 RestorePointType, UInt32 EventType)
-- UInt32 Enable(String Drive, Boolean WaitTillEnabled)
+  - See [SRSetRestorePoint] for more information.
 - UInt32 Disable(String Drive)
-- UInt32 Restore(UInt32 SequenceNumber)
+  - See [DisableSR (Undocumented)] for more information.
+- UInt32 Enable(String Drive, Boolean WaitTillEnabled)
+  - See [EnableSR (Undocumented)] for more information.
 - UInt32 GetLastRestoreStatus()
   - See [RestoreStatusResult (REG_DWORD)] for more information.
+- UInt32 Restore(UInt32 SequenceNumber)
 
 ### SystemRestoreConfig
 
@@ -540,6 +545,8 @@ Here is the format may for the each line I guess.
 - UInt32 RPSessionInterval
   - See [RPSessionInterval (REG_DWORD)] for more information.
 
+[DisableSR (Undocumented)]: #DisableSR-Undocumented
+[EnableSR (Undocumented)]: #EnableSR-Undocumented
 [SRSetRestorePoint]: #SRSetRestorePointW
 [RESTOREPOINTINFO]: #RESTOREPOINTINFOW
 [STATEMGRSTATUS]: #STATEMGRSTATUS
