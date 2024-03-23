@@ -7,7 +7,6 @@ Work In Progress.
 ## References
 
 - https://learn.microsoft.com/en-us/windows/win32/sr/system-restore-portal
-- https://forums.mydigitallife.net/threads/dude-this-system-restore.48269/#post-807722
 
 ## Registry
 
@@ -32,6 +31,8 @@ Restore settings through System Protection.
 #### FirstRun (REG_DWORD)
 
 #### LastIndex (REG_DWORD)
+
+The last sequence number of the restore point.
 
 #### LastMainenanceTaskRunTimeStamp (REG_QWORD)
 
@@ -147,11 +148,15 @@ System Restore. The default value is 15 percent of the total drive space or
 
 #### DisableSR (REG_DWORD)
 
+See [DisableSR (REG_DWORD)] for more information.
+
 ### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\Setup\PreviousOSUpgrade
 
 ### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\Setup\Unattend
 
 #### DisableSR (REG_DWORD)
+
+See [DisableSR (REG_DWORD)] for more information.
 
 ### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\Setup_Last
 
@@ -161,9 +166,15 @@ System Restore. The default value is 15 percent of the total drive space or
 
 #### Generalize_DisableSR (REG_DWORD)
 
+See [DisableSR (REG_DWORD)] for more information.
+
 #### Unattend_DisableSR (REG_DWORD)
 
+See [DisableSR (REG_DWORD)] for more information.
+
 #### Upgrade_DisableSR (REG_DWORD)
+
+See [DisableSR (REG_DWORD)] for more information.
 
 #### Upgrade_\{GUID\} (REG_MULTI_SZ)
 
@@ -205,19 +216,26 @@ Here is the format may for the each line I guess.
 - UInt32 Disable(String Drive)
 - UInt32 Restore(UInt32 SequenceNumber)
 - UInt32 GetLastRestoreStatus()
-  - See [RestoreStatusResult (REG_DWORD)](#RestoreStatusResult-REG_DWORD).
+  - See [RestoreStatusResult (REG_DWORD)] for more information.
 
 ### SystemRestoreConfig
 
 > PowerShell -NoLogo -NoProfile -NonInteractive -InputFormat None -ExecutionPolicy Bypass Get-WmiObject -Class SystemRestoreConfig -Namespace "Root\Default"
 
 - UInt32 DiskPercent
-  - See [DiskPercent (REG_DWORD)](#DiskPercent-REG_DWORD).
+  - See [DiskPercent (REG_DWORD)] for more information.
 - String MyKey
   - Value: "SR" (Constant)
 - UInt32 RPGlobalInterval
-  - See [RPGlobalInterval (REG_DWORD)](#RPGlobalInterval-REG_DWORD).
+  - See [RPGlobalInterval (REG_DWORD)] for more information.
 - UInt32 RPLifeInterval
-  - See [RPLifeInterval (REG_DWORD)](#RPLifeInterval-REG_DWORD).
+  - See [RPLifeInterval (REG_DWORD)] for more information.
 - UInt32 RPSessionInterval
-  - See [RPSessionInterval (REG_DWORD)](#RPSessionInterval-REG_DWORD).
+  - See [RPSessionInterval (REG_DWORD)] for more information.
+
+[DisableSR (REG_DWORD)]: #DisableSR-REG_DWORD
+[DiskPercent (REG_DWORD)]: #DiskPercent-REG_DWORD
+[RestoreStatusResult (REG_DWORD)]: #RestoreStatusResult-REG_DWORD
+[RPGlobalInterval (REG_DWORD)]: #RPGlobalInterval-REG_DWORD
+[RPLifeInterval (REG_DWORD)]: #RPLifeInterval-REG_DWORD
+[RPSessionInterval (REG_DWORD)]: #RPSessionInterval-REG_DWORD
