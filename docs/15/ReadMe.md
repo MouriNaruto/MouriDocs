@@ -12,6 +12,16 @@ Work In Progress.
 
 ### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore
 
+#### RestoreStatusResult (REG_DWORD)
+
+The status of the last system restore.
+
+| Status | Description                       |
+| ------ | --------------------------------- |
+|      0 | The last restore failed.          |
+|      1 | The last restore was successful.  |
+|      2 | The last restore was interrupted. |
+
 #### RPGlobalInterval (REG_DWORD)
 
 The absolute time interval at which scheduled system checkpoints are created,
@@ -65,6 +75,7 @@ System Restore. The default value is 15 percent of the total drive space or
 - UInt32 Disable(String Drive)
 - UInt32 Restore(UInt32 SequenceNumber)
 - UInt32 GetLastRestoreStatus()
+  - See [RestoreStatusResult (REG_DWORD)](#RestoreStatusResult-REG_DWORD).
 
 ### SystemRestoreConfig
 
