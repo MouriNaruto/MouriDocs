@@ -8,6 +8,47 @@ Work In Progress.
 
 - https://learn.microsoft.com/en-us/windows/win32/sr/system-restore-portal
 
+## Registry
+
+### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore
+
+#### RPGlobalInterval (REG_DWORD)
+
+The absolute time interval at which scheduled system checkpoints are created,
+in seconds. The default value is 86,400 (24 hours).
+
+Windows Vista: Receives a value from the task scheduler for System Restore.
+Zero if the task is disabled.
+
+#### RPLifeInterval (REG_DWORD)
+
+The time interval for which restore points are preserved, in seconds. When a
+restore point becomes older than this specified interval, it is deleted. The
+default age limit is 90 days.
+
+Windows Vista: Receives a value of UINTMAX.
+
+#### RPSessionInterval (REG_DWORD)
+
+The time interval at which scheduled system checkpoints are created during the
+session, in seconds. The default value is zero, indicating that the feature is
+turned off.
+
+Windows Vista: Receives zero if System Restore is disabled.
+
+### HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\cfg
+
+#### DiskPercent (REG_DWORD)
+
+The maximum amount of disk space on each drive that can be used by System
+Restore. This value is specified as a percentage of the total drive space.
+The default value is 12 percent.
+
+Windows Vista: Receives a value from the Volume Shadow Copy Service (VSS).
+This is the maximum amount of disk space on each drive that can be used by
+System Restore. The default value is 15 percent of the total drive space or
+30 percent of the available free space, whichever is smaller.
+
 ## WMI Classes
 
 ### SystemRestore
