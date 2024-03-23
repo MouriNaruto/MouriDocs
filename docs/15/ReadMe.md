@@ -2,11 +2,14 @@
 
 [简体中文](ReadMe.zh-CN.md)
 
-Work In Progress.
-
 ## References
 
 - https://learn.microsoft.com/en-us/windows/win32/sr/system-restore-portal
+- C:\Windows\PolicyDefinitions\en-US\SystemRestore.adml
+- C:\Windows\PolicyDefinitions\SystemRestore.admx
+- C:\Windows\System32\srclient.dll
+- C:\Windows\System32\srwmi.dll
+- C:\Windows\System32\wbem\sr.mof
 
 ## System Restore C API (SrClient.dll)
 
