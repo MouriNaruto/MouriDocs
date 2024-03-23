@@ -71,20 +71,12 @@ System Restore. The default value is 15 percent of the total drive space or
 > PowerShell -NoLogo -NoProfile -NonInteractive -InputFormat None -ExecutionPolicy Bypass Get-WmiObject -Class SystemRestoreConfig -Namespace "Root\Default"
 
 - UInt32 DiskPercent
-  - Registry Key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore\cfg
-  - Registry Value: DiskPercent (REG_DWORD)
-  - Default Value: 15
+  - See [DiskPercent (REG_DWORD)](#DiskPercent-REG_DWORD).
 - String MyKey
   - Value: "SR" (Constant)
 - UInt32 RPGlobalInterval
-  - Registry Key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore
-  - Registry Value: RPGlobalInterval (REG_DWORD)
-  - Default Value: 86400
+  - See [RPGlobalInterval (REG_DWORD)](#RPGlobalInterval-REG_DWORD).
 - UInt32 RPLifeInterval
-  - Registry Key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore
-  - Registry Value: RPLifeInterval (REG_DWORD)
-  - Default Value: (None)
+  - See [RPLifeInterval (REG_DWORD)](#RPLifeInterval-REG_DWORD).
 - UInt32 RPSessionInterval
-  - Registry Key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore
-  - Registry Value: RPSessionInterval (REG_DWORD)
-  - Default Value: (None)
+  - See [RPSessionInterval (REG_DWORD)](#RPSessionInterval-REG_DWORD).
