@@ -8,6 +8,170 @@ Work In Progress.
 
 - https://learn.microsoft.com/en-us/windows/win32/sr/system-restore-portal
 
+## System Restore C API (SrClient.dll)
+
+### RESTOREPOINTINFOA
+
+```cpp
+typedef struct _RESTOREPTINFOA
+{
+    DWORD dwEventType;
+    DWORD dwRestorePtType;
+    INT64 llSequenceNumber;
+    CHAR szDescription[MAX_DESC];
+} RESTOREPOINTINFOA, *PRESTOREPOINTINFOA;
+```
+
+### RESTOREPOINTINFOW
+
+```cpp
+typedef struct _RESTOREPTINFOW
+{
+    DWORD dwEventType;
+    DWORD dwRestorePtType;
+    INT64 llSequenceNumber;
+    WCHAR szDescription[MAX_DESC_W];
+} RESTOREPOINTINFOW, *PRESTOREPOINTINFOW;
+```
+
+Contains information used by the [SRSetRestorePoint] function.
+
+**dwEventType**
+
+**dwRestorePtType**
+
+**llSequenceNumber**
+
+The sequence number of the restore point. To end a system change, set this to
+the sequence number returned by the previous call to [SRSetRestorePoint].
+
+**szDescription**
+
+The description to be displayed so the user can easily identify a restore 
+point. The maximum length of an ANSI string is MAX_DESC. The maximum length
+of a Unicode string is MAX_DESC_W.
+
+The following table shows the recommended description text.
+
+| System modification        | Restore point type    | Description          |
+| -------------------------- | --------------------- | -------------------- |
+| Application installation   | APPLICATION_INSTALL   | Installed AppName    |
+| Application modification   | MODIFY_SETTINGS       | Configured AppName   |
+| Application removal        | APPLICATION_UNINSTALL | Removed AppName      |
+| Device driver installation | DEVICE_DRIVER_INSTALL | Installed DriverName |
+
+### STATEMGRSTATUS
+
+```cpp
+typedef struct _SMGRSTATUS 
+{
+    DWORD nStatus;
+    INT64 llSequenceNumber;
+} STATEMGRSTATUS, *PSTATEMGRSTATUS;
+```
+
+Contains status information used by the [SRSetRestorePoint] function.
+
+**nStatus**
+
+The status code. The following table lists the status codes returned. Note that
+all the status codes indicate failure except ERROR_SUCCESS.
+
+- ERROR_SUCCESS
+  - If the call succeeded (return value will be TRUE).
+- ERROR_TIMEOUT
+  - If the call timed out due to a wait on a mutex for setting restore points.
+- ERROR_INVALID_DATA
+  - If the cancel restore point is called with an invalid sequence number.
+- ERROR_INTERNAL_ERROR
+  - If an internal error occurred.
+- ERROR_BAD_ENVIRONMENT
+  - If the function was called in safe mode.
+- ERROR_SERVICE_DISABLED
+  - If System Restore is disabled.
+- ERROR_DISK_FULL
+  - System Restore is in standby mode because disk space is low.
+- ERROR_ALREADY_EXISTS
+  - If this is a nested restore point.
+
+**llSequenceNumber**
+
+The sequence number of the restore point.
+
+### DisableSR (Undocumented)
+
+### DisableSRInternal (Undocumented)
+
+### EnableSR (Undocumented)
+
+### EnableSREx (Undocumented)
+
+### EnableSRInternal (Undocumented)
+
+### SRNewSystemId (Undocumented)
+
+### SRRemoveRestorePoint
+
+```cpp
+EXTERN_C DWORD WINAPI SRRemoveRestorePoint(
+    _In_ DWORD dwRPNum);
+```
+
+Deletes the specified restore point.
+
+If the function succeeds, the return value is ERROR_SUCCESS.
+
+If the specified restore point does not exist or cannot be removed, the return
+value is ERROR_INVALID_DATA. All other error codes indicate an internal error.
+
+**dwRPNum**
+
+The sequence number of the restore point.
+
+### SRSetRestorePointA
+
+```cpp
+EXTERN_C BOOL WINAPI SRSetRestorePointA(
+    _In_ PRESTOREPOINTINFOA pRestorePtSpec,
+    _Out_ PSTATEMGRSTATUS pSMgrStatus);
+```
+
+### SRSetRestorePointInternal (Undocumented)
+
+### SRSetRestorePointW
+
+```cpp
+EXTERN_C BOOL WINAPI SRSetRestorePointW(
+    _In_ PRESTOREPOINTINFOW pRestorePtSpec,
+    _Out_ PSTATEMGRSTATUS pSMgrStatus);
+```
+
+Specifies the beginning and the ending of a set of changes so that System 
+Restore can create a restore point.
+
+If the function succeeds, the return value is TRUE. The llSequenceNumber member
+of pSMgrStatus receives the sequence number of the restore point.
+
+If the function fails, the return value is FALSE. The nStatus member of
+pSMgrStatus receives error information.
+
+**pRestorePtSpec**
+
+A pointer to a [RESTOREPOINTINFO] structure that specifies the restore point.
+
+**pSMgrStatus**
+
+A pointer to a [STATEMGRSTATUS] structure that receives the status information.
+
+Read https://learn.microsoft.com/en-us/windows/win32/api/srrestoreptapi/nf-srrestoreptapi-srsetrestorepointw#remarks
+for more detailed usage.
+
+### SetSRStateAfterSetup (Undocumented)
+
+### SysprepCleanup (Undocumented)
+
+### SysprepGeneralize (Undocumented)
+
 ## Registry
 
 ### HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore
@@ -232,6 +396,10 @@ Here is the format may for the each line I guess.
   - See [RPLifeInterval (REG_DWORD)] for more information.
 - UInt32 RPSessionInterval
   - See [RPSessionInterval (REG_DWORD)] for more information.
+
+[SRSetRestorePoint]: #SRSetRestorePointW
+[RESTOREPOINTINFO]: #RESTOREPOINTINFOW
+[STATEMGRSTATUS]: #STATEMGRSTATUS
 
 [DisableSR (REG_DWORD)]: #DisableSR-REG_DWORD
 [DiskPercent (REG_DWORD)]: #DiskPercent-REG_DWORD
