@@ -5,6 +5,12 @@
 I have created these articles.
 
 - [MD14: The icon design specification for Nana series open-source projects](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/14)
+- [MD15: Windows System Restore Internals](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/15)
+- [MD16: Talk about the modernization of desktop Windows applications](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/16)
+
+I have revised these articles.
+
+- [MD4: Notes for using Host Compute System API](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/4)
 
 ## February 2024
 
