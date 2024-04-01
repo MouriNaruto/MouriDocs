@@ -174,14 +174,14 @@ The sequence number of the restore point.
 
 ```cpp
 EXTERN_C DWORD WINAPI DisableSR(
-    _In_ LPCWSTR pszDrive);
+    _In_ LPCWSTR pwszVolume);
 ```
 
 ### DisableSRInternal (Undocumented)
 
 ```cpp
 EXTERN_C DWORD WINAPI DisableSRInternal(
-    _In_ LPCWSTR pszDrive,
+    _In_ LPCWSTR pwszVolume,
     _In_ BOOL fForceSurrogate);
 ```
 
@@ -190,7 +190,7 @@ Disables monitoring on a particular drive.
 If the function succeeds, the return value is ERROR_SUCCESS. Otherwise, the
 method returns one of error codes defined in WinError.h.
 
-**pszDrive**
+**pwszVolume**
 
 The drive to be disabled. The drive string should be of the form "C:\". If this
 parameter is the system drive or an empty string (""), no drives are monitored.
@@ -199,14 +199,15 @@ parameter is the system drive or an empty string (""), no drives are monitored.
 
 ```cpp
 EXTERN_C DWORD WINAPI EnableSR(
-    _In_ LPCWSTR pszDrive);
+    _In_ LPCWSTR pwszVolume);
 ```
 
 ### EnableSREx (Undocumented)
 
 ```cpp
 EXTERN_C DWORD WINAPI EnableSREx(
-    _In_ LPCWSTR pszDrive);
+    _In_ LPCWSTR pwszVolume,
+    _In_ BOOL fWait);
 ```
 
 Note: EnableSREx seems to be the alias of EnableSR starting with Windows Vista.
@@ -215,7 +216,7 @@ Note: EnableSREx seems to be the alias of EnableSR starting with Windows Vista.
 
 ```cpp
 EXTERN_C DWORD WINAPI EnableSRInternal(
-    _In_ LPCWSTR pszDrive,
+    _In_ LPCWSTR pwszVolume,
     _In_ BOOL fForceSurrogate);
 ```
 
@@ -224,7 +225,7 @@ Enables monitoring on a particular drive.
 If the function succeeds, the return value is ERROR_SUCCESS. Otherwise, the
 method returns one of error codes defined in WinError.h.
 
-**pszDrive**
+**pwszVolume**
 
 The drive to be enabled. The drive string should be of the form "C:\". If this
 parameter is the system drive or an empty string (""), all drives are monitored.
