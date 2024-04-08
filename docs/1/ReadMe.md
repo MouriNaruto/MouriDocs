@@ -96,7 +96,8 @@ You also need to compile `dxgkrnl` kernel module separately is you still want
 to use your current kernel source code. It's relatively easy for making 
 `dxgkrnl` kernel module out of the WSL2's Linux kernel source code tree.
 
-I will provide the out of tree version of `dxgkrnl` in recent days.
+You can get the out of tree version of `dxgkrnl` from
+https://github.com/SherryPlatform/MinLin.Kernel.DirectX.
 
 You also need to compile 23.2.1 or later version of mesa.
 
