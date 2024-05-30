@@ -20,7 +20,7 @@
 | Not Existed             | NTDDI_WS03SP4           |                    |                |
 | 6.0.6000                | NTDDI_WIN6              | NTDDI_VISTA        | NTDDI_LONGHORN |
 | 6.0.6001                | NTDDI_WIN6SP1           | NTDDI_VISTASP1     | NTDDI_WS08     |
-| 6.0.6002                | NTDDI_WIN6SP2           | NTDDI_VISTASP2     | NTDDI_WS08SP2  |
+| 6.0.6002 / 6.0.6003     | NTDDI_WIN6SP2           | NTDDI_VISTASP2     | NTDDI_WS08SP2  |
 | Not Existed             | NTDDI_WIN6SP3           | NTDDI_VISTASP3     | NTDDI_WS08SP3  |
 | Not Existed             | NTDDI_WIN6SP4           | NTDDI_VISTASP4     | NTDDI_WS08SP4  |
 | 6.1.760x                | NTDDI_WIN7              |                    |                |
