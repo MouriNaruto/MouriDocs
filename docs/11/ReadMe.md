@@ -1,5 +1,11 @@
 ﻿# MD11: Building UEFI Applications for Hyper-V Generation 2 Virtual Machines
 
+## Notes
+
+- Hyper-V EOM should be handled in your interrupt handler if you want to get the
+  future synthetic timer expired message.
+- Synthetic interrupt source 0 cannot be used for synthetic timer.
+
 ## Limitations
 
 - Mouse support is unavailable unless you write a VMBus-based driver because
