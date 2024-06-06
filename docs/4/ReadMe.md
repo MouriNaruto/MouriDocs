@@ -46,8 +46,9 @@
   be fired on at least Windows 10, version 1809, but in Windows 11, version
   22H2 cannot. It's confirmed as a Host Compute System API bug via Kris Harper
   and will fix it in the future.
-- TPM support is not available because current stage of Host Compute System API
-  seems doesn't implement them. It's confirmed via Kris Harper.
+- The virtual machine created by Host Compute System API only supports Trusted
+  Platform Module (TPM) 2.0, and you need Windows Server 2022 or later Host OS.
+  (Tested under Windows 11 Version 24H2.)
 - Host Compute Network API in Windows 11, version 22H2 will return 
   ERROR_ACCESS_DENIED even add the current user to the Hyper-V Administrators 
   user group. Windows 10 don't have that issue. It's confirmed as a Host 
