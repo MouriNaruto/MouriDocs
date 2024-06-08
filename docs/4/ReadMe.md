@@ -47,8 +47,10 @@
   22H2 cannot. It's confirmed as a Host Compute System API bug via Kris Harper
   and will fix it in the future.
 - The virtual machine created by Host Compute System API only supports Trusted
-  Platform Module (TPM) 2.0, and you need Windows Server 2022 or later Host OS.
-  (Tested under Windows 11 Version 24H2.)
+  Platform Module (TPM) 2.0, and you need Windows 11 Version 24H2 or later Host
+  OS. Although Windows Server 2022 had introduced the related Host Compute
+  System API interfaces, but it seems doesn't be implemented and was confirmed
+  via Kris Harper.
 - Host Compute Network API in Windows 11, version 22H2 will return 
   ERROR_ACCESS_DENIED even add the current user to the Hyper-V Administrators 
   user group. Windows 10 don't have that issue. It's confirmed as a Host 
