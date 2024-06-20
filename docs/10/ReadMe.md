@@ -1,5 +1,13 @@
 ﻿# MD10: Archived list for things I currently working on
 
+## May 2024
+
+#### NanaZip 3.0
+
+Status: Finished
+
+https://github.com/M2Team/NanaZip/releases/tag/3.0.1000.0
+
 ## January 2024
 
 #### Implement the new Windows backend for LVGL.
