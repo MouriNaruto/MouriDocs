@@ -25,3 +25,4 @@ Fire a GitHub issue if you want feedback or suggest something. Please read
 - [MD16: Talk about the modernization of desktop Windows applications](docs/16)
 - [MD17: Windows Kits Download Link Summary](docs/17)
 - [MD18: Windows version reference for Windows SDK's NTDDI version constants](docs/18)
+- [MD19: Notes for building a minimal Windows guest environment via Server Core](docs/19)
