@@ -1,34 +1,5 @@
 ﻿# MD19: Notes for building a minimal Windows guest environment via Server Core
 
-This document uses Hyper-V Server 2019 as the example because it's free and
-actually a Server Core SKU with Hyper-V role enabled.
-
-## Remove unnecessary roles/features with payloads for building a minimal guest
-
-Here is the commands list to remove all roles/features payload for Hyper-V
-Server 2019 image.
-
-```
-DISM /English /Image:F:\ /Disable-Feature /FeatureName:Windows-Defender /Remove
-DISM /English /Image:F:\ /Disable-Feature /FeatureName:Microsoft-Hyper-V-Configuration /Remove
-DISM /English /Image:F:\ /Disable-Feature /FeatureName:Microsoft-Hyper-V-Management-PowerShell /Remove
-DISM /English /Image:F:\ /Disable-Feature /FeatureName:Microsoft-Hyper-V-Offline /Remove
-DISM /English /Image:F:\ /Disable-Feature /FeatureName:Microsoft-Hyper-V-Online /Remove
-DISM /English /Image:F:\ /Disable-Feature /FeatureName:Microsoft-Hyper-V /Remove
-```
-
-## Integrate Server Core App Compatibility Feature on Demand (FOD) 
-
-```
-DISM /English /Image:F:\ /Add-Capability /CapabilityName:ServerCore.AppCompatibility~~~~0.0.1.0 /Source:H:\ /LimitAccess
-```
-
-## Integrate .NET Framework 3.5 and Internet Explorer 11
-
-```
-DISM /English /Image:F:\ /Add-Package /PackagePath:G:\sources\sxs
-```
-
 ## Hotfixes
 
 Reference: https://github.com/adavak/Win_ISO_Patching_Scripts
