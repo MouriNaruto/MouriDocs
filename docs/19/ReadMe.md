@@ -115,3 +115,21 @@ DISM /English /Image:Mount /Disable-Feature /FeatureName:WindowsServerBackup /Re
 DISM /English /Image:Mount /Disable-Feature /FeatureName:WindowsStorageManagementService /Remove
 DISM /English /Image:Mount /Disable-Feature /FeatureName:WMISnmpProvider /Remove
 ```
+
+### Integrate Servicing Stack Update (SSU)
+
+```
+DISM /English /Image:Mount /Add-Package /PackagePath:cu\SSU-17763.6040-x64.cab
+```
+
+### Integrate the latest Cumulative Update (Stage 1)
+
+```
+DISM /English /Image:Mount /Add-Package /PackagePath:cu\Windows10.0-KB5040430-x64.cab
+```
+
+### Cleanup the Windows Component Store
+
+```
+DISM /English /Image:Mount /Cleanup-Image /StartComponentCleanup /ResetBase
+```
