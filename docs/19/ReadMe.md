@@ -139,3 +139,23 @@ DISM /English /Image:Mount /Add-Package /PackagePath:ie
 ```
 DISM /English /Image:Mount /Add-Package /PackagePath:netfx48
 ```
+
+### Integrate the latest Cumulative Update (Stage 2)
+
+```
+DISM /English /Image:Mount /Add-Package /PackagePath:cu\Windows10.0-KB5040430-x64.cab
+```
+
+### Unmount the image
+
+```
+DISM /English /Unmount-Image /MountDir:Mount /Commit
+```
+
+### Shrink the image
+
+```
+DISM /English /Export-Image /SourceImageFile:install.wim /SourceIndex:1 /DestinationImageFile:install.new.wim
+del install.wim
+rename install.new.wim install.wim
+```
