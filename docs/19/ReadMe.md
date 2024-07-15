@@ -133,3 +133,38 @@ DISM /English /Image:Mount /Add-Package /PackagePath:cu\Windows10.0-KB5040430-x6
 ```
 DISM /English /Image:Mount /Cleanup-Image /StartComponentCleanup /ResetBase
 ```
+
+### Remove unnecessary roles/features with payloads for building a minimal guest
+
+```
+DISM /English /Image:Mount /Disable-Feature /FeatureName:Windows-Defender /Remove
+DISM /English /Image:Mount /Disable-Feature /FeatureName:Microsoft-Hyper-V-Configuration /Remove
+DISM /English /Image:Mount /Disable-Feature /FeatureName:Microsoft-Hyper-V-Management-PowerShell /Remove
+DISM /English /Image:Mount /Disable-Feature /FeatureName:Microsoft-Hyper-V-Offline /Remove
+DISM /English /Image:Mount /Disable-Feature /FeatureName:Microsoft-Hyper-V-Online /Remove
+DISM /English /Image:Mount /Disable-Feature /FeatureName:Microsoft-Hyper-V /Remove
+```
+
+### Integrate Server Core App Compatibility Feature on Demand (FOD) 
+
+```
+DISM /English /Image:Mount /Add-Capability /CapabilityName:ServerCore.AppCompatibility~~~~0.0.1.0 /Source:E:\ /LimitAccess
+```
+
+### Integrate .NET Framework 3.5
+
+```
+DISM /English /Image:Mount /Add-Package /PackagePath:netfx35
+```
+
+### Integrate Internet Explorer 11
+
+```
+DISM /English /Image:Mount /Add-Package /PackagePath:ie
+```
+
+### Integrate .NET Framework 4.8
+
+```
+DISM /English /Image:Mount /Add-Package /PackagePath:netfx48
+```
