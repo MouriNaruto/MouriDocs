@@ -88,3 +88,22 @@ DISM /English /Image:F:\ /Add-Capability /CapabilityName:ServerCore.AppCompatibi
 ```
 DISM /English /Image:F:\ /Add-Package /PackagePath:G:\sources\sxs
 ```
+
+## Hotfixes
+
+Reference: https://github.com/adavak/Win_ISO_Patching_Scripts
+
+Here is the .NET Framework 4.8 for Windows Server 2019.
+
+- Windows10.0-KB4486153-x64.cab
+- Windows10.0-KB4486155-x64.cab
+
+Here is the July 2024 Cumulative Update for Windows Server 2019.
+
+- SSU-17763.6040-x64.cab
+- Windows10.0-KB5040430-x64.cab
+
+Here is the July 2024 Cumulative Update for .NET Framework 4.8 for Windows
+Server 2019.
+
+- Windows10.0-KB5039886-x64-NDP48.cab
