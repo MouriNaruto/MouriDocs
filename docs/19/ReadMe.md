@@ -146,6 +146,10 @@ DISM /English /Image:Mount /Add-Package /PackagePath:netfx48
 DISM /English /Image:Mount /Add-Package /PackagePath:cu\Windows10.0-KB5040430-x64.cab
 ```
 
+### Remove unnecessary folders
+
+- \ProgramData\Microsoft\Windows Defender
+
 ### Unmount the image
 
 ```
