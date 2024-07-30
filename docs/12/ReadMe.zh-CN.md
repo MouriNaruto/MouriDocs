@@ -180,8 +180,10 @@
   宿主机的虚拟机运行 x86 (64 位) 操作系统和在 ARM (64 位) 宿主机的虚拟机运行
   ARM (64 位) 操作系统
   - 参考资料: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
-- 自 8 / Server 2012 起支持在 2 代虚拟机中运行
+- 自 8 / Server 2012 起支持在 2 代虚拟机中运行，Windows 8 Build 8032 应该是最早
+  泄露的可在 Hyper-V 第 2 代虚拟机中启动的 Windows 版本。
   - 参考资料: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
+  - 参考资料: https://x.com/MouriNaruto/status/1818300982226465109
 
 下面的一些说明可能会对想让 x86 (64 位) 的 XP x64 / Server 2003 / Vista / Server
 2008 / 7 / Server 2008 R2 在 2 代虚拟机中运行的人有所帮助

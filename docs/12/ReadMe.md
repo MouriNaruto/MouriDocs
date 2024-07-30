@@ -192,8 +192,10 @@ Vista / Server 2008 or later in the production environments.
   using UEFI Class 3 compliant firmware.
   - Reference: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
 - Running as the guest in Generation 2 Virtual Machines is available since
-  8 / Server 2012.
+  8 / Server 2012. Windows 8 Build 8032 should be the earliest leaked Windows
+  build that can boot in a Hyper-V Generation 2 Virtual Machine.
   - Reference: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)
+  - Reference: https://x.com/MouriNaruto/status/1818300982226465109
 
 Here are some notes may be helpful for people who want to make x86 (64-Bit) of
 XP x64 / Server 2003 / Vista / Server 2008 / 7 / Server 2008 R2 be able to run
