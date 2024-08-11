@@ -136,6 +136,29 @@
 - 版本: 22621.1
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_arm64fre_en-us_VALIDATIONOS.iso
 
+## Inbox Apps
+
+- 版本: 22621.2501
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.2501.231009-1937.ni_release_svc_prod3_amd64fre_InboxApps.iso
+- 版本: 22621.1778
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1778.230511-2102.ni_release_svc_prod3_amd64fre_InboxApps.iso
+- 版本: 22621.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_InboxApps.iso
+- 版本: 22000.2003
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22000.2003.230512-1746.co_release_svc_prod3_amd64fre_InboxApps.iso
+- 版本: 22000.194
+  - 链接: https://software-download.microsoft.com/download/pr/22000.194.210911-1543.co_release_svc_prod1_amd64fre_InboxApps.iso
+- 版本: 19041.3031
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/19041.3031.230508-1728.vb_release_svc_prod3_amd64fre_InboxApps.iso
+- 版本: 19041.928
+  - 链接: https://software-download.microsoft.com/download/sg/19041.928.210407-2138.vb_release_svc_prod1_amd64fre_InboxApps.iso
+- 版本: 19041.508
+  - 链接: https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso
+- 版本: 19041.1
+  - 链接: https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso
+- 版本: 18362.1
+  - 链接: https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso
+
 ## 参考资料
 
 - https://forums.mydigitallife.net/threads/83722/page-280#post-1693595
@@ -151,3 +174,9 @@
 - https://forums.mydigitallife.net/threads/83749/page-8#post-1836957
 - https://forums.mydigitallife.net/threads/83749/page-8#post-1837039
 - https://forums.mydigitallife.net/threads/83749/page-8#post-1837152
+- https://github.com/MicrosoftDocs/azure-docs/commit/c7dac3725df4839b4e9f2bce11733bae83acbf8a
+- https://github.com/MicrosoftDocs/azure-docs/commit/652a941c6d038adadd65aa8cbdff2dfc720866a9
+- https://github.com/MicrosoftDocs/azure-docs/commit/1251003324d3901750ccb7afa16d70b230291126
+- https://github.com/MicrosoftDocs/azure-docs/commit/5b9996efd0f1ac39dd998575aeac8ba0d1f52b1d
+- https://github.com/MicrosoftDocs/azure-docs/commit/e1662ebea24845447de11d73a8b886e02ab34320
+- https://github.com/MicrosoftDocs/azure-docs/commit/f1bc997eadb170c1e2a29c3482ff3ac3f51dbb19
