@@ -2,130 +2,69 @@
 
 [English](ReadMe.md)
 
-## Build 26100
-
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-8#post-1836957
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-8#post-1837039
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-8#post-1837152
-
-### Windows ADK (Assessment Deployment Kit)
-
-- 版本: 26100.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_ADK.iso
-
-### Windows PE add-on for Windows ADK (Assessment Deployment Kit)
-
-- 版本: 26100.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_adkwinpeaddons.iso
-
-### Windows HLK (Hardware Lab Kit)
-
-- 版本: 26100.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_HLK.iso
-
-### Windows HLK (Hardware Lab Kit) Supplemental Test Content for DXVA
-
-- 版本: 26100.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_HLK_DXVA.iso
-
-### Windows HLK (Hardware Lab Kit) Supplemental Test Content for HMFT
-
-- 版本: 26100.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_HLK_HMFT.iso
-
-### Windows HLK (Hardware Lab Kit) Supplemental Test Content for PERF
-
-- 版本: 26100.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_HLK_PERF.iso
-
-### Windows SDK (Software Development Kit)
-
-- 版本: 26100.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_WindowsSDK.iso
-
-### Windows WDK (Windows Driver Kit)
-
-- 版本: 26100.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_WDK.iso
-
-### Windows EWDK (Enterprise WDK (Windows Driver Kit))
-
-- 版本: 26100.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_26100_240331-1435.iso
-
-### Windows Validation OS for AMD64
-
-- 版本: 26100.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_en-us_VALIDATIONOS.iso
-
-### Windows Validation OS for ARM64
-
-- 版本: 26100.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_arm64fre_en-us_VALIDATIONOS.iso
-
-### Languages and Optional Features for Windows Server
-
-- 版本: 26100.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_SERVER_LOF_PACKAGES_OEM.iso
-
-## Build 25398
-
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-7#post-1806809
-
-### Windows ADK (Assessment Deployment Kit)
-
-- 版本: 25398.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/25398.1.230610-1204.zn_release_amd64fre_ADK.iso
-
-### Windows PE add-on for Windows ADK (Assessment Deployment Kit)
-
-- 版本: 25398.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/25398.1.230610-1204.zn_release_amd64fre_adkwinpeaddons.iso
-
-## Build 22621
-
 - 参考资料: https://forums.mydigitallife.net/threads/83749/page-5#post-1736667
-- 参考资料: https://bbs.pcbeta.com/viewthread-1933132-1-1.html
 - 参考资料: https://forums.mydigitallife.net/threads/85484/
 - 参考资料: https://forums.mydigitallife.net/threads/83749/page-7#post-1791449
 - 参考资料: https://forums.mydigitallife.net/threads/83749/page-7#post-1811314
 - 参考资料: https://forums.mydigitallife.net/threads/85484/page-4#post-1793216
 - 参考资料: https://forums.mydigitallife.net/threads/83749/page-8#post-1827062
+- 参考资料: https://forums.mydigitallife.net/threads/83749/page-7#post-1806809
+- 参考资料: https://forums.mydigitallife.net/threads/83749/page-8#post-1836957
+- 参考资料: https://forums.mydigitallife.net/threads/83749/page-8#post-1837039
+- 参考资料: https://forums.mydigitallife.net/threads/83749/page-8#post-1837152
 
-### Windows ADK (Assessment Deployment Kit)
+## Windows ADK (Assessment Deployment Kit)
 
+- 版本: 26100.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_ADK.iso
+- 版本: 25398.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/25398.1.230610-1204.zn_release_amd64fre_ADK.iso
 - 版本: 22621.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_ADK.iso
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_ADK.iso
 
-### Windows PE add-on for Windows ADK (Assessment Deployment Kit)
+## Windows PE add-on for Windows ADK (Assessment Deployment Kit)
 
+- 版本: 26100.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_adkwinpeaddons.iso
+- 版本: 25398.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/25398.1.230610-1204.zn_release_amd64fre_adkwinpeaddons.iso
 - 版本: 22621.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_adkwinpeaddons.iso
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_adkwinpeaddons.iso
 
-### Windows HLK (Hardware Lab Kit)
+## Windows HLK (Hardware Lab Kit)
 
-- 版本: 22621.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_HLK.iso
-
-### Windows HLK (Hardware Lab Kit) Supplemental Test Content for DXVA
-
+- 版本: 26100.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_HLK.iso
 - 版本: 22621.2428
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.2428.230929-1800.ni_release_svc_prod1_amd64fre_HLK.iso
 - 版本: 22621.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_HLK.iso
+
+## Windows HLK (Hardware Lab Kit) Supplemental Test Content for DXVA
+
+- 版本: 26100.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_HLK_DXVA.iso
+- 版本: 22621.1
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_HLK_DXVA.iso
 
-### Windows HLK (Hardware Lab Kit) Supplemental Test Content for HMFT
+## Windows HLK (Hardware Lab Kit) Supplemental Test Content for HMFT
 
+- 版本: 26100.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_HLK_HMFT.iso
 - 版本: 22621.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_HLK_HMFT.iso
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_HLK_HMFT.iso
 
-### Windows HLK (Hardware Lab Kit) Supplemental Test Content for PERF
+## Windows HLK (Hardware Lab Kit) Supplemental Test Content for PERF
 
+- 版本: 26100.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_HLK_PERF.iso
 - 版本: 22621.1
-- 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_HLK_PERF.iso
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_HLK_PERF.iso
 
-### Windows SDK (Software Development Kit)
+## Windows SDK (Software Development Kit)
 
+- 版本: 26100.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_WindowsSDK.iso
 - 版本: 22621.3233
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.3233.240221-1752.ni_release_svc_prod3_WindowsSDK.iso
 - 版本: 22621.2428
@@ -137,8 +76,10 @@
 - 版本: 22621.1
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_WindowsSDK.iso
 
-### Windows WDK (Windows Driver Kit)
+## Windows WDK (Windows Driver Kit)
 
+- 版本: 26100.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_WDK.iso
 - 版本: 22621.2428
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.2428.230929-1800.ni_release_svc_prod1_amd64fre_WDK.iso
 - 版本: 22621.382
@@ -146,8 +87,10 @@
 - 版本: 22621.1
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_WDK.iso
 
-### Windows EWDK (Enterprise WDK (Windows Driver Kit))
+## Windows EWDK (Enterprise WDK (Windows Driver Kit))
 
+- 版本: 26100.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_26100_240331-1435.iso
 - 版本: 22621.2428
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ni_release_svc_prod1_22621_230929-1800.iso
 - 版本: 22621.1778
@@ -157,8 +100,10 @@
 - 版本: 22621.1
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ni_release_22621_220506-1250.iso
 
-### Windows Validation OS for AMD64
+## Windows Validation OS for AMD64
 
+- 版本: 26100.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_en-us_VALIDATIONOS.iso
 - 版本: 22621.2428
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.2428.230929-1800.ni_release_svc_prod1_amd64fre_en-us_VALIDATIONOS.iso
 - 版本: 22621.1702
@@ -166,8 +111,10 @@
 - 版本: 22621.1
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_en-us_VALIDATIONOS.iso
 
-### Windows Validation OS for ARM64
+## Windows Validation OS for ARM64
 
+- 版本: 26100.1
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_arm64fre_en-us_VALIDATIONOS.iso
 - 版本: 22621.2428
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.2428.230929-1800.ni_release_svc_prod1_arm64fre_en-us_VALIDATIONOS.iso
 - 版本: 22621.1702
