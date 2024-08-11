@@ -2,20 +2,6 @@
 
 [English](ReadMe.md)
 
-- 参考资料: https://forums.mydigitallife.net/threads/83722/page-280#post-1693595
-- 参考资料: https://forums.mydigitallife.net/threads/59187/page-61#post-1668584
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-5#post-1749098
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-5#post-1736667
-- 参考资料: https://forums.mydigitallife.net/threads/85484/
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-7#post-1791449
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-7#post-1811314
-- 参考资料: https://forums.mydigitallife.net/threads/85484/page-4#post-1793216
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-8#post-1827062
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-7#post-1806809
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-8#post-1836957
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-8#post-1837039
-- 参考资料: https://forums.mydigitallife.net/threads/83749/page-8#post-1837152
-
 ## Windows ADK (Assessment Deployment Kit)
 
 - 版本: 26100.1
@@ -149,3 +135,19 @@
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/22621.1702.230501-1115.ni_release_svc_prod1_arm64fre_en-us_VALIDATIONOS.iso
 - 版本: 22621.1
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_arm64fre_en-us_VALIDATIONOS.iso
+
+## 参考资料
+
+- https://forums.mydigitallife.net/threads/83722/page-280#post-1693595
+- https://forums.mydigitallife.net/threads/59187/page-61#post-1668584
+- https://forums.mydigitallife.net/threads/83749/page-5#post-1749098
+- https://forums.mydigitallife.net/threads/83749/page-5#post-1736667
+- https://forums.mydigitallife.net/threads/85484/
+- https://forums.mydigitallife.net/threads/83749/page-7#post-1791449
+- https://forums.mydigitallife.net/threads/83749/page-7#post-1811314
+- https://forums.mydigitallife.net/threads/85484/page-4#post-1793216
+- https://forums.mydigitallife.net/threads/83749/page-8#post-1827062
+- https://forums.mydigitallife.net/threads/83749/page-7#post-1806809
+- https://forums.mydigitallife.net/threads/83749/page-8#post-1836957
+- https://forums.mydigitallife.net/threads/83749/page-8#post-1837039
+- https://forums.mydigitallife.net/threads/83749/page-8#post-1837152
