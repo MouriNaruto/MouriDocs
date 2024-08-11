@@ -114,7 +114,7 @@
 - Version: 22000.1
   - Link: https://software-download.microsoft.com/download/sg/WINDOWS_SYSTEM_KIT_co_release_22000_210604-1628.iso
 
-## Windows Validation OS for AMD64
+## Microsoft Validation OS for AMD64
 
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_en-us_VALIDATIONOS.iso
@@ -125,7 +125,7 @@
 - Version: 22621.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_en-us_VALIDATIONOS.iso
 
-## Windows Validation OS for ARM64
+## Microsoft Validation OS for ARM64
 
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_arm64fre_en-us_VALIDATIONOS.iso
