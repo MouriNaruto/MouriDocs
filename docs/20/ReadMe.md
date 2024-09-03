@@ -132,7 +132,7 @@ Code Remote SSH support in Hyper-V Generation 2 Virtual Machines.
 
 Here are some notes to example the reason of some operations.
 
-- I choose to add use in post-installation steps because if we do the partition
+- I choose to add user in post-installation steps because if we do the partition
   work manually. The user folder will not created properly. Here is the
   workaround if you met this case.
   - > mkdir /home/[the user name]
