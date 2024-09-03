@@ -191,3 +191,27 @@ Add the following line to the "/etc/fstab" file via nano:
 ```
 /swapfile none swap defaults 0 0
 ```
+
+## Docker
+
+Work In Progress
+
+## KVM
+
+Work In Progress
+
+## Wine
+
+Work In Progress
+
+## Hyper-V GPU-PV support
+
+Work In Progress
+
+## LaTeX
+
+Work In Progress
+
+## .NET SDK
+
+Work In Progress
