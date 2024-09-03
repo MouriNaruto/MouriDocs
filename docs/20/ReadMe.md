@@ -52,3 +52,97 @@ I have considered a lot. Finally, I choose Alpine Linux. Here are some reasons:
 Although Alpine Linux is satisfied for my scenarios. It's still have lots of
 things need to be cautious. I will write some notes for using Alpine Linux next
 in this article.
+
+## Installation
+
+- Downloads: https://alpinelinux.org/downloads/
+- Reference: https://wiki.alpinelinux.org/wiki/Installation
+- Reference: https://wiki.alpinelinux.org/wiki/Alpine_setup_scripts
+- Reference: https://docs.alpinelinux.org/user-handbook/0.1a/Installing/manual.html
+
+For the Hyper-V Generation 2 Virtual Machines and my minimal bootable .NET
+CoreCLR Linux environments, I will use the "alpine-virt" image for the base
+system. For my vintage laptop, I will use the "alpine-extended" image for the
+base system.
+
+I suggest to use Semi-Automatic Installation because we can decide more details
+accurately. So, here is the list of Semi-Automatic Installation steps I used:
+
+- Keyboard Layout
+  - > setup-keymap us us
+- Hostname
+  - > setup-hostname [the hostname you want with all lowercase letters]
+  - Because I want to use the hostname with some uppercase letters, I also need
+    to edit the "/etc/hostname" file manually after using the "setup-hostname".
+- Networking
+  - > setup-interfaces
+  - > rc-update add networking boot
+  - > rc-service networking start
+- Timezone
+  - > setup-timezone
+- Repositories
+  - > setup-apkrepos
+- Root Password
+  - > passwd
+- SSH
+  - > setup-sshd
+- NTP
+  - > setup-ntp
+- Partitioning
+  - For my Hyper-V Generation 2 Virtual Machine, I have two virtual disks. I
+    will use the first virtual disk for the base system and the second virtual
+    disk for the home folder. Here is the mount list I used:
+    - /mnt as ext4
+    - /mnt/boot/efi as vfat
+    - /mnt/home as ext4
+  - > setup-disk /mnt
+
+After these steps, I had reboot to the newly installed system. I also need to do
+some post-installation steps:
+
+- Login as root.
+- Install packages before creating a normal user.
+  - > apk add doas nano bash
+- Creating a normal user.
+  - > adduser -h /home/[the user name] -s /bin/bash [the user name]
+  - > passwd [the user name]
+- Enable the normal user to use doas.
+  - > addgroup [the user name] wheel
+  - Edit the "/etc/doas.conf" file via nano, uncomment "permit persist :wheel",
+    and save.
+- Logout the root and login as [the user name].
+- Configure the apk to enable the community repository.
+  - Edit the "/etc/apk/repositories" file via nano, uncomment the community
+    repository, and save.
+  - > doas apk update
+- Install packages before using Visual Studio Code Remote SSH to connect.
+  - > doas apk add htop gcompat libstdc++ curl git avahi neofetch procps
+  - > doas rc-update add avahi-daemon
+  - > doas rc-service avahi-daemon start
+- Edit the "/etc/ssh/sshd_config" file via nano, set both AllowTcpForwarding
+  and PermitTunnel to yes, then save.
+- Reboot your system.
+- Use Visual Studio Code Remote SSH to connect to your Alpine Linux system.
+- Configure SSH Key-Based Authentication for improving the user experience when
+  using Visual Studio Code Remote SSH.
+  - https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
+
+With these steps done, we have the Alpine Linux base system with Visual Studio
+Code Remote SSH support in Hyper-V Generation 2 Virtual Machines.
+
+Here are some notes to example the reason of some operations.
+
+- I choose to add use in post-installation steps because if we do the partition
+  work manually. The user folder will not created properly. Here is the
+  workaround if you met this case.
+  - > mkdir /home/[the user name]
+  - > chown [the user name]:[the user name] /home/[the user name]
+- Use bash as the default shell for the normal user for workaround some issues
+  when using Visual Studio Code Remote SSH. You can edit the "/etc/passwd" file
+  manually if you want to use other shells or find the issues for the Alpine
+  Linux default shell.
+- The gcompat libstdc++ curl git procps packages are necessary for Visual Studio
+  Code Remote SSH support.
+- I install avahi-daemon for the mDNS support. It's necessary for Visual Studio
+  Code Remote SSH to connect with the hostname. Also I reboot the system for
+  making avahi-daemon work properly.
