@@ -112,8 +112,7 @@ some post-installation steps:
     and save.
 - Logout the root and login as [the user name].
 - Configure the apk to enable the community repository.
-  - Edit the "/etc/apk/repositories" file via nano, uncomment the community
-    repository, and save.
+  - > setup-apkrepos -o
   - > doas apk update
 - Install packages before using Visual Studio Code Remote SSH to connect.
   - > doas apk add htop gcompat libstdc++ curl git avahi neofetch procps
@@ -146,3 +145,49 @@ Here are some notes to example the reason of some operations.
 - I install avahi-daemon for the mDNS support. It's necessary for Visual Studio
   Code Remote SSH to connect with the hostname. Also I reboot the system for
   making avahi-daemon work properly.
+
+## Basic X.Org Environment
+
+> doas setup-xorg-base xf86-video-fbdev xterm mesa-utils
+> doas addgroup mouri video
+> doas addgroup mouri input
+
+Log out and log in again to make the changes take effect.
+
+## xrdp
+
+> doas apk add xrdp xorgxrdp
+
+Edit the "/etc/xrdp/xrdp.ini" file via nano, set the security_layer to rdp and
+crypt_level to none, then save.
+
+> doas rc-service xrdp start
+> doas rc-service xrdp-sesman start
+> doas rc-update add xrdp boot
+> doas rc-update add xrdp-sesman boot
+
+## Linux Kernel module development
+
+> doas apk add alpine-sdk linux-virt-dev python3 clang18-extra-tools
+
+Add Visual Studio Code extensions for Linux Kernel module development:
+
+- Git History
+- EditorConfig for VS Code
+- clangd
+
+- Reference: https://gist.github.com/itewqq/4b4ee89ba420d585efb472116879b1ee
+
+## swapfile
+
+> doas dd if=/dev/zero of=/swapfile bs=1M count=4096 oflag=append conv=notrunc
+> doas chmod 600 /swapfile
+> doas mkswap /swapfile
+> doas rc-service swap start
+> doas rc-update add swap boot
+
+Add the following line to the "/etc/fstab" file via nano:
+
+```
+/swapfile none swap defaults 0 0
+```
