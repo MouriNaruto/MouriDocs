@@ -139,8 +139,8 @@ Here are some notes to example the reason of some operations.
   - > chown [the user name]:[the user name] /home/[the user name]
 - Use bash as the default shell for the normal user for workaround some issues
   when using Visual Studio Code Remote SSH. You can edit the "/etc/passwd" file
-  manually if you want to use other shells or find the issues for the Alpine
-  Linux default shell.
+  manually if you want to use other shells, or find the issues if you consist to
+  use the Alpine Linux default shell before.
 - The gcompat libstdc++ curl git procps packages are necessary for Visual Studio
   Code Remote SSH support.
 - I install avahi-daemon for the mDNS support. It's necessary for Visual Studio
