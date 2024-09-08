@@ -198,7 +198,20 @@ Work In Progress
 
 ## KVM
 
-Work In Progress
+For minimal KVM/QEMU instance without X11 or Wayland:
+
+> doas apk add qemu qemu-img qemu-system-x86_64 qemu-ui-sdl
+> doas addgroup mouri qemu
+> doas addgroup mouri kvm
+
+For QEMU GTK backend:
+
+> doas apk add qemu-ui-gtk
+
+Workaround for "Native Windows wider or taller than 32767 pixels are not
+supported" when using QEMU GTK backend:
+
+> doas apk add ttf-freefont
 
 ## Wine
 
