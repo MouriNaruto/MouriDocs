@@ -64,6 +64,8 @@
 
 ## Windows SDK (Software Development Kit)
 
+- Version: 26100.1742
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1742.240904-1906.ge_release_svc_prod1_WindowsSDK.iso
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_WindowsSDK.iso
 - Version: 22621.3233
@@ -96,6 +98,8 @@
 
 ## Windows EWDK (Enterprise WDK (Windows Driver Kit))
 
+- Version: 26100.1591
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_svc_prod3_26100_240820-2119.iso
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_26100_240331-1435.iso
 - Version: 22621.2428
@@ -138,6 +142,8 @@
 
 ## Inbox Apps
 
+- Version: 26100.1742
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1742.240904-1906.ge_release_svc_prod1_amd64fre_InboxApps.iso
 - Version: 22621.2501
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.2501.231009-1937.ni_release_svc_prod3_amd64fre_InboxApps.iso
 - Version: 22621.1778
@@ -180,3 +186,4 @@
 - https://github.com/MicrosoftDocs/azure-docs/commit/5b9996efd0f1ac39dd998575aeac8ba0d1f52b1d
 - https://github.com/MicrosoftDocs/azure-docs/commit/e1662ebea24845447de11d73a8b886e02ab34320
 - https://github.com/MicrosoftDocs/azure-docs/commit/f1bc997eadb170c1e2a29c3482ff3ac3f51dbb19
+- https://forums.mydigitallife.net/threads/83749/page-8#post-1852393
