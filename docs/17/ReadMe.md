@@ -100,6 +100,8 @@
 
 - Version: 26100.1591
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_svc_prod3_26100_240820-2119.iso
+- Version: 26100.1301
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/EWDK_ge_release_svc_prod3_26100_240725-1635.iso
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_26100_240331-1435.iso
 - Version: 22621.2428
@@ -120,6 +122,8 @@
 
 ## Microsoft Validation OS for AMD64
 
+- Version: 26100.1742
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1742.240906-0331.ge_release_svc_refresh_amd64fre_en-us_VALIDATIONOS.iso
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_en-us_VALIDATIONOS.iso
 - Version: 22621.2428
@@ -131,6 +135,8 @@
 
 ## Microsoft Validation OS for ARM64
 
+- Version: 26100.1742
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1742.240906-0331.ge_release_svc_refresh_arm64fre_en-us_VALIDATIONOS.iso
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_arm64fre_en-us_VALIDATIONOS.iso
 - Version: 22621.2428
@@ -186,4 +192,6 @@
 - https://github.com/MicrosoftDocs/azure-docs/commit/5b9996efd0f1ac39dd998575aeac8ba0d1f52b1d
 - https://github.com/MicrosoftDocs/azure-docs/commit/e1662ebea24845447de11d73a8b886e02ab34320
 - https://github.com/MicrosoftDocs/azure-docs/commit/f1bc997eadb170c1e2a29c3482ff3ac3f51dbb19
+- https://forums.mydigitallife.net/threads/83749/page-8#post-1849115
 - https://forums.mydigitallife.net/threads/83749/page-8#post-1852393
+- https://forums.mydigitallife.net/threads/85484/page-4#post-1853236
