@@ -98,6 +98,8 @@
 
 ## Windows EWDK (Enterprise WDK (Windows Driver Kit))
 
+- 版本: 26100.1882
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_svc_prod3_26100_240927-1745.iso
 - 版本: 26100.1591
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_svc_prod3_26100_240820-2119.iso
 - 版本: 26100.1301
@@ -195,3 +197,4 @@
 - https://forums.mydigitallife.net/threads/83749/page-8#post-1849115
 - https://forums.mydigitallife.net/threads/83749/page-8#post-1852393
 - https://forums.mydigitallife.net/threads/85484/page-4#post-1853236
+- https://forums.mydigitallife.net/threads/83749/page-9#post-1856317
