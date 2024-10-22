@@ -10,13 +10,23 @@
 
 - Mouse support is unavailable unless you write a VMBus-based driver because
   there is no pointer device support in the UEFI.
-- The UEFI GOP FrameBufferSize will return 8 MiB even the virtual machine screen
-  resolution is 1024 x 768 with 32bpp (it should only be 3 MiB a.k.a 4 * 1024 *
-  768). If you fill zeros for 8 MiB, you will meet the dead loop, lol. So, you
-  should do some calculation instead.
+- The UEFI GOP FrameBufferSize will return 8 MiB (since Windows 8) or 4 MiB
+  (before Windows 8) even the virtual machine screen resolution is 1024 x 768
+  with 32bpp (it should only be 3 MiB a.k.a 4 * 1024 * 768). If you fill zeros
+  according with the UEFI GOP FrameBufferSize reported from the firmware, you
+  will meet the dead loop, lol. So, you should do some calculation instead. Read
+  https://github.com/microsoft/mu_msvm/blob/38a68e63e7dabda40878e0dbc33b392b8b69736d/MsvmPkg/VideoDxe/VramSize.h
+  for more information.
 - The RTC clock is available but the RTC timer not. You need the local APIC
   timer and use the RTC clock to do the timer calibration (very brute-force way)
   if you don't want to use Hyper-V specific infrastructures.
+- According to https://github.com/microsoft/openvmm/blob/26e455497ee3a273140f05a729ff1ed902f5099e/openvmm/hvlite_defs/src/config.rs#L57,
+  we will know why Hyper-V x64 guests reserve 128 MiB below 4 GiB address a.k.a
+  from 0xF8000000 to 0xFFFFFFFF, and Hyper-V arm64 guests will reserve 512 MiB
+  below 4 GiB address a.k.a from 0xE0000000 to 0xFFFFFFFF. Also, these memory
+  regions are not shown in the UEFI memory map.
+- According to https://github.com/microsoft/mu_msvm/blob/38a68e63e7dabda40878e0dbc33b392b8b69736d/MsvmPkg/VmbusDxe/VmbusP.h#L89,
+  we cannot use VMBus UEFI protocol to implement the unsupported VMBus devices.
 
 ## Timer Calibration
 
