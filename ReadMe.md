@@ -14,7 +14,7 @@ Fire a GitHub issue if you want feedback or suggest something. Please read
 - [MD4: Notes for using Host Compute System API](docs/4)
 - [MD5: Notes for building Windows 10 Enterprise LTSC 2021 x64 ISO](docs/5)
 - [MD6: The philosophy about open-source software from Kenji Mouri](docs/6/ReadMe.md)
-- [MD8: Tips for Using Git](docs/8/ReadMe.md)
+- [MD8: Git 使用技巧](docs/8/ReadMe.zh-CN.md)
 - [MD9: Hyper-V Enhanced Session mode over VMBus for Linux](docs/9)
 - [MD10: Archived list for things I currently working on](docs/10)
 - [MD11: Building UEFI Applications for Hyper-V Generation 2 Virtual Machines](docs/11)

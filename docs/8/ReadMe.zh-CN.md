@@ -1,7 +1,5 @@
 ﻿# MD8: Git 使用技巧
 
-[English](ReadMe.md)
-
 ## Git 克隆空仓库更改后提交到 main 分支
 
 > git branch -M main
