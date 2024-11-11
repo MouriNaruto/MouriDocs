@@ -98,6 +98,8 @@
 
 ## Windows EWDK (Enterprise WDK (Windows Driver Kit))
 
+- Version: 26100.2161
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_svc_prod3_26100_241018-1636.iso
 - Version: 26100.1882
   - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_svc_prod3_26100_240927-1745.iso
 - Version: 26100.1591
