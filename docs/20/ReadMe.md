@@ -223,7 +223,11 @@ Work In Progress
 
 ## LaTeX
 
-Work In Progress
+> doas apk add texlive texlive-xetex texmf-dist-plaingeneric texmf-dist-latexextra texmf-dist-fontsrecommended texmf-dist-langenglish texmf-dist-langcjk texmf-dist-langchinese texmf-dist-langjapanese texmf-dist-langkorean
+
+## Noto Fonts
+
+> doas apk add font-noto-all font-noto-cjk
 
 ## .NET SDK
 
