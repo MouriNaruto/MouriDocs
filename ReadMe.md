@@ -27,3 +27,4 @@ Fire a GitHub issue if you want feedback or suggest something. Please read
 - [MD18: Windows version reference for Windows SDK's NTDDI version constants](docs/18)
 - [MD19: Notes for building a minimal Windows guest environment via Server Core](docs/19)
 - [MD20: Start using Alpine Linux as my daily Linux distro](docs/20)
+- [MD21: Talk about booting Windows 7 Service Pack 1 on Hyper-V Generation 2 Virtual Machines](docs/21)
