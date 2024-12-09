@@ -321,7 +321,7 @@ checksum of the modified ntoskrnl.exe, and then replace the original
 ntoskrnl.exe with the modified one. We can get the error message from
 the Windows Event Viewer.
 
-```
+```xml
 <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
   <System>
     <Provider Name="Microsoft-Windows-Hyper-V-Worker" Guid="{51ddfa29-d5c8-4803-be4b-2ecb715570fe}" />
