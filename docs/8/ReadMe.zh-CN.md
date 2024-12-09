@@ -65,6 +65,12 @@ git remote add upstream https://github.com/openssl/openssl.git
 git fetch --prune --tags --all
 ```
 
+## 仅合并特定 commit 的内容
+
+```
+git cherry-pick 561c271a69dd5067945b3546511abb842d07edcd
+```
+
 ## 修改 Git 默认提交用用户信息（全局）
 
 ```
