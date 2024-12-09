@@ -121,3 +121,18 @@ learning that.
 For people who have the ability to read the ReactOS source code, see
 https://github.com/MouriNaruto/reactos/tree/remilia-hyperv-main-longhorn for my
 modified branch.
+
+### Suitable Windows versions for adaption
+
+Because the virtual keyboard in Hyper-V Generation 2 Virtual Machines is a VMBus
+device, we need to use Hyper-V Integration Services with version 6.2.9200.16385
+or later if we want to have good user experience. So, the minimum requirements
+for Hyper-V Integration Services with version 6.2.9200.16385 is the baseline for
+us to choose the suitable Windows versions for additional adaption:
+
+- Windows 7 (64-Bit) RTM or Service Pack 1
+- Windows Server 2008 R2 RTM or Service Pack 1
+- Windows Vista (64-Bit) Service Pack 2
+- Windows Server 2008 (64-Bit) Service Pack 2
+- Windows XP Professional x64 Edition Service Pack 2
+- Windows Server 2003 (x64) Service Pack 2
