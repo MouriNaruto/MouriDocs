@@ -78,7 +78,7 @@ only need to test builds mentioned in [Windows 8 - BetaWiki] and
 [Windows 8 - BetaWiki]: https://betawiki.net/wiki/Windows_8
 [Windows Server 2012 - BetaWiki]: https://betawiki.net/wiki/Windows_Server_2012
 
-We can divide the Windows builds into the following categories:
+We can divide these Windows builds into the following categories:
 
 | Levels  | Behavior                                   |
 |---------|--------------------------------------------|
@@ -105,8 +105,8 @@ the definitions.
 ### ReactOS source code
 
 Because Windows is not open source, we need to learn something about the hal and
-ntoskrnl from ReactOS source code. Although that x64 hal implementations are too
-raw even for learning.
+ntoskrnl from ReactOS source code. Although the ReactOS x64 hal implementations
+are too raw even for learning.
 
 But for appreciating that project which helps me to learn something reliminary.
 I also try to make boot ReactOS on Hyper-V Generation 2 Virtual Machines. But
