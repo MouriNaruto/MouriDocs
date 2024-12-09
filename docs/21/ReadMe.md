@@ -136,3 +136,221 @@ us to choose the suitable Windows versions for additional adaption:
 - Windows Server 2008 (64-Bit) Service Pack 2
 - Windows XP Professional x64 Edition Service Pack 2
 - Windows Server 2003 (x64) Service Pack 2
+
+## Start the wild journey
+
+Let's start the wild journey after we have learned the preliminary information.
+
+### Prerequisites
+
+- Install the Windows version you want to adapt to boot on Hyper-V Generation 2
+  Virtual Machines in Hyper-V Generation 1 Virtual Machines, but you need to
+  prepare a 100 MiB size FAT32 partition for the EFI System Partition (ESP).
+- Install the Hyper-V Integration Services with version 6.2.9200.16385 or later.
+- WinDbg is necessary for debugging the boot process.
+- IDA Pro or similar tool for analyzing and patching.
+- PE Tools or similar tool for recalculate the checksum of the modified files.
+- Microsoft Copilot or similar services may help you to generate the opcode, lol.
+
+### Create boot files for UEFI boot
+
+After we have done the prerequisites, we need to mount the virtual machine's
+hard disk file to your host machine and create the boot files for UEFI boot.
+
+Assumes your mounted Windows partition is `G:` and the ESP partition is `F:`.
+
+First, we need to create the boot files for UEFI boot:
+
+```cmd
+bcdboot G:\Windows /s F: /f UEFI
+```
+
+Then, we need to set the debugging options to the Windows Boot Manager:
+
+```cmd
+bcdedit /store F:\EFI\Microsoft\Boot\BCD /bootdebug {default} on
+bcdedit /store F:\EFI\Microsoft\Boot\BCD /debug {default} on
+bcdedit /store F:\EFI\Microsoft\Boot\BCD /set {default} sos on
+bcdedit /store F:\EFI\Microsoft\Boot\BCD /dbgsettings SERIAL DEBUGPORT:1 BAUDRATE:115200 /start ACTIVE
+```
+
+I also suggest you to set the boot manager timeout to 30 seconds:
+
+```cmd
+bcdedit /store F:\EFI\Microsoft\Boot\BCD /timeout 30
+```
+
+### Fix the BugCheck to ensure we can get the error message
+
+If you start your virtual machine, you will see noting after detaching the
+Windows Boot Debugger in the WinDbg command window. And you will find the
+virtual machine instance process will have the high CPU usage. Some people
+will know the OS kernel in the virtual machine is deadlooping.
+
+Here is the screenshot to show that scenario, which uses the Windows Vista
+(64-Bit) Service Pack 2 as an example:
+
+![VistaSP2_UnableToAttachKernelDebugger](Assets/VistaSP2_UnableToAttachKernelDebugger.png)
+
+I find it's caused by BugCheck just for accident. When I tried to add 0xCC (the
+opcode int 3) to make every possible effort to debug what cased the deadloop, I
+find the virtual machine will reboot automatically with the triple fault when I
+add that opcode to the beginning of the KeBugCheckEx function in ntoskrnl.exe.
+
+So, the fix for that is easy. We can report the BugCheck error message to the
+Hyper-V, and we can get the error message from the Windows Event Viewer.
+
+According to Hyper-V Guest Crash Enlightenment Interface mentioned in Hypervisor
+Top Level Functional Specification. We can write the following C code as the
+KeBugCheckEx function implementation:
+
+```c
+DECLSPEC_NORETURN void WINAPI KeBugCheckEx(ULONG BugCheckCode, ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
+{
+    // HV_X64_MSR_CRASH_P0
+    __writemsr(0x40000100, BugCheckCode);
+    // HV_X64_MSR_CRASH_P1
+    __writemsr(0x40000101, BugCheckParameter1);
+    // HV_X64_MSR_CRASH_P2
+    __writemsr(0x40000102, BugCheckParameter2);
+    // HV_X64_MSR_CRASH_P3
+    __writemsr(0x40000103, BugCheckParameter3);
+    // HV_X64_MSR_CRASH_P4
+    __writemsr(0x40000104, BugCheckParameter4);
+    // HV_X64_MSR_CRASH_CTL with only setting CrashNotify to 1
+    __writemsr(0x40000105, 0x8000000000000000);
+    _disable();
+    __halt();
+    return;
+}
+```
+
+Here is the assembly for the above C code:
+
+```asm
+mov r10, rdx
+mov eax, ecx
+mov edx, ecx
+mov ecx, 40000100h
+shr rdx, 20h
+wrmsr
+
+mov rdx, r10
+mov rax, r10
+shr rdx, 20h
+mov ecx, 40000101h
+wrmsr
+
+mov rdx, r8
+mov rax, r8
+shr rdx, 20h
+mov ecx, 40000102h
+wrmsr
+
+mov rdx, r9
+mov rax, r9
+shr rdx, 20h
+mov ecx, 40000103h
+wrmsr
+
+mov rdx, [rsp+arg_20]
+mov ecx, 40000104h
+mov rax, rdx
+shr rdx, 20h
+wrmsr
+
+xor eax, eax
+mov edx, 80000000h
+mov ecx, 40000105h
+wrmsr
+
+cli
+hlt
+
+retn 0
+```
+
+Use some tools to convert the above assembly to the machine opcode:
+
+```
+49 89 D2
+89 C8
+89 CA
+B9 00 01 00 40
+48 C1 EA 20
+0F 30 
+
+4C 89 D2 
+4C 89 D0
+48 C1 EA 20
+B9 01 01 00 40
+0F 30
+
+4C 89 C2
+4C 89 C0
+48 C1 EA 20
+B9 02 01 00 40
+0F 30
+
+4C 89 CA
+4C 89 C8
+48 C1 EA 20
+B9 03 01 00 40
+0F 30
+
+48 8B 54 24 28
+B9 04 01 00 40
+48 89 D0
+48 C1 EA 20
+0F 30
+
+31 C0
+BA 00 00 00 80
+B9 05 01 00 40
+0F 30
+
+FA
+F4
+
+C2 00 00
+```
+
+When we use tools like IDA Pro to patch the KeBugCheckEx function in
+ntoskrnl.exe with the above opcode, use PE Tools to recalculate the
+checksum of the modified ntoskrnl.exe, and then replace the original
+ntoskrnl.exe with the modified one. We can get the error message from
+the Windows Event Viewer.
+
+```
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Microsoft-Windows-Hyper-V-Worker" Guid="{51ddfa29-d5c8-4803-be4b-2ecb715570fe}" />
+    <EventID>18590</EventID>
+    <Version>0</Version>
+    <Level>1</Level>
+    <Task>0</Task>
+    <Opcode>0</Opcode>
+    <Keywords>0x8000000000000000</Keywords>
+    <TimeCreated SystemTime="2024-12-09T11:31:23.2356205Z" />
+    <EventRecordID>35726</EventRecordID>
+    <Correlation />
+    <Execution ProcessID="1268" ThreadID="3476" />
+    <Channel>Microsoft-Windows-Hyper-V-Worker-Admin</Channel>
+    <Computer>DESKTOP-OLUNT6J</Computer>
+    <Security UserID="S-1-5-83-1-3655396106-1351506743-3915871121-3476744365" />
+  </System>
+  <UserData>
+    <VmlEventLog xmlns="http://www.microsoft.com/Windows/Virtualization/Events">
+      <VmName>Virtual Machine</VmName>
+      <VmId>D9E0EB0A-5B37-508E-9173-67E9ADE83ACF</VmId>
+      <VmErrorCode0>0x79</VmErrorCode0>
+      <VmErrorCode1>0x6</VmErrorCode1>
+      <VmErrorCode2>0x0</VmErrorCode2>
+      <VmErrorCode3>0x0</VmErrorCode3>
+      <VmErrorCode4>0x0</VmErrorCode4>
+      <VmErrorMessage>
+      </VmErrorMessage>
+    </VmlEventLog>
+  </UserData>
+</Event>
+```
