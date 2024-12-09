@@ -20,15 +20,16 @@ one with aggressive para-virtualization design in current stage:
 It's good for me. I only need to write UEFI applications which only support
 Hyper-V Generation 2 Virtual Machines, which is enough for my proof of concept
 level ideas. It can help me avoid to adapt to the specific hardwares which need
-to write a lot of assembly codes.
+to write a lot of assembly codes. Also, I love the lightweight design, lol.
 
 Note: The Windows builtin Hyper-V client is really hard to use. It makes me
 hesitate, until [Ben (Bingxing) Wang] told me that you can use Hyper-V Host
-Compute System API to implement the third-party Hyper-V client, especially 
-the stateless design. I had used several months to implement that and make it
-open source at GitHub. If some people need to use the third-party Hyper-V Host
-Compute System API created by me, please refer to the [NanaBox]. I hope that
-project can help people who have the same feeling as me.
+Compute System API which was newly at that time to implement the third-party
+Hyper-V client, especially its stateless design may good for you, and you can
+use ILSpy to learn how to use that. I had used several months to implement that
+and make it open source at GitHub. If some people need to use the third-party
+Hyper-V Host Compute System API created by me, please refer to the [NanaBox]. I
+hope that project can help people who have the same feeling as me.
 
 [Ben (Bingxing) Wang]: https://github.com/imbushuo
 [NanaBox]: https://github.com/M2Team/NanaBox
@@ -51,3 +52,7 @@ But the reason is not enough to persuade me. I had started to do some
 experiments to discover the real reason about half a year ago. Finally, I
 accidently made booting Windows 7 Service Pack 1 on Hyper-V Generation 2
 Virtual Machines. In the following sections, I will talk about the details.
+
+Warning: I have no experience about writing Windows kernel drivers because I
+cannot afford the price of the Windows driver signing certificate. Maybe my way
+mentioned in this article is too wild and hope you can forgive me.
