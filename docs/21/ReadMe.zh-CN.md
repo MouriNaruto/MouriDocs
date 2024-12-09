@@ -190,7 +190,12 @@ KeBugCheckEx 函数的开头时，虚拟机会发生三重故障并自动重启�
 KeBugCheckEx 函数的实现:
 
 ```c
-DECLSPEC_NORETURN void WINAPI KeBugCheckEx(ULONG BugCheckCode, ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
+DECLSPEC_NORETURN void WINAPI KeBugCheckEx(
+    ULONG BugCheckCode,
+    ULONG_PTR BugCheckParameter1,
+    ULONG_PTR BugCheckParameter2,
+    ULONG_PTR BugCheckParameter3,
+    ULONG_PTR BugCheckParameter4)
 {
     // HV_X64_MSR_CRASH_P0
     __writemsr(0x40000100, BugCheckCode);
