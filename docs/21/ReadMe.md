@@ -130,10 +130,10 @@ or later if we want to have good user experience. So, the minimum requirements
 for Hyper-V Integration Services with version 6.2.9200.16385 is the baseline for
 us to choose the suitable Windows versions for additional adaption:
 
-- Windows 7 (64-Bit) RTM or Service Pack 1
+- 64-Bit Windows 7 RTM or Service Pack 1
 - Windows Server 2008 R2 RTM or Service Pack 1
-- Windows Vista (64-Bit) Service Pack 2
-- Windows Server 2008 (64-Bit) Service Pack 2
+- 64-Bit Windows Vista Service Pack 2
+- 64-Bit Windows Server 2008 Service Pack 2
 - Windows XP Professional x64 Edition Service Pack 2
 - Windows Server 2003 (x64) Service Pack 2
 
@@ -157,7 +157,7 @@ Let's start the wild journey after we have learned the preliminary information.
 After we have done the prerequisites, we need to mount the virtual machine's
 hard disk file to your host machine and create the boot files for UEFI boot.
 
-Assumes your mounted Windows partition is `G:` and the ESP partition is `F:`.
+Assumes your mounted Windows partition is "G:" and the ESP partition is "F:".
 
 First, we need to create the boot files for UEFI boot:
 
@@ -187,8 +187,8 @@ Windows Boot Debugger in the WinDbg command window. And you will find the
 virtual machine instance process will have the high CPU usage. Some people
 will know the OS kernel in the virtual machine is deadlooping.
 
-Here is the screenshot to show that scenario, which uses the Windows Vista
-(64-Bit) Service Pack 2 as an example:
+Here is the screenshot to show that scenario, which uses the 64-Bit Windows
+Vista Service Pack 2 as an example:
 
 ![VistaSP2_UnableToAttachKernelDebugger](Assets/VistaSP2_UnableToAttachKernelDebugger.png)
 
