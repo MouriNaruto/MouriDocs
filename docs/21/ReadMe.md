@@ -359,3 +359,67 @@ the Windows Event Viewer.
   </UserData>
 </Event>
 ```
+
+### Make the Windows Kernel Debugger available to use
+
+From the above error message, we can search the Microsoft documentation for
+that. In [Bug Check 0x79: MISMATCHED_HAL], you will know it's the issue in
+hal.dll. We need to do some patches to fix that.
+
+[Bug Check 0x79: MISMATCHED_HAL]: https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/bug-check-0x79--mismatched-hal
+
+After some analysis, I find the issue is caused by the following pesudo code
+from the HalpInitMpInfo function in hal.dll
+
+```c
+if ( (*(_BYTE *)(HalpApicTable + 40) & 1) == 0 )
+    KeBugCheckEx(0x79u, 6ui64, 0i64, 0i64, 0i64);
+```
+
+Refer to the [dumped APIC table in Hyper-V Generation 2 Virtual Machines], we
+will know it's just check the flag in the APIC table. The HAL will call the
+KeBugCheckEx function if it cannot find the PC-AT Compatibility.
+
+[dumped APIC table in Hyper-V Generation 2 Virtual Machines]: https://github.com/MouriNaruto/MouriDocs/blob/main/docs/11/References/ACPI/22621/Disassembled/apic.dsl
+
+We can patch that just with jmp opcode to bypass that logic.
+
+For example, the original code snippet is:
+
+```
+PAGELK:000007FF3C250CC2 33 FF                                   xor     edi, edi
+PAGELK:000007FF3C250CC4 41 F6 44 24 28 01                       test    byte ptr [r12+28h], 1
+PAGELK:000007FF3C250CCA 4D 8B F8                                mov     r15, r8
+PAGELK:000007FF3C250CCD 44 8B F2                                mov     r14d, edx
+PAGELK:000007FF3C250CD0 75 18                                   jnz     short loc_7FF3C250CEA
+PAGELK:000007FF3C250CD2 8D 57 06                                lea     edx, [rdi+6]    ; BugCheckParameter1
+PAGELK:000007FF3C250CD5 8D 4F 79                                lea     ecx, [rdi+79h]  ; BugCheckCode
+PAGELK:000007FF3C250CD8 45 33 C9                                xor     r9d, r9d        ; BugCheckParameter3
+PAGELK:000007FF3C250CDB 45 33 C0                                xor     r8d, r8d        ; BugCheckParameter2
+PAGELK:000007FF3C250CDE 48 89 7C 24 20                          mov     [rsp+68h+BugCheckParameter4], rdi ; BugCheckParameter4
+PAGELK:000007FF3C250CE3 FF 15 1F 88 FE FF                       call    cs:__imp_KeBugCheckEx
+PAGELK:000007FF3C250CE3                         ; ---------------------------------------------------------------------------
+PAGELK:000007FF3C250CE9 CC                                      align 2
+PAGELK:000007FF3C250CEA
+PAGELK:000007FF3C250CEA                         loc_7FF3C250CEA:                        ; CODE XREF: HalpInitMpInfo+38↑j
+PAGELK:000007FF3C250CEA 3B D7                                   cmp     edx, edi
+PAGELK:000007FF3C250CEC 0F 85 75 02 00 00                       jnz     loc_7FF3C250F67
+PAGELK:000007FF3C250CF2 48 39 3D 8F 65 FF FF                    cmp     cs:HalpProcLocalApicTable, rdi
+PAGELK:000007FF3C250CF9 0F 85 68 02 00 00                       jnz     loc_7FF3C250F67
+PAGELK:000007FF3C250CFF 45 8B 44 24 04                          mov     r8d, [r12+4]
+PAGELK:000007FF3C250D04 49 8D 54 24 2C                          lea     rdx, [r12+2Ch]
+PAGELK:000007FF3C250D09 44 8B CF                                mov     r9d, edi
+PAGELK:000007FF3C250D0C 44 8B EF                                mov     r13d, edi
+PAGELK:000007FF3C250D0F 8B F7                                   mov     esi, edi
+PAGELK:000007FF3C250D11 4D 03 C4                                add     r8, r12
+```
+
+Just modify "jnz short loc_7FF3C250CEA" to "jmp short loc_7FF3C250CEA".
+
+Of course, use the similar way to patch the hal.dll, we can finally see the
+Windows Kernel Debugger message in the WinDbg command window.
+
+Here is the screenshot to show that scenario, which uses the 64-Bit Windows
+Vista Service Pack 2 as an example:
+
+![VistaSP2_KernelDebuggerFixed](Assets/VistaSP2_KernelDebuggerFixed.png)
