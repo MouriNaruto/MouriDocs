@@ -56,3 +56,68 @@ Virtual Machines. In the following sections, I will talk about the details.
 Warning: I have no experience about writing Windows kernel drivers because I
 cannot afford the price of the Windows driver signing certificate. Maybe my way
 mentioned in this article is too wild and hope you can forgive me.
+
+## Preliminary Information
+
+We need to learn something preliminary before we start the journey.
+
+### Minimum Windows guest build supports Hyper-V Generation 2 Virtual Machines
+
+First, we need to know the actual minimum Windows build which supports booting
+on Hyper-V Generation 2 Virtual Machines. It can help us to know how Microsoft
+guys adapt to that.
+
+The task is really simple because we only need to test which is the earliest
+Windows build can boot on Hyper-V Generation 2 Virtual Machines.
+
+As we all know, 64-Bit Windows 8 and Windows Server 2012 are the minimum Windows
+versions which support booting on Hyper-V Generation 2 Virtual Machines. So we
+only need to test builds mentioned in [Windows 8 - BetaWiki] and
+[Windows Server 2012 - BetaWiki].
+
+[Windows 8 - BetaWiki]: https://betawiki.net/wiki/Windows_8
+[Windows Server 2012 - BetaWiki]: https://betawiki.net/wiki/Windows_Server_2012
+
+We can divide the Windows builds into the following categories:
+
+| Levels  | Behavior                                   |
+|---------|--------------------------------------------|
+| Level 0 | Boot failed with kernel deadloop           |
+| Level 1 | Boot failed with ACPI issues               |
+| Level 2 | Boot successfully with bootmgr replacement |
+| Level 3 | Boot successfully without modifications    |
+
+![7990.0.fbl_core1_hyp_dev.110425-1705](Assets/7990.0.fbl_core1_hyp_dev.110425-1705.png)
+
+In the current stage, the minimum level 3 builds I found are Build 7990
+(fbl_core1_hyp_dev), Build 8027 (fbl_fun_perf) or Build 8028 (winmain). The
+minimum level 2 build I found is Build 8002 (fbl_grfx_dev1).
+
+### Hyper-V guest interfaces definitions
+
+For adapting to Hyper-V Generation 2 Virtual Machines, we need to know the
+Hyper-V guest interfaces definitions. I have classified them as the open source
+project [Mile.HyperV] and it provides the reference document to show where I get
+the definitions.
+
+[Mile.HyperV]: https://github.com/ProjectMile/Mile.HyperV
+
+### ReactOS source code
+
+Because Windows is not open source, we need to learn something about the hal and
+ntoskrnl from ReactOS source code. Although that x64 hal implementations are too
+raw even for learning.
+
+But for appreciating that project which helps me to learn something reliminary.
+I also try to make boot ReactOS on Hyper-V Generation 2 Virtual Machines. But
+there is no VMBus devices support because the ReactOS implementations are too
+raw and lacks lots of things, which I have to use the ReactOS Longhorn
+experimental branches. And [The_DarkFire] and [Timo Kreuzer] help me a lot for
+learning that.
+
+[The_DarkFire]: https://github.com/DarkFire01
+[Timo Kreuzer]: https://github.com/tkreuzer
+
+For people who have the ability to read the ReactOS source code, see
+https://github.com/MouriNaruto/reactos/tree/remilia-hyperv-main-longhorn for my
+modified branch.
