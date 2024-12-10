@@ -1049,3 +1049,45 @@ Here are the screenshots to show my sucessful result:
 ![VistaSP2_Final](Assets/VistaSP2_Final.png)
 
 ![Win7SP1_Final](Assets/Win7SP1_Final.png)
+
+## Conclusion
+
+The reason for the topic discussed in this article is slightly complex and
+different than the reason mentioned in the Microsoft's [Generation 2 FAQ]:
+
+- The PC-AT Compatibility bit is not set in the ACPI APIC table.
+- The ACPI Timer is existed but cannot get the address from the PM Timer Block
+  Address field in the ACPI FACP table, and Windows will only use the ACPI Timer
+  to scale the timers unless you patch it. It seems the legacy Windows versions
+  really love the ACPI Timer, Windows Vista as the example to show that. Also, 
+  legacy Windows versions won't check the PM Timer Block address from the 
+  Generic Address Structure in the ACPI FADT table.
+- The kernel in legacy Windows versions doesn't check the availability of the
+  dynamic partitioning policy only for Windows SKUs instead of the actual
+  environment.
+
+## Afterwords
+
+Originally, I use Windows Vista Service Pack 2 as an example for this article
+just for validating my steps mentioned in this article. But it seems Windows
+Vista Service Pack 2 can also boot on Hyper-V Generation 2 Virtual Machines
+with the similar patch way. I think it's a good example for this article.
+
+For Windows XP x64 Edition Service Pack 2, I have used some similar steps to
+make the Kernel Debugger work on Hyper-V Generation 2 Virtual Machines with
+bootmgr and winload from Windows Server 2008 Beta 3 Build 6001.16497. But there
+are some issues which makes the virtual machine deadloop, and I currently don't
+know the reason for that.
+
+But these examples are just for writing this article to prove something I have
+done. In my opinion, if you want to use the method mentioned in this article
+for your daily time, at least you need to make a patcher based on [EfiGuard].
+
+[EfiGuard]: https://github.com/Mattiwatti/EfiGuard
+
+For some people who want to know why I write this article, I just want to know
+the reason. Also, it can help me to avoid using the Windows builtin Hyper-V 
+client because it is really hard to use. I can finally use my Hyper-V client
+to run some legacy Windows versions to test some of my open-source projects.
+
+Hope you can enjoy this article.
