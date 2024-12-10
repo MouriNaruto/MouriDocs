@@ -1037,9 +1037,9 @@ But for the first boot of Windows Vista Service Pack 2 and Windows 7 Service
 Pack 1, we won't see the desktop because the Hyper-V Synthetic Video driver
 is not loaded.
 
-So, I suggest you to install SynthRdp tool from [NanaRun] before starting this
-wild journey, which can make you have the ability to use the Hyper-V Enhanced
-Session Mode.
+So, I suggest you to install SynthRdp tool from [NanaRun] for the operating
+system you want to adapt before starting this wild journey, which can make
+you have the ability to use the Hyper-V Enhanced Session Mode.
 
 [NanaRun]: https://github.com/M2Team/NanaRun
 

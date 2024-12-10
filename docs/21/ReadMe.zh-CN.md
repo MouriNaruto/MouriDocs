@@ -1003,8 +1003,8 @@ BugCheck 错误消息。
 但是对于 Windows Vista Service Pack 2 和 Windows 7 Service Pack 1 的第一次启动，
 我们将看不到桌面，因为 Hyper-V 合成视频驱动程序没有加载。
 
-所以，我建议在开始这次狂野之旅之前安装 [NanaRun] 中的 SynthRdp 工具，这样你就有
-机会使用 Hyper-V 增强会话模式了。
+所以，我建议在开始这次狂野之旅之前为你要适配的操作系统安装 [NanaRun] 中的
+SynthRdp 工具，这样你就有 机会使用 Hyper-V 增强会话模式了。
 
 [NanaRun]: https://github.com/M2Team/NanaRun
 
