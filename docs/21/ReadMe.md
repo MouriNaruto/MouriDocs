@@ -1016,3 +1016,36 @@ message from the Windows Event Viewer.
   </UserData>
 </Event>
 ```
+
+### Boot to the desktop
+
+From the above error message, we can search the Microsoft documentation for
+that. In [Bug check 0x7B: INACCESSIBLE_BOOT_DEVICE], we will know we basically
+touch the goal if we can make the kernel find the boot device.
+
+[Bug check 0x7B: INACCESSIBLE_BOOT_DEVICE]: https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/bug-check-0x7b--inaccessible-boot-device
+
+Actually, we need to mount the SYSTEM hive to modify some registry keys:
+
+- Set the NTFS file system driver to start at boot time for ControlSet* key
+  trees.
+- Check the FirmwareBootDevice path value in the Control key for ControlSet* key
+  trees, make sure that is the correct path.
+
+After that, we can boot to the desktop successfully.
+
+But for the first boot of Windows Vista Service Pack 2 and Windows 7 Service
+Pack 1, we won't see the desktop because the Hyper-V Synthetic Video driver
+is not loaded.
+
+So, I suggest you to install SynthRdp tool from [NanaRun] before starting this
+wild journey, which can make you have the ability to use the Hyper-V Enhanced
+Session Mode.
+
+[NanaRun]: https://github.com/M2Team/NanaRun
+
+Here are the screenshots to show my sucessful result:
+
+![VistaSP2_Final](Assets/VistaSP2_Final.png)
+
+![Win7SP1_Final](Assets/Win7SP1_Final.png)
