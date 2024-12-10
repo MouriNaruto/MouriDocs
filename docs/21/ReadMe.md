@@ -853,3 +853,166 @@ Modify "mov eax, 2" to "mov eax, 1".
 Of course, use the similar way to patch the hal.dll, and you will see the same
 result like you boot Windows 7 Service Pack 1 on Hyper-V Generation 2 Virtual
 Machines.
+
+### Fix the ACPI BugCheck issue
+
+From the above error message, we can search the Microsoft documentation for
+that. In [Bug Check 0xA5: ACPI_BIOS_ERROR], you will know it's the issue in
+acpi.sys. We need to do some patches to fix that.
+
+[Bug Check 0xA5: ACPI_BIOS_ERROR]: https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/bug-check-0xa5--acpi-bios-error
+
+After some analysis, I find the issue is caused by the following pesudo code
+from the ACPIEnableEnterACPIMode function in acpi.sys.
+
+```c
+  v3 = 0x1E8480 % TimeIncrement;
+  v4 = MEMORY[0xFFFFF78000000320];
+  v5 = MEMORY[0xFFFFF78000000320] + 0x1E8480 / TimeIncrement;
+  while ( (READ_PM1_CONTROL(v4, v3) & 1) == 0 )
+  {
+    if ( MEMORY[0xFFFFF78000000320] > v5 )
+      KeBugCheckEx(0xA5u, 0x11ui64, 6ui64, 0i64, 0i64);
+  }
+```
+
+We know Hyper-V Generation 2 Virtual Machines is a modern virtual machine, so,
+I guest ACPI in Hyper-V Generation 2 Virtual Machines is always enabled and
+unable to disable. So, we can just bypass that logic.
+
+For example, the original code snippet is:
+
+```
+.text:0000000000025930 48 89 5C 24 08                          mov     [rsp+arg_0], rbx
+.text:0000000000025935 48 89 74 24 10                          mov     [rsp+arg_8], rsi
+.text:000000000002593A 57                                      push    rdi
+.text:000000000002593B 48 83 EC 30                             sub     rsp, 30h
+.text:000000000002593F 40 32 FF                                xor     dil, dil
+.text:0000000000025942 84 C9                                   test    cl, cl
+.text:0000000000025944 75 16                                   jnz     short loc_2595C
+.text:0000000000025946 44 0F 20 C0                             mov     rax, cr8
+.text:000000000002594A 3C 02                                   cmp     al, 2
+.text:000000000002594C 73 0E                                   jnb     short loc_2595C
+.text:000000000002594E B9 01 00 00 00                          mov     ecx, 1          ; Affinity
+.text:0000000000025953 FF 15 AF 89 01 00                       call    cs:__imp_KeSetSystemAffinityThread
+.text:0000000000025959 40 B7 01                                mov     dil, 1
+.text:000000000002595C
+.text:000000000002595C                         loc_2595C:                              ; CODE XREF: ACPIEnableEnterACPIMode+14↑j
+.text:000000000002595C                                                                 ; ACPIEnableEnterACPIMode+1C↑j
+.text:000000000002595C FF 15 AE 89 01 00                       call    cs:__imp_KeQueryTimeIncrement
+.text:0000000000025962 48 8B 0D E7 04 02 00                    mov     rcx, cs:AcpiInformation
+.text:0000000000025969 48 8B 51 08                             mov     rdx, [rcx+8]
+.text:000000000002596D 8B D8                                   mov     ebx, eax
+.text:000000000002596F 44 0F B6 42 34                          movzx   r8d, byte ptr [rdx+34h]
+.text:0000000000025974 33 D2                                   xor     edx, edx
+.text:0000000000025976 8D 4A 08                                lea     ecx, [rdx+8]
+.text:0000000000025979 FF 15 F9 E7 01 00                       call    cs:AcpiWriteRegisterRoutine
+.text:000000000002597F 33 D2                                   xor     edx, edx
+.text:0000000000025981 B8 80 84 1E 00                          mov     eax, 1E8480h
+.text:0000000000025986 F7 F3                                   div     ebx
+.text:0000000000025988 48 BE 20 03 00 00 80 F7                 mov     rsi, 0FFFFF78000000320h
+.text:0000000000025988 FF FF
+.text:0000000000025992 48 8B 0E                                mov     rcx, [rsi]
+.text:0000000000025995 8B D8                                   mov     ebx, eax
+.text:0000000000025997 48 03 D9                                add     rbx, rcx
+.text:000000000002599A EB 08                                   jmp     short loc_259A4
+.text:000000000002599C                         ; ---------------------------------------------------------------------------
+.text:000000000002599C
+.text:000000000002599C                         loc_2599C:                              ; CODE XREF: ACPIEnableEnterACPIMode+7B↓j
+.text:000000000002599C 48 8B 06                                mov     rax, [rsi]
+.text:000000000002599F 48 3B C3                                cmp     rax, rbx
+.text:00000000000259A2 77 24                                   ja      short loc_259C8
+.text:00000000000259A4
+.text:00000000000259A4                         loc_259A4:                              ; CODE XREF: ACPIEnableEnterACPIMode+6A↑j
+.text:00000000000259A4 E8 A7 01 00 00                          call    READ_PM1_CONTROL
+.text:00000000000259A9 A8 01                                   test    al, 1
+.text:00000000000259AB 74 EF                                   jz      short loc_2599C
+.text:00000000000259AD 40 84 FF                                test    dil, dil
+.text:00000000000259B0 74 06                                   jz      short loc_259B8
+.text:00000000000259B2 FF 15 60 89 01 00                       call    cs:__imp_KeRevertToUserAffinityThread
+.text:00000000000259B8
+.text:00000000000259B8                         loc_259B8:                              ; CODE XREF: ACPIEnableEnterACPIMode+80↑j
+.text:00000000000259B8 48 8B 5C 24 40                          mov     rbx, [rsp+38h+arg_0]
+.text:00000000000259BD 48 8B 74 24 48                          mov     rsi, [rsp+38h+arg_8]
+.text:00000000000259C2 48 83 C4 30                             add     rsp, 30h
+.text:00000000000259C6 5F                                      pop     rdi
+.text:00000000000259C7 C3                                      retn
+.text:00000000000259C8                         ; ---------------------------------------------------------------------------
+.text:00000000000259C8
+.text:00000000000259C8                         loc_259C8:                              ; CODE XREF: ACPIEnableEnterACPIMode+72↑j
+.text:00000000000259C8 48 83 64 24 20 00                       and     [rsp+38h+var_18], 0
+.text:00000000000259CE 45 33 C9                                xor     r9d, r9d        ; BugCheckParameter3
+.text:00000000000259D1 B9 A5 00 00 00                          mov     ecx, 0A5h       ; BugCheckCode
+.text:00000000000259D6 41 8D 51 11                             lea     edx, [r9+11h]   ; BugCheckParameter1
+.text:00000000000259DA 45 8D 41 06                             lea     r8d, [r9+6]     ; BugCheckParameter2
+.text:00000000000259DE FF 15 F4 89 01 00                       call    cs:__imp_KeBugCheckEx
+.text:00000000000259DE                         ; ---------------------------------------------------------------------------
+.text:00000000000259E4 CC                                      db 0CCh
+```
+
+Just modify theses code snippets to the following:
+
+```
+.text:00000000000259A4                         loc_259A4:                              ; CODE XREF: ACPIEnableEnterACPIMode+6A↑j
+.text:00000000000259A4 E8 A7 01 00 00                          call    READ_PM1_CONTROL
+.text:00000000000259A9 A8 01                                   test    al, 1
+.text:00000000000259AB 74 EF                                   jz      short loc_2599C
+.text:00000000000259AD 40 84 FF                                test    dil, dil
+.text:00000000000259B0 74 06                                   jz      short loc_259B8
+.text:00000000000259B2 FF 15 60 89 01 00                       call    cs:__imp_KeRevertToUserAffinityThread
+```
+
+To the following:
+
+```
+.text:00000000000259A4                         loc_259A4:                              ; CODE XREF: ACPIEnableEnterACPIMode+6A↑j
+.text:00000000000259A4 90                                      nop
+.text:00000000000259A5 90                                      nop
+.text:00000000000259A6 90                                      nop
+.text:00000000000259A7 90                                      nop
+.text:00000000000259A8 90                                      nop
+.text:00000000000259A9 90                                      nop
+.text:00000000000259AA 90                                      nop
+.text:00000000000259AB 90                                      nop
+.text:00000000000259AC 90                                      nop
+.text:00000000000259AD 40 84 FF                                test    dil, dil
+.text:00000000000259B0 74 06                                   jz      short loc_259B8
+.text:00000000000259B2 FF 15 60 89 01 00                       call    cs:__imp_KeRevertToUserAffinityThread
+```
+
+Of course, use the similar way to patch the acpi.sys. You will see the BugCheck
+message from the Windows Event Viewer.
+
+```xml
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Microsoft-Windows-Hyper-V-Worker" Guid="{51ddfa29-d5c8-4803-be4b-2ecb715570fe}" />
+    <EventID>18590</EventID>
+    <Version>0</Version>
+    <Level>1</Level>
+    <Task>0</Task>
+    <Opcode>0</Opcode>
+    <Keywords>0x8000000000000000</Keywords>
+    <TimeCreated SystemTime="2024-12-10T08:13:13.6675583Z" />
+    <EventRecordID>35797</EventRecordID>
+    <Correlation />
+    <Execution ProcessID="5928" ThreadID="7620" />
+    <Channel>Microsoft-Windows-Hyper-V-Worker-Admin</Channel>
+    <Computer>DESKTOP-OLUNT6J</Computer>
+    <Security UserID="S-1-5-83-1-3655396106-1351506743-3915871121-3476744365" />
+  </System>
+  <UserData>
+    <VmlEventLog xmlns="http://www.microsoft.com/Windows/Virtualization/Events">
+      <VmName>Virtual Machine</VmName>
+      <VmId>D9E0EB0A-5B37-508E-9173-67E9ADE83ACF</VmId>
+      <VmErrorCode0>0x7b</VmErrorCode0>
+      <VmErrorCode1>0xfffffa60005959c0</VmErrorCode1>
+      <VmErrorCode2>0xffffffffc0000034</VmErrorCode2>
+      <VmErrorCode3>0x0</VmErrorCode3>
+      <VmErrorCode4>0x0</VmErrorCode4>
+      <VmErrorMessage>
+      </VmErrorMessage>
+    </VmlEventLog>
+  </UserData>
+</Event>
+```
