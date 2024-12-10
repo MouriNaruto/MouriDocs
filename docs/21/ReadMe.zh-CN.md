@@ -994,9 +994,9 @@ BugCheck 错误消息。
 
 实际上，我们需要挂载 SYSTEM 注册表单元以修改一些注册表键:
 
-- 对 ControlSet* 键树设置 NTFS 文件系统驱动程序为在启动时启动。
+- 对 ControlSet* 键树设置 NTFS 文件系统驱动程序为在启动时启动
 - 检查 ControlSet* 键树中的 Control 键中的 FirmwareBootDevice 路径值，确保它是正
-  确的路径。
+  确的路径
 
 搞定这些后，我们就可以成功地进入桌面了。
 
