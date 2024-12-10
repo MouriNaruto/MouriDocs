@@ -599,3 +599,257 @@ Here is the screenshot to show that scenario, which uses the 64-Bit Windows
 Vista Service Pack 2 as an example:
 
 ![VistaSP2_PassHalInitSystem](Assets/VistaSP2_PassHalInitSystem.png)
+
+### Disable the dynamic partitioning policy in ntoskrnl.exe
+
+Although the MmInitSystem funtion is complex, luckily we have the global
+variable called MiInitFailure for knowning the failure reason for the
+MmInitSystem funtion.
+
+We will know the value of MiInitFailure is 14 when using the WinDbg memory
+window.
+
+Here is the screenshot to show that scenario, which uses the 64-Bit Windows
+Vista Service Pack 2 as an example:
+
+![VistaSP2_MiInitFailure](Assets/VistaSP2_MiInitFailure.png)
+
+For something set the MiInitFailure to 14, we can find the following pesudo code
+snippet in the MmInitNucleus function:
+
+```c
+  PoolWithTag = ExAllocatePoolWithTag(
+                  NonPagedPool,
+                  4 * ((unsigned __int64)(*(_QWORD *)&MmHighestPossiblePhysicalPage + 32i64) >> 5),
+                  0x20206D4Du);
+  if ( !PoolWithTag )
+  {
+    MiInitFailure = 14;
+    return 0;
+  }
+```
+
+We will know the value of MmHighestPossiblePhysicalPage is much bigger than the
+virtual machine memory we set when using the WinDbg memory window.
+
+Here is the screenshot to show that scenario, which uses the 64-Bit Windows
+Vista Service Pack 2 as an example:
+
+![VistaSP2_MmHighestPossiblePhysicalPage](Assets/VistaSP2_MmHighestPossiblePhysicalPage.png)
+
+For something set the MiInitFailure to 14, we can find the following pesudo code
+snippet in the MiFindLargestLoaderDescriptor function:
+
+```c
+  v13 = MmDynamicPfn;
+  if ( MmDynamicPfn )
+  {
+    if ( v5 > MmDynamicPfn - 1 )
+      v13 = v5 + 1;
+    if ( v13 > 0x1000000000i64 )
+      v13 = 0x1000000000i64;
+    MmDynamicPfn = v13;
+    *(_QWORD *)&MmHighestPossiblePhysicalPage = v13 - 1;
+  }
+  else
+  {
+    *(_QWORD *)&MmHighestPossiblePhysicalPage = v5;
+  }
+```
+
+We will know the value of MmDynamicPfn will cause the issue when using the
+WinDbg memory window.
+
+Here is the screenshot to show that scenario, which uses the 64-Bit Windows
+Vista Service Pack 2 as an example:
+
+![VistaSP2_MmDynamicPfn](Assets/VistaSP2_MmDynamicPfn.png)
+
+For something set the MmDynamicPfn, we can find the following pesudo code
+snippet in the MiInitializeBootDefaults function:
+
+```c
+  if ( MmDynamicMemorySupported )
+  {
+    MmDynamicPfn <<= 18;
+    if ( !MmDynamicPfn && (int)off_140172A88(17i64, 8i64, &v16, &v15) >= 0 )
+      MmDynamicPfn = v16 / 4096;
+  }
+  else
+  {
+    MmDynamicPfn = 0i64;
+  }
+```
+
+Oh, it seems the the dynamic partitioning policy in ntoskrnl.exe caused the
+MmInitSystem funtion failed.
+
+Here is the screenshot to show that scenario, which uses the 64-Bit Windows
+Vista Service Pack 2 as an example:
+
+![VistaSP2_MmDynamicMemorySupported](Assets/VistaSP2_MmDynamicMemorySupported.png)
+
+Patch for making MmDynamicMemorySupported to 0 is simple. Just patch the
+InitializeDynamicPartitioningPolicy function in ntoskrnl.exe.
+
+For example, the original code snippet is:
+
+```
+INIT:00000001404B40B0 FF F7                                   push    rdi
+INIT:00000001404B40B2 48 83 EC 70                             sub     rsp, 70h
+INIT:00000001404B40B6 48 8B 05 73 F2 CB FF                    mov     rax, cs:__security_cookie
+INIT:00000001404B40BD 48 33 C4                                xor     rax, rsp
+INIT:00000001404B40C0 48 89 44 24 60                          mov     [rsp+78h+var_18], rax
+INIT:00000001404B40C5 33 D2                                   xor     edx, edx
+INIT:00000001404B40C7 4C 8D 44 24 50                          lea     r8, [rsp+78h+var_28]
+INIT:00000001404B40CC 8D 7A 01                                lea     edi, [rdx+1]
+INIT:00000001404B40CF 8B CF                                   mov     ecx, edi
+INIT:00000001404B40D1 E8 3A FF B9 FF                          call    KiCpuId
+INIT:00000001404B40D6 0F BA 64 24 58 1F                       bt      [rsp+78h+var_20], 1Fh
+INIT:00000001404B40DC 48 8D 4C 24 40                          lea     rcx, [rsp+78h+DestinationString] ; DestinationString
+INIT:00000001404B40E1 48 8D 15 08 A1 FF FF                    lea     rdx, aKernelVirtuald ; "Kernel-VirtualDynamicPartitioningSuppor"...
+INIT:00000001404B40E8 72 07                                   jb      short loc_1404B40F1
+INIT:00000001404B40EA 48 8D 15 5F A1 FF FF                    lea     rdx, aKernelDynamicp ; "Kernel-DynamicPartitioningSupported"
+INIT:00000001404B40F1
+INIT:00000001404B40F1                         loc_1404B40F1:                          ; CODE XREF: InitializeDynamicPartitioningPolicy+38↑j
+INIT:00000001404B40F1 E8 96 AB BA FF                          call    RtlInitUnicodeString
+INIT:00000001404B40F6 48 8D 44 24 34                          lea     rax, [rsp+78h+var_44]
+INIT:00000001404B40FB 4C 8D 44 24 30                          lea     r8, [rsp+78h+var_48]
+INIT:00000001404B4100 48 8D 54 24 38                          lea     rdx, [rsp+78h+var_40]
+INIT:00000001404B4105 48 8D 4C 24 40                          lea     rcx, [rsp+78h+DestinationString]
+INIT:00000001404B410A 41 B9 04 00 00 00                       mov     r9d, 4
+INIT:00000001404B4110 48 89 44 24 20                          mov     [rsp+78h+var_58], rax
+INIT:00000001404B4115 E8 86 30 BA FF                          call    ZwQueryLicenseValue
+INIT:00000001404B411A 85 C0                                   test    eax, eax
+INIT:00000001404B411C 78 34                                   js      short loc_1404B4152
+INIT:00000001404B411E 83 7C 24 34 04                          cmp     [rsp+78h+var_44], 4
+INIT:00000001404B4123 75 2D                                   jnz     short loc_1404B4152
+INIT:00000001404B4125 83 7C 24 38 04                          cmp     [rsp+78h+var_40], 4
+INIT:00000001404B412A 75 26                                   jnz     short loc_1404B4152
+INIT:00000001404B412C 83 7C 24 30 00                          cmp     [rsp+78h+var_48], 0
+INIT:00000001404B4131 74 1F                                   jz      short loc_1404B4152
+INIT:00000001404B4133 48 B8 F0 02 00 00 80 F7                 mov     rax, 0FFFFF780000002F0h
+INIT:00000001404B4133 FF FF
+INIT:00000001404B413D 40 88 3D E2 2E D7 FF                    mov     cs:KeDynamicPartitioningSupported, dil
+INIT:00000001404B4144 8B 00                                   mov     eax, [rax]
+INIT:00000001404B4146 83 C8 20                                or      eax, 20h
+INIT:00000001404B4149 A3 F0 02 00 00 80 F7 FF                 mov     ds:0FFFFF780000002F0h, eax
+INIT:00000001404B4149 FF
+INIT:00000001404B4152
+INIT:00000001404B4152                         loc_1404B4152:                          ; CODE XREF: InitializeDynamicPartitioningPolicy+6C↑j
+INIT:00000001404B4152                                                                 ; InitializeDynamicPartitioningPolicy+73↑j
+INIT:00000001404B4152                                                                 ; InitializeDynamicPartitioningPolicy+7A↑j
+INIT:00000001404B4152                                                                 ; InitializeDynamicPartitioningPolicy+81↑j
+INIT:00000001404B4152 4C 8D 44 24 50                          lea     r8, [rsp+78h+var_28]
+INIT:00000001404B4157 33 D2                                   xor     edx, edx
+INIT:00000001404B4159 8B CF                                   mov     ecx, edi
+INIT:00000001404B415B E8 B0 FE B9 FF                          call    KiCpuId
+INIT:00000001404B4160 0F BA 64 24 58 1F                       bt      [rsp+78h+var_20], 1Fh
+INIT:00000001404B4166 48 8D 4C 24 40                          lea     rcx, [rsp+78h+DestinationString] ; DestinationString
+INIT:00000001404B416B 48 8D 15 2E A1 FF FF                    lea     rdx, aKernelVmphysic ; "Kernel-VmPhysicalMemoryAddAllowed"
+INIT:00000001404B4172 72 07                                   jb      short loc_1404B417B
+INIT:00000001404B4174 48 8D 15 75 A1 FF FF                    lea     rdx, aKernelPhysical ; "Kernel-PhysicalMemoryAddAllowed"
+INIT:00000001404B417B
+INIT:00000001404B417B                         loc_1404B417B:                          ; CODE XREF: InitializeDynamicPartitioningPolicy+C2↑j
+INIT:00000001404B417B E8 0C AB BA FF                          call    RtlInitUnicodeString
+INIT:00000001404B4180 48 8D 44 24 34                          lea     rax, [rsp+78h+var_44]
+INIT:00000001404B4185 4C 8D 44 24 30                          lea     r8, [rsp+78h+var_48]
+INIT:00000001404B418A 48 8D 54 24 38                          lea     rdx, [rsp+78h+var_40]
+INIT:00000001404B418F 48 8D 4C 24 40                          lea     rcx, [rsp+78h+DestinationString]
+INIT:00000001404B4194 41 B9 04 00 00 00                       mov     r9d, 4
+INIT:00000001404B419A 48 89 44 24 20                          mov     [rsp+78h+var_58], rax
+INIT:00000001404B419F E8 FC 2F BA FF                          call    ZwQueryLicenseValue
+INIT:00000001404B41A4 85 C0                                   test    eax, eax
+INIT:00000001404B41A6 78 23                                   js      short loc_1404B41CB
+INIT:00000001404B41A8 83 7C 24 34 04                          cmp     [rsp+78h+var_44], 4
+INIT:00000001404B41AD 75 1C                                   jnz     short loc_1404B41CB
+INIT:00000001404B41AF 83 7C 24 38 04                          cmp     [rsp+78h+var_40], 4
+INIT:00000001404B41B4 75 15                                   jnz     short loc_1404B41CB
+INIT:00000001404B41B6 0F B6 05 93 2F D7 FF                    movzx   eax, cs:MmDynamicMemorySupported
+INIT:00000001404B41BD 83 7C 24 30 00                          cmp     [rsp+78h+var_48], 0
+INIT:00000001404B41C2 0F 45 C7                                cmovnz  eax, edi
+INIT:00000001404B41C5 88 05 85 2F D7 FF                       mov     cs:MmDynamicMemorySupported, al
+INIT:00000001404B41CB
+INIT:00000001404B41CB                         loc_1404B41CB:                          ; CODE XREF: InitializeDynamicPartitioningPolicy+F6↑j
+INIT:00000001404B41CB                                                                 ; InitializeDynamicPartitioningPolicy+FD↑j
+INIT:00000001404B41CB                                                                 ; InitializeDynamicPartitioningPolicy+104↑j
+INIT:00000001404B41CB 48 8B 4C 24 60                          mov     rcx, [rsp+78h+var_18]
+INIT:00000001404B41D0 48 33 CC                                xor     rcx, rsp        ; StackCookie
+INIT:00000001404B41D3 E8 78 3C BC FF                          call    __security_check_cookie
+INIT:00000001404B41D8 48 83 C4 70                             add     rsp, 70h
+INIT:00000001404B41DC 5F                                      pop     rdi
+INIT:00000001404B41DD C3                                      retn
+```
+
+Modify "js short loc_1404B41CB" to "jmp short loc_1404B41CB".
+
+We also should modify "js short loc_1404B4152" to "jmp short loc_1404B4152".
+
+Of course, use the similar way to patch the ntoskrnl.exe. You will see the ACPI
+BugCheck message from the Windows Event Viewer.
+
+```xml
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Microsoft-Windows-Hyper-V-Worker" Guid="{51ddfa29-d5c8-4803-be4b-2ecb715570fe}" />
+    <EventID>18590</EventID>
+    <Version>0</Version>
+    <Level>1</Level>
+    <Task>0</Task>
+    <Opcode>0</Opcode>
+    <Keywords>0x8000000000000000</Keywords>
+    <TimeCreated SystemTime="2024-12-10T03:35:57.3269133Z" />
+    <EventRecordID>35780</EventRecordID>
+    <Correlation />
+    <Execution ProcessID="7016" ThreadID="708" />
+    <Channel>Microsoft-Windows-Hyper-V-Worker-Admin</Channel>
+    <Computer>DESKTOP-OLUNT6J</Computer>
+    <Security UserID="S-1-5-83-1-3655396106-1351506743-3915871121-3476744365" />
+  </System>
+  <UserData>
+    <VmlEventLog xmlns="http://www.microsoft.com/Windows/Virtualization/Events">
+      <VmName>Virtual Machine</VmName>
+      <VmId>D9E0EB0A-5B37-508E-9173-67E9ADE83ACF</VmId>
+      <VmErrorCode0>0xa5</VmErrorCode0>
+      <VmErrorCode1>0x11</VmErrorCode1>
+      <VmErrorCode2>0x6</VmErrorCode2>
+      <VmErrorCode3>0x0</VmErrorCode3>
+      <VmErrorCode4>0x0</VmErrorCode4>
+      <VmErrorMessage>
+      </VmErrorMessage>
+    </VmlEventLog>
+  </UserData>
+</Event>
+```
+
+But if you tried to boot Windows Vista Service Pack 2 on Hyper-V Generation 2
+Virtual Machines, you will meet the deadloop issue. It caused by the following
+pesudo code snippet in the HalInitSystem function:
+
+```c
+    if ( HalpHpetInitialized )
+    {
+      HalpStallExecutionProcessorSource = 4;
+      HalpQueryPerformanceCounterSource = 4;
+    }
+    else
+    {
+      HalpStallExecutionProcessorSource = 2;
+      HalpQueryPerformanceCounterSource = 2;
+    }
+```
+
+For example, the original code snippet is:
+
+```
+PAGELK:000007FF3C251AF2                         loc_7FF3C251AF2:                        ; CODE XREF: HalInitSystem+CA↑j
+PAGELK:000007FF3C251AF2 B8 02 00 00 00                          mov     eax, 2
+PAGELK:000007FF3C251AF7 89 05 C7 31 FF FF                       mov     cs:HalpStallExecutionProcessorSource, eax
+PAGELK:000007FF3C251AFD 89 05 B5 31 FF FF                       mov     cs:HalpQueryPerformanceCounterSource, eax
+```
+
+Modify "mov eax, 2" to "mov eax, 1".
+
+Of course, use the similar way to patch the hal.dll, and you will see the same
+result like you boot Windows 7 Service Pack 1 on Hyper-V Generation 2 Virtual
+Machines.
