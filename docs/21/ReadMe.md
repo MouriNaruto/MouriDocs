@@ -1061,7 +1061,8 @@ different than the reason mentioned in the Microsoft's [Generation 2 FAQ]:
   to scale the timers unless you patch it. It seems the legacy Windows versions
   really love the ACPI Timer, Windows Vista as the example to show that. Also, 
   legacy Windows versions won't check the PM Timer Block address from the 
-  Generic Address Structure in the ACPI FADT table.
+  Generic Address Structure in the ACPI FADT table, which actually provided the
+  value in Hyper-V Generation 2 Virtual Machines.
 - The kernel in legacy Windows versions doesn't check the availability of the
   dynamic partitioning policy only for Windows SKUs instead of the actual
   environment.
