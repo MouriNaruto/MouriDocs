@@ -2,8 +2,6 @@
 
 [简体中文](ReadMe.zh-CN.md)
 
-***Work In Progress***
-
 As the guy who want to write bare-matal applications with as high level
 programming languages like C/C++ as possible, I love the design of Hyper-V
 Generation 2 Virtual Machines because it's one of validated popular
@@ -580,6 +578,7 @@ Then you need to rewrite the following code snippet:
 ```
 
 To the following code snippet:
+
 ```
 .text:000007FF3C232123 B9 23 00 00 40                          mov     ecx, 40000023h
 .text:000007FF3C232128 0F 32                                   rdmsr
@@ -637,8 +636,8 @@ Vista Service Pack 2 as an example:
 
 ![VistaSP2_MmHighestPossiblePhysicalPage](Assets/VistaSP2_MmHighestPossiblePhysicalPage.png)
 
-For something set the MiInitFailure to 14, we can find the following pesudo code
-snippet in the MiFindLargestLoaderDescriptor function:
+For something set the MmHighestPossiblePhysicalPage, we can find the following
+pesudo code snippet in the MiFindLargestLoaderDescriptor function:
 
 ```c
   v13 = MmDynamicPfn;
@@ -876,7 +875,7 @@ from the ACPIEnableEnterACPIMode function in acpi.sys.
   }
 ```
 
-We know Hyper-V Generation 2 Virtual Machines is a modern virtual machine, so,
+We know Hyper-V Generation 2 Virtual Machines are modern virtual machines, so,
 I guest ACPI in Hyper-V Generation 2 Virtual Machines is always enabled and
 unable to disable. So, we can just bypass that logic.
 
