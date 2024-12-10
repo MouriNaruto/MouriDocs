@@ -423,3 +423,179 @@ Here is the screenshot to show that scenario, which uses the 64-Bit Windows
 Vista Service Pack 2 as an example:
 
 ![VistaSP2_KernelDebuggerFixed](Assets/VistaSP2_KernelDebuggerFixed.png)
+
+### Fix the timer scaling implementation in hal.dll
+
+In the current stage, you will find your virtual machine is deadlooping.
+
+You will find its caused by the HalpScaleTimers function in hal.dll with some
+analysis via WinDbg.
+
+We need to patch the HalpScaleTimers function in hal.dll to make it workable.
+
+For example, the original code snippet is:
+
+```
+.text:000007FF3C232060 48 89 5C 24 08                          mov     [rsp+arg_0], rbx
+.text:000007FF3C232065 48 89 7C 24 10                          mov     [rsp+arg_8], rdi
+.text:000007FF3C23206A 9C                                      pushfq
+.text:000007FF3C23206B 48 83 EC 20                             sub     rsp, 20h
+.text:000007FF3C23206F 33 C9                                   xor     ecx, ecx
+.text:000007FF3C232071 E8 1E F7 FE FF                          call    HalpAcquireCmosSpinLockEx
+.text:000007FF3C232076 FA                                      cli
+.text:000007FF3C232077 80 3D A2 D4 00 00 00                    cmp     cs:HalpScaleWithPmTimer, 0
+.text:000007FF3C23207E 74 55                                   jz      short loc_7FF3C2320D5
+.text:000007FF3C232080 E8 DB 67 00 00                          call    HalpProcessorFence
+.text:000007FF3C232085 C7 04 25 80 03 FE FF FF                 mov     dword ptr ds:0FFFFFFFFFFFE0380h, 0FFFFFFFFh
+.text:000007FF3C232085 FF FF FF
+.text:000007FF3C232090 8B 3C 25 90 03 FE FF                    mov     edi, ds:0FFFFFFFFFFFE0390h
+.text:000007FF3C232097 0F 31                                   rdtsc
+.text:000007FF3C232099 48 C1 E2 20                             shl     rdx, 20h
+.text:000007FF3C23209D B9 D3 D3 06 00                          mov     ecx, 6D3D3h
+.text:000007FF3C2320A2 48 0B C2                                or      rax, rdx
+.text:000007FF3C2320A5 48 8B D8                                mov     rbx, rax
+.text:000007FF3C2320A8 E8 B3 B6 FF FF                          call    HalpPmTimerTickCountStall
+.text:000007FF3C2320AD E8 AE 67 00 00                          call    HalpProcessorFence
+.text:000007FF3C2320B2 44 8B 1C 25 90 03 FE FF                 mov     r11d, ds:0FFFFFFFFFFFE0390h
+.text:000007FF3C2320BA 41 2B FB                                sub     edi, r11d
+.text:000007FF3C2320BD 0F 31                                   rdtsc
+.text:000007FF3C2320BF 48 C1 E2 20                             shl     rdx, 20h
+.text:000007FF3C2320C3 C1 E7 03                                shl     edi, 3
+.text:000007FF3C2320C6 48 0B C2                                or      rax, rdx
+.text:000007FF3C2320C9 48 2B C3                                sub     rax, rbx
+.text:000007FF3C2320CC 4C 8B C8                                mov     r9, rax
+.text:000007FF3C2320CF 49 C1 E1 03                             shl     r9, 3
+.text:000007FF3C2320D3 EB 68                                   jmp     short loc_7FF3C23213D
+.text:000007FF3C2320D5                         ; ---------------------------------------------------------------------------
+.text:000007FF3C2320D5
+.text:000007FF3C2320D5                         loc_7FF3C2320D5:                        ; CODE XREF: HalpScaleTimers+1E↑j
+.text:000007FF3C2320D5 C7 04 25 80 03 FE FF FF                 mov     dword ptr ds:0FFFFFFFFFFFE0380h, 0FFFFFFFFh
+.text:000007FF3C2320D5 FF FF FF
+.text:000007FF3C2320E0 66 BA 70 00                             mov     dx, 70h ; 'p'
+.text:000007FF3C2320E4 B0 0A                                   mov     al, 0Ah
+.text:000007FF3C2320E6 EE                                      out     dx, al          ; CMOS Memory/RTC Index Register:
+.text:000007FF3C2320E6                                                                 ; RTC Register A
+.text:000007FF3C2320E7
+.text:000007FF3C2320E7                         loc_7FF3C2320E7:                        ; CODE XREF: HalpScaleTimers+8B↓j
+.text:000007FF3C2320E7 E4 71                                   in      al, 71h         ; CMOS Memory/RTC Data Register
+.text:000007FF3C2320E9 84 C0                                   test    al, al
+.text:000007FF3C2320EB 78 FA                                   js      short loc_7FF3C2320E7
+.text:000007FF3C2320ED
+.text:000007FF3C2320ED                         loc_7FF3C2320ED:                        ; CODE XREF: HalpScaleTimers+91↓j
+.text:000007FF3C2320ED E4 71                                   in      al, 71h         ; CMOS Memory/RTC Data Register
+.text:000007FF3C2320EF 84 C0                                   test    al, al
+.text:000007FF3C2320F1 79 FA                                   jns     short loc_7FF3C2320ED
+.text:000007FF3C2320F3 E8 68 67 00 00                          call    HalpProcessorFence
+.text:000007FF3C2320F8 0F 31                                   rdtsc
+.text:000007FF3C2320FA 8B 3C 25 90 03 FE FF                    mov     edi, ds:0FFFFFFFFFFFE0390h
+.text:000007FF3C232101 48 C1 E2 20                             shl     rdx, 20h
+.text:000007FF3C232105 48 0B C2                                or      rax, rdx
+.text:000007FF3C232108 48 8B D8                                mov     rbx, rax
+.text:000007FF3C23210B 66 BA 70 00                             mov     dx, 70h ; 'p'
+.text:000007FF3C23210F B0 0A                                   mov     al, 0Ah
+.text:000007FF3C232111 EE                                      out     dx, al          ; CMOS Memory/RTC Index Register:
+.text:000007FF3C232111                                                                 ; RTC Register A
+.text:000007FF3C232112
+.text:000007FF3C232112                         loc_7FF3C232112:                        ; CODE XREF: HalpScaleTimers+B6↓j
+.text:000007FF3C232112 E4 71                                   in      al, 71h         ; CMOS Memory/RTC Data Register
+.text:000007FF3C232114 84 C0                                   test    al, al
+.text:000007FF3C232116 78 FA                                   js      short loc_7FF3C232112
+.text:000007FF3C232118
+.text:000007FF3C232118                         loc_7FF3C232118:                        ; CODE XREF: HalpScaleTimers+BC↓j
+.text:000007FF3C232118 E4 71                                   in      al, 71h         ; CMOS Memory/RTC Data Register
+.text:000007FF3C23211A 84 C0                                   test    al, al
+.text:000007FF3C23211C 79 FA                                   jns     short loc_7FF3C232118
+.text:000007FF3C23211E E8 3D 67 00 00                          call    HalpProcessorFence
+.text:000007FF3C232123 44 8B 1C 25 90 03 FE FF                 mov     r11d, ds:0FFFFFFFFFFFE0390h
+.text:000007FF3C23212B 41 2B FB                                sub     edi, r11d
+.text:000007FF3C23212E 0F 31                                   rdtsc
+.text:000007FF3C232130 48 C1 E2 20                             shl     rdx, 20h
+.text:000007FF3C232134 48 0B C2                                or      rax, rdx
+.text:000007FF3C232137 4C 8B C8                                mov     r9, rax
+.text:000007FF3C23213A 4C 2B CB                                sub     r9, rbx
+.text:000007FF3C23213D
+.text:000007FF3C23213D                         loc_7FF3C23213D:                        ; CODE XREF: HalpScaleTimers+73↑j
+.text:000007FF3C23213D 65 48 8B 1C 25 18 00 00                 mov     rbx, gs:18h
+.text:000007FF3C23213D 00
+.text:000007FF3C232146 65 4C 8B 04 25 18 00 00                 mov     r8, gs:18h
+.text:000007FF3C232146 00
+.text:000007FF3C23214F 49 BA 4B 59 86 38 D6 C5                 mov     r10, 346DC5D63886594Bh
+.text:000007FF3C23214F 6D 34
+.text:000007FF3C232159 49 8D 89 88 13 00 00                    lea     rcx, [r9+1388h]
+.text:000007FF3C232160 49 8B C2                                mov     rax, r10
+.text:000007FF3C232163 48 F7 E1                                mul     rcx
+.text:000007FF3C232166 8B CF                                   mov     ecx, edi
+.text:000007FF3C232168 49 8B C2                                mov     rax, r10
+.text:000007FF3C23216B 48 C1 EA 0B                             shr     rdx, 0Bh
+.text:000007FF3C23216F 48 81 C1 88 13 00 00                    add     rcx, 1388h
+.text:000007FF3C232176 48 69 D2 10 27 00 00                    imul    rdx, 2710h
+.text:000007FF3C23217D 48 89 93 C0 00 00 00                    mov     [rbx+0C0h], rdx
+.text:000007FF3C232184 48 F7 E1                                mul     rcx
+.text:000007FF3C232187 48 B8 DB 34 B6 D7 82 DE                 mov     rax, 431BDE82D7B634DBh
+.text:000007FF3C232187 1B 43
+.text:000007FF3C232191 48 8B CA                                mov     rcx, rdx
+.text:000007FF3C232194 48 C1 E9 0B                             shr     rcx, 0Bh
+.text:000007FF3C232198 49 F7 E1                                mul     r9
+.text:000007FF3C23219B 69 C9 10 27 00 00                       imul    ecx, 2710h
+.text:000007FF3C2321A1 48 C1 EA 12                             shr     rdx, 12h
+.text:000007FF3C2321A5 0F BA 64 24 20 09                       bt      [rsp+28h+var_8], 9
+.text:000007FF3C2321AB 89 8B DC 00 00 00                       mov     [rbx+0DCh], ecx
+.text:000007FF3C2321B1 41 89 50 64                             mov     [r8+64h], edx
+.text:000007FF3C2321B5 65 48 8B 04 25 20 00 00                 mov     rax, gs:20h
+.text:000007FF3C2321B5 00
+.text:000007FF3C2321BE 89 90 F4 05 00 00                       mov     [rax+5F4h], edx
+.text:000007FF3C2321C4 89 8B D8 00 00 00                       mov     [rbx+0D8h], ecx
+.text:000007FF3C2321CA 89 0C 25 80 03 FE FF                    mov     ds:0FFFFFFFFFFFE0380h, ecx
+.text:000007FF3C2321D1 73 01                                   jnb     short loc_7FF3C2321D4
+.text:000007FF3C2321D3 FB                                      sti
+.text:000007FF3C2321D4
+.text:000007FF3C2321D4                         loc_7FF3C2321D4:                        ; CODE XREF: HalpScaleTimers+171↑j
+.text:000007FF3C2321D4 E8 8F F5 FE FF                          call    HalpReleaseCmosSpinLock
+.text:000007FF3C2321D9 8B 83 DC 00 00 00                       mov     eax, [rbx+0DCh]
+.text:000007FF3C2321DF 48 8B 5C 24 30                          mov     rbx, [rsp+28h+arg_0]
+.text:000007FF3C2321E4 48 8B 7C 24 38                          mov     rdi, [rsp+28h+arg_8]
+.text:000007FF3C2321E9 48 83 C4 20                             add     rsp, 20h
+.text:000007FF3C2321ED 59                                      pop     rcx
+.text:000007FF3C2321EE C3                                      retn
+```
+
+The following changes should be made first:
+
+- Modify "jz short loc_7FF3C2320D5" to "jmp short loc_7FF3C2320D5".
+- Nop "js short loc_7FF3C2320E7".
+- Nop "jns short loc_7FF3C2320ED".
+- Nop "js short loc_7FF3C232112".
+- Nop "jns short loc_7FF3C232118".
+
+Then you need to rewrite the following code snippet:
+
+```
+.text:000007FF3C232123 44 8B 1C 25 90 03 FE FF                 mov     r11d, ds:0FFFFFFFFFFFE0390h
+.text:000007FF3C23212B 41 2B FB                                sub     edi, r11d
+.text:000007FF3C23212E 0F 31                                   rdtsc
+.text:000007FF3C232130 48 C1 E2 20                             shl     rdx, 20h
+.text:000007FF3C232134 48 0B C2                                or      rax, rdx
+.text:000007FF3C232137 4C 8B C8                                mov     r9, rax
+.text:000007FF3C23213A 4C 2B CB                                sub     r9, rbx
+```
+
+To the following code snippet:
+```
+.text:000007FF3C232123 B9 23 00 00 40                          mov     ecx, 40000023h
+.text:000007FF3C232128 0F 32                                   rdmsr
+.text:000007FF3C23212A 89 C7                                   mov     edi, eax
+.text:000007FF3C23212C B9 22 00 00 40                          mov     ecx, 40000022h
+.text:000007FF3C232131 0F 32                                   rdmsr
+.text:000007FF3C232133 48 C1 E2 20                             shl     rdx, 20h
+.text:000007FF3C232137 48 0B C2                                or      rax, rdx
+.text:000007FF3C23213A 4C 8B C8                                mov     r9, rax
+```
+
+Of course, use the similar way to patch the hal.dll, we can finally we can pass
+the HalInitSystem stage successfully, but we will see the BugCheck after the
+MmInitSystem funtion called by InitBootProcessor function.
+
+Here is the screenshot to show that scenario, which uses the 64-Bit Windows
+Vista Service Pack 2 as an example:
+
+![VistaSP2_PassHalInitSystem](Assets/VistaSP2_PassHalInitSystem.png)
