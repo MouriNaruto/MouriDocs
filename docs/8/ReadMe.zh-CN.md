@@ -180,3 +180,14 @@ git fetch --unshallow
 git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 git fetch origin
 ```
+
+## 忽略不想提交的文件
+
+```
+git update-index --assume-unchanged <file>
+
+git update-index --no-assume-unchanged <file>
+
+git ls-files -v
+
+```
