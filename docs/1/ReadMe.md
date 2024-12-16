@@ -19,7 +19,8 @@ Here is an example of NanaBox Configuration File with GPU-PV enabled:
       "UefiConsole": "Disabled"
     },
     "Gpu": {
-      "AssignmentMode": "Mirror"
+      "AssignmentMode": "Mirror",
+      "EnableHostDriverStore": true
     },
     "GuestType": "Windows",
     "MemorySize": 4096,
@@ -71,6 +72,12 @@ If you are using Windows, it's relatively easier.
 You only need to copy GPU driver files from host's 
 `%SystemRoot%\System32\DriverStore\FileRepository` folder to guest's 
 `%SystemRoot%\System32\HostDriverStore\FileRepository` folder.
+
+If you are a NanaBox user, you can follow the steps mentioned in
+https://github.com/ProjectMile/Mile.Cirno#usage to map your host's 
+`%SystemRoot%\System32\DriverStore\FileRepository` folder to guest's 
+`%SystemRoot%\System32\HostDriverStore\FileRepository` folder without
+copying files manually.
 
 ### Linux
 
