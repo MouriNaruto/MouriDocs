@@ -31,11 +31,13 @@
 - Support to expose 9p (Plan 9) shares to the guest.
 - Support to expose Virtual SMB shares to the guest.
 - Support to load the Linux kernel directly when the guest is powered on.
+- Support to set the compatibility flags for Hyper-V Generation 2 Virtual
+  Machines since Windows 11 Version 24H2.
 
 ## Limitations
 
 - The virtual machine created by Host Compute System API only supports UEFI
-  Class 3 or UEFI without CSM or Hyper-V Gen 2 VM.
+  Class 3 or UEFI without CSM or Hyper-V Generation 2 Virtual Machines.
 - The HcsCrashComputeSystem API is not existed in ComputeCore.dll from Windows
   10, version 1809, which Microsoft's document said supported. Actually, this 
   API is introduced since Windows 10, version 2004 and Windows Server 2022.
