@@ -1,5 +1,20 @@
 ﻿# MD10: Archived list for things I currently working on
 
+## January 2025
+
+#### Porting Hyper-V Enhanced Session mode over VMBus to Hyper-V Linux guests.
+
+Status: Working In Progress
+
+I have considered a lot. Finally, I decided to write a userspace VMBus to TCP
+proxy based on uio_hv_generic because Linux kernel module development is too
+messy for me. I have made a implementation with some stability issues which
+need to fix. If people can help me will be good. Also, this implementation is
+written fully in C# and it should be the good example for using uio_hv_generic
+kernel module which contributed by Microsoft guys.
+
+Implementation: https://github.com/SherryPlatform/HvGin
+
 ## May 2024
 
 #### NanaZip 3.0
