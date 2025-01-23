@@ -181,24 +181,11 @@
 
 - https://forums.mydigitallife.net/threads/83722/page-280#post-1693595
 - https://forums.mydigitallife.net/threads/59187/page-61#post-1668584
-- https://forums.mydigitallife.net/threads/83749/page-5#post-1749098
-- https://forums.mydigitallife.net/threads/83749/page-5#post-1736667
+- https://forums.mydigitallife.net/threads/83749
 - https://forums.mydigitallife.net/threads/85484/
-- https://forums.mydigitallife.net/threads/83749/page-7#post-1791449
-- https://forums.mydigitallife.net/threads/83749/page-7#post-1811314
-- https://forums.mydigitallife.net/threads/85484/page-4#post-1793216
-- https://forums.mydigitallife.net/threads/83749/page-8#post-1827062
-- https://forums.mydigitallife.net/threads/83749/page-7#post-1806809
-- https://forums.mydigitallife.net/threads/83749/page-8#post-1836957
-- https://forums.mydigitallife.net/threads/83749/page-8#post-1837039
-- https://forums.mydigitallife.net/threads/83749/page-8#post-1837152
 - https://github.com/MicrosoftDocs/azure-docs/commit/c7dac3725df4839b4e9f2bce11733bae83acbf8a
 - https://github.com/MicrosoftDocs/azure-docs/commit/652a941c6d038adadd65aa8cbdff2dfc720866a9
 - https://github.com/MicrosoftDocs/azure-docs/commit/1251003324d3901750ccb7afa16d70b230291126
 - https://github.com/MicrosoftDocs/azure-docs/commit/5b9996efd0f1ac39dd998575aeac8ba0d1f52b1d
 - https://github.com/MicrosoftDocs/azure-docs/commit/e1662ebea24845447de11d73a8b886e02ab34320
 - https://github.com/MicrosoftDocs/azure-docs/commit/f1bc997eadb170c1e2a29c3482ff3ac3f51dbb19
-- https://forums.mydigitallife.net/threads/83749/page-8#post-1849115
-- https://forums.mydigitallife.net/threads/83749/page-8#post-1852393
-- https://forums.mydigitallife.net/threads/85484/page-4#post-1853236
-- https://forums.mydigitallife.net/threads/83749/page-9#post-1856317
