@@ -15,6 +15,29 @@ kernel module which contributed by Microsoft guys.
 
 Implementation: https://github.com/SherryPlatform/HvGin
 
+#### NanaZip 5.x
+
+Status: Working In Progress
+
+NanaZip 5.0 has been released with UFS/UFS2 support, which makes me more happy
+with BSD because I have a way which makes me can extract files from a BSD
+partition without mounting for Windows. I got some help from NishiOwO for
+UFS/UFS2 on-disk definitions.
+
+I think this year at least we can see NanaZip 5.1 stable.
+
+#### Switch to FreeBSD
+
+Status: Working In Progress
+
+I hope I can switch to FreeBSD as my development platform because its license is
+suitable for me to customize the system.
+
+NanaZip 5.0 has been ready. I have tried to use FreeBSD as my development
+platform. But there are some issues need to solve. For example, the lack of
+Visual Studio Code Remote SSH support for FreeBSD. But at least we have Windows
+Terminal as the SSH client.
+
 ## May 2024
 
 #### NanaZip 3.0
