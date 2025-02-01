@@ -24,6 +24,11 @@ with BSD because I have a way which makes me can extract files from a BSD
 partition without mounting for Windows. I got some help from NishiOwO for
 UFS/UFS2 on-disk definitions.
 
+NanaZip 5.0 also uses Windows API for some HASH algorithms, which is "As
+Microsoft As Possible" a.k.a. AMAP strategy which mentioned by me.
+
+AMAP strategy can help me to reduce the attack surface and the binary size.
+
 I think this year at least we can see NanaZip 5.1 stable.
 
 #### Switch to FreeBSD
