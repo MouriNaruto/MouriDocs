@@ -1,5 +1,25 @@
 ﻿# MD10: Archived list for things I currently working on
 
+## February 2025
+
+#### NanaZip 5.x
+
+Status: Working In Progress
+
+Currently, the released NanaZip 5.0 has implemented the UFS/UFS2 support, and
+the released NanaZip 5.0 Update 1 has implemented the .NET Single File
+Application bundle, Electron Archive (asar), ROMFS, ZealFS, WebAssembly, and
+LittleFS support.
+
+Because the decoder and encoder interfaces are not ready in the modernized 7-Zip
+Plugin SDK, The .NET Single File Application bundle readonly support which
+currently extracting compressed files in the bundle are not supported.
+
+I want to write littlefs parser by myself instead of using littlefs library
+because I want to have a lightweight readonly implementation which I can try
+to use that in MBR for happiness on the retro 16-Bit x86 platform. So, it's
+currently only block information that can be acquired.
+
 ## January 2025
 
 #### Porting Hyper-V Enhanced Session mode over VMBus to Hyper-V Linux guests.
