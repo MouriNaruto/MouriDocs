@@ -1,41 +1,34 @@
-﻿# MD21: Talk about booting Windows 7 Service Pack 1 on Hyper-V Generation 2 Virtual Machines
+﻿# 浅谈在 Hyper-V 第二代虚拟机启动 Windows 7 Service Pack 1 的事务
 
-[简体中文](ReadMe.zh-CN.md)
+[English](EarlyResearches.md)
 
-As the guy who want to write bare-matal applications with as high level
-programming languages like C/C++ as possible, I love the design of Hyper-V
-Generation 2 Virtual Machines because it's one of validated popular
-para-virtualization platforms via history, especially it should be the only
-one with aggressive para-virtualization design in current stage:
+作为一个热衷于尽可能使用像 C/C++ 这样的高级语言编写裸机应用的人，我非常喜欢
+Hyper-V 第二代虚拟机的设计，因为这是经过了时间考验的流行的半虚拟化平台之一且看起
+来这家伙拥有目前最激进的半虚拟化设计:
 
-- No CSM support. Only provides 64-Bit UEFI Class 3 firmware.
-- No emulated devices. Only devices based on VMBus are available.
-- No legacy x86 devices like the floppy controller, the DMA controller, the
-  PCI Bus, the legacy Programmable Interrupt Controller (PIC), the legacy
-  Programmable Interval Timer (PIT), and the Super I/O device. Needs guest
-  operating systems to adapt explicitly.
+- 无 CSM 支持，仅提供 64 位 UEFI Class 3 固件
+- 无仿真设备，仅提供基于 VMBus 的设备
+- 无软驱控制器、DMA 控制器、PCI 总线、传统可编程中断控制器 (PIC)、传统可编程间隔
+  定时器 (PIT) 和超级 I/O 设备这样的传统 x86 设备，需要客户机操作系统明确适配
 
-It's good for me. I only need to write UEFI applications which only support
-Hyper-V Generation 2 Virtual Machines, which is enough for my proof of concept
-level ideas. It can help me avoid to adapt to the specific hardwares which need
-to write a lot of assembly codes. Also, I love the lightweight design, lol.
+这样的设计对于我来说是极好的，我只需要编写仅支持 Hyper-V 第二代虚拟机的 UEFI 应
+用程序作为原型就足够我向他人展示我的一些想法了。这可以帮助我避免适配需要编写大量
+汇编代码的特定硬件。同时，我喜欢这样的轻量级设计 (笑)
 
-Note: The Windows builtin Hyper-V client is really hard to use. It makes me
-hesitate, until [Ben (Bingxing) Wang] told me that you can use Hyper-V Host
-Compute System API which was newly at that time to implement the third-party
-Hyper-V client, especially its stateless design may good for you, and you can
-use ILSpy to learn how to use that. I had used several months to implement that
-and make it open source at GitHub. If some people need to use the third-party
-Hyper-V Host Compute System API created by me, please refer to the [NanaBox]. I
-hope that project can help people who have the same feeling as me.
+注：Windows 自带的 Hyper-V 客户端对我来说很不好用，这使得我在是否选择 Hyper-V 作
+为我的裸机应用原型开发平台而陷入了犹豫。直到有一天 [Ben (Bingxing) Wang] 告诉我
+你可以使用当时还算新鲜出炉的 Hyper-V Host Compute System API 去实现一个第三方的
+Hyper-V 客户端，尤其是这家伙的无状态设计会很合你的胃口，并且你可以通过 ILSpy 去
+学习如何使用这家伙。我用了数个月写了一个这样的家伙并且开源到了 GitHub。如果一些
+朋友需要使用我编写的基于 Hyper-V Host Compute System API 的第三方客户端，可以参
+考 [NanaBox]。我希望该项目能帮助到和我有类似感受的朋友们。
 
 [Ben (Bingxing) Wang]: https://github.com/imbushuo
 [NanaBox]: https://github.com/M2Team/NanaBox
 
-As the design of Hyper-V Generation 2 Virtual Machines, 64-Bit Windows 8 and
-Windows Server 2012 are the minimum Windows versions which support booting on
-Hyper-V Generation 2 Virtual Machines. Also, Microsoft said that in the
-[Generation 2 FAQ]:
+以 Hyper-V 第二代虚拟机的设计，支持在 Hyper-V 第二代虚拟机启动的最低版本的 Windows
+操作系统是 64 位的 Windows 8 和 Windows Server 2012。并且微软在 [Generation 2 FAQ]
+指出:
 
 > Q: Why are 64-bit versions of Windows Server 2008 R2 and Windows 7 not
   supported as generation 2 guest operating systems?
@@ -44,126 +37,122 @@ Hyper-V Generation 2 Virtual Machines. Also, Microsoft said that in the
   a programmable interrupt controller (PIC), which is not present in generation
   2 virtual machine hardware.
 
+翻译一下中文就是：
+
+> Q: 为什么 64 位的 Windows Server 2008 R2 和 Windows 7 无法在 Hyper-V 第二代虚拟
+  机启动？
+
+> A: 虽然 Windows Server 2008 R2 和 Windows 7 支持 UEFI，但它们需要依赖 Hyper-V
+  第二代虚拟机上不存在的传统可编程中断控制器 (PIC)。
+
 [Generation 2 FAQ]: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)#why-are-64-bit-versions-of-windows-server-2008-r2-and-windows-7-not-supported-as-generation-2-guest-operating-systems
 
-But the reason is not enough to persuade me. I had started to do some
-experiments to discover the real reason about half a year ago. Finally, I
-accidently made booting Windows 7 Service Pack 1 on Hyper-V Generation 2
-Virtual Machines. In the following sections, I will talk about the details.
+但是这样的理由并不足以说服我。我大约在半年前开始做一些实验去了解其真正的缘由。
+最终，我意外地在 Hyper-V 第二代虚拟机上成功启动了 Windows 7 Service Pack 1。
+在下面的章节中，我将分享我是如何做到的。
 
-Warning: I have no experience about writing Windows kernel drivers because I
-cannot afford the price of the Windows driver signing certificate. Maybe my way
-mentioned in this article is too wild and hope you can forgive me.
+警告：我没有编写 Windows 内核驱动程序的经验，因为我买不起 Windows 驱动程序需要
+的签名证书。也许我在本文中提到的方法过于狂野，希望大家见谅。
 
-## Preliminary Information
+## 基本常识
 
-We need to learn something preliminary before we start the journey.
+在开始之前，我们需要了解一些基本常识：
 
-### Minimum Windows guest build supports Hyper-V Generation 2 Virtual Machines
+### 最低支持 Hyper-V 第二代虚拟机的 Windows 客户机版本
 
-First, we need to know the actual minimum Windows build which supports booting
-on Hyper-V Generation 2 Virtual Machines. It can help us to know how Microsoft
-guys adapt to that.
+首先，我们需要支持实际上支持 Hyper-V 第二代虚拟机的最低的 Windows 客户机版本。这
+能帮助我们了解微软那群人是如何进行适配的。
 
-The task is really simple because we only need to test which is the earliest
-Windows build can boot on Hyper-V Generation 2 Virtual Machines.
+这件事其实非常简单，毕竟我们只需要测试并找出哪个是支持在 Hyper-V 第二代虚拟机上
+启动的最老 Windows 版本。
 
-As we all know, 64-Bit Windows 8 and Windows Server 2012 are the minimum Windows
-versions which support booting on Hyper-V Generation 2 Virtual Machines. So we
-only need to test builds mentioned in [Windows 8 - BetaWiki] and
-[Windows Server 2012 - BetaWiki].
+众所周知，64 位 Windows 8 和 Windows Server 2012 是支持在 Hyper-V 第二代虚拟机上
+启动的最老版本。于是我们只需要测试 [Windows 8 - BetaWiki] 和
+[Windows Server 2012 - BetaWiki] 中提到的 Windows 版本。
 
 [Windows 8 - BetaWiki]: https://betawiki.net/wiki/Windows_8
 [Windows Server 2012 - BetaWiki]: https://betawiki.net/wiki/Windows_Server_2012
 
-We can divide these Windows builds into the following categories:
+我们可以把这些 Windows 版本分类成以下类别：
 
-| Levels  | Behavior                                   |
-|---------|--------------------------------------------|
-| Level 0 | Boot failed with kernel deadloop           |
-| Level 1 | Boot failed with ACPI issues               |
-| Level 2 | Boot successfully with bootmgr replacement |
-| Level 3 | Boot successfully without modifications    |
+| 级别   | 行为                      |
+|--------|---------------------------|
+| 级别 0 | 启动失败，内核死锁        |
+| 级别 1 | 启动失败，ACPI 报错       |
+| 级别 2 | 需要替换 bootmgr 才能启动 |
+| 级别 3 | 无需魔改即可启动          |
 
 ![7990.0.fbl_core1_hyp_dev.110425-1705](Assets/7990.0.fbl_core1_hyp_dev.110425-1705.png)
 
-In the current stage, the minimum level 3 builds I found are Build 7990
-(fbl_core1_hyp_dev), Build 8027 (fbl_fun_perf) or Build 8028 (winmain). The
-minimum level 2 build I found is Build 8002 (fbl_grfx_dev1).
+在目前来看，我发现等级 3 的最小 Windows 版本是 Build 7990
+(fbl_core1_hyp_dev)、Build 8027 (fbl_fun_perf) 或者 Build 8028 (winmain)。
+我发现的等级 2 的最小 Windows 版本是 Build 8002 (fbl_grfx_dev1)。
 
-### Hyper-V guest interfaces definitions
+### Hyper-V 客户机接口定义
 
-For adapting to Hyper-V Generation 2 Virtual Machines, we need to know the
-Hyper-V guest interfaces definitions. I have classified them as the open source
-project [Mile.HyperV] and it provides the reference document to show where I get
-the definitions.
+为了适配 Hyper-V 第二代虚拟机，我们需要了解 Hyper-V 客户机接口定义。我已经将相关
+信息整理成开源项目 [Mile.HyperV] 并且其提供了我从哪里获取相关定义的参考资料文档。
 
 [Mile.HyperV]: https://github.com/ProjectMile/Mile.HyperV
 
-### ReactOS source code
+### ReactOS 源代码
 
-Because Windows is not open source, we need to learn something about the hal and
-ntoskrnl from ReactOS source code. Although the ReactOS x64 hal implementations
-are too raw even for learning.
+由于 Windows 不开源，于是我们需要从 ReactOS 中学习关于 hal 和 ntoskrnl 的事务。
+即使 ReactOS 的 x64 hal 实现哪怕对于学习来说都非常原始。
 
-But for appreciating that project which helps me to learn something reliminary.
-I also try to make boot ReactOS on Hyper-V Generation 2 Virtual Machines. But
-there is no VMBus devices support because the ReactOS implementations are too
-raw and lacks lots of things, which I have to use the ReactOS Longhorn
-experimental branches. And [The_DarkFire] and [Timo Kreuzer] help me a lot for
-learning that.
+但是为了感谢该项目帮助了我学习一些基本常识，我也尝试为 ReactOS 添加了 Hyper-V 第
+二代虚拟机的支持。但由于 ReactOS 的实现过分原始且缺少一大堆内容，即使使用
+ReactOS Longhorn 实验性分支，目前仅能亮机且没有任何的 VMBus 设备支持。当然，
+[The_DarkFire] 和 [Timo Kreuzer] 在这里帮了我不少。
 
 [The_DarkFire]: https://github.com/DarkFire01
 [Timo Kreuzer]: https://github.com/tkreuzer
 
-For people who have the ability to read the ReactOS source code, see
-https://github.com/MouriNaruto/reactos/tree/remilia-hyperv-main-longhorn for my
-modified branch.
+对于一些方便阅读 ReactOS 源代码的朋友，可以去
+https://github.com/MouriNaruto/reactos/tree/remilia-hyperv-main-longhorn
+了解我的魔改分支的内部实现。
 
-### Suitable Windows versions for adaption
+### 适合进行适配的 Windows 版本
 
-Because the virtual keyboard in Hyper-V Generation 2 Virtual Machines is a VMBus
-device, we need to use Hyper-V Integration Services with version 6.2.9200.16385
-or later if we want to have good user experience. So, the minimum requirements
-for Hyper-V Integration Services with version 6.2.9200.16385 is the baseline for
-us to choose the suitable Windows versions for additional adaption:
+由于 Hyper-V 第二代虚拟机的虚拟键盘是一个 VMBus 设备，为了体面的用户体验，我们需
+要使用 6.2.9200.16385 及之后版本的 Hyper-V 集成服务。于是 6.2.9200.16385 版本的
+Hyper-V 集成服务的最低要求是我们选择能够进行额外适配的 Windows 版本的基准线。
 
-- 64-Bit Windows 7 RTM or Service Pack 1
-- Windows Server 2008 R2 RTM or Service Pack 1
-- 64-Bit Windows Vista Service Pack 2
-- 64-Bit Windows Server 2008 Service Pack 2
+- 64 位 Windows 7 RTM 或 Service Pack 1
+- Windows Server 2008 R2 RTM 或 Service Pack 1
+- 64 位 Windows Vista Service Pack 2
+- 64 位 Windows Server 2008 Service Pack 2
 - Windows XP Professional x64 Edition Service Pack 2
 - Windows Server 2003 (x64) Service Pack 2
 
-## Start the wild journey
+## 开始狂野之旅
 
-Let's start the wild journey after we have learned the preliminary information.
+让我们在了解一些基本常识之后开始我们的狂野之旅吧:
 
-### Prerequisites
+### 前置条件
 
-- Install the Windows version you want to adapt to boot on Hyper-V Generation 2
-  Virtual Machines in Hyper-V Generation 1 Virtual Machines, but you need to
-  prepare a 100 MiB size FAT32 partition for the EFI System Partition (ESP).
-- Install the Hyper-V Integration Services with version 6.2.9200.16385 or later.
-- WinDbg is necessary for debugging the boot process.
-- IDA Pro or similar tool for analyzing and patching.
-- PE Tools or similar tool for recalculate the checksum of the modified files.
-- Microsoft Copilot or similar services may help you to generate the opcode, lol.
+- 使用 Hyper-V 第一代虚拟机安装你希望适配 Hyper-V 第二代虚拟机的 Windows 版本，
+  但是你需要准备一个 100MiB 的 FAT32 格式的分区作为 EFI 系统分区 (ESP)
+- 安装 Hyper-V 集成服务 6.2.9200.16385 或更高版本
+- WinDbg 对于调试启动过程非常必要
+- 类似 IDA Pro 的工具用于分析和修改二进制
+- 类似 PE Tools 这样的工具对修改后的文件重新计算校验值
+- 类似 Microsoft Copilot 这样的服务也许可以帮你生成用于修改二进制的机器码 (笑)
 
-### Create boot files for UEFI boot
+### 创建 UEFI 启动所需的启动文件
 
-After we have done the prerequisites, we need to mount the virtual machine's
-hard disk file to your host machine and create the boot files for UEFI boot.
+当我们完成了前置条件之后，我们需要挂载虚拟机的虚拟磁盘文件到你的宿主机用于创建
+UEFI 启动所需的启动文件。
 
-Assumes your mounted Windows partition is "G:" and the ESP partition is "F:".
+假定你挂载后的 Windows 分区为 "G:" 和 EFI 系统分区为 "F:"。
 
-First, we need to create the boot files for UEFI boot:
+首先我们需要创建 UEFI 启动所需的启动文件:
 
 ```cmd
 bcdboot G:\Windows /s F: /f UEFI
 ```
 
-Then, we need to set the debugging options to the Windows Boot Manager:
+然后我们对 Windows 启动管理器启用一些调试设置:
 
 ```cmd
 bcdedit /store F:\EFI\Microsoft\Boot\BCD /bootdebug {default} on
@@ -172,35 +161,31 @@ bcdedit /store F:\EFI\Microsoft\Boot\BCD /set {default} sos on
 bcdedit /store F:\EFI\Microsoft\Boot\BCD /dbgsettings SERIAL DEBUGPORT:1 BAUDRATE:115200 /start ACTIVE
 ```
 
-I also suggest you to set the boot manager timeout to 30 seconds:
+我同时建议你将启动管理器的超时设置为 30 秒:
 
 ```cmd
 bcdedit /store F:\EFI\Microsoft\Boot\BCD /timeout 30
 ```
 
-### Fix the BugCheck to ensure we can get the error message
+### 修复蓝屏实现以方便我们获取错误信息
 
-If you start your virtual machine, you will see noting after detaching the
-Windows Boot Debugger in the WinDbg command window. And you will find the
-virtual machine instance process will have the high CPU usage. Some people
-will know the OS kernel in the virtual machine is deadlooping.
+如果你这时启动你的虚拟机，你会发现你的 WinDbg 命令窗口中在提示分离 Windows 启动
+调试器后没有任何输出。并且你会发现虚拟机实例进程的 CPU 使用率很高。有些人会知道
+这是虚拟机内运行的操作系统内核陷入了死循环。
 
-Here is the screenshot to show that scenario, which uses the 64-Bit Windows
-Vista Service Pack 2 as an example:
+这里是一个使用 64 位 Windows Vista Service Pack 2 作为示例的截图:
 
 ![VistaSP2_UnableToAttachKernelDebugger](Assets/VistaSP2_UnableToAttachKernelDebugger.png)
 
-I find it's caused by BugCheck just for accident. When I tried to add 0xCC (the
-opcode int 3) to make every possible effort to debug what cased the deadloop, I
-find the virtual machine will reboot automatically with the triple fault when I
-add that opcode to the beginning of the KeBugCheckEx function in ntoskrnl.exe.
+其实我也是偶然发现是蓝屏导致的。我当时死马当活马医，尝试以添加 0xCC (int 3 指令
+的操作码) 以调试导致死锁的原因，我发现当我将该操作码添加到 ntoskrnl.exe 的
+KeBugCheckEx 函数的开头时，虚拟机会发生三重故障并自动重启。
 
-So, the fix for that is easy. We can report the BugCheck error message to the
-Hyper-V, and we can get the error message from the Windows Event Viewer.
+所以，修复这个问题是很容易的。我们可以将 BugCheck 错误消息报告给 Hyper-V，然后我
+们可以从 Windows 事件查看器中获取错误消息。
 
-According to Hyper-V Guest Crash Enlightenment Interface mentioned in Hypervisor
-Top Level Functional Specification. We can write the following C code as the
-KeBugCheckEx function implementation:
+根据 Hyper-V 的 TLFS 规范提到的客户机崩溃报告相关接口，我们可以将以下 C 代码作为
+KeBugCheckEx 函数的实现:
 
 ```c
 DECLSPEC_NORETURN void WINAPI KeBugCheckEx(
@@ -228,7 +213,7 @@ DECLSPEC_NORETURN void WINAPI KeBugCheckEx(
 }
 ```
 
-Here is the assembly for the above C code:
+这是上面 C 代码的汇编实现:
 
 ```asm
 mov r10, rdx
@@ -273,7 +258,7 @@ hlt
 retn 0
 ```
 
-Use some tools to convert the above assembly to the machine opcode:
+使用一些工具将上面的汇编转换为机器码:
 
 ```
 49 89 D2
@@ -318,11 +303,9 @@ F4
 C2 00 00
 ```
 
-When we use tools like IDA Pro to patch the KeBugCheckEx function in
-ntoskrnl.exe with the above opcode, use PE Tools to recalculate the
-checksum of the modified ntoskrnl.exe, and then replace the original
-ntoskrnl.exe with the modified one. We can get the error message from
-the Windows Event Viewer.
+当我们使用类似 IDA Pro 这样的工具将 KeBugCheckEx 函数在 ntoskrnl.exe 中的实现替
+换为上述机器码后，使用类似 PE Tools 这样的工具重新计算 ntoskrnl.exe 的校验值，
+然后替换原始的 ntoskrnl.exe。我们可以从 Windows 事件查看器中获取错误消息。
 
 ```xml
 <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
@@ -358,31 +341,30 @@ the Windows Event Viewer.
 </Event>
 ```
 
-### Make the Windows Kernel Debugger available to use
+### 让 Windows 内核调试器可用
 
-From the above error message, we can search the Microsoft documentation for
-that. In [Bug Check 0x79: MISMATCHED_HAL], you will know it's the issue in
-hal.dll. We need to do some patches to fix that.
+根据上述错误信息，我们可以在微软文档中进行搜索，在
+[Bug Check 0x79: MISMATCHED_HAL] 中，你会知道这个问题是 hal.dll 导致的，我们需
+要对其进行一些二进制修补事务去解决这个问题。
 
 [Bug Check 0x79: MISMATCHED_HAL]: https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/bug-check-0x79--mismatched-hal
 
-After some analysis, I find the issue is caused by the following pesudo code
-from the HalpInitMpInfo function in hal.dll
+经过一些分析，我发现问题是由 hal.dll 中的 HalpInitMpInfo 函数中的以下伪代码引起
+的:
 
 ```c
 if ( (*(_BYTE *)(HalpApicTable + 40) & 1) == 0 )
     KeBugCheckEx(0x79u, 6ui64, 0i64, 0i64, 0i64);
 ```
 
-Refer to the [dumped APIC table in Hyper-V Generation 2 Virtual Machines], we
-will know it's just check the flag in the APIC table. The HAL will call the
-KeBugCheckEx function if it cannot find the PC-AT Compatibility.
+根据 [从 Hyper-V 第二代虚拟机转储的 APIC 表] 的描述，我们知道这只是检查 APIC 表
+中的标志。HAL 会在找不到 PC-AT 兼容性位时调用 KeBugCheckEx 函数。
 
-[dumped APIC table in Hyper-V Generation 2 Virtual Machines]: https://github.com/MouriNaruto/MouriDocs/blob/main/docs/11/References/ACPI/22621/Disassembled/apic.dsl
+[从 Hyper-V 第二代虚拟机转储的 APIC 表]: https://github.com/MouriNaruto/MouriDocs/blob/main/docs/11/References/ACPI/22621/Disassembled/apic.dsl
 
-We can patch that just with jmp opcode to bypass that logic.
+我们可以通过 jmp 指令来绕过这个逻辑来修补这个问题。
 
-For example, the original code snippet is:
+例如，原始的代码片段是:
 
 ```
 PAGELK:000007FF3C250CC2 33 FF                                   xor     edi, edi
@@ -412,26 +394,24 @@ PAGELK:000007FF3C250D0F 8B F7                                   mov     esi, edi
 PAGELK:000007FF3C250D11 4D 03 C4                                add     r8, r12
 ```
 
-Just modify "jnz short loc_7FF3C250CEA" to "jmp short loc_7FF3C250CEA".
+我们只需要将 "jnz short loc_7FF3C250CEA" 修改为 "jmp short loc_7FF3C250CEA"。
 
-Of course, use the similar way to patch the hal.dll, we can finally see the
-Windows Kernel Debugger message in the WinDbg command window.
+当然，使用类似的方法去修补 hal.dll 后，我们最终可以在 WinDbg 命令窗口中看到
+Windows 内核调试器消息。
 
-Here is the screenshot to show that scenario, which uses the 64-Bit Windows
-Vista Service Pack 2 as an example:
+这里是一个使用 64 位 Windows Vista Service Pack 2 作为示例的截图:
 
 ![VistaSP2_KernelDebuggerFixed](Assets/VistaSP2_KernelDebuggerFixed.png)
 
-### Fix the timer scaling implementation in hal.dll
+### 修复 hal.dll 中的计时器缩放实现
 
-In the current stage, you will find your virtual machine is deadlooping.
+在现阶段，你会发现你的虚拟机陷入了死循环。
 
-You will find its caused by the HalpScaleTimers function in hal.dll with some
-analysis via WinDbg.
+你通过 WinDbg 进行一些分析后会发现是由 hal.dll 中的 HalpScaleTimers 函数导致的。
 
-We need to patch the HalpScaleTimers function in hal.dll to make it workable.
+我们需要修补 hal.dll 中的 HalpScaleTimers 函数以使其可用。
 
-For example, the original code snippet is:
+例如，原始的代码片段是:
 
 ```
 .text:000007FF3C232060 48 89 5C 24 08                          mov     [rsp+arg_0], rbx
@@ -557,15 +537,15 @@ For example, the original code snippet is:
 .text:000007FF3C2321EE C3                                      retn
 ```
 
-The following changes should be made first:
+首先我们需要做出以下更改:
 
-- Modify "jz short loc_7FF3C2320D5" to "jmp short loc_7FF3C2320D5".
-- Nop "js short loc_7FF3C2320E7".
-- Nop "jns short loc_7FF3C2320ED".
-- Nop "js short loc_7FF3C232112".
-- Nop "jns short loc_7FF3C232118".
+- 将 "jz short loc_7FF3C2320D5" 修改为 "jmp short loc_7FF3C2320D5"
+- Nop 掉 "js short loc_7FF3C2320E7"
+- Nop 掉 "jns short loc_7FF3C2320ED".
+- Nop 掉 "js short loc_7FF3C232112".
+- Nop 掉 "jns short loc_7FF3C232118".
 
-Then you need to rewrite the following code snippet:
+然后你需要重写以下代码片段:
 
 ```
 .text:000007FF3C232123 44 8B 1C 25 90 03 FE FF                 mov     r11d, ds:0FFFFFFFFFFFE0390h
@@ -577,7 +557,7 @@ Then you need to rewrite the following code snippet:
 .text:000007FF3C23213A 4C 2B CB                                sub     r9, rbx
 ```
 
-To the following code snippet:
+到这样的代码片段:
 
 ```
 .text:000007FF3C232123 B9 23 00 00 40                          mov     ecx, 40000023h
@@ -590,31 +570,27 @@ To the following code snippet:
 .text:000007FF3C23213A 4C 8B C8                                mov     r9, rax
 ```
 
-Of course, use the similar way to patch the hal.dll, we can finally we can pass
-the HalInitSystem stage successfully, but we will see the BugCheck after the
-MmInitSystem funtion called by InitBootProcessor function.
+当然，使用类似的方法去修补 hal.dll 后，我们最终会发现我们成功通过了
+HalpScaleTimers 阶段，但是我们会在 InitBootProcessor 函数调用 MmInitSystem
+函数后看到 BugCheck 错误。
 
-Here is the screenshot to show that scenario, which uses the 64-Bit Windows
-Vista Service Pack 2 as an example:
+这里是一个使用 64 位 Windows Vista Service Pack 2 作为示例的截图:
 
 ![VistaSP2_PassHalInitSystem](Assets/VistaSP2_PassHalInitSystem.png)
 
-### Disable the dynamic partitioning policy in ntoskrnl.exe
+### 禁用 ntoskrnl.exe 中的动态分区策略
 
-Although the MmInitSystem funtion is complex, luckily we have the global
-variable called MiInitFailure for knowning the failure reason for the
-MmInitSystem funtion.
+虽然 MmInitSystem 函数很复杂，但幸运的是我们有一个全局变量 MiInitFailure 用于了
+解 MmInitSystem 函数的失败原因。
 
-We will know the value of MiInitFailure is 14 when using the WinDbg memory
-window.
+通过 WinDbg 内存窗口，我们可以知道 MiInitFailure 的值为 14。
 
-Here is the screenshot to show that scenario, which uses the 64-Bit Windows
-Vista Service Pack 2 as an example:
+这里是一个使用 64 位 Windows Vista Service Pack 2 作为示例的截图:
 
 ![VistaSP2_MiInitFailure](Assets/VistaSP2_MiInitFailure.png)
 
-For something set the MiInitFailure to 14, we can find the following pesudo code
-snippet in the MmInitNucleus function:
+对于是谁设置了 MiInitFailure 为 14，我们可以在 MmInitNucleus 函数中找到这样的伪
+代码:
 
 ```c
   PoolWithTag = ExAllocatePoolWithTag(
@@ -628,16 +604,15 @@ snippet in the MmInitNucleus function:
   }
 ```
 
-We will know the value of MmHighestPossiblePhysicalPage is much bigger than the
-virtual machine memory we set when using the WinDbg memory window.
+通过 WinDbg 内存窗口，我们可以知道 MmHighestPossiblePhysicalPage 的值比我们设置
+的虚拟机内存要大得多。
 
-Here is the screenshot to show that scenario, which uses the 64-Bit Windows
-Vista Service Pack 2 as an example:
+这里是一个使用 64 位 Windows Vista Service Pack 2 作为示例的截图:
 
 ![VistaSP2_MmHighestPossiblePhysicalPage](Assets/VistaSP2_MmHighestPossiblePhysicalPage.png)
 
-For something set the MmHighestPossiblePhysicalPage, we can find the following
-pesudo code snippet in the MiFindLargestLoaderDescriptor function:
+对于是谁设置了 MmHighestPossiblePhysicalPage，我们可以在
+MiFindLargestLoaderDescriptor 函数中找到这样的伪代码:
 
 ```c
   v13 = MmDynamicPfn;
@@ -656,16 +631,14 @@ pesudo code snippet in the MiFindLargestLoaderDescriptor function:
   }
 ```
 
-We will know the value of MmDynamicPfn will cause the issue when using the
-WinDbg memory window.
+通过 WinDbg 内存窗口，我们可以知道 MmDynamicPfn 是导致问题的原因。
 
-Here is the screenshot to show that scenario, which uses the 64-Bit Windows
-Vista Service Pack 2 as an example:
+这里是一个使用 64 位 Windows Vista Service Pack 2 作为示例的截图:
 
 ![VistaSP2_MmDynamicPfn](Assets/VistaSP2_MmDynamicPfn.png)
 
-For something set the MmDynamicPfn, we can find the following pesudo code
-snippet in the MiInitializeBootDefaults function:
+对于是谁设置了 MmDynamicPfn，我们可以在 MiInitializeBootDefaults 函数中找到这样
+的伪代码:
 
 ```c
   if ( MmDynamicMemorySupported )
@@ -680,18 +653,16 @@ snippet in the MiInitializeBootDefaults function:
   }
 ```
 
-Oh, it seems the the dynamic partitioning policy in ntoskrnl.exe caused the
-MmInitSystem funtion failed.
+哦，看起来是 ntoskrnl.exe 中的动态分区策略导致了 MmInitSystem 函数失败。
 
-Here is the screenshot to show that scenario, which uses the 64-Bit Windows
-Vista Service Pack 2 as an example:
+这里是一个使用 64 位 Windows Vista Service Pack 2 作为示例的截图:
 
 ![VistaSP2_MmDynamicMemorySupported](Assets/VistaSP2_MmDynamicMemorySupported.png)
 
-Patch for making MmDynamicMemorySupported to 0 is simple. Just patch the
-InitializeDynamicPartitioningPolicy function in ntoskrnl.exe.
+将 MmDynamicMemorySupported 设置为 0 并不难，只需要对 ntoskrnl.exe 中的
+InitializeDynamicPartitioningPolicy 函数进行一些二进制修补事务即可。
 
-For example, the original code snippet is:
+例如，原始的代码片段是:
 
 ```
 INIT:00000001404B40B0 FF F7                                   push    rdi
@@ -780,12 +751,12 @@ INIT:00000001404B41DC 5F                                      pop     rdi
 INIT:00000001404B41DD C3                                      retn
 ```
 
-Modify "js short loc_1404B41CB" to "jmp short loc_1404B41CB".
+将 "js short loc_1404B41CB" 修改为 "jmp short loc_1404B41CB"。
 
-We also should modify "js short loc_1404B4152" to "jmp short loc_1404B4152".
+我们同时也应该将 "js short loc_1404B4152" 修改为 "jmp short loc_1404B4152"。
 
-Of course, use the similar way to patch the ntoskrnl.exe. You will see the ACPI
-BugCheck message from the Windows Event Viewer.
+当然，使用类似的方法去修补 ntoskrnl.exe 后，你可以从 Windows 事件查看器中获取到
+ACPI BugCheck 错误消息。
 
 ```xml
 <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
@@ -821,9 +792,8 @@ BugCheck message from the Windows Event Viewer.
 </Event>
 ```
 
-But if you tried to boot Windows Vista Service Pack 2 on Hyper-V Generation 2
-Virtual Machines, you will meet the deadloop issue. It caused by the following
-pesudo code snippet in the HalInitSystem function:
+但如果你尝试在 Hyper-V 第二代虚拟机上启动 Windows Vista Service Pack 2，你会遇到
+死锁。这是 HalInitSystem 函数中的以下伪代码片段导致的:
 
 ```c
     if ( HalpHpetInitialized )
@@ -838,7 +808,7 @@ pesudo code snippet in the HalInitSystem function:
     }
 ```
 
-For example, the original code snippet is:
+例如，原始的代码片段是:
 
 ```
 PAGELK:000007FF3C251AF2                         loc_7FF3C251AF2:                        ; CODE XREF: HalInitSystem+CA↑j
@@ -847,22 +817,21 @@ PAGELK:000007FF3C251AF7 89 05 C7 31 FF FF                       mov     cs:HalpS
 PAGELK:000007FF3C251AFD 89 05 B5 31 FF FF                       mov     cs:HalpQueryPerformanceCounterSource, eax
 ```
 
-Modify "mov eax, 2" to "mov eax, 1".
+将 "mov eax, 2" 修改为 "mov eax, 1"。
 
-Of course, use the similar way to patch the hal.dll, and you will see the same
-result like you boot Windows 7 Service Pack 1 on Hyper-V Generation 2 Virtual
-Machines.
+当然，使用类似的方法去修补 hal.dll 后，你将会看到和在 Hyper-V 第二代虚拟机启动
+Windows 7 Service Pack 1 时相同的结果。
 
-### Fix the ACPI BugCheck issue
+### 修复 ACPI BugCheck 问题
 
-From the above error message, we can search the Microsoft documentation for
-that. In [Bug Check 0xA5: ACPI_BIOS_ERROR], you will know it's the issue in
-acpi.sys. We need to do some patches to fix that.
+根据上述错误信息，我们可以在微软文档中进行搜索，在
+[Bug Check 0xA5: ACPI_BIOS_ERROR] 中，你会知道这个问题是 acpi.sys 导致的，我们需
+要对其进行一些二进制修补事务去解决这个问题。
 
 [Bug Check 0xA5: ACPI_BIOS_ERROR]: https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/bug-check-0xa5--acpi-bios-error
 
-After some analysis, I find the issue is caused by the following pesudo code
-from the ACPIEnableEnterACPIMode function in acpi.sys.
+经过一些分析，我发现这个问题是由 acpi.sys 中的 ACPIEnableEnterACPIMode 函数的以
+下伪代码导致的:
 
 ```c
   v3 = 0x1E8480 % TimeIncrement;
@@ -875,11 +844,10 @@ from the ACPIEnableEnterACPIMode function in acpi.sys.
   }
 ```
 
-We know Hyper-V Generation 2 Virtual Machines are modern virtual machines, so,
-I guest ACPI in Hyper-V Generation 2 Virtual Machines is always enabled and
-unable to disable. So, we can just bypass that logic.
+我们知道 Hyper-V 第二代虚拟机是现代虚拟机，所以，我猜测 Hyper-V 第二代虚拟机中的
+ACPI 全程启用并无法禁用。所以，我们只需要绕过这个逻辑。
 
-For example, the original code snippet is:
+例如，原始的代码片段是:
 
 ```
 .text:0000000000025930 48 89 5C 24 08                          mov     [rsp+arg_0], rbx
@@ -949,7 +917,7 @@ For example, the original code snippet is:
 .text:00000000000259E4 CC                                      db 0CCh
 ```
 
-Just modify theses code snippets to the following:
+将下面的代码片段:
 
 ```
 .text:00000000000259A4                         loc_259A4:                              ; CODE XREF: ACPIEnableEnterACPIMode+6A↑j
@@ -961,7 +929,7 @@ Just modify theses code snippets to the following:
 .text:00000000000259B2 FF 15 60 89 01 00                       call    cs:__imp_KeRevertToUserAffinityThread
 ```
 
-To the following:
+修改为:
 
 ```
 .text:00000000000259A4                         loc_259A4:                              ; CODE XREF: ACPIEnableEnterACPIMode+6A↑j
@@ -979,8 +947,8 @@ To the following:
 .text:00000000000259B2 FF 15 60 89 01 00                       call    cs:__imp_KeRevertToUserAffinityThread
 ```
 
-Of course, use the similar way to patch the acpi.sys. You will see the BugCheck
-message from the Windows Event Viewer.
+当然，使用类似的方法去修补 acpi.sys 后，你可以从 Windows 事件查看器中获取到
+BugCheck 错误消息。
 
 ```xml
 <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
@@ -1016,78 +984,67 @@ message from the Windows Event Viewer.
 </Event>
 ```
 
-### Boot to the desktop
+### 进入桌面
 
-From the above error message, we can search the Microsoft documentation for
-that. In [Bug check 0x7B: INACCESSIBLE_BOOT_DEVICE], we will know we basically
-touch the goal if we can make the kernel find the boot device.
+根据上述错误信息，我们可以在微软文档中进行搜索，在
+[Bug check 0x7B: INACCESSIBLE_BOOT_DEVICE] 中，我们将会知道只要能让内核找到启动
+设备就可以达成我们的目标了。
 
 [Bug check 0x7B: INACCESSIBLE_BOOT_DEVICE]: https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/bug-check-0x7b--inaccessible-boot-device
 
-Actually, we need to mount the SYSTEM hive to modify some registry keys:
+实际上，我们需要挂载 SYSTEM 注册表单元以修改一些注册表键:
 
-- Set the NTFS file system driver to start at boot time for ControlSet* key
-  trees.
-- Check the FirmwareBootDevice path value in the Control key for ControlSet* key
-  trees, make sure that is the correct path.
+- 对 ControlSet* 键树设置 NTFS 文件系统驱动程序为在启动时启动
+- 检查 ControlSet* 键树中的 Control 键中的 FirmwareBootDevice 路径值，确保它是正
+  确的路径
 
-After that, we can boot to the desktop successfully.
+搞定这些后，我们就可以成功地进入桌面了。
 
-But for the first boot of Windows Vista Service Pack 2 and Windows 7 Service
-Pack 1, we won't see the desktop because the Hyper-V Synthetic Video driver
-is not loaded.
+但是对于 Windows Vista Service Pack 2 和 Windows 7 Service Pack 1 的第一次启动，
+我们将看不到桌面，因为 Hyper-V 合成视频驱动程序没有加载。
 
-So, I suggest you to install SynthRdp tool from [NanaRun] for the operating
-system you want to adapt before starting this wild journey, which can make
-you have the ability to use the Hyper-V Enhanced Session Mode.
+所以，我建议在开始这次狂野之旅之前为你要适配的操作系统安装 [NanaRun] 中的
+SynthRdp 工具，这样你就有 机会使用 Hyper-V 增强会话模式了。
 
 [NanaRun]: https://github.com/M2Team/NanaRun
 
-Here are the screenshots to show my sucessful result:
+这是我最终的截图:
 
 ![VistaSP2_Final](Assets/VistaSP2_Final.png)
 
 ![Win7SP1_Final](Assets/Win7SP1_Final.png)
 
-## Conclusion
+## 总结
 
-The reason for the topic discussed in this article is slightly complex and
-different than the reason mentioned in the Microsoft's [Generation 2 FAQ]:
+本文最终得到的原因相对于微软的 [Generation 2 FAQ] 中提到的还是有些复杂和不同:
 
-- The PC-AT Compatibility bit is not set in the ACPI APIC table.
-- The ACPI Timer is existed but cannot get the address from the PM Timer Block
-  Address field in the ACPI FACP table, and Windows will only use the ACPI Timer
-  to scale the timers unless you patch it. It seems the legacy Windows versions
-  really love the ACPI Timer, Windows Vista as the example to show that. Also, 
-  legacy Windows versions won't check the PM Timer Block address from the 
-  Generic Address Structure in the ACPI FADT table, which actually provided the
-  value in Hyper-V Generation 2 Virtual Machines.
-- The kernel in legacy Windows versions doesn't check the availability of the
-  dynamic partitioning policy only for Windows SKUs instead of the actual
-  environment.
+- ACPI APIC 表没有设置 PC-AT 兼容位
+- ACPI 计时器存在，但无法通过 ACPI FACP 表的 PM Timer Block Address 区域获取，并
+  且 Windows 仅使用 ACPI 计时器对其他计时器进行缩放，除非你整了点二进制修补。看
+  起来旧版 Windows 真的很喜欢 ACPI 计时器，Windows Vista 就是一个例子。同时，旧
+  版 Windows 不会检查 ACPI FADT 表中的通用地址结构中的 PM 计时器块地址，而实际上
+  Hyper-V 第二代虚拟机提供了相关值
+- 旧版 Windows 内核只会根据是否是特定的 Windows 版本决定是否启用动态分区策略，而
+  不会检查动态分区策略在实际环境的可用性
 
-## Afterwords
+## 后记
 
-Originally, I use Windows Vista Service Pack 2 as an example for this article
-just for validating my steps mentioned in this article. But it seems Windows
-Vista Service Pack 2 can also boot on Hyper-V Generation 2 Virtual Machines
-with the similar patch way. I think it's a good example for this article.
+原本我使用 Windows Vista Service Pack 2 作为本文的示例，只是为了验证本文中提到的
+步骤。但看起来 Windows Vista Service Pack 2 也可以用类似的修补方式在 Hyper-V 第
+二代虚拟机上成功启动。我认为这是本文的一个很好的例子。
 
-For Windows XP x64 Edition Service Pack 2, I have used some similar steps to
-make the Kernel Debugger work on Hyper-V Generation 2 Virtual Machines with
-bootmgr and winload from Windows Server 2008 Beta 3 Build 6001.16497. But there
-are some issues which makes the virtual machine deadloop, and I currently don't
-know the reason for that.
+对于 Windows XP x64 Edition Service Pack 2，我在结合 Windows Server 2008 Beta 3
+Build 6001.16497 的 bootmgr 和 winload 的基础上使用了一些类似的步骤使得在 
+Hyper-V 第二代虚拟机上也可以使用内核调试器。但是存在导致虚拟机陷入死循环的一些问
+题，我目前还不知道原因。
 
-But these examples are just for writing this article to prove something I have
-done. In my opinion, if you want to use the method mentioned in this article
-for your daily time, at least you need to make a patcher based on [EfiGuard].
+但这些例子只是为了写这篇文章来证明我做过的事情。在我看来，如果你想使用本文中提到
+的方法来处理你的日常事务，至少你需要基于 [EfiGuard] 制作一个补丁程序。
 
 [EfiGuard]: https://github.com/Mattiwatti/EfiGuard
 
-For some people who want to know why I write this article, I just want to know
-the reason. Also, it can help me to avoid using the Windows builtin Hyper-V 
-client because it is really hard to use. I can finally use my Hyper-V client
-to run some legacy Windows versions to test some of my open-source projects.
+对于一些想知道我为什么写这篇文章的人，我只是想知道为什么罢了。同时，这也可以帮助
+我避免使用 Windows 内置的 Hyper-V 客户端，因为它真的很难用。我终于可以使用我自己
+写的 Hyper-V 客户端来运行一些旧版 Windows 以测试我一些开源项目。
 
-Hope you can enjoy this article.
+希望这篇文章对你有所帮助。
