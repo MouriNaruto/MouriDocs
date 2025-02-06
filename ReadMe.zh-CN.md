@@ -26,4 +26,4 @@ Mouri Docs 是由毛利创建的技术文档库。如果你想进行反馈或提
 - [MD18: Windows version reference for Windows SDK's NTDDI version constants](docs/18)
 - [MD19: Notes for building a minimal Windows guest environment via Server Core](docs/19)
 - [MD20: Start using Alpine Linux as my daily Linux distro](docs/20)
-- [MD21: 浅谈在 Hyper-V 第二代虚拟机启动 Windows 7 Service Pack 1 的事务](docs/21/ReadMe.zh-CN.m)
+- [MD21: 浅谈在 Hyper-V 第二代虚拟机启动 x86 (64 位) Windows XP / Vista / 7 的事务](docs/21/ReadMe.zh-CN.md)
