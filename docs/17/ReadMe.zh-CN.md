@@ -64,6 +64,8 @@
 
 ## Windows SDK (Software Development Kit)
 
+- 版本: 26100.3037
+  - 链接: https://download.microsoft.com/download/6/9/c/69ceb6e5-668f-461a-9c6f-5348c69ca314/26100.3037.250123-2219.ge_release_svc_prod3_WindowsSDK.iso
 - 版本: 26100.2454
   - 链接: https://download.microsoft.com/download/1/4/b/14b99c2b-ab37-4bf0-90d3-1546e437a4a5/26100.2454.241115-1734.ge_release_svc_prod3_WindowsSDK.iso
 - 版本: 26100.1742
