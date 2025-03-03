@@ -89,6 +89,8 @@
 
 ## Windows WDK (Windows Driver Kit)
 
+- 版本: 26100.3037
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/898969d5-f34g-4e03-ac9d-1f9786c66749/26100.3037.250123-2219.ge_release_svc_prod3_amd64fre_WDK.iso
 - 版本: 26100.1
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_WDK.iso
 - 版本: 22621.2428
@@ -102,6 +104,8 @@
 
 ## Windows EWDK (Enterprise WDK (Windows Driver Kit))
 
+- 版本: 26100.3037
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/898969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_svc_prod3_26100_250123-2219.iso
 - 版本: 26100.2454
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_svc_prod3_26100_241115-1734.iso
 - 版本: 26100.2161
