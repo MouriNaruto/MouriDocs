@@ -64,6 +64,8 @@
 
 ## Windows SDK (Software Development Kit)
 
+- Version: 26100.3323
+  - Link: https://download.microsoft.com/download/bcc701de-c6bf-4f75-b7e7-e53add04545c/26100.3323.250220-1537.ge_release_svc_prod3_WindowsSDK.iso
 - Version: 26100.3037
   - Link: https://download.microsoft.com/download/6/9/c/69ceb6e5-668f-461a-9c6f-5348c69ca314/26100.3037.250123-2219.ge_release_svc_prod3_WindowsSDK.iso
 - Version: 26100.2454
@@ -104,6 +106,8 @@
 
 ## Windows EWDK (Enterprise WDK (Windows Driver Kit))
 
+- Version: 26100.3323
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_svc_prod3_26100_250220-1537.iso
 - Version: 26100.3037
   - Link: https://software-static.download.prss.microsoft.com/dbazure/898969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_svc_prod3_26100_250123-2219.iso
 - Version: 26100.2454
