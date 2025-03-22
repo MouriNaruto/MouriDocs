@@ -191,3 +191,21 @@ git update-index --no-assume-unchanged <file>
 git ls-files -v
 
 ```
+
+## 往邮件列表发送 patch 的设置
+
+参考文档: https://git-send-email.io
+
+```
+git config --global sendemail.smtpuser mourinaruto@gmail.com
+git config --global sendemail.smtpServer smtp.gmail.com
+git config --global sendemail.smtpServerPort 587
+git config --global sendemail.smtpencryption tls
+git config --global sendemail.from Kenji.Mouri@outlook.com
+```
+
+## 往邮件列表发送 patch
+
+```
+EDITOR=nano git send-email -to musl@lists.openwall.com -1
+```
