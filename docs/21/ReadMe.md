@@ -54,3 +54,10 @@ Windows XP / Vista / 7 on Hyper-V Generation 2 Virtual Machines. It proves that
 all x86 (64-Bit) Windows versions actually have the ability to support running
 in Hyper-V Generation 2 Virtual Machines. For more details about the experiments
 I had done before, please read [the early researches](EarlyResearches.md).
+
+
+Draft:
+
+Note: Windows XP Professional x64 Edition Service Pack 1 and Windows Server 2003
+(x64) Service Pack 1 not OK for that because will bugcheck with wdf driver when
+using the Hyper-V Integration Services with version 6.2.9200.16385 or later.
