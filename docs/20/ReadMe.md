@@ -232,3 +232,56 @@ Work In Progress
 ## .NET SDK
 
 Work In Progress
+
+## Running on Azure virtual machines
+
+First, go to https://www.alpinelinux.org/cloud/ for downloading the Alpine Linux
+cloud image for Azure, I have chosen 3.21.2, x86__64, UEFI, cloud-init, Virtual.
+
+Then, you need to follow the instructions from https://gitlab.alpinelinux.org/alpine/cloud/alpine-cloud-images/-/blob/main/IMPORTING.md#azure
+to import the VHD you have downloaded before to your Azure account.
+
+Because I want to create a virtual machine with dual-stack network support,
+I follow the instructions from https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal
+before creating the virtual machine.
+
+Note: The virtual machine user name must be "alpine" because Alpine Linux
+generalized image seems not support the custom user name. 
+
+Note: It seems Alpine Linux support the IPv6 without extra configurations, which
+reduces the steps I need to do after creating the virtual machine.
+
+### Install essential packages
+
+```
+doas apk update
+doas apk upgrade
+doas apk add certbot fastfetch htop nano
+```
+
+### Configure Let's Encrypt
+
+> doas certbot certonly
+
+I choose the "standalone" mode, and follow the interactive steps.
+
+### Scenario: Use OpenConnect Server
+
+Reference: https://github.com/Pezhvak/docker-ocserv/blob/master/Dockerfile
+
+```
+doas apk update
+doas apk add musl-dev iptables gnutls-dev gnutls-utils readline-dev libnl3-dev lz4-dev libseccomp-dev libev-dev
+doas apk add xz openssl gcc autoconf make linux-headers
+wget https://www.infradead.org/ocserv/download/ocserv-1.3.0.tar.xz
+tar xJf ocserv-1.3.0.tar.xz
+rm -fr ocserv-1.3.0.tar.xz
+cd ocserv-1.3.0
+sed -i '/#define DEFAULT_CONFIG_ENTRIES /{s/96/200/}' src/vpn.h
+./configure
+make -j"$(nproc)"
+doas make install
+doas mkdir -p /etc/ocserv/data
+doas apk del --purge xz openssl gcc autoconf make linux-headers
+doas cp doc/sample.config /etc/ocserv/ocserv.conf
+```
