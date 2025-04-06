@@ -74,6 +74,8 @@
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1742.240904-1906.ge_release_svc_prod1_WindowsSDK.iso
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_WindowsSDK.iso
+- Version: 22621.5040
+  - Link: https://download.microsoft.com/download/cb9de490-6e67-4ac6-8c2c-6dfabb824e8a/22621.5040.250311-1927.ni_release_svc_im_WindowsSDK.iso
 - Version: 22621.3233
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.3233.240221-1752.ni_release_svc_prod3_WindowsSDK.iso
 - Version: 22621.2428
