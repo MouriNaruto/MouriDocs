@@ -64,6 +64,8 @@
 
 ## Windows SDK (Software Development Kit)
 
+- 版本: 26100.3916
+  - 链接: https://download.microsoft.com/download/93ee7ce2-4437-4aac-aece-5595aca15fa7/26100.3916.250422-2254.ge_release_svc_prod3_WindowsSDK.iso
 - 版本: 26100.3624
   - 链接: https://download.microsoft.com/download/f335ca28-1861-4b21-b14b-4bac3ec73d7f/26100.3624.250321-2034.ge_release_svc_prod3_WindowsSDK.iso
 - 版本: 26100.3323
@@ -92,6 +94,8 @@
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66750/22000.832.220715-1440.co_release_svc_prod3_WindowsSDK.iso
 - 版本: 22000.1
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66750/22000.832.220715-1440.co_release_svc_prod3_WindowsSDK.iso
+- 版本: 19041.5609
+  - 链接: https://download.microsoft.com/download/e119c04b-71aa-4067-ac3c-360c2e13d209/19041.5609.250311-1926.vb_release_svc_im_WindowsSDK.iso
 
 ## Windows WDK (Windows Driver Kit)
 
@@ -144,6 +148,14 @@
 
 ## Microsoft Validation OS for AMD64
 
+- 版本: 26100.3916
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.3916.250422-2254.ge_release_svc_prod3_amd64fre_en-us_VALIDATIONOS.iso
+- 版本: 26100.3624
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.3624.250321-2034.ge_release_svc_prod3_amd64fre_en-us_VALIDATIONOS.iso
+- 版本: 26100.3323
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.3323.250220-1537.ge_release_svc_prod3_amd64fre_en-us_VALIDATIONOS.iso
+- 版本: 26100.3037
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.3037.250123-2219.ge_release_svc_prod3_amd64fre_en-us_VALIDATIONOS.iso
 - 版本: 26100.2605
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.2605.241205-1819.ge_release_svc_prod1_amd64fre_en-us_VALIDATIONOS.iso
 - 版本: 26100.2033
@@ -161,6 +173,14 @@
 
 ## Microsoft Validation OS for ARM64
 
+- 版本: 26100.3916
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.3916.250422-2254.ge_release_svc_prod3_arm64fre_en-us_VALIDATIONOS.iso
+- 版本: 26100.3624
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.3624.250321-2034.ge_release_svc_prod3_arm64fre_en-us_VALIDATIONOS.iso
+- 版本: 26100.3323
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.3323.250220-1537.ge_release_svc_prod3_arm64fre_en-us_VALIDATIONOS.iso
+- 版本: 26100.3037
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.3037.250123-2219.ge_release_svc_prod3_arm64fre_en-us_VALIDATIONOS.iso
 - 版本: 26100.2605
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.2605.241205-1819.ge_release_svc_prod1_arm64fre_en-us_VALIDATIONOS.iso
 - 版本: 26100.2033
@@ -213,3 +233,4 @@
 - https://github.com/MicrosoftDocs/azure-docs/commit/5b9996efd0f1ac39dd998575aeac8ba0d1f52b1d
 - https://github.com/MicrosoftDocs/azure-docs/commit/e1662ebea24845447de11d73a8b886e02ab34320
 - https://github.com/MicrosoftDocs/azure-docs/commit/f1bc997eadb170c1e2a29c3482ff3ac3f51dbb19
+- https://github.com/MicrosoftDocs/azure-docs/commit/1ded300ffc575105ba8646a916662c725e7e2513
