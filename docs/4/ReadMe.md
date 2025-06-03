@@ -7,7 +7,9 @@
   - JSON Reference: https://learn.microsoft.com/en-us/virtualization/api/hcs/schemareference
 - Host Compute Network API
   - Overview: https://learn.microsoft.com/en-us/windows-server/networking/technologies/hcn/hcn-top
-  - JSON Reference: https://learn.microsoft.com/en-us/virtualization/api/hcn/hns_schema
+  - JSON References
+    - https://learn.microsoft.com/en-us/virtualization/api/hcn/hns_schema
+    - https://learn.microsoft.com/en-us/windows-server/networking/technologies/hcn/hcn-json-document-schemas
 
 ## Relationships
 
@@ -23,6 +25,7 @@
 - Microsoft Projects
   - hcsshim, https://github.com/microsoft/hcsshim
   - dotnet-computevirtualization, https://github.com/microsoft/dotnet-computevirtualization
+  - Windows Subsystem for Linux, https://github.com/microsoft/WSL
 - Third-party Projects
   - NanaBox, https://github.com/M2Team/NanaBox
 
