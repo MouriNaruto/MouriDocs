@@ -297,5 +297,5 @@ rm zeroedspace
 ## Visual Studio Remote Development (MSBuild C++ for Linux)
 
 ```
-doas apk add gdb rsync
+doas apk add gdb rsync zip
 ```
