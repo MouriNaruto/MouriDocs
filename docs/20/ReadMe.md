@@ -286,10 +286,16 @@ doas apk del --purge xz openssl gcc autoconf make linux-headers
 doas cp doc/sample.config /etc/ocserv/ocserv.conf
 ```
 
-### Prepare for shrinking VHD/VHDX
+## Prepare for shrinking VHD/VHDX
 
 ```
 dd if=/dev/zero of=zeroedspace bs=1M
 sync
 rm zeroedspace
+```
+
+## Visual Studio Remote Development (MSBuild C++ for Linux)
+
+```
+doas apk add gdb rsync
 ```
