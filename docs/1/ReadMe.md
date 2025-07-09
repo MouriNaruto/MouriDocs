@@ -75,9 +75,8 @@ You only need to copy GPU driver files from host's
 
 If you are a NanaBox user, you can follow the steps mentioned in
 https://github.com/ProjectMile/Mile.Cirno#usage to map your host's 
-`%SystemRoot%\System32\DriverStore\FileRepository` folder to guest's 
-`%SystemRoot%\System32\HostDriverStore\FileRepository` folder without
-copying files manually.
+`%SystemRoot%\System32\DriverStore` folder to guest's 
+`%SystemRoot%\System32\HostDriverStore` folder without copying files manually.
 
 ### Linux
 
