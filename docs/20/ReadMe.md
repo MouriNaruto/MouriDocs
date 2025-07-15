@@ -299,3 +299,16 @@ rm zeroedspace
 ```
 doas apk add gdb rsync zip
 ```
+
+## Change time temporarily
+
+```
+doas rc-service chronyd stop
+doas date -s "2025-07-14 00:00:00"
+```
+
+Resynchronize the time:
+
+```
+doas rc-service chronyd start
+```
