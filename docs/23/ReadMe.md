@@ -101,3 +101,21 @@ to Microsoft MSVC toolchain for ARM (64-bit) and ARM (32-bit) is available.
 
 This is the initial baseline when I started to use C and C++ in my open-source
 projects.
+
+## Frequently Asked Questions (FAQ)
+
+### Why ARM (32-bit) support is removed in the 2021 baseline?
+
+- The last ARM (32-bit) insider build of Windows desktop is Windows 10 Build
+  15035 which is released in 2017, and the last ARM (32-bit) stable build is
+  Windows RT 8.1 Update 3 which is released in 2015 and has been already
+  end of support in 2023. Although Windows 10 IoT Core is still supported, but
+  there are some better solutions for ARM (32-bit) IoT devices a.k.a. use Linux.
+  Raspberry Pi devices should migrate to ARM (64-bit) Windows desktop for better
+  user experience if you want to continue to use Windows on these devices.
+- The newer ARM processors are deprecating ARM (32-bit) ISA support, and Apple
+  Silicon M1 had removed the ARM (32-bit) ISA support at all. So we can't run
+  ARM (32-bit) ISA version of Windows desktop applications on these devices.
+- Windows has removed ARM (32-bit) support since Windows 11 Build 25905, and 
+  Windows 11, version 24H2 (Build 26100) SDK has removed ARM (32-bit) libraries.
+- Reduce the size of release package and make the continuous integration faster.
