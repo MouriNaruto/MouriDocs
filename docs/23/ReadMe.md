@@ -16,6 +16,9 @@ Last Updated: July 25, 2025
 Here are some several benefits of the 2025 baseline, read the
 [related FAQ section](#benefits-of-2025-baseline) for more information.
 
+For the reasons for removing x86 (32-bit) support, read the
+[related FAQ section](#why-x86-32-bit-support-is-removed-in-the-2025-baseline).
+
 ### 2021 Baseline
 
 - Supported Operating Systems:
