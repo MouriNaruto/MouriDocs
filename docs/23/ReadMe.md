@@ -8,11 +8,12 @@ Work In Progress.
 
 - Supported Operating Systems:
   - Windows 10, version 2004 (Build 19041) or later
+  - Windows Server 2022 (Build 20348) or later
 - Supported Platforms:
   - x86 (64-bit)
   - ARM (64-bit)
 
-This has already been the baseline for [NanaBox] and [NanaZip] modern flavor,
+This has already been the baseline for [NanaBox], and [NanaZip] modern flavor,
 and it will be applied to all components in [NanaZip], even all my open-source
 projects in the near future. Here are the reasons why I set this baseline:
 
@@ -46,7 +47,8 @@ projects in the near future. Here are the reasons why I set this baseline:
 ### 2021 Baseline
 
 - Supported Operating Systems:
-  - Windows Vista and Windows Server 2008 (Build 6000) or later
+  - Windows Vista (Build 6000) or later
+  - Windows Server 2008 (Build 6000) or later
 - Supported Platforms:
   - x86 (64-bit)
   - x86 (32-bit)
@@ -75,7 +77,8 @@ due to the following reasons in 2021 as historical reference:
 ### 2017 Baseline
 
 - Supported Operating Systems:
-  - Windows Vista and Windows Server 2008 (Build 6000) or later
+  - Windows Vista (Build 6000) or later
+  - Windows Server 2008 (Build 6000) or later
 - Supported Platforms:
   - x86 (64-bit)
   - x86 (32-bit)
@@ -90,7 +93,8 @@ to Microsoft MSVC toolchain for ARM (64-bit) and ARM (32-bit) is available.
 ### 2014 Baseline
 
 - Supported Operating Systems:
-  - Windows Vista and Windows Server 2008 (Build 6000) or later
+  - Windows Vista (Build 6000) or later
+  - Windows Server 2008 (Build 6000) or later
 - Supported Platforms:
   - x86 (64-bit)
   - x86 (32-bit)
