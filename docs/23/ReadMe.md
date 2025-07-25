@@ -54,25 +54,11 @@ projects in the near future. Here are the reasons why I set this baseline:
   - x86 (32-bit)
   - ARM (64-bit)
 
-This is the baseline since [NSudo 8.2], which removed support for ARM (32-bit)
-due to the following reasons in 2021 as historical reference:
+This is the baseline since [NSudo 8.2], which removed ARM (32-bit) support. Read
+[this section](#why-arm-32-bit-support-is-removed-in-the-2021-baseline) for more
+information.
 
 [NSudo 8.2]: https://github.com/M2TeamArchived/NSudo/releases/tag/8.2
-
-- The latest version of ARM32 version for Windows desktop is Redstone 2 Insider
-  Build 15035. I know Windows RT 8.1 and Windows 10 IoT Core aren't in the 
-  stage of end of support, but most of daily users are drop their devices 
-  (Windows RT 8.x tablets) or have a better solution (Windows 10 IoT Core users
-  on Raspberry Pi devices should migrate to Linux or ARM64 version for Windows
-  10 desktop).
-- Future ARM processors are deprecating ARM32 ISA support, and Apple Silicon M1
-  had dropped the ARM32 support at all. So we can't run ARM32 version of 
-  Windows desktop applications on these devices.
-- I'm considering the possibility of using Rust, .NET, and Project Reunion to
-  write a part of the implementation of some projects in the future, and these
-  infrastructures will not reconsider support for ARM32 support on Windows.
-- Reduce the size of release package and make the continuous integration
-  faster.
 
 ### 2017 Baseline
 
