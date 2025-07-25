@@ -106,7 +106,7 @@ it gives us chances to use Self Extracting Executables (SFX) archives under
 
 - For ARM (64-bit) Microsoft official Windows PE and Windows RE, you need to
   make sure you Windows PE and Windows RE images are built with Windows ADK
-  Build 25398 and integrated the [x64 emulation optional component].
+  Build 25398 or later and integrated the [x64 emulation optional component].
 - For ARM (64-bit) Windows 10, I suggest you to upgrade to Windows 11 because
   ARM (64-bit) Windows 11 provides x64 emulation support, and Windows 10 is
   nearly end of support from Microsoft.
