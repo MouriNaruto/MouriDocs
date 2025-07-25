@@ -1,6 +1,6 @@
 ﻿# MD23: The baselines of Windows targets for all my open-source projects
 
-Work In Progress.
+Last Updated: July 25, 2025
 
 ## Baselines
 
