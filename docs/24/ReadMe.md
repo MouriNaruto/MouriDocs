@@ -55,7 +55,7 @@ Work In Progress.
 - Should use "nullptr" instead of "NULL" or "0" for null pointer if you are
   using C\+\+11 or later.
 - Should not use initializer lists for better readability and maintainability
-  because maybe the type definition will change in the future.
+  because maybe the type definition sequence will change in the future.
 - Use "::" prefix for functions in the global namespace to avoid name conflicts
   with other namespaces if you are using C\+\+.
 - Use "this->" prefix for member functions and variables to avoid name conflicts
