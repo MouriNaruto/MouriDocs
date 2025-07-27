@@ -30,3 +30,4 @@ Fire a GitHub issue if you want feedback or suggest something. Please read
 - [MD21: Talk about booting x86 (64-Bit) Windows XP / Vista / 7 on Hyper-V Generation 2 Virtual Machines](docs/21)
 - [MD22: Notes for using FreeBSD](docs/22)
 - [MD23: The baselines of Windows targets for all my open-source projects](docs/23)
+- [MD24: The coding style for all my open-source projects](docs/23)
