@@ -57,7 +57,7 @@
 - Use "::" prefix for functions in the global namespace to avoid name conflicts
   with other namespaces if you are using C\+\+.
 - Use "this->" prefix for member functions and variables to avoid name conflicts
-  with other namespaces or classes if you are using C\+\+.
+  if you are using C\+\+.
 - Use SAL for C types in the function and method definitions.
 - Use "Type& OutputParameter" and "Type const& InputParameter" style for C\+\+
   types in the function and method definitions.
