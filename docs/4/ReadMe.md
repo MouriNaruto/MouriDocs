@@ -79,7 +79,7 @@ Note: Please use ILSpy to open these .NET Assemblies to get the definitions.
 - [Windows 11 Version 22H2](References/Microsoft.HyperV.Schema_22621.dll)
 - [Windows Server Version 23H2](References/Microsoft.HyperV.Schema_Microsoft.HyperV.Schema_25398.dll)
 - [Windows 11 Version 24H2 / Windows Server 2025](References/Microsoft.HyperV.Schema_26100.dll)
-- [Windows 11 Insider Preview Canary Channel](References/Microsoft.HyperV.Schema_27868.dll)
+- [Windows 11 Insider Preview Canary Channel](References/Microsoft.HyperV.Schema_27924.dll)
 
 ## Host Compute System API JSON Configuration Samples
 
