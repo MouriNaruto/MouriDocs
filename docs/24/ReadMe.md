@@ -235,31 +235,31 @@
         paramter1,
         parameter2);
     ```
-  - The above rules for method definitions also generally apply to templates.
-    ```cpp
-    // BAD!
-    struct AddressBarTemplate : AddressBarTemplateT<AddressBarTemplate, implementation::AddressBarTemplate>
-    {
-    };
+- The above rules for method definitions also generally apply to templates.
+  ```cpp
+  // BAD!
+  struct AddressBarTemplate : AddressBarTemplateT<AddressBarTemplate, implementation::AddressBarTemplate>
+  {
+  };
 
-    // GOOD!
-    struct AddressBarTemplate : AddressBarTemplateT<
-        AddressBarTemplate,
-        implementation::AddressBarTemplate>
-    {
-    };
-    ```
-  - The opening and closing curly brackets should not be in the same line.
-    ```cpp
-    // BAD!
-    struct Foo
-    {};
+  // GOOD!
+  struct AddressBarTemplate : AddressBarTemplateT<
+      AddressBarTemplate,
+      implementation::AddressBarTemplate>
+  {
+  };
+  ```
+- The opening and closing curly brackets should not be in the same line.
+  ```cpp
+  // BAD!
+  struct Foo
+  {};
 
-    // GOOD!
-    struct Foo
-    {
-    };
-    ```
+  // GOOD!
+  struct Foo
+  {
+  };
+  ```
 
 ### Comment Style for C, C++
 
