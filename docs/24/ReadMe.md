@@ -1,4 +1,4 @@
-﻿# MD24: The coding style for all my open-source projects
+# MD24: The coding style for all my open-source projects
 
 ## Coding Philosophy
 
@@ -6,10 +6,10 @@
 - Prefer explicit than implicit.
 - Use language features that are widely supported.
   - If you are writing C code, only use language features that are supported
-    by Microsoft Visual C\+\+ (MSVC) unless really necessary.
-  - If you are writing C\+\+11 code, only target for C\+\+11 or later unless
+    by Microsoft Visual C+\ (MSVC) unless really necessary.
+  - If you are writing C++11 code, only target for C++11 or later unless
     you are targeting specific platforms that don't have compilers which support
-    C\+\+11 or later. For language features introduced after C\+\+11, don't use
+    C++11 or later. For language features introduced after C++11, don't use
     them unless really necessary.
   - If you are writing C# code, only target for .NET Standard 2.0 unless you are
     targeting specific platforms that don't have .NET Standard 2.0 support.
@@ -37,289 +37,215 @@
 - Use Allman style for braces if the language has braces unless the language
   don't support Allman style for braces.
 - Only use hungarian notation in these scenarios:
-  - For global variables, use "g_" prefix.
-  - For member variables, use "m_" prefix.
+  - For global variables, use `g_` prefix.
+  - For member variables, use `m_` prefix.
 - Avoid using abbreviations or acronyms unless they are widely understood.
 - All comments should be in English unless really necessary, and you should only
   write comments for the interface which will be served to other projects.
 
-## Specific rules for C and C\+\+
+## Specific rules for C and C++
 
-- Never use "using namespace" in C\+\+ code. Only use "using" with the type
+- Never use `using namespace` in C++ code. Only use `using` with the type
   names that you are using in the current scope to avoid name conflicts as
   much as possible.
-- If you are using C\+\+/WinRT, all C\+\+/WinRT types should be in the "winrt"
-  namespace.
-- Should use "nullptr" instead of "NULL" or "0" for null pointer if you are
-  using C\+\+11 or later.
-- Should not use initializer lists for better readability and maintainability
-  because maybe the type definition sequence will change in the future. The only
-  exception is for zero initialization if you are using C\+\+, which must be
-  written in the style of `Type Value = {};`.
-- Use "::" prefix for functions in the global namespace to avoid name conflicts
-  with other namespaces if you are using C\+\+.
-- Use "this->" prefix for member functions and variables to avoid name conflicts
-  if you are using C\+\+.
-- Use SAL for C types in the function and method definitions.
-- Use "Type& OutputParameter" and "Type const& InputParameter" style for C\+\+
-  types in the function and method definitions.
+
+  ```cpp
+  // BAD!
+  using namespace winrt;
+  
+  // BAD!
+  namespace winrt
+  {
+      using namespace Windows::Foundation;
+      using namespace Windows::UI::Xaml;
+  }
+
+  // GOOD!
+  namespace winrt
+  {
+      using Windows::Foundation::IInspectable;
+      using Windows::UI::Xaml::RoutedEventArgs;
+  }
+  ```
+- If you are using C++/WinRT, all C++/WinRT types should be in the `winrt` namespace.
+- Use `nullptr` instead of `NULL` or `0` for null pointer if you are using C++11 or later.
+  ```cpp
+  // BAD!
+  ::Method(NULL);
+  
+  // GOOD!
+  ::Method(nullptr);
+  ```
+- Do not use initializer lists for better readability and maintainability because the type definition sequence may change later.
+  ```cpp
+  // BAD!
+  VERSION version = { 1, 0, 0, 0 };
+  ```
+  - An exception for this rule is zero-initialization.
+    ```cpp
+    Type Value = {};
+    ```
+  - If possible, prefer direct assignment rather than initializer lists (including zero-initialization).
+    ```cpp
+    // BAD!
+    HWND m_WindowHandle{ nullptr };
+
+    // GOOD!
+    HWND m_WindowHandle = nullptr;
+    ```
+- Use `::` prefix for functions in the global namespace to avoid name conflicts with other namespaces if you are using C++.
+  ```cpp
+  // BAD!
+  Function();
+
+  // GOOD!
+  ::Function();
+  ```
+- Use `this->` prefix for member functions and variables to avoid name conflicts if you are using C++.
+  ```cpp
+  class Foo
+  {
+      void Bar();
+      int m_number;
+  }
+
+  void Foo::Bar()
+  {
+      // BAD!
+      m_number = 1;
+
+      // GOOD!
+      this->m_number = 1;
+  }
+  ```
+- Use [SAL](https://learn.microsoft.com/cpp/code-quality/using-sal-annotations-to-reduce-c-cpp-code-defects) for C types in the function and method definitions.
+  ```cpp
+  // BAD!
+  void Method(HWND hwnd);
+
+  // GOOD!
+  void Method(_In_ HWND hwnd);
+  ```
+- Use `Type& OutputParameter` and `Type const& InputParameter` style for C++ types in the function and method definitions.
+  ```cpp
+  // BAD!
+  void Method(winrt::hstring string);
+
+  // GOOD!
+  void Method(winrt::hstring const& string);
+  ```
 - Never eliminate the definition of identifiers for unused parameters.
-- The ");" should not in the separate line.
-- The indentation should be 4 spaces.
+  ```cpp
+  // BAD!
+  void Method(winrt::hstring const&);
 
-Note: The rules in this section is not comprehensive, here are some reference
-coding style implementations you should read line by line to know what is the
-suitable coding style:
+  // GOOD!
+  void Method(winrt::hstring const& string)
+  {
+      UNREFERENCED_PARAMETER(string);
+  }
+  ```
+- Rules for method calls and method definitions:
+  - Prefer a single line for methods with only one parameter or very short method calls.
+    ```cpp
+    ::Method(param1);
+    ::Method(p1, p2);
 
-- https://github.com/ProjectMile/Mile.Windows.Helpers/tree/main/Mile.Helpers
+    void Short(int parameter1);
+    ```
+  - Otherwise, put each parameter in a separate line.
+    ```cpp
+    // BAD!
+    void VeryLongMethodName(int parameter1, int parameter2);
 
-### Comment Style
+    // GOOD!
+    void VeryLongMethodName(
+        int parameter1,
+        int parameter2);
+    ```
+  - Do not put any trailing closing parentheses or semicolons in a separate line.
+    ```cpp
+    // BAD!
+    ::Method(
+        parameter1,
+        parameter2
+    );
 
-Here is the format example for source code file header:
+    // BAD!
+    ::Method(
+        parameter1,
+        parameter2,
+        ::Method2(parameter3)
+    );
 
-```cpp
-/*
- * PROJECT:    NanaZip.Modern
- * FILE:       NanaZip.Modern.h
- * PURPOSE:    Definition for NanaZip Modern Experience
- *
- * LICENSE:    The MIT License
- *
- * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
- */
-```
+    // BAD!
+    ::Method(
+        parameter1,
+        parameter2,
+        ::Method2(
+            parameter3,
+            parameter4
+        )
+    );
 
-Here is the format example for public identifiers:
+    // GOOD!
+    ::Method(
+        parameter1,
+        parameter2);
 
-```cpp
-/**
- * @brief Flags for specifying the system-drawn backdrop material of a window,
- *        including behind the non-client area.
-*/
-typedef enum MILE_WINDOW_SYSTEM_BACKDROP_TYPE
-{
-    /**
-     * @brief The default. Let the Desktop Window Manager (DWM) automatically
-              decide the system-drawn backdrop material for this window.
-    */
-    MILE_WINDOW_SYSTEM_BACKDROP_TYPE_AUTO = 0,
+    // GOOD!
+    ::Method(
+        parameter1,
+        ::Method2(parameter3));
 
-    /**
-     * @brief Don't draw any system backdrop.
-    */
-    MILE_WINDOW_SYSTEM_BACKDROP_TYPE_NONE = 1,
+    // GOOD!
+    ::Method(
+        parameter1,
+        parameter2,
+        ::Method2(
+            parameter3,
+            parameter4));
+    ```
+  - Rule of thumb for indentation is whatever Visual Studio suggests
+    with an indentation size of 4 spaces.
+    ```cpp
+    // 4 spaces lining up to the double colon.
+    ::Method(
+        parameter1,
+        parameter2);
 
-    /**
-     * @brief Draw the backdrop material effect corresponding to a long-lived
-     *        window.
-    */
-    MILE_WINDOW_SYSTEM_BACKDROP_TYPE_MICA = 2,
-
-    /**
-     * @brief Draw the backdrop material effect corresponding to a transient
-     *        window.
-    */
-    MILE_WINDOW_SYSTEM_BACKDROP_TYPE_ACRYLIC = 3,
-
-    /**
-     * @brief Draw the backdrop material effect corresponding to a window with
-     *        a tabbed title bar.
-    */
-    MILE_WINDOW_SYSTEM_BACKDROP_TYPE_MICA_ALT = 4
-
-} MILE_WINDOW_SYSTEM_BACKDROP_TYPE, *PMILE_WINDOW_SYSTEM_BACKDROP_TYPE;
-
-/**
- * @brief Retrieves the system-drawn backdrop material of a window, including
- *        behind the non-client area.
- * @param WindowHandle The handle to the window for which the attribute value
- *                     is to be set.
- * @param Value Flags for specifying the system-drawn backdrop material of a
- *              window, including behind the non-client area.
- * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
- *         HRESULT error code.
-*/
-EXTERN_C HRESULT WINAPI MileGetWindowSystemBackdropTypeAttribute(
-    _In_ HWND WindowHandle,
-    _Out_ PMILE_WINDOW_SYSTEM_BACKDROP_TYPE Value);
-
-/**
- * @brief Specifies the system-drawn backdrop material of a window, including
- *        behind the non-client area.
- * @param WindowHandle The handle to the window for which the attribute value
- *                     is to be set.
- * @param Value Flags for specifying the system-drawn backdrop material of a
- *              window, including behind the non-client area.
- * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
- *         HRESULT error code.
-*/
-EXTERN_C HRESULT WINAPI MileSetWindowSystemBackdropTypeAttribute(
-    _In_ HWND WindowHandle,
-    _In_ MILE_WINDOW_SYSTEM_BACKDROP_TYPE Value);
-```
-
-### Examples
-
-**Bad**
-
-```cpp
-namespace winrt
-{
-    using namespace Windows::Foundation;
-    using namespace Windows::UI::Xaml;
-}
-```
-
-**Good**
-
-```cpp
-namespace winrt
-{
-    using Windows::Foundation::IInspectable;
-    using Windows::UI::Xaml::RoutedEventArgs;
-}
-```
-
-**Bad**
-
-```cpp
-HWND m_WindowHandle{ nullptr };
-```
-
-**Good**
-
-```cpp
-HWND m_WindowHandle = nullptr;
-```
-
-**Bad**
-
-```cpp
-namespace winrt::NanaZip::Modern::factory_implementation
-{
-    struct StatusBarTemplate : StatusBarTemplateT<StatusBarTemplate, implementation::StatusBarTemplate>
-    {
-    };
-}
-```
-
-**Good**
-
-```cpp
-namespace winrt::NanaZip::Modern::factory_implementation
-{
-    struct StatusBarTemplate : StatusBarTemplateT<
-        StatusBarTemplate,
-        implementation::StatusBarTemplate>
-    {
-    };
-}
-```
-
-**Bad**
-
-```cpp
-namespace winrt::NanaZip::Modern::factory_implementation
-{
+    // 4 spaces lining up to the variable name.
+    variable = ::Method(
+        paramter1,
+        parameter2);
+    
+    // 4 spaces lining up to the type name.
+    Type variable = ::Method(
+        paramter1,
+        parameter2);
+    ```
+  - The above rules for method definitions also generally apply to templates.
+    ```cpp
+    // BAD!
     struct AddressBarTemplate : AddressBarTemplateT<AddressBarTemplate, implementation::AddressBarTemplate>
-    { };
-}
-```
+    {
+    };
 
-**Good**
-
-```cpp
-namespace winrt::NanaZip::Modern::factory_implementation
-{
+    // GOOD!
     struct AddressBarTemplate : AddressBarTemplateT<
         AddressBarTemplate,
         implementation::AddressBarTemplate>
     {
     };
-}
-```
+    ```
+  - The opening and closing curly brackets should not be in the same line.
+    ```cpp
+    // BAD!
+    struct Foo
+    {};
 
-**Bad**
-
-```cpp
-K7ModernShowInformationDialog(GetParent(), LangString(IDS_PROPERTIES).Ptr(), message.c_str());
-```
-
-**Good**
-
-```cpp
-::K7ModernShowInformationDialog(
-    this->GetParent(),
-    ::LangString(IDS_PROPERTIES).Ptr(),
-    message.c_str());
-```
-
-**Bad**
-
-```cpp
-InformationPage(
-    HWND WindowHandle,
-    winrt::hstring WindowTitle,
-    winrt::hstring WindowContent);
-
-InformationPage::InformationPage(
-    HWND WindowHandle,
-    winrt::hstring WindowTitle,
-    winrt::hstring WindowContent) :
-    m_WindowHandle(WindowHandle),
-    m_WindowTitle(WindowTitle),
-    m_WindowContent(WindowContent)
-{
-}
-```
-
-**Good**
-
-```cpp
-InformationPage(
-    _In_opt_ HWND WindowHandle,
-    winrt::hstring const& WindowTitle,
-    winrt::hstring const& WindowContent);
-
-InformationPage::InformationPage(
-    _In_opt_ HWND WindowHandle,
-    winrt::hstring const& WindowTitle,  
-    winrt::hstring const& WindowContent) :
-    m_WindowHandle(WindowHandle),
-    m_WindowTitle(WindowTitle),
-    m_WindowContent(WindowContent)
-{
-}
-```
-
-**Bad**
-
-```cpp
-void BackgroundButtonClickedHandler(
-    winrt::IInspectable const&,
-    winrt::RoutedEventArgs const&
-);
-
-void ProgressPage::BackgroundButtonClickedHandler(
-    winrt::IInspectable const&,
-    winrt::RoutedEventArgs const& args)
-{
-    this->BackgroundButtonClicked(*this, args);
-}
-```
-
-**Good**
-
-```cpp
-void BackgroundButtonClickedHandler(
-    winrt::IInspectable const& sender,
-    winrt::RoutedEventArgs const& e);
-
-void ProgressPage::BackgroundButtonClickedHandler(
-    winrt::IInspectable const& sender,
-    winrt::RoutedEventArgs const& e)
-{
-    UNREFERENCED_PARAMETER(sender);
-    this->BackgroundButtonClicked(*this, e);
-}
-```
+    // GOOD!
+    struct Foo
+    {
+    };
+    ```
