@@ -42,6 +42,13 @@
 - Avoid using abbreviations or acronyms unless they are widely understood.
 - All comments should be in English unless really necessary, and you should only
   write comments for the interface which will be served to other projects.
+- The indentation should be 4 spaces if the programming language support that.
+- If a method call or method definition have more than one parameter, each
+  parameter should be in a separate line unless it's not exceed 80 half-width
+  characters per line and it's a method call.
+- If a C++ template, C# generic, or equivalent in other languages, have more
+  than one parameter, each parameter should be in a separate line unless it's
+  not exceed 80 half-width characters per line and it's not a definition.
 
 ## Specific rules for C and C\+\+
 
@@ -65,7 +72,6 @@
   types in the function and method definitions.
 - Never eliminate the definition of identifiers for unused parameters.
 - The ");" should not in the separate line.
-- The indentation should be 4 spaces.
 
 Note: The rules in this section is not comprehensive, here are some reference
 coding style implementations you should read line by line to know what is the
