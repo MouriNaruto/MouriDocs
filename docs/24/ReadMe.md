@@ -6,7 +6,7 @@
 - Prefer explicit than implicit.
 - Use language features that are widely supported.
   - If you are writing C code, only use language features that are supported
-    by Microsoft Visual C+\ (MSVC) unless really necessary.
+    by Microsoft Visual C++ (MSVC) unless really necessary.
   - If you are writing C++11 code, only target for C++11 or later unless
     you are targeting specific platforms that don't have compilers which support
     C++11 or later. For language features introduced after C++11, don't use
