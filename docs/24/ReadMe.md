@@ -42,8 +42,19 @@
 - Avoid using abbreviations or acronyms unless they are widely understood.
 - All comments should be in English unless really necessary, and you should only
   write comments for the interface which will be served to other projects.
+- The indentation should be 4 spaces if the programming language support that.
+- If a method call or method definition have more than one parameter, each
+  parameter should be in a separate line unless it's not exceed 80 half-width
+  characters per line and it's a method call.
+- If a C++ template, C# generic, or equivalent in other languages, have more
+  than one parameter, each parameter should be in a separate line unless it's
+  not exceed 80 half-width characters per line and it's not a definition.
 
 ## Specific rules for C and C++
+
+> [!NOTE]
+> The rules here are not comprehensive. When in doubt, reference the Mile.Helpers style:
+> - https://github.com/ProjectMile/Mile.Windows.Helpers/tree/main/Mile.Helpers
 
 - Never use `using namespace` in C++ code. Only use `using` with the type
   names that you are using in the current scope to avoid name conflicts as
