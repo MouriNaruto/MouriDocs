@@ -65,6 +65,7 @@
   types in the function and method definitions.
 - Never eliminate the definition of identifiers for unused parameters.
 - The ");" should not in the separate line.
+- The indentation should be 4 spaces.
 
 Note: The rules in this section is not comprehensive, here are some reference
 coding style implementations you should read line by line to know what is the
