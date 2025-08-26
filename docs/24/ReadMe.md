@@ -66,6 +66,12 @@
 - Never eliminate the definition of identifiers for unused parameters.
 - The ");" should not in the separate line.
 
+Note: The rules in this section is not comprehensive, here are some reference
+coding style implementations you should read line by line to know what is the
+suitable coding style:
+
+- https://github.com/ProjectMile/Mile.Windows.Helpers/tree/main/Mile.Helpers
+
 ### Comment Style
 
 Here is the format example for source code file header:
