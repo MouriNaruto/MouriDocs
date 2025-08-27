@@ -58,7 +58,7 @@
 
 > [!NOTE]
 > For how to name acceptable identifiers, reference the fastfat driver in
-> Windows Driver Examples:
+> Windows Driver Examples will be much helpful to make Kenji Mouri satisfied:
 > - https://github.com/microsoft/Windows-driver-samples/tree/main/filesys/fastfat
 
 - Never use `using namespace` in C++ code. Only use `using` with the type
