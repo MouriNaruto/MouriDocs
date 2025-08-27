@@ -57,7 +57,7 @@
 > - https://github.com/ProjectMile/Mile.Windows.Helpers/tree/main/Mile.Helpers
 
 > [!NOTE]
-> For how to name acceptable identifiers, reference the fastfat driver in
+> For how to name acceptable identifiers, learn from the fastfat driver in
 > Windows Driver Examples will be much helpful to make Kenji Mouri satisfied:
 > - https://github.com/microsoft/Windows-driver-samples/tree/main/filesys/fastfat
 
