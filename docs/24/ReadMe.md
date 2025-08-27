@@ -1,4 +1,4 @@
-# MD24: The coding style for all my open-source projects
+﻿# MD24: The coding style for all my open-source projects
 
 ## Coding Philosophy
 
@@ -33,7 +33,7 @@
 - Use CRLF as the line ending for source code files unless really necessary.
 - Don't exceed 80 half-width characters per line unless really necessary for
   improving the readability.
-- Use "PascalCase" for all identifiers unless really necessary.
+- Use "PascalCase" for **all identifiers** unless really necessary.
 - Use Allman style for braces if the language has braces unless the language
   don't support Allman style for braces.
 - Only use hungarian notation in these scenarios:
@@ -55,6 +55,11 @@
 > [!NOTE]
 > The rules here are not comprehensive. When in doubt, reference the Mile.Helpers style:
 > - https://github.com/ProjectMile/Mile.Windows.Helpers/tree/main/Mile.Helpers
+
+> [!NOTE]
+> For how to name acceptable identifiers, reference the fastfat driver in
+> Windows Driver Examples:
+> - https://github.com/microsoft/Windows-driver-samples/tree/main/filesys/fastfat
 
 - Never use `using namespace` in C++ code. Only use `using` with the type
   names that you are using in the current scope to avoid name conflicts as
