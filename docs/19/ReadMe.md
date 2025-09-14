@@ -175,6 +175,16 @@ Windows image to the respective folders of your Server Core installation.
 
 - \Windows\System32\AudioSrvPolicyManager.dll
 - \Windows\System32\coreaudiopolicymanagerext.dll
+- \Windows\System32\wdmaud.drv
+- \Windows\System32\{Tag of your Windows language and region}\wdmaud.drv.mui
+  - For example: \Windows\System32\en-US\wdmaud.drv.mui
+  - For more information about the tag of your Windows language and region,
+    please refer: https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/available-language-packs-for-windows
+- \Windows\SysWOW64\wdmaud.drv
+- \Windows\System32\Drivers\gm.dls
+- \Windows\System32\midimap.dll
+- \Windows\SysWOW64\Drivers\gm.dls
+- \Windows\SysWOW64\midimap.dll
 
 I also suggest you to copy the volume mixer application for easier volume
 control:
@@ -184,8 +194,31 @@ control:
   - For example: \Windows\System32\en-US\SndVol.exe.mui
   - For more information about the tag of your Windows language and region,
     please refer: https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/available-language-packs-for-windows
+- \Windows\SysWOW64\SndVol.exe
+- \Windows\SysWOW64\{Tag of your Windows language and region}\SndVol.exe.mui
+  - For example: \Windows\System32\en-US\SndVol.exe.mui
+  - For more information about the tag of your Windows language and region,
+    please refer: https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/available-language-packs-for-windows
 
-After copying the files, you need to enable and start the Windows Audio service:
+After copying the files, you need to set the theme to Aero theme by modifying
+the registry, here is the commands you can run in an elevated Command Prompt
+window:
+
+```
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32" /v "aux" /t REG_SZ /d "wdmaud.drv" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32" /v "midi" /t REG_SZ /d "wdmaud.drv" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32" /v "midimapper" /t REG_SZ /d "midimap.dll" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32" /v "mixer" /t REG_SZ /d "wdmaud.drv" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32" /v "wave" /t REG_SZ /d "wdmaud.drv" /f
+reg add "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32" /v "aux" /t REG_SZ /d "wdmaud.drv" /f
+reg add "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32" /v "midi" /t REG_SZ /d "wdmaud.drv" /f
+reg add "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32" /v "midimapper" /t REG_SZ /d "midimap.dll" /f
+reg add "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32" /v "mixer" /t REG_SZ /d "wdmaud.drv" /f
+reg add "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32" /v "wave" /t REG_SZ /d "wdmaud.drv" /f
+```
+
+After modifying the registry, you need to enable and start the Windows Audio
+service:
 
 ```
 sc config Audiosrv start= auto
@@ -221,8 +254,8 @@ reg add "HKU\DEFAULT\Software\Microsoft\Windows\CurrentVersion\ThemeManager" /v 
 reg unload HKU\DEFAULT
 ```
 
-After importing the registry file, you need to sign out and sign in again to
-apply the theme change.
+After modifying the registry, you need to sign out and sign in again to apply
+the theme change.
 
 ### Workaround for enabling Chinese (Simplified) IME
 
