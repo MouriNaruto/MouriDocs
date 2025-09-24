@@ -4,6 +4,8 @@
 
 ## Windows ADK (Assessment Deployment Kit)
 
+- Version: 26100.6584
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_ADK.iso
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_ADK.iso
 - Version: 25398.1
@@ -15,6 +17,8 @@
 
 ## Windows PE add-on for Windows ADK (Assessment Deployment Kit)
 
+- Version: 26100.6584
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_adkwinpeaddons.iso
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_adkwinpeaddons.iso
 - Version: 25398.1
@@ -26,6 +30,8 @@
 
 ## Windows HLK (Hardware Lab Kit)
 
+- Version: 26100.6584
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_HLK.iso
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_HLK.iso
 - Version: 22621.2428
@@ -37,6 +43,8 @@
 
 ## Windows HLK (Hardware Lab Kit) Supplemental Test Content for DXVA
 
+- Version: 26100.6584
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_HLK_DXVA.iso
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_HLK_DXVA.iso
 - Version: 22621.1
@@ -46,6 +54,8 @@
 
 ## Windows HLK (Hardware Lab Kit) Supplemental Test Content for HMFT
 
+- Version: 26100.6584
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_HLK_HMFT.iso
 - Version: 26100.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_amd64fre_HLK_HMFT.iso
 - Version: 22621.1
@@ -62,8 +72,15 @@
 - Version: 22000.1
   - Link: https://software-download.microsoft.com/download/pr/22000.1.210604-1628.co_release_amd64fre_HLK_PERF.iso
 
+## Windows VHLK (Virtual Hardware Lab Kit)
+
+- Version: 26100.6584
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.amd64fre.ge_release_svc_prod1.250904-1728_vhlk_en-us.vhdx
+
 ## Windows SDK (Software Development Kit)
 
+- Version: 26100.6584
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_WindowsSDK.iso
 - Version: 26100.4948
   - Link: https://download.microsoft.com/download/3a857edb-459d-4fbb-88dc-5153f6183142/26100.4948.250812-1640.ge_release_svc_im_WindowsSDK.iso
 - Version: 26100.4654
@@ -105,6 +122,8 @@
 
 ## Windows WDK (Windows Driver Kit)
 
+- Version: 26100.6584
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_WDK.iso
 - Version: 26100.3037
   - Link: https://software-static.download.prss.microsoft.com/dbazure/898969d5-f34g-4e03-ac9d-1f9786c66749/26100.3037.250123-2219.ge_release_svc_prod3_amd64fre_WDK.iso
 - Version: 26100.1
@@ -120,6 +139,8 @@
 
 ## Windows EWDK (Enterprise WDK (Windows Driver Kit))
 
+- Version: 26100.6584
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/EWDK_ge_release_svc_prod1_26100_250904-1728.iso
 - Version: 26100.4202
   - Link: https://download.microsoft.com/download/65cf0837-67ba-4070-9081-dea2b75be528/iso_EWDK/EWDK_ge_release_svc_prod3_26100_250523-0801.iso
 - Version: 26100.3323
@@ -156,6 +177,8 @@
 
 ## Microsoft Validation OS for AMD64
 
+- Version: 26100.6584
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_en-us_VALIDATIONOS.iso
 - Version: 26100.5074
   - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.5074.250826-1428.ge_release_svc_prod3_amd64fre_en-us_VALIDATIONOS.iso
 - Version: 26100.4768
@@ -189,6 +212,8 @@
 
 ## Microsoft Validation OS for ARM64
 
+- Version: 26100.6584
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_arm64fre_en-us_VALIDATIONOS.iso
 - Version: 26100.5074
   - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.5074.250826-1428.ge_release_svc_prod3_arm64fre_en-us_VALIDATIONOS.iso
 - Version: 26100.4768
@@ -222,6 +247,8 @@
 
 ## Inbox Apps
 
+- Version: 26100.6584
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_InboxApps.iso
 - Version: 26100.1742
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1742.240904-1906.ge_release_svc_prod1_amd64fre_InboxApps.iso
 - Version: 22621.2501
