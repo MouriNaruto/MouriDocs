@@ -31,3 +31,4 @@ Fire a GitHub issue if you want feedback or suggest something. Please read
 - [MD22: Notes for using FreeBSD](docs/22)
 - [MD23: The baselines of Windows targets for all my open-source projects](docs/23)
 - [MD24: The coding style for all my open-source projects](docs/24)
+- [MD25: Notes for user mode run levels mentioned in Windows 11](docs/25)
