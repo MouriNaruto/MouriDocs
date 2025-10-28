@@ -79,6 +79,8 @@
 
 ## Windows SDK (Software Development Kit)
 
+- Version: 26100.6901
+  - Link: https://download.microsoft.com/download/466df871-c7b6-43b5-a1c3-dab7816e38fc/26100.6901.251014-1642.ge_release_svc_im_WindowsSDK.iso
 - Version: 26100.6584
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_WindowsSDK.iso
 - Version: 26100.4948
