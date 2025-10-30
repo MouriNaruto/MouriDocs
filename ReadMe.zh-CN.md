@@ -31,3 +31,4 @@ Mouri Docs 是由毛利创建的技术文档库。如果你想进行反馈或提
 - [MD23: The baselines of Windows targets for all my open-source projects](docs/23)
 - [MD24: The coding style for all my open-source projects](docs/24)
 - [MD25: Notes for user mode run levels mentioned in Windows 11](docs/25)
+- [MD26: Softwares installed for my Windows development devices](docs/26)
