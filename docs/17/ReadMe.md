@@ -4,6 +4,8 @@
 
 ## Windows ADK (Assessment Deployment Kit)
 
+- Version: 28000.1
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.251103-1709.br_release_amd64fre_ADK.iso
 - Version: 26100.6584
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_ADK.iso
 - Version: 26100.1
@@ -17,6 +19,8 @@
 
 ## Windows PE add-on for Windows ADK (Assessment Deployment Kit)
 
+- Version: 28000.1
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.251103-1709.br_release_amd64fre_adkwinpeaddons.iso
 - Version: 26100.6584
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_adkwinpeaddons.iso
 - Version: 26100.1
@@ -30,6 +34,8 @@
 
 ## Windows HLK (Hardware Lab Kit)
 
+- Version: 28000.1
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.251103-1709.br_release_amd64fre_HLK.iso
 - Version: 26100.6584
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_HLK.iso
 - Version: 26100.1
@@ -43,6 +49,8 @@
 
 ## Windows HLK (Hardware Lab Kit) Supplemental Test Content for DXVA
 
+- Version: 28000.1
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.251103-1709.br_release_amd64fre_HLK_DXVA.iso
 - Version: 26100.6584
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_HLK_DXVA.iso
 - Version: 26100.1
@@ -54,6 +62,8 @@
 
 ## Windows HLK (Hardware Lab Kit) Supplemental Test Content for HMFT
 
+- Version: 28000.1
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.251103-1709.br_release_amd64fre_HLK_HMFT.iso
 - Version: 26100.6584
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_HLK_HMFT.iso
 - Version: 26100.1
@@ -74,11 +84,17 @@
 
 ## Windows VHLK (Virtual Hardware Lab Kit)
 
+- Version: 28000.1
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.amd64fre.br_release.251103-1709_vhlk_en-us.vhdx
 - Version: 26100.6584
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.amd64fre.ge_release_svc_prod1.250904-1728_vhlk_en-us.vhdx
 
 ## Windows SDK (Software Development Kit)
 
+- Version: 28000.1
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.251103-1709.br_release_WindowsSDK.iso
+- Version: 26100.7175
+  - Link: https://download.microsoft.com/download/8c20ba92-ce77-4348-a6e8-5c0e021763f6/26100.7175.251111-1640.ge_release_svc_im_WindowsSDK.iso
 - Version: 26100.6901
   - Link: https://download.microsoft.com/download/466df871-c7b6-43b5-a1c3-dab7816e38fc/26100.6901.251014-1642.ge_release_svc_im_WindowsSDK.iso
 - Version: 26100.6584
@@ -124,6 +140,8 @@
 
 ## Windows WDK (Windows Driver Kit)
 
+- Version: 28000.1
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.251103-1709.br_release_amd64fre_WDK.iso
 - Version: 26100.6584
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_WDK.iso
 - Version: 26100.3037
@@ -218,6 +236,8 @@
 
 ## Microsoft Validation OS for ARM64
 
+- Version: 28000.1
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.251103-1709.br_release_arm64fre_en-us_VALIDATIONOS.iso
 - Version: 26100.7019
   - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.7019.251023-1855.ge_release_svc_prod3_arm64fre_en-us_VALIDATIONOS.iso
 - Version: 26100.6725
