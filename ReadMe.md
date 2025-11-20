@@ -33,3 +33,4 @@ Fire a GitHub issue if you want feedback or suggest something. Please read
 - [MD24: The coding style for all my open-source projects](docs/24)
 - [MD25: Notes for user mode run levels mentioned in Windows 11](docs/25)
 - [MD26: Softwares installed for my Windows development devices](docs/26)
+- [MD27: K7FS (NanaZip (K7) File System) Draft Specification](docs/27)
