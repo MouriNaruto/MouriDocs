@@ -1,5 +1,13 @@
 ﻿# MD10: Archived list for things I currently working on
 
+## September 2025
+
+#### NanaZip 6.0 Preview 1
+
+Status: Finished
+
+https://github.com/M2Team/NanaZip/releases/tag/6.0.1461.0
+
 ## February 2025
 
 #### NanaZip 5.x
