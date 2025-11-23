@@ -1,5 +1,34 @@
 ﻿# MD10: Archived list for things I currently working on
 
+## November 2025
+
+#### Switch to FreeBSD
+
+Status: Paused
+
+Originally, I hope I can switch to FreeBSD as my development platform because
+its license is suitable for me to customize the system.
+
+I have created some infrastructures to help me use FreeBSD. But there are some
+issues need to solve before I drop Linux. I need more time to process that.
+
+#### Sherry Platform
+
+Status: Paused
+
+Vermouth had said that "a secret makes a woman woman".
+
+Project Edogawa is a planned file manager for Linux-based Sherry Platform which
+shares the codec from NanaZip.
+
+So, this project was also initially called "Sherry Platform's Project Edogawa"
+a.k.a. SPEC. But the final name is "AptxZip" for POSIX like BSD and Linux.
+
+I have paused this project because I need to focus on NanaZip first.
+
+Also, NanaZip also had a plan for Harmony OS NEXT commercial version with
+another name, but my boss doesn't want me to do that at least the recent years.
+
 ## September 2025
 
 #### NanaZip 6.0 Preview 1
