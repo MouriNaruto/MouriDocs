@@ -73,13 +73,26 @@
 
 Note: Please use ILSpy to open these .NET Assemblies to get the definitions.
 
-- [Windows 10 Version 20H1/20H2/21H1/21H2/22H2](References/Microsoft.HyperV.Schema_19041.dll)
+- [Windows 10, version 2004](References/Microsoft.HyperV.Schema_19041.dll)
+  - Windows Server, version 2004 also has the same base.
+  - Windows 10, version 20H2 also has the same base.
+  - Windows Server, version 20H2 also has the same base.
+  - Windows 10, version 21H1 also has the same base.
+  - Windows 10, version 21H2 also has the same base.
+  - Windows 10, version 22H2 also has the same base.
 - [Windows Server 2022](References/Microsoft.HyperV.Schema_20348.dll)
-- [Windows 11 Version 21H2](References/Microsoft.HyperV.Schema_22000.dll)
-- [Windows 11 Version 22H2](References/Microsoft.HyperV.Schema_22621.dll)
-- [Windows Server Version 23H2](References/Microsoft.HyperV.Schema_Microsoft.HyperV.Schema_25398.dll)
-- [Windows 11 Version 24H2 / Windows Server 2025](References/Microsoft.HyperV.Schema_26100.dll)
-- [Windows 11 Insider Preview Canary Channel](References/Microsoft.HyperV.Schema_27924.dll)
+  - Azure Stack HCI, version 21H2 also has the same base.
+  - Azure Stack HCI, version 22H2 also has the same base.
+- [Windows 11, version 21H2](References/Microsoft.HyperV.Schema_22000.dll)
+- [Windows 11, version 22H2](References/Microsoft.HyperV.Schema_22621.dll)
+  - Windows 11, version 23H2 also has the same base.
+- [Windows Server, version 23H2](References/Microsoft.HyperV.Schema_Microsoft.HyperV.Schema_25398.dll)
+  - Azure Stack HCI, version 23H2 also has the same base.
+- [Windows 11, version 24H2](References/Microsoft.HyperV.Schema_26100.dll)
+  - Windows Server 2025 also has the same base.
+  - Azure Stack HCI, version 24H2 also has the same base.
+  - Windows 11, version 25H2 also has the same base.
+- [Windows 11, version 26H1](References/Microsoft.HyperV.Schema_27924.dll)
 
 ## Host Compute System API JSON Configuration Samples
 
