@@ -92,7 +92,7 @@ Note: Please use ILSpy to open these .NET Assemblies to get the definitions.
   - Windows Server 2025 also has the same base.
   - Azure Stack HCI, version 24H2 also has the same base.
   - Windows 11, version 25H2 also has the same base.
-- [Windows 11, version 26H1](References/Microsoft.HyperV.Schema_27924.dll)
+- [Windows 11, version 26H1](References/Microsoft.HyperV.Schema_28000.dll)
 
 ## Host Compute System API JSON Configuration Samples
 
