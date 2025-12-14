@@ -1,5 +1,13 @@
 ﻿# MD10: Archived list for things I currently working on
 
+## December 2025
+
+#### Porting Hyper-V Enhanced Session mode over VMBus to Hyper-V Linux guests.
+
+Status: Finished
+
+https://github.com/MouriNaruto/MouriDocs/tree/main/docs/9
+
 ## November 2025
 
 #### Switch to FreeBSD
