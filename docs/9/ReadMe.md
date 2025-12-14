@@ -1,7 +1,5 @@
 ﻿# MD9: Hyper-V Enhanced Session over VMBus for pre-Windows 8.1 and Linux guests
 
-**Work In Progress.**
-
 According to [Use local resources on Hyper-V virtual machine with VMConnect
 (Last updated on 02/16/2023)], we will know that to be able to use the official
 Hyper-V Enhanced Session support, needs the virtual machine must have Remote
