@@ -27,14 +27,14 @@ I write this document to share my research and implementation experience.
 Hyper-V Enhanced Session over VMBus can be understood as RDP (Remote Desktop
 Protocol) without encryption transported over VMBus via the SynthRdp VMBus
 channels, which makes VMMS (Virtual Machine Management Service) in Hyper-V Host
-easily to wrap it with TLS encryption directly, that mechanism is called RDP
-with CredSSP (Credential Security Support Provider), which provides secure
-connections to other users want to connect to the virtual machine.
+easily to wrap it with TLS (Transport Layer Security) encryption directly, that
+mechanism is called RDP with CredSSP (Credential Security Support Provider),
+which provides secure connections to other users want to connect to the virtual
+machine.
 
-[TermServiceCapture.apmx64] is file contains captured RDP (Remote Desktop
-Protocol) without encryption transported over VMBus packets via [API Monitor], I
-think it will be helpful for people who want to understand Hyper-V Enhanced
-Session over VMBus and RDP (Remote Desktop Protocol).
+[TermServiceCapture.apmx64] is file contains captured RDP without encryption
+transported over VMBus packets via [API Monitor], I think it will be helpful
+for people who want to understand Hyper-V Enhanced Session over VMBus and RDP.
 
 If you want to use Hyper-V Enhanced Session over VMBus, you need to follow this
 negotiation flow in the Guest OS side:
@@ -73,16 +73,14 @@ negotiation flow in the Guest OS side:
 - If the user wants to use Hyper-V Enhanced Session over VMBus, the Hyper-V Host
   will connect to one of the instance GUIDs of the data channel you previously
   listened, which makes you can successfully open one of the instance GUIDs of
-  the data channel, then you need to make a proxy to redirect RDP (Remote
-  Desktop Protocol) packets to the RDP server in the Guest OS a.k.a. local side.
-  Due to Hyper-V Host will redirect RDP (Remote Desktop Protocol) without
-  encryption packets without any modification, you may need to modify the first
-  RDP (Remote Desktop Protocol) packet a.k.a. [Client X.224 Connection Request
-  PDU] from the Hyper-V Host. You need to change [requestedProtocols field in
-  RDP Negotiation Request (RDP_NEG_REQ)] from `0x0000000B` to `0x00000000`,
-  which is `PROTOCOL_SSL | PROTOCOL_HYBRID | PROTOCOL_HYBRID_EX` to
-  `PROTOCOL_RDP`, that can make the RDP server in the Guest OS can handle the
-  connection request successfully.
+  the data channel, then you need to make a proxy to redirect RDP packets to the
+  RDP server in the Guest OS a.k.a. local side. Due to Hyper-V Host will
+  redirect RDP without encryption packets without any modification, you may need
+  to modify the first RDP packet a.k.a. [Client X.224 Connection Request PDU]
+  from the Hyper-V Host. You need to change [requestedProtocols field in RDP
+  Negotiation Request (RDP_NEG_REQ)] from `0x0000000B` to `0x00000000`, which is
+  `PROTOCOL_SSL | PROTOCOL_HYBRID | PROTOCOL_HYBRID_EX` to `PROTOCOL_RDP`, that
+  can make the RDP server in the Guest OS can handle the connection.
 
 ## Available Implementations
 
@@ -116,19 +114,16 @@ negotiation flow in the Guest OS side:
 
 - I suggest to use Hyper-V Enhanced Session over VMBus for Windows Vista /
   Server 2008 or later guests, because Windows XP / Server 2003 lacks some RDP
-  (Remote Desktop Protocol) features, which may make the user experience not so
-  good. For example:
+  features, which may make the user experience not so good. For example:
   - You will hear the jittery sound when playing audio.
   - It seems that clipboard redirection for file transfer is not supported.
-- If you are using xrdp as the RDP (Remote Desktop Protocol) server in Linux
-  guests, you will find that it doesn't support dynamic resolution change, which
-  makes you need to set the resolution before switching to Hyper-V Enhanced
-  Session.
-- GNOME Remote Desktop as the RDP (Remote Desktop Protocol) server in Linux
-  guests is not supported easily due to it requires RDP (Remote Desktop
-  Protocol) with NLA (Network Level Authentication) that requires TLS
-  encryption. You need to use FreeRDP proxy to wrap it to RDP (Remote Desktop
-  Protocol) without encryption first if you want to use GNOME Remote Desktop.
+- If you are using xrdp as the RDP server in Linux guests, you will find that it
+  doesn't support dynamic resolution change, which makes you need to set the
+  resolution before switching to Hyper-V Enhanced Session.
+- GNOME Remote Desktop as the RDP server in Linux guests is not supported easily
+  due to it requires RDP with NLA (Network Level Authentication) that requires
+  TLS encryption. You need to use FreeRDP proxy to wrap it to RDP without
+  encryption first if you want to use GNOME Remote Desktop.
 
 ## Afterwords
 
