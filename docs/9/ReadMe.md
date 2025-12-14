@@ -80,6 +80,14 @@ negotiation flow in the Guest OS side:
   `PROTOCOL_RDP`, that can make the RDP server in the Guest OS can handle the
   connection request successfully.
 
+## Available Implementations
+
+- For Windows XP / Server 2003 / Vista / Server 2008 / 7 / Server 2008 R2 / 8 /
+  Server 2012 guests, I had implemented a tool called SynthRdp, you can get the
+  source code and prebuilt binaries from [NanaRun] GitHub repository.
+- For Linux guests, I had implemented a tool called RelayLab.Tools, you can get
+  the source code from [RelayLab] GitHub repository.
+
 ## Afterwords
 
 Hope you can enjoy this article.
@@ -92,3 +100,5 @@ Hope you can enjoy this article.
 [Mile.HyperV.Windows.VMBusPipe.h in Mile.HyperV]: https://github.com/ProjectMile/Mile.HyperV/blob/main/Mile.HyperV/Mile.HyperV.Windows.VMBusPipe.h
 [Client X.224 Connection Request PDU]: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rdpbcgr/18a27ef9-6f9a-4501-b000-94b1fe3c2c10
 [requestedProtocols field in RDP Negotiation Request (RDP_NEG_REQ)]: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rdpbcgr/902b090b-9cb3-4efc-92bf-ee13373371e3
+[NanaRun]: https://github.com/M2Team/NanaRun
+[RelayLab]: https://github.com/SherryPlatform/RelayLab
