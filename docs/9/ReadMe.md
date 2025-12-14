@@ -1,4 +1,4 @@
-﻿# MD9: Hyper-V Enhanced Session mode over VMBus for Linux
+﻿# MD9: Hyper-V Enhanced Session over VMBus for pre-Windows 8.1 and Linux guests
 
 Work In Progress.
 

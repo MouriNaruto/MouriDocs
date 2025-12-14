@@ -14,7 +14,7 @@ Mouri Docs 是由毛利创建的技术文档库。如果你想进行反馈或提
 - [MD5: Notes for building Windows 10 Enterprise LTSC 2021 x64 ISO](docs/5)
 - [MD6: 毛利的开源软件哲学](docs/6/ReadMe.zh-CN.md)
 - [MD8: Git 使用技巧](docs/8/ReadMe.zh-CN.md)
-- [MD9: Hyper-V Enhanced Session mode over VMBus for Linux](docs/9)
+- [MD9: Hyper-V Enhanced Session over VMBus for pre-Windows 8.1 and Linux guests](docs/9)
 - [MD10: Archived list for things I currently working on](docs/10)
 - [MD11: Building UEFI Applications for Hyper-V Generation 2 Virtual Machines](docs/11)
 - [MD12: 探讨 Windows 真正的最低硬件要求](docs/12/ReadMe.zh-CN.md)
