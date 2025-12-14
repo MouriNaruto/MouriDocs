@@ -40,11 +40,15 @@ If you want to use Hyper-V Enhanced Session over VMBus, you need to follow this
 negotiation flow in the Guest OS side:
 
 > [!NOTE]
-> Read [Mile.HyperV.VMBus.h in Mile.HyperV] to know the SynthRdp VMBus protocol
-> definitions.
-> Read [Mile.HyperV.Windows.VMBusPipe.h in Mile.HyperV] to know the Hyper-V 
-> Windows VMBus User Mode Pipe API definitions, which can help you implement
-> Hyper-V VMBus channel communications in Windows user mode applications.
+> - Read [Mile.HyperV.VMBus.h in Mile.HyperV] to know the SynthRdp VMBus
+>   protocol definitions.
+> - Read [Mile.HyperV.Windows.VMBusPipe.h in Mile.HyperV] to know the Hyper-V
+>   Windows VMBus User Mode Pipe API definitions, which can help you implement
+>   Hyper-V VMBus channel communications in Windows user mode applications.
+> - Read [Mile.HyperV.Guest.Protocols.h in Mile.HyperV] to know the raw Hyper-V
+>   VMBus packet protocol definitions, which can help you implement Hyper-V
+>   VMBus channel communications in Linux user mode applications with
+>   [uio_hv_generic kernel module in Linux kernel].
 
 - Listen on the Microsoft Hyper-V Remote Desktop Control Channel, which is a
   VMBus channel class with GUID `{F8E65716-3CB3-4A06-9A60-1889C5CCCAB5}`.
@@ -118,6 +122,8 @@ Hope you can enjoy this article.
 [TermServiceCapture.apmx64]: TermServiceCapture.apmx64
 [Mile.HyperV.VMBus.h in Mile.HyperV]: https://github.com/ProjectMile/Mile.HyperV/blob/main/Mile.HyperV/Mile.HyperV.VMBus.h
 [Mile.HyperV.Windows.VMBusPipe.h in Mile.HyperV]: https://github.com/ProjectMile/Mile.HyperV/blob/main/Mile.HyperV/Mile.HyperV.Windows.VMBusPipe.h
+[Mile.HyperV.Guest.Protocols.h in Mile.HyperV]: https://github.com/ProjectMile/Mile.HyperV/blob/main/Mile.HyperV/Mile.HyperV.Guest.Protocols.h
+[uio_hv_generic kernel module in Linux kernel]: https://github.com/ilbers/linux/blob/master/drivers/uio/uio_hv_generic.c
 [Client X.224 Connection Request PDU]: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rdpbcgr/18a27ef9-6f9a-4501-b000-94b1fe3c2c10
 [requestedProtocols field in RDP Negotiation Request (RDP_NEG_REQ)]: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rdpbcgr/902b090b-9cb3-4efc-92bf-ee13373371e3
 [NanaRun]: https://github.com/M2Team/NanaRun
