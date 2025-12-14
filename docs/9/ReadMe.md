@@ -112,6 +112,24 @@ negotiation flow in the Guest OS side:
 
 ![Xubuntu_NanaBox](Assets/Xubuntu_NanaBox.png)
 
+### Limitations
+
+- I suggest to use Hyper-V Enhanced Session over VMBus for Windows Vista /
+  Server 2008 or later guests, because Windows XP / Server 2003 lacks some RDP
+  (Remote Desktop Protocol) features, which may make the user experience not so
+  good. For example:
+  - You will hear the jittery sound when playing audio.
+  - It seems that clipboard redirection for file transfer is not supported.
+- If you are using xrdp as the RDP (Remote Desktop Protocol) server in Linux
+  guests, you will find that it doesn't support dynamic resolution change, which
+  makes you need to set the resolution before switching to Hyper-V Enhanced
+  Session.
+- GNOME Remote Desktop as the RDP (Remote Desktop Protocol) server in Linux
+  guests is not supported easily due to it requires RDP (Remote Desktop
+  Protocol) with NLA (Network Level Authentication) that requires TLS
+  encryption. You need to use FreeRDP proxy to wrap it to RDP (Remote Desktop
+  Protocol) without encryption first if you want to use GNOME Remote Desktop.
+
 ## Afterwords
 
 Hope you can enjoy this article.
