@@ -88,6 +88,26 @@ negotiation flow in the Guest OS side:
 - For Linux guests, I had implemented a tool called RelayLab.Tools, you can get
   the source code from [RelayLab] GitHub repository.
 
+## Screenshots
+
+### Hyper-V Manager
+
+![Alpine_HvManager](Assets/Alpine_HvManager.png)
+
+![Win7_HvManager](Assets/Win7_HvManager.png)
+
+![XP_HvManager](Assets/XP_HvManager.png)
+
+### NanaBox
+
+![VistaSP2_NanaBox](Assets/VistaSP2_NanaBox.png)
+
+![Win7SP1_NanaBox](Assets/Win7SP1_NanaBox.png)
+
+![XPx64SP2_NanaBox](Assets/XPx64SP2_NanaBox.png)
+
+![Xubuntu_NanaBox](Assets/Xubuntu_NanaBox.png)
+
 ## Afterwords
 
 Hope you can enjoy this article.
