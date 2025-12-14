@@ -36,6 +36,8 @@ Protocol) without encryption transported over VMBus packets via [API Monitor], I
 think it will be helpful for people who want to understand Hyper-V Enhanced
 Session over VMBus and RDP (Remote Desktop Protocol).
 
+## Afterwords
+
 Hope you can enjoy this article.
 
 [Use local resources on Hyper-V virtual machine with VMConnect (Last updated on 02/16/2023)]: https://github.com/MicrosoftDocs/windowsserverdocs/blob/e28a2171cdb0461e6808c79f9e78cae1970b0051/WindowsServerDocs/virtualization/hyper-v/learn-more/Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md
