@@ -1,10 +1,92 @@
 ﻿# MD13: The list of my technical articles and speeches
 
-## March 2025
+## December 2025
+
+I have revised these articles.
+
+- [MD4: Notes for using Host Compute System API](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/4)
+- [MD9: Hyper-V Enhanced Session over VMBus for pre-Windows 8.1 and Linux guests](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/9)
+- [MD17: Windows Kits Download Link Summary](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/17)
+
+## November 2025
 
 I have revised these articles.
 
 - [MD17: Windows Kits Download Link Summary](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/17)
+- [MD21: Talk about booting x86 (64-Bit) Windows XP / Vista / 7 on Hyper-V Generation 2 Virtual Machines](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/21)
+- [MD27: K7FS (NanaZip (K7) File System) Draft Specification](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/27)
+
+## October 2025
+
+I have created these articles.
+
+- [MD25: Notes for user mode run levels mentioned in Windows 11](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/25)
+- [MD26: Softwares installed for my Windows development devices](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/26)
+
+I have revised these articles.
+
+- [MD17: Windows Kits Download Link Summary](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/17)
+
+## September 2025
+
+I have revised these articles.
+
+- [MD17: Windows Kits Download Link Summary](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/17)
+- [MD19: Notes for building a minimal Windows guest environment via Server Core](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/19)
+
+## August 2025
+
+I have revised these articles.
+
+- [MD4: Notes for using Host Compute System API](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/4)
+- [MD17: Windows Kits Download Link Summary](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/17)
+- [MD24: The coding style for all my open-source projects](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/24)
+
+## July 2025
+
+I have created these articles.
+
+- [MD23: The baselines of Windows targets for all my open-source projects](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/23)
+- [MD24: The coding style for all my open-source projects](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/24)
+
+I have revised these articles.
+
+- [MD1: Notes for using GPU-PV on Hyper-V/NanaBox](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/1)
+- [MD17: Windows Kits Download Link Summary](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/17)
+- [MD20: Start using Alpine Linux as my daily Linux distro](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/20)
+
+## June 2025
+
+I have revised these articles.
+
+- [MD4: Notes for using Host Compute System API](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/4)
+- [MD17: Windows Kits Download Link Summary](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/17)
+- [MD20: Start using Alpine Linux as my daily Linux distro](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/20)
+
+## May 2025
+
+I have revised these articles.
+
+- [MD17: Windows Kits Download Link Summary](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/17)
+
+## April 2025
+
+I have created these articles.
+
+- [MD22: Notes for using FreeBSD](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/22)
+
+I have revised these articles.
+
+- [MD17: Windows Kits Download Link Summary](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/17)
+- [MD20: Start using Alpine Linux as my daily Linux distro](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/20)
+
+## March 2025
+
+I have revised these articles.
+
+- [MD8: Git 使用技巧](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/8/ReadMe.zh-CN.md)
+- [MD17: Windows Kits Download Link Summary](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/17)
+- [MD21: Talk about booting x86 (64-Bit) Windows XP / Vista / 7 on Hyper-V Generation 2 Virtual Machines](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/21)
 
 ## February 2025
 
@@ -165,13 +247,13 @@ I have revised these articles.
 
 I have revised these articles.
 
-- [MD9: Hyper-V Enhanced Session mode over VMBus for Linux](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/9)
+- [MD9: Hyper-V Enhanced Session over VMBus for pre-Windows 8.1 and Linux guests](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/9)
 
 ## August 2023
 
 I have created these articles.
 
-- [MD9: Hyper-V Enhanced Session mode over VMBus for Linux](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/9)
+- [MD9: Hyper-V Enhanced Session over VMBus for pre-Windows 8.1 and Linux guests](https://github.com/MouriNaruto/MouriDocs/tree/main/docs/9)
 
 I have revised these articles.
 
