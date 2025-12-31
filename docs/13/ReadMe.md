@@ -1,6 +1,6 @@
 ﻿# MD13: The list of my technical articles and speeches
 
-[//]: # Collected technical articles (Updated after MD28)
+<!-- Collected technical articles (Updated after MD28) -->
 
 [MD1: Notes for using GPU-PV on Hyper-V/NanaBox]: https://github.com/MouriNaruto/MouriDocs/tree/main/docs/1
 [MD3: Notes for using openSUSE Tumbleweed]: https://github.com/MouriNaruto/MouriDocs/tree/main/docs/3
