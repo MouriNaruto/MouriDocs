@@ -95,7 +95,7 @@
 - Do not use initializer lists for better readability and maintainability because the type definition sequence may change later.
   ```cpp
   // BAD!
-  VERSION version = { 1, 0, 0, 0 };
+  VERSION Version = { 1, 0, 0, 0 };
   ```
   - An exception for this rule is zero-initialization.
     ```cpp
@@ -122,33 +122,33 @@
   class Foo
   {
       void Bar();
-      int m_number;
+      int m_Number;
   }
 
   void Foo::Bar()
   {
       // BAD!
-      m_number = 1;
+      m_Number = 1;
 
       // GOOD!
-      this->m_number = 1;
+      this->m_Number = 1;
   }
   ```
 - Use [SAL](https://learn.microsoft.com/cpp/code-quality/using-sal-annotations-to-reduce-c-cpp-code-defects) for C types in the function and method definitions.
   ```cpp
   // BAD!
-  void Method(HWND hwnd);
+  void Method(HWND WindowHandle);
 
   // GOOD!
-  void Method(_In_ HWND hwnd);
+  void Method(_In_ HWND WindowHandle);
   ```
 - Use `Type& OutputParameter` and `Type const& InputParameter` style for C++ types in the function and method definitions.
   ```cpp
   // BAD!
-  void Method(winrt::hstring string);
+  void Method(winrt::hstring String);
 
   // GOOD!
-  void Method(winrt::hstring const& string);
+  void Method(winrt::hstring const& String);
   ```
 - Never eliminate the definition of identifiers for unused parameters.
   ```cpp
@@ -156,89 +156,89 @@
   void Method(winrt::hstring const&);
 
   // GOOD!
-  void Method(winrt::hstring const& string)
+  void Method(winrt::hstring const& String)
   {
-      UNREFERENCED_PARAMETER(string);
+      UNREFERENCED_PARAMETER(String);
   }
   ```
 - Rules for method calls and method definitions:
   - Prefer a single line for methods with only one parameter or very short method calls.
     ```cpp
-    ::Method(param1);
-    ::Method(p1, p2);
+    ::Method(Param1);
+    ::Method(P1, P2);
 
-    void Short(int parameter1);
+    void Short(int Parameter1);
     ```
   - Otherwise, put each parameter in a separate line.
     ```cpp
     // BAD!
-    void VeryLongMethodName(int parameter1, int parameter2);
+    void VeryLongMethodName(int Parameter1, int Parameter2);
 
     // GOOD!
     void VeryLongMethodName(
-        int parameter1,
-        int parameter2);
+        int Parameter1,
+        int Parameter2);
     ```
   - Do not put any trailing closing parentheses or semicolons in a separate line.
     ```cpp
     // BAD!
     ::Method(
-        parameter1,
-        parameter2
+        Parameter1,
+        Parameter2
     );
 
     // BAD!
     ::Method(
-        parameter1,
-        parameter2,
-        ::Method2(parameter3)
+        Parameter1,
+        Parameter2,
+        ::Method2(Parameter3)
     );
 
     // BAD!
     ::Method(
-        parameter1,
-        parameter2,
+        Parameter1,
+        Parameter2,
         ::Method2(
-            parameter3,
-            parameter4
+            Parameter3,
+            Parameter4
         )
     );
 
     // GOOD!
     ::Method(
-        parameter1,
-        parameter2);
+        Parameter1,
+        Parameter2);
 
     // GOOD!
     ::Method(
-        parameter1,
-        ::Method2(parameter3));
+        Parameter1,
+        ::Method2(Parameter3));
 
     // GOOD!
     ::Method(
-        parameter1,
-        parameter2,
+        Parameter1,
+        Parameter2,
         ::Method2(
-            parameter3,
-            parameter4));
+            Parameter3,
+            Parameter4));
     ```
   - Rule of thumb for indentation is whatever Visual Studio suggests
     with an indentation size of 4 spaces.
     ```cpp
     // 4 spaces lining up to the double colon.
     ::Method(
-        parameter1,
-        parameter2);
+        Parameter1,
+        Parameter2);
 
     // 4 spaces lining up to the variable name.
     variable = ::Method(
-        paramter1,
-        parameter2);
+        Paramter1,
+        Parameter2);
     
     // 4 spaces lining up to the type name.
     Type variable = ::Method(
-        paramter1,
-        parameter2);
+        Paramter1,
+        Parameter2);
     ```
 - The above rules for method definitions also generally apply to templates.
   ```cpp
