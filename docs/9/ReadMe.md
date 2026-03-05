@@ -134,7 +134,7 @@ Hope you can enjoy this article.
 [Mile.HyperV.VMBus.h in Mile.HyperV]: https://github.com/ProjectMile/Mile.HyperV/blob/main/Mile.HyperV/Mile.HyperV.VMBus.h
 [Mile.HyperV.Windows.VMBusPipe.h in Mile.HyperV]: https://github.com/ProjectMile/Mile.HyperV/blob/main/Mile.HyperV/Mile.HyperV.Windows.VMBusPipe.h
 [Mile.HyperV.Guest.Protocols.h in Mile.HyperV]: https://github.com/ProjectMile/Mile.HyperV/blob/main/Mile.HyperV/Mile.HyperV.Guest.Protocols.h
-[uio_hv_generic kernel module in Linux kernel]: https://github.com/ilbers/linux/blob/master/drivers/uio/uio_hv_generic.c
+[uio_hv_generic kernel module in Linux kernel]: https://github.com/torvalds/linux/blob/master/drivers/uio/uio_hv_generic.c
 [Client X.224 Connection Request PDU]: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rdpbcgr/18a27ef9-6f9a-4501-b000-94b1fe3c2c10
 [requestedProtocols field in RDP Negotiation Request (RDP_NEG_REQ)]: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rdpbcgr/902b090b-9cb3-4efc-92bf-ee13373371e3
 [NanaRun]: https://github.com/M2Team/NanaRun
