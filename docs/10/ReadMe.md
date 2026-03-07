@@ -1,5 +1,15 @@
 ﻿# MD10: Archived list for things I currently working on
 
+## February 2026
+
+#### NanaZip 6.x
+
+Status: Working In Progress
+
+Current, I have released NanaZip 6.0. Starting with NanaZip 6.0, the NanaZip
+project is governed by multiple Benevolent Dictators For Life who make final
+decisions by reaching an agreement offline.
+
 ## December 2025
 
 #### Porting Hyper-V Enhanced Session mode over VMBus to Hyper-V Linux guests.
