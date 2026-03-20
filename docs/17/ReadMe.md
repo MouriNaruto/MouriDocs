@@ -205,6 +205,8 @@
 
 ## Microsoft Validation OS for AMD64
 
+- Version: 26100.7920
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.7920.260216-1429.ge_release_svc_prod3_amd64fre_en-us_VALIDATIONOS.iso
 - Version: 26100.7705
   - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.7705.260126-1049.ge_release_svc_prod3_amd64fre_en-us_VALIDATIONOS.iso
 - Version: 26100.7309
@@ -250,6 +252,8 @@
 
 - Version: 28000.1
   - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.251103-1709.br_release_arm64fre_en-us_VALIDATIONOS.iso
+- Version: 26100.7920
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.7920.260216-1429.ge_release_svc_prod3_arm64fre_en-us_VALIDATIONOS.iso
 - Version: 26100.7705
   - Link: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.7705.260126-1049.ge_release_svc_prod3_arm64fre_en-us_VALIDATIONOS.iso
 - Version: 26100.7309
