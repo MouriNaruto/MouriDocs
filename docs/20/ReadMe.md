@@ -74,6 +74,8 @@ accurately. So, here is the list of Semi-Automatic Installation steps I used:
   - > setup-hostname [the hostname you want with all lowercase letters]
   - Because I want to use the hostname with some uppercase letters, I also need
     to edit the "/etc/hostname" file manually after using the "setup-hostname".
+  - At least in Alpine Linux 3.23.3, it seems we can directly use setup-hostname
+    to set the hostname you want without asking all lowercase letters.
 - Networking
   - > setup-interfaces
   - > rc-update add networking boot
@@ -118,6 +120,8 @@ some post-installation steps:
   - > doas apk add htop gcompat libstdc++ curl git avahi neofetch procps
   - > doas rc-update add avahi-daemon
   - > doas rc-service avahi-daemon start
+  - In newer OpenRC, you should use the following command to update cache.
+    > rc-update --update
 - Edit the "/etc/ssh/sshd_config" file via nano, set both AllowTcpForwarding
   and PermitTunnel to yes, then save.
 - Reboot your system.
@@ -312,3 +316,17 @@ Resynchronize the time:
 ```
 doas rc-service chronyd start
 ```
+
+## Configuring Forgejo Server
+
+```
+apk add forgejo
+mkdir /var/lib/forgejo
+chown forgejo:www-data /var/lib/forgejo
+chmod 750 /var/lib/forgejo
+rc-update add forgejo
+rc-update --update
+rc-service forgejo start
+```
+
+Then goto http://{HostName}:3000 to install.
