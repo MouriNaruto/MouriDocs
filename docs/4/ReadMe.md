@@ -36,6 +36,8 @@
 - Support to load the Linux kernel directly when the guest is powered on.
 - Support to set the compatibility flags for Hyper-V Generation 2 Virtual
   Machines since Windows 11 Version 24H2.
+- Support memory overcommit a.k.a. the VM's memory is backed by the Windows
+  pagefile rather than physically backed, statically allocated memory.
 
 ## Limitations
 
