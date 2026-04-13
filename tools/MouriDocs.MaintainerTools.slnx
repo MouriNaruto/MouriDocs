@@ -1,1 +1,3 @@
-<Solution />
+<Solution>
+  <Project Path="MouriDocs.TranslationGenerator/MouriDocs.TranslationGenerator.csproj" />
+</Solution>
