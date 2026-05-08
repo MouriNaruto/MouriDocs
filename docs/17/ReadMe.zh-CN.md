@@ -213,6 +213,8 @@
 
 ## Microsoft Validation OS for AMD64
 
+- 版本: 26100.8328
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.8328.260427-1721.ge_release_svc_prod3_amd64fre_en-us_VALIDATIONOS.iso
 - 版本: 26100.8117
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.8117.260327-1834.ge_release_svc_prod3_amd64fre_en-us_VALIDATIONOS.iso
 - 版本: 26100.7920
@@ -262,6 +264,8 @@
 
 - 版本: 28000.1
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.251103-1709.br_release_arm64fre_en-us_VALIDATIONOS.iso
+- 版本: 26100.8328
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.8328.260427-1721.ge_release_svc_prod3_arm64fre_en-us_VALIDATIONOS.iso
 - 版本: 26100.8117
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.8117.260327-1834.ge_release_svc_prod3_arm64fre_en-us_VALIDATIONOS.iso
 - 版本: 26100.7920
