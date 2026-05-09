@@ -147,9 +147,14 @@ git push --all --follow-tags
 
 ```
 git checkout -b newbranch upstream/newbranch
+git push -u origin newbranch
+```
+
+## 提交特定 commit 节点到特定分支
 
 ```
-git push -u origin newbranch
+git push origin 4648c5c14ffc8cd67f10402b82aab593c52b4348:main
+```
 
 ## 合并特定 Git commit
 
