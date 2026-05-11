@@ -12,6 +12,7 @@
 - Noto Fonts (some extra fonts)
 - Python
 - RuntimeInstaller (DXRedist, VCRT 2005 and later)
+- .NET Framework 3.5
 - Visual Studio
 - Visual Studio Code
 - Visual Studio 2010 Tools for Office Runtime
