@@ -26,8 +26,8 @@ Compute System API which was newly at that time to implement the third-party
 Hyper-V client, especially its stateless design may good for you, and you can
 use ILSpy to learn how to use that. I had used several months to implement that
 and make it open source at GitHub. If some people need to use the third-party
-Hyper-V Host Compute System API created by me, please refer to the [NanaBox]. I
-hope that project can help people who have the same feeling as me.
+Hyper-V Host Compute System API client created by me, please refer to the
+[NanaBox]. I hope that project can help people who have the same feeling as me.
 
 [Ben (Bingxing) Wang]: https://github.com/imbushuo
 [NanaBox]: https://github.com/M2Team/NanaBox
