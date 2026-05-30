@@ -26,6 +26,13 @@ internal IPv6 we configured.
 
 Note: I learned this from https://www.idatum.net/using-freebsd-zfs-and-ipv6-on-azure.html.
 
+## Manual partition layout
+
+| Device     | Mountpoint | FStype  | Options | Dump | Pass |
+|------------|------------|---------|---------|------|------|
+| /dev/da0p1 | /boot/efi  | msdosfs | rw      | 2    | 2    |
+| /dev/da0p2 | /          | ufs     | rw      | 1    | 1    |
+
 ## Useful packages should install when using FreeBSD for the first time
 
 > sudo pkg install fastfetch htop nano
@@ -42,3 +49,26 @@ Here is the reason I suggest to install these packages:
 sudo pkg install py311-certbot
 sudo certbot certonly
 ```
+
+## Multicast DNS Support
+
+> pkg install mDNSResponder
+
+Edit `/etc/rc.conf`, add these
+
+```
+mdnsresponderposix_enable="YES"
+mdnsresponderposix_flags="-n $hostname"
+```
+
+> service mdnsresponderposix start
+
+## doas Support
+
+> pkg install doas
+> echo "permit persist :wheel" > /usr/local/etc/doas.conf
+> pw group mod wheel -m mouri
+
+## SSH Key-Based Authentication
+
+https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
