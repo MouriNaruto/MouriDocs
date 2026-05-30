@@ -53,14 +53,8 @@ sudo certbot certonly
 ## Multicast DNS Support
 
 > pkg install mDNSResponder
-
-Edit `/etc/rc.conf`, add these
-
-```
-mdnsresponderposix_enable="YES"
-mdnsresponderposix_flags="-n $hostname"
-```
-
+> sysrc mdnsresponderposix_enable="YES"
+> echo "mdnsresponderposix_flags=\"-n \$hostname\"" >> /etc/rc.conf
 > service mdnsresponderposix start
 
 ## doas Support
@@ -72,3 +66,65 @@ mdnsresponderposix_flags="-n $hostname"
 ## SSH Key-Based Authentication
 
 https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
+
+## Use Alpine Linux in Linuxulator
+
+> pkg install curl
+> curl -O https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/x86_64/alpine-minirootfs-3.23.4-x86_64.tar.gz
+> mkdir -p /compat/alpine
+> tar -xpf alpine-minirootfs-3.23.4-x86_64.tar.gz -C /compat/alpine
+> ln -sfn /compat/alpine/ /compat/linux
+> rm -rf /compat/alpine/home/
+> rm -rf /compat/alpine/root/
+> ln -sfn /home /compat/alpine/home
+> ln -sfn /root /compat/alpine/root
+> sysrc linux_enable="YES"
+> service linux start
+
+Also, need to fix the rootfs:
+
+```
+cd /compat/linux/bin
+for x in *; do
+    if [ -L "$x" ] && [ "$(readlink "$x")" = "/bin/busybox" ]; then
+        rm -f "$x"
+        ln -s busybox "$x"
+    fi
+done
+cd /compat/linux/sbin
+for x in *; do
+    if [ -L "$x" ] && [ "$(readlink "$x")" = "/bin/busybox" ]; then
+        rm -f "$x"
+        ln -s ../bin/busybox "$x"
+    fi
+done
+cd /compat/linux/usr/bin
+for x in *; do
+    if [ -L "$x" ] && [ "$(readlink "$x")" = "/bin/busybox" ]; then
+        rm -f "$x"
+        ln -s ../../bin/busybox "$x"
+    fi
+done
+cd /compat/linux/usr/sbin
+for x in *; do
+    if [ -L "$x" ] && [ "$(readlink "$x")" = "/bin/busybox" ]; then
+        rm -f "$x"
+        ln -s ../../bin/busybox "$x"
+    fi
+done
+```
+
+> /compat/linux/bin/sh
+
+For Visual Studio Code Remote SSH support:
+
+> apk add nano bash gcompat libstdc++ curl git procps
+
+Add these to `/etc/ssh/sshd_config`:
+
+```
+Match User mouri
+	ForceCommand /compat/linux/bin/bash
+```
+
+Of course, we need a modified musl libc to fix some issues.
