@@ -72,4 +72,5 @@ sudo apt install --no-install-recommends build-essential
 sudo apt install --no-install-recommends git git-credential-oauth
 sudo apt install --no-install-recommends libwlroots-0.18-dev
 sudo apt install --no-install-recommends libwlroots-0.18-examples
+sudo apt install --no-install-recommends weston
 ```
