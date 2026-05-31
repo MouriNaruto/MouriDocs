@@ -35,3 +35,4 @@ Fire a GitHub issue if you want feedback or suggest something. Please read
 - [MD26: Softwares installed for my Windows development devices](docs/26)
 - [MD27: K7FS (NanaZip (K7) File System) Draft Specification](docs/27)
 - [MD28: Annual Review 2025 for Kenji Mouri](docs/28)
+- [MD29: Notes for using various Unix-like operating systems](docs/29)
