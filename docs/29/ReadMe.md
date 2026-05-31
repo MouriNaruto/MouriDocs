@@ -5,6 +5,7 @@ Work In Progress.
 - [openSUSE Tumbleweed](Tumbleweed.md)
 - [Alpine Linux](Alpine.md)
 - [FreeBSD](FreeBSD.md)
+- [Debian](Debian.md)
 
 ## Archived
 
