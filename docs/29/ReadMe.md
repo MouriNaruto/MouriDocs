@@ -15,15 +15,19 @@ Work In Progress.
 
 ### coreutils (Debian, openSUSE Tumbleweed)
 
-> dd if=/dev/zero of=zeroedspace bs=1M status=progress
-> sync
-> rm zeroedspace
+```
+dd if=/dev/zero of=zeroedspace bs=1M status=progress
+sync
+rm zeroedspace
+```
 
 ### busybox (Alpine Linux)
 
-> dd if=/dev/zero of=zeroedspace bs=1M
-> sync
-> rm zeroedspace
+```
+dd if=/dev/zero of=zeroedspace bs=1M
+sync
+rm zeroedspace
+```
 
 ## Create and enable the swapfile
 
@@ -43,11 +47,13 @@ Add the following line to the "/etc/fstab" file via nano:
 
 ### busybox (Alpine Linux)
 
-> doas dd if=/dev/zero of=/swapfile bs=1M count=4096 oflag=append conv=notrunc
-> doas chmod 600 /swapfile
-> doas mkswap /swapfile
-> doas rc-service swap start
-> doas rc-update add swap boot
+```
+doas dd if=/dev/zero of=/swapfile bs=1M count=4096 oflag=append conv=notrunc
+doas chmod 600 /swapfile
+doas mkswap /swapfile
+doas rc-service swap start
+doas rc-update add swap boot
+```
 
 Add the following line to the "/etc/fstab" file via nano:
 

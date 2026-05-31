@@ -52,16 +52,20 @@ sudo certbot certonly
 
 ## Multicast DNS Support
 
-> pkg install mDNSResponder
-> sysrc mdnsresponderposix_enable="YES"
-> echo "mdnsresponderposix_flags=\"-n \$hostname\"" >> /etc/rc.conf
-> service mdnsresponderposix start
+```
+pkg install mDNSResponder
+sysrc mdnsresponderposix_enable="YES"
+echo "mdnsresponderposix_flags=\"-n \$hostname\"" >> /etc/rc.conf
+service mdnsresponderposix start
+```
 
 ## doas Support
 
-> pkg install doas
-> echo "permit persist :wheel" > /usr/local/etc/doas.conf
-> pw group mod wheel -m mouri
+```
+pkg install doas
+echo "permit persist :wheel" > /usr/local/etc/doas.conf
+pw group mod wheel -m mouri
+```
 
 ## SSH Key-Based Authentication
 
@@ -75,12 +79,14 @@ First, we should customize the Alpine Linux root file system for Linuxulator. Re
 If you don't want to modify that manually, you can use my homemade
 [alpine-minirootfs-3.23.4-x86_64-customized.tar.gz](Binaries/alpine-minirootfs-3.23.4-x86_64-customized.tar.gz).
 
-> mkdir -p /compat/alpine
-> tar -xpf alpine-minirootfs-3.23.4-x86_64-customized.tar.gz -C /compat/alpine
-> ln -sfn /compat/alpine/ /compat/linux
-> sysrc linux_enable="YES"
-> service linux start
-> /compat/linux/bin/sh
+```
+mkdir -p /compat/alpine
+tar -xpf alpine-minirootfs-3.23.4-x86_64-customized.tar.gz -C /compat/alpine
+ln -sfn /compat/alpine/ /compat/linux
+sysrc linux_enable="YES"
+service linux start
+/compat/linux/bin/sh
+```
 
 For Visual Studio Code Remote SSH support:
 
@@ -97,8 +103,10 @@ Of course, we need a modified musl libc to fix some issues.
 
 Also we need to create new `~/.shrc`:
 
-> mv .shrc .shrc.old
-> nano ~/.shrc
+```
+mv .shrc .shrc.old
+nano ~/.shrc
+```
 
 ```
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
