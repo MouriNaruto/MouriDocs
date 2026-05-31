@@ -25,7 +25,6 @@ Fire a GitHub issue if you want feedback or suggest something. Please read
 - [MD17: Windows Kits Download Link Summary](docs/17)
 - [MD18: Windows version reference for Windows SDK's NTDDI version constants](docs/18)
 - [MD19: Notes for building a minimal Windows guest environment via Server Core](docs/19)
-- [MD20: Start using Alpine Linux as my daily Linux distro](docs/20)
 - [MD21: Talk about booting x86 (64-Bit) Windows XP / Vista / 7 on Hyper-V Generation 2 Virtual Machines](docs/21)
 - [MD22: Notes for using FreeBSD](docs/22)
 - [MD23: The baselines of Windows targets for all my open-source projects](docs/23)
