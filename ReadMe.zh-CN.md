@@ -25,7 +25,6 @@ Mouri Docs 是由毛利创建的技术文档库。如果你想进行反馈或提
 - [MD18: Windows version reference for Windows SDK's NTDDI version constants](docs/18)
 - [MD19: Notes for building a minimal Windows guest environment via Server Core](docs/19)
 - [MD21: 浅谈在 Hyper-V 第二代虚拟机启动 x86 (64 位) Windows XP / Vista / 7 的事务](docs/21/ReadMe.zh-CN.md)
-- [MD22: Notes for using FreeBSD](docs/22)
 - [MD23: The baselines of Windows targets for all my open-source projects](docs/23)
 - [MD24: The coding style for all my open-source projects](docs/24)
 - [MD25: Notes for user mode run levels mentioned in Windows 11](docs/25)
