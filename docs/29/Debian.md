@@ -30,3 +30,35 @@ your Debian server using SSH without a password.
 > reboot
 > uname -a
 > sudo apt purge linux-image-6.12.86+deb13-amd64
+
+## Install Minimal Desktop Environment
+
+> sudo apt install --no-install-recommends xorg xserver-xorg-video-fbdev
+> sudo apt install --no-install-recommends pipewire wireplumber pipewire-pulse
+> sudo apt install --no-install-recommends icewm dex vlc mesa-utils 
+> sudo apt install --no-install-recommends xrdp xorgxrdp pipewire-module-xrdp
+> sudo apt install --no-install-recommends firefox-esr
+> sudo apt install --no-install-recommends fonts-noto-core fonts-noto-mono fonts-noto-cjk
+> sudo apt install --no-install-recommends fastfetch
+
+> mkdir -p ~/.icewm
+
+> nano ~/.icewm/startup
+
+```
+#!/bin/sh
+
+export XDG_CURRENT_DESKTOP=ICEWM
+export DESKTOP_SESSION=icewm
+
+dex --autostart --environment ICEWM &
+```
+
+> chmod +x ~/.icewm/startup
+
+## Install Development Tools
+
+> sudo apt install --no-install-recommends build-essential
+> sudo apt install --no-install-recommends git git-credential-oauth
+> sudo apt install --no-install-recommends libwlroots-0.18-dev
+> sudo apt install --no-install-recommends libwlroots-0.18-examples
