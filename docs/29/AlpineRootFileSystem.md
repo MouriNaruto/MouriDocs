@@ -2,6 +2,8 @@
 
 > [!NOTE]
 > The following instructions uses FreeBSD with root user to operate.
+> If you don't want to modify that manually, you can use my homemade
+> [alpine-minirootfs-3.23.4-x86_64-customized.tar.gz](Binaries/alpine-minirootfs-3.23.4-x86_64-customized.tar.gz).
 
 ## Source
 
