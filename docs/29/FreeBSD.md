@@ -69,51 +69,17 @@ https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-
 
 ## Use Alpine Linux in Linuxulator
 
-> pkg install curl
-> curl -O https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/x86_64/alpine-minirootfs-3.23.4-x86_64.tar.gz
+First, we should customize the Alpine Linux root file system for Linuxulator. Read
+[this part](AlpineRootFileSystem.md) for details.
+
+If you don't want to modify that manually, you can use my homemade
+[alpine-minirootfs-3.23.4-x86_64-customized.tar.gz](Binaries/alpine-minirootfs-3.23.4-x86_64-customized.tar.gz).
+
 > mkdir -p /compat/alpine
-> tar -xpf alpine-minirootfs-3.23.4-x86_64.tar.gz -C /compat/alpine
+> tar -xpf alpine-minirootfs-3.23.4-x86_64-customized.tar.gz -C /compat/alpine
 > ln -sfn /compat/alpine/ /compat/linux
-> rm -rf /compat/alpine/home/
-> rm -rf /compat/alpine/root/
-> ln -sfn /home /compat/alpine/home
-> ln -sfn /root /compat/alpine/root
 > sysrc linux_enable="YES"
 > service linux start
-
-Also, need to fix the rootfs:
-
-```
-cd /compat/linux/bin
-for x in *; do
-    if [ -L "$x" ] && [ "$(readlink "$x")" = "/bin/busybox" ]; then
-        rm -f "$x"
-        ln -s busybox "$x"
-    fi
-done
-cd /compat/linux/sbin
-for x in *; do
-    if [ -L "$x" ] && [ "$(readlink "$x")" = "/bin/busybox" ]; then
-        rm -f "$x"
-        ln -s ../bin/busybox "$x"
-    fi
-done
-cd /compat/linux/usr/bin
-for x in *; do
-    if [ -L "$x" ] && [ "$(readlink "$x")" = "/bin/busybox" ]; then
-        rm -f "$x"
-        ln -s ../../bin/busybox "$x"
-    fi
-done
-cd /compat/linux/usr/sbin
-for x in *; do
-    if [ -L "$x" ] && [ "$(readlink "$x")" = "/bin/busybox" ]; then
-        rm -f "$x"
-        ln -s ../../bin/busybox "$x"
-    fi
-done
-```
-
 > /compat/linux/bin/sh
 
 For Visual Studio Code Remote SSH support:
@@ -128,3 +94,35 @@ Match User mouri
 ```
 
 Of course, we need a modified musl libc to fix some issues.
+
+Also we need to create new `~/.shrc`:
+
+> mv .shrc .shrc.old
+> nano ~/.shrc
+
+```
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+export PAGER=less
+umask 022
+
+# use nicer PS1 for bash and busybox ash
+if [ -n "$BASH_VERSION" -o "$BB_ASH_VERSION" ]; then
+	PS1='\h:\w\$ '
+# use nicer PS1 for zsh
+elif [ -n "$ZSH_VERSION" ]; then
+	PS1='%m:%~%# '
+# set up fallback default PS1
+else
+	: "${HOSTNAME:=$(hostname)}"
+	PS1='${HOSTNAME%%.*}:$PWD'
+	[ "$(id -u)" -eq 0 ] && PS1="${PS1}# " || PS1="${PS1}\$ "
+fi
+
+for script in /etc/profile.d/*.sh ; do
+	if [ -r "$script" ] ; then
+		. "$script"
+	fi
+done
+unset script
+```
