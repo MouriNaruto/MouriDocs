@@ -129,20 +129,6 @@ Add Visual Studio Code extensions for Linux Kernel module development:
 
 - Reference: https://gist.github.com/itewqq/4b4ee89ba420d585efb472116879b1ee
 
-## swapfile
-
-> doas dd if=/dev/zero of=/swapfile bs=1M count=4096 oflag=append conv=notrunc
-> doas chmod 600 /swapfile
-> doas mkswap /swapfile
-> doas rc-service swap start
-> doas rc-update add swap boot
-
-Add the following line to the "/etc/fstab" file via nano:
-
-```
-/swapfile none swap defaults 0 0
-```
-
 ## Docker
 
 Work In Progress
@@ -235,14 +221,6 @@ doas make install
 doas mkdir -p /etc/ocserv/data
 doas apk del --purge xz openssl gcc autoconf make linux-headers
 doas cp doc/sample.config /etc/ocserv/ocserv.conf
-```
-
-## Prepare for shrinking VHD/VHDX
-
-```
-dd if=/dev/zero of=zeroedspace bs=1M
-sync
-rm zeroedspace
 ```
 
 ## Visual Studio Remote Development (MSBuild C++ for Linux)

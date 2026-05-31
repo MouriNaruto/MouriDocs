@@ -86,12 +86,3 @@ sudo systemctl restart systemd-timesyncd.service
 ## Access with hostname
 
 You need to use YaST2 to change your firewall setting to allow "mdns".
-
-## Create and enable the swapfile
-
-```
-sudo dd if=/dev/zero of=/swapfile bs=1M count=4096 status=progress
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-```
