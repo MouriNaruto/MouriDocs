@@ -1,4 +1,4 @@
-﻿# MD3: Notes for using openSUSE Tumbleweed
+﻿# Notes for using openSUSE Tumbleweed
 
 ## Change the package source
 

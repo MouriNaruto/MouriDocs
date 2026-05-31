@@ -1,4 +1,4 @@
-﻿# MD22: Notes for using FreeBSD
+﻿# Notes for using FreeBSD
 
 ## Create an Azure FreeBSD virtual machine with dual-stack network support
 
