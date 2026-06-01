@@ -101,6 +101,9 @@ Match User mouri
 
 Of course, we need a modified musl libc to fix some issues.
 
+Here is my modified musl libc for Alpine Linux in Linuxulator:
+https://github.com/SherryPlatform/musl/tree/linuxulator-1.2.6
+
 Also we need to create new `~/.shrc`:
 
 ```
