@@ -137,3 +137,11 @@ for script in /etc/profile.d/*.sh ; do
 done
 unset script
 ```
+
+## Upgrade FreeBSD release (Packaged Base)
+
+> pkg-static -o ABI=FreeBSD:15:amd64 -o OSVERSION=1501000 -o IGNORE_OSVERSION=yes upgrade
+
+## Install FreeBSD kernel source code
+
+> pkg install FreeBSD-src-sys

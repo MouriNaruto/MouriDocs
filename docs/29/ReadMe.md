@@ -29,6 +29,14 @@ sync
 rm zeroedspace
 ```
 
+### FreeBSD
+
+```
+dd if=/dev/zero of=zeroedspace bs=1M status=progress
+sync
+rm zeroedspace
+```
+
 ## Create and enable the swapfile
 
 ### coreutils (Debian, openSUSE Tumbleweed)
