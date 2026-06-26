@@ -91,6 +91,8 @@
 
 ## Windows SDK (Software Development Kit)
 
+- Version: 28000.2270
+  - Link: https://download.microsoft.com/download/78b533c3-6724-4e28-a984-b9fa93265781/28000.2270.260609-1642.br_release_svc_im_WindowsSDK.iso
 - Version: 28000.2114
   - Link: https://download.microsoft.com/download/67bdd01d-b02e-4df9-a06b-f43f62013d74/28000.2114.260512-1638.br_release_svc_im_WindowsSDK.iso
 - Version: 28000.1839
