@@ -27,6 +27,7 @@
   - dotnet-computevirtualization, https://github.com/microsoft/dotnet-computevirtualization
   - Windows Subsystem for Linux, https://github.com/microsoft/WSL
 - Third-party Projects
+  - App Sandbox, https://github.com/jamesstringer90/appsandbox
   - NanaBox, https://github.com/M2Team/NanaBox
 
 ## Notable Exclusive Features
