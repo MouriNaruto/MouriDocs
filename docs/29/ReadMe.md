@@ -68,3 +68,26 @@ Add the following line to the "/etc/fstab" file via nano:
 ```
 /swapfile none swap defaults 0 0
 ```
+
+## Use private key to login via SSH
+
+Generate private and public key pair at the client first.
+
+```
+ssh-keygen -t ed25519 -f ./server_key -C ""
+```
+
+Do some configurations at the server.
+
+```
+mkdir -p ~/.ssh
+nano ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+```
+
+Set these to `/etc/ssh/sshd_config`:
+
+```
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+```
