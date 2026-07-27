@@ -51,6 +51,12 @@ git stash pop
 git submodule update --init --recursive --remote
 ```
 
+## 一键恢复全部 Git 子模块
+
+```
+git submodule update --init --recursive --force
+```
+
 ## 为 Git 设置 Sock5 代理
 
 ```
