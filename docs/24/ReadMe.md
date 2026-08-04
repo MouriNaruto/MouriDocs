@@ -49,6 +49,7 @@
 - If a C++ template, C# generic, or equivalent in other languages, have more
   than one parameter, each parameter should be in a separate line unless it's
   not exceed 80 half-width characters per line and it's not a definition.
+- Try `do { ... } while (false);` first before you want to write `goto label;`.
 
 ## Specific rules for C and C++
 
