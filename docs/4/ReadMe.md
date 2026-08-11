@@ -91,11 +91,16 @@ Note: Please use ILSpy to open these .NET Assemblies to get the definitions.
   - Windows 11, version 23H2 also has the same base.
 - [Windows Server, version 23H2](References/Microsoft.HyperV.Schema_Microsoft.HyperV.Schema_25398.dll)
   - Azure Stack HCI, version 23H2 also has the same base.
+  - Azure Local 10.x also has the same base.
+  - Azure Local 11.x also has the same base.
 - [Windows 11, version 24H2](References/Microsoft.HyperV.Schema_26100.dll)
   - Windows Server 2025 also has the same base.
   - Azure Stack HCI, version 24H2 also has the same base.
+  - Azure Local 12.x also has the same base.
   - Windows 11, version 25H2 also has the same base.
+  - Windows 11, version 26H2 also has the same base.
 - [Windows 11, version 26H1](References/Microsoft.HyperV.Schema_28000.dll)
+- [Windows 11 Experimental (Future Platforms)](References/Microsoft.HyperV.Schema_29641.dll)
 
 ## Host Compute System API JSON Configuration Samples
 
