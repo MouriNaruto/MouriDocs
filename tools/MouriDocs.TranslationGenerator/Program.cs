@@ -1,11 +1,11 @@
-﻿using Mile.Project.Helpers;
+﻿using Mile.DotNet.Helpers;
 using System.Text;
 
 namespace Translator
 {
     internal class Program
     {
-        static string RepositoryRootPath = GitRepository.GetRootPath();
+        static string RepositoryRootPath = Git.GetRootPath();
 
 
         static void TranslateDocument17()
@@ -39,7 +39,7 @@ namespace Translator
                 "References",
                 "参考资料");
 
-            FileUtilities.SaveTextToFileAsUtf8Bom(
+            Text.SaveTextToFileAsUtf8WithBom(
                 Path.Combine(DocumentRootPath, "ReadMe.zh-CN.md"),
                 ChineseContent);
         }
