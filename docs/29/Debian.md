@@ -73,4 +73,9 @@ sudo apt install --no-install-recommends git git-credential-oauth
 sudo apt install --no-install-recommends libwlroots-0.18-dev
 sudo apt install --no-install-recommends libwlroots-0.18-examples
 sudo apt install --no-install-recommends weston
+sudo apt install --no-install-recommends rsync
 ```
+
+## Disable IPv6 for avahi
+
+Set `use-ipv6=no` in `/etc/avahi/avahi-daemon.conf`.
