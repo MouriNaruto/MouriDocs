@@ -341,6 +341,8 @@
 
 ## Inbox Apps
 
+- Version: 26100.9457
+  - Link: https://software-static.download.prss.microsoft.com/dbazure/26100.9457.260912-0409.ge_release_svc_im_amd64fre_InboxApps.iso
 - Version: 26100.6584
   - Link: https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.6584.250904-1728.ge_release_svc_prod1_amd64fre_InboxApps.iso
 - Version: 26100.1742
