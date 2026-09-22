@@ -79,3 +79,19 @@ sudo apt install --no-install-recommends rsync
 ## Disable IPv6 for avahi
 
 Set `use-ipv6=no` in `/etc/avahi/avahi-daemon.conf`.
+
+## Install Node.js
+
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
+\. "$HOME/.nvm/nvm.sh"
+nvm install 24
+```
+
+## Install Pi Agent
+
+> npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+
+## Run Pi Agent in Model-Only Mode
+
+> pi --no-tools --no-extensions --no-skills --no-prompt-templates --no-context-files --model github-copilot/gpt-5.6-sol --thinking max --system-prompt " "
