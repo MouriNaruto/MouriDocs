@@ -91,6 +91,8 @@
 
 ## Windows SDK (Software Development Kit)
 
+- 版本: 28000.2957
+  - 链接: https://download.microsoft.com/download/e6cfffdc-0d3e-4c6c-96d7-d491da459a07/28000.2957.260913-0009.br_release_svc_im_WindowsSDK.iso
 - 版本: 28000.2705
   - 链接: https://download.microsoft.com/download/38ab8f6d-3676-4860-ae84-3361308b9d7f/28000.2705.260811-1644.br_release_svc_im_WindowsSDK.iso
 - 版本: 28000.2526
@@ -105,6 +107,8 @@
   - 链接: https://download.microsoft.com/download/c5526ca8-88aa-4325-8d72-de642afc7356/28000.1721.260312-1753.br_release_svc_im_WindowsSDK.iso
 - 版本: 28000.1
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.251103-1709.br_release_WindowsSDK.iso
+- 版本: 26100.9457
+  - 链接: https://download.microsoft.com/download/46742ab5-6592-4968-a793-129e7f3bc55a/26100.9457.260912-0409.ge_release_svc_im_WindowsSDK.iso
 - 版本: 26100.9169
   - 链接: https://download.microsoft.com/download/4c09a46e-b908-42d9-bf27-26cb1779c670/26100.9169.260811-1644.ge_release_svc_im_WindowsSDK.iso
 - 版本: 26100.8876
@@ -229,6 +233,8 @@
 
 ## Microsoft Validation OS for AMD64
 
+- 版本: 26100.9549
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/26100.9549.260917-1814.ge_release_svc_prod3_amd64fre_en-us_VALIDATIONOS.iso
 - 版本: 26100.9278
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/26100.9278.260824-2119.ge_release_svc_prod3_amd64fre_en-us_VALIDATIONOS.iso
 - 版本: 26100.8972
@@ -286,6 +292,8 @@
 
 - 版本: 28000.1
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/28000.1.251103-1709.br_release_arm64fre_en-us_VALIDATIONOS.iso
+- 版本: 26100.9549
+  - 链接: https://software-static.download.prss.microsoft.com/dbazure/26100.9549.260917-1814.ge_release_svc_prod3_arm64fre_en-us_VALIDATIONOS.iso
 - 版本: 26100.9278
   - 链接: https://software-static.download.prss.microsoft.com/dbazure/26100.9278.260824-2119.ge_release_svc_prod3_arm64fre_en-us_VALIDATIONOS.iso
 - 版本: 26100.8972
