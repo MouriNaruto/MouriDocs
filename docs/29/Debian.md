@@ -32,9 +32,9 @@ your Debian server using SSH without a password.
 ```
 sudo apt purge linux-image-amd64
 sudo apt install --no-install-recommends linux-image-cloud-amd64
-reboot
+sudo reboot
 uname -a
-sudo apt purge linux-image-6.12.86+deb13-amd64
+sudo apt purge '?and(~n^linux-image-[0-9],!~ncloud)'
 ```
 
 ## Install Minimal Desktop Environment
@@ -83,7 +83,7 @@ Set `use-ipv6=no` in `/etc/avahi/avahi-daemon.conf`.
 ## Install Node.js
 
 ```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 \. "$HOME/.nvm/nvm.sh"
 nvm install 24
 ```
