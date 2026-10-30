@@ -1,11 +1,21 @@
 ﻿# Notes for using Debian
 
-## Manual partition layout
+## Notes for Lightweight Install
 
-| <file system> | <mount point> | <type> | <options>         | <dump> | <pass> |
-|---------------|---------------|--------|-------------------|--------|--------|
-| /dev/sda1     | /boot/efi     | vfat   | umask=0077        | 0      | 1      |
-| /dev/sda2     | /             | ext4   | errors=remount-ro | 0      | 1      |
+- Use Expert Installer.
+- Choose `English`, `United Status`, `en_US.UTF-8`.
+- `Allow login as root?`: Yes.
+- `Create a normal user account now?`: No.
+- Choose `Coordinate Universal Time (UTC)`.
+- Manual Partition
+  - Select `gpt`.
+  - `100 MiB` as `EFI System Partition`.
+  - `max` as `Ext4 journaling file system` with `/` mount point.
+- Select `targeted: only include drivers needed for this system`.
+- `Use non-free firmware?`: No.
+- Choose `SSH server` only.
+- Choose `Install the systemd-boot boot loader`.
+- `Is the system clock set to UTC?`: Yes.
 
 ## Useful packages should install when using Debian for the first time
 
@@ -119,19 +129,15 @@ if [ -n "${XRDP_SESSION:-}" ] && [ -n "${XRDP_SOCKET_PATH:-}" ] && [ "$(id -u)" 
 fi
 ' | sudo tee /etc/X11/Xsession.d/98xrdp-local-audio
 chmod 644 /etc/X11/Xsession.d/98xrdp-local-audio
-poweroff
-
-mkdir -p /opt/minlin
-nano /opt/minlin/oobe.sh
-nano /opt/minlin/enable-oobe.sh
+cat /etc/X11/Xsession.d/98xrdp-local-audio
+# Content from MinLin\oobe.sh
+nano oobe.sh
+# Content from MinLin\install-oobe.sh
+nano install-oobe.sh
+# Remove temporary `PermitRootLogin yes`.
+nano /etc/ssh/sshd_config
 apt install --no-install-recommends dialog ssl-cert
-chown root:root /opt/minlin
-chmod 0755 /opt/minlin
-chown root:root /opt/minlin/oobe.sh /opt/minlin/enable-oobe.sh
-chmod 0755 /opt/minlin/oobe.sh /opt/minlin/enable-oobe.sh
-bash -n /opt/minlin/oobe.sh
-bash -n /opt/minlin/enable-oobe.sh
-/opt/minlin/enable-oobe.sh
+bash install-oobe.sh
 poweroff
 
 # Use DiskGenius to do these
@@ -140,25 +146,11 @@ Empty /tmp/
 Empty /var/tmp/
 Empty /var/log/ except /var/log/README
 Empty /var/lib/apt/lists/ files except /var/lib/apt/lists/lock
-Empty /var/cache/apt/archives/ but keep directory tree
-Remove /var/lib/systemd/random-seed
-Remove /var/lib/dhcpcd/duid and /var/lib/dhcpcd/secret
-Remove /etc/passwd-
-Remove /etc/shadow-
-Remove /etc/group-
-Remove /etc/gshadow-
-Remove /etc/ssl/certs/ssl-cert-snakeoil.pem
-Remove /etc/ssl/private/ssl-cert-snakeoil.key
-Remove /etc/ssh/ssh_host_*_key
-Remove /etc/ssh/ssh_host_*_key.pub
-Remove /etc/machine-id
-Remove /var/lib/dbus/machine-id
+Empty /var/cache/apt/ but keep directory tree
 
 # Use another Linux machine to do
-# Remove temporary `PermitRootLogin yes`.
-nano /etc/ssh/sshd_config
-dd if=/dev/zero of=zeroedspace bs=1M status=progress
-sync
-rm zeroedspace
-poweroff
+sudo dd if=/dev/zero of=zeroedspace bs=1M status=progress
+sudo sync
+sudo rm zeroedspace
+sudo poweroff
 ```
