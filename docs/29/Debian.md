@@ -51,13 +51,12 @@ sudo apt autopurge linux-image-amd64 '~n^linux-image-[0-9] !~ncloud' '~n-microco
 ```
 sudo apt install --no-install-recommends xorg xserver-xorg-video-fbdev xserver-xorg-input-libinput xserver-xorg-legacy
 sudo apt install --no-install-recommends pipewire wireplumber pipewire-pulse
-sudo apt install --no-install-recommends xrdp xorgxrdp pipewire-module-xrdp
 sudo apt install --no-install-recommends icewm xterm firefox-esr libavcodec61
 sudo apt install --no-install-recommends fonts-noto-core fonts-noto-mono fonts-noto-cjk
-sudo apt install --no-install-recommends dex vlc mesa-utils 
 ```
 
 ```
+sudo apt install --no-install-recommends xrdp xorgxrdp pipewire-module-xrdp
 echo '
 if [ -n "${XRDP_SESSION:-}" ] && [ -n "${XRDP_SOCKET_PATH:-}" ] && [ "$(id -u)" -ne 0 ]; then
     if systemctl --user start pipewire.service pipewire-pulse.service wireplumber.service; then
@@ -66,6 +65,11 @@ if [ -n "${XRDP_SESSION:-}" ] && [ -n "${XRDP_SOCKET_PATH:-}" ] && [ "$(id -u)" 
 fi
 ' | sudo tee /etc/X11/Xsession.d/98xrdp-local-audio
 sudo chmod 644 /etc/X11/Xsession.d/98xrdp-local-audio
+sudo cat /etc/X11/Xsession.d/98xrdp-local-audio
+```
+
+```
+sudo apt install --no-install-recommends dex vlc mesa-utils 
 ```
 
 ## Install Development Tools
@@ -73,7 +77,7 @@ sudo chmod 644 /etc/X11/Xsession.d/98xrdp-local-audio
 ```
 sudo apt install --no-install-recommends build-essential
 sudo apt install --no-install-recommends linux-headers-cloud-amd64
-sudo apt install --no-install-recommends git git-credential-oauth
+sudo apt install --no-install-recommends git ca-certificates
 sudo apt install --no-install-recommends libwlroots-0.18-dev
 sudo apt install --no-install-recommends libwlroots-0.18-examples
 sudo apt install --no-install-recommends weston
@@ -127,7 +131,7 @@ if [ -n "${XRDP_SESSION:-}" ] && [ -n "${XRDP_SOCKET_PATH:-}" ] && [ "$(id -u)" 
         /usr/libexec/pipewire-module-xrdp/load_pw_modules.sh &
     fi
 fi
-' | sudo tee /etc/X11/Xsession.d/98xrdp-local-audio
+' | tee /etc/X11/Xsession.d/98xrdp-local-audio
 chmod 644 /etc/X11/Xsession.d/98xrdp-local-audio
 cat /etc/X11/Xsession.d/98xrdp-local-audio
 # Content from MinLin\oobe.sh
