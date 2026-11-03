@@ -91,3 +91,11 @@ Set these to `/etc/ssh/sshd_config`:
 PasswordAuthentication no
 KbdInteractiveAuthentication no
 ```
+
+## Extract a tar archive without restoring ownership
+
+Run as the target user, without `sudo` if the target user is not `root`:
+
+```sh
+tar --no-same-owner -xJf archive-name.tar.xz
+```
