@@ -36,9 +36,9 @@
 - Use "PascalCase" for **all identifiers** unless really necessary.
 - Use Allman style for braces if the language has braces unless the language
   don't support Allman style for braces.
-- Only use hungarian notation in these scenarios:
-  - For global variables, use `g_` prefix.
-  - For member variables, use `m_` prefix.
+- Only use Hungarian notation in these scenarios:
+  - Use the `g_` prefix only for private global variables of source files.
+  - Use the `m_` prefix only for private member variables of classes or structs.
 - Avoid using abbreviations or acronyms unless they are widely understood.
 - All comments should be in English unless really necessary, and you should only
   write comments for the interface which will be served to other projects.
@@ -269,6 +269,10 @@
 
 ### Comment Style for C, C++
 
+> [!NOTE]
+> For multiline descriptions, keep the leading `*` and align continuation text
+> with the first line's description, as shown below.
+
 Here is the format example for source code file header:
 
 ```cpp
@@ -294,7 +298,7 @@ typedef enum MILE_WINDOW_SYSTEM_BACKDROP_TYPE
 {
     /**
      * @brief The default. Let the Desktop Window Manager (DWM) automatically
-              decide the system-drawn backdrop material for this window.
+     *        decide the system-drawn backdrop material for this window.
     */
     MILE_WINDOW_SYSTEM_BACKDROP_TYPE_AUTO = 0,
 
