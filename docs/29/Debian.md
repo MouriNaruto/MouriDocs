@@ -91,9 +91,10 @@ Set `use-ipv6=no` in `/etc/avahi/avahi-daemon.conf`.
 ## Install Node.js
 
 ```
+sudo apt install curl
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 \. "$HOME/.nvm/nvm.sh"
-nvm install 24
+nvm install 26
 ```
 
 ## Install Pi Agent
