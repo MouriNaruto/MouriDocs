@@ -32,3 +32,4 @@ Mouri Docs 是由毛利创建的技术文档库。如果你想进行反馈或提
 - [MD27: K7FS (NanaZip (K7) File System) Draft Specification](docs/27)
 - [MD28: Annual Review 2025 for Kenji Mouri](docs/28)
 - [MD29: Notes for using various Unix-like operating systems](docs/29)
+- [MD30: 毛利的观点集](docs/30/ReadMe.zh-CN.md)
