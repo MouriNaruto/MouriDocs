@@ -6,3 +6,5 @@ Personal thoughts, essays, and reflections on software engineering, mathematics,
 and technology.
 
 ## Contents
+
+- [The **mythologized** *Handcrafted Era*: Perhaps we have always lived in the vibe](AlwaysVibe.md)

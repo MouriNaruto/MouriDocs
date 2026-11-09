@@ -5,3 +5,5 @@
 关于软件工程、数学与技术的个人思考、随笔与感悟。
 
 ## 目录
+
+- [The **mythologized** *Handcrafted Era*: Perhaps we have always lived in the vibe](AlwaysVibe.md)
