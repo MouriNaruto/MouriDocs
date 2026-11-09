@@ -6,4 +6,4 @@
 
 ## 目录
 
-- [The **mythologized** *Handcrafted Era*: Perhaps we have always lived in the vibe](AlwaysVibe.md)
+- [The **fabled** *Handcrafted Era*: Perhaps we have always lived in the vibe](AlwaysVibe.md)
