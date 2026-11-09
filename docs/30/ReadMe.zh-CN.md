@@ -6,4 +6,4 @@
 
 ## 目录
 
-- [The **fabled** *Handcrafted Era*: Perhaps we have always lived in the vibe](AlwaysVibe.md)
+- [被神化的“手搓时代”：我们大抵一直活在 Vibe 之中](AlwaysVibe.zh-CN.md)
