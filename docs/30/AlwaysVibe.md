@@ -22,23 +22,24 @@ Take software engineering as a typical example:
 
 Through such "efforts," the result can almost always be shoved into the project
 and shipped to production. After all... as long as either the human or the code
-is still running, it's good to go.
+can run, it's good to go.
 
-Admittedly, this stark reality echoes the words of wisdom my senior, mingkuang,
-once offered to comfort me when I feared I wouldn't survive in our university
-lab: *"Having ideas matters far more than raw technical skill."* Looking back at
-the so-called "well-known projects" I have tinkered with over the years, almost
-none were built from 0 to 1: from NSudo, which merged two small utilities into
-one, to NanaZip, built upon 7-Zip to fulfill my own grand pipe dreams, they all
-belong to the realm of going from 1 to N. Whether in mathematical conjectures or
-open-source engineering, most endeavors begin by standing on the shoulders of
-giants. Yet to bring them to fruition with a clear conscience ultimately demands
-the rigorous, concise proofs of a mathematician, or a developer's relentless
-pursuit of perfection and craftsmanship.
+Stark as this reality is, it also quietly echoes the words of wisdom my senior,
+mingkuang, once offered to comfort me when I feared I wouldn't survive in our
+university lab: *"Having ideas matters far more than raw technical skill."*
+Looking back at the so-called "well-known projects" I have tinkered with over
+the years, almost none were built from 0 to 1: from NSudo, which merged two
+small utilities into one, to NanaZip, built upon 7-Zip to fulfill my own
+pie-in-the-sky promises, they all belong to the realm of going from 1 to N.
+Whether in mathematical conjectures or open-source engineering, most endeavors
+begin by standing on the shoulders of giants. Yet to bring them to fruition with
+a clear conscience ultimately demands the rigorous, concise proofs of a
+mathematician, or a developer's relentless pursuit of perfection and
+craftsmanship.
 
 To my mind, then, whether AI/LLM is in vogue or not, the sun also rises, and the
 world carries on as it always has. Those willing to hone their craft will not
 lose their artistry or reverence, even with frontier models in hand; whereas
 those merely looking to get by, even if sent back to an era without AI, would
 likely still live by the same creed: *"As long as either the human or the code
-is still running, it's good to go."*
+can run, it's good to go."*
