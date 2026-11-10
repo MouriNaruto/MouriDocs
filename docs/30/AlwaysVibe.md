@@ -1,6 +1,6 @@
 ﻿# The fabled *Handcrafted Era*: Perhaps we have always lived in the vibe
 
-[简体中文](AlwaysVibe.zh-CN.md)
+[简体中文](AlwaysVibe.zh-CN.md) [日本語](AlwaysVibe.ja-JP.md)
 
 Humanity has a fondness for romanticizing the past, ever eager to gild bygone
 eras in the ascetic aura of a monk: as though mathematicians of old attained
