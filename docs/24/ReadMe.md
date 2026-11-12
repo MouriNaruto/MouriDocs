@@ -233,12 +233,12 @@
 
     // 4 spaces lining up to the variable name.
     variable = ::Method(
-        Paramter1,
+        Parameter1,
         Parameter2);
     
     // 4 spaces lining up to the type name.
     Type variable = ::Method(
-        Paramter1,
+        Parameter1,
         Parameter2);
     ```
 - The above rules for method definitions also generally apply to templates.
