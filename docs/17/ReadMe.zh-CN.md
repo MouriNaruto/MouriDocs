@@ -189,6 +189,8 @@
 
 ## Windows EWDK (Enterprise WDK (Windows Driver Kit))
 
+- 版本: 28000.3231
+  - 链接: https://download.microsoft.com/download/42228203-843f-451a-ad05-6d00871ce61f/EWDK_br_release_svc_prod1_28000_261009-2239.iso
 - 版本: 28000.2526
   - 链接: https://download.microsoft.com/download/27248da3-70d5-453c-ba2b-c20f784597e5/EWDK_br_release_svc_im_28000_260714-1640.iso
 - 版本: 28000.1839
