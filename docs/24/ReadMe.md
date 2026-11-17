@@ -355,3 +355,86 @@ EXTERN_C HRESULT WINAPI MileSetWindowSystemBackdropTypeAttribute(
     _In_ HWND WindowHandle,
     _In_ MILE_WINDOW_SYSTEM_BACKDROP_TYPE Value);
 ```
+
+## Helpful notes from `gpt-6.1-sol`
+
+> [!NOTE]
+> These notes explain how to read and apply the existing guidelines. They do
+> not introduce additional coding rules or replace reading the guidelines and
+> the relevant project code.
+
+- Read the specific rules through the coding philosophy: readability first,
+  and prefer explicit than implicit. Naming, types, control flow, comments,
+  and formatting work together. Following each rule in isolation does not
+  necessarily make the resulting implementation readable.
+- Names carry much of the explanation inside an implementation. Prefer names
+  that distinguish roles, states, and units, rather than names that merely
+  distinguish variables. For example, `RequestedSize` and `AllocatedSize`
+  describe different quantities; `Size1` and `Size2` do not explain that
+  difference. Abbreviations can move the burden of explanation from the code
+  to the reader's memory.
+  - API prefixes also convey ownership and layering. Follow the existing
+    subsystem and capability names, such as `K7BaseHashCreate` and
+    `MoMemorySmallHeapAllocate`, rather than inventing a new naming scheme.
+  - Preserve names required by existing system interfaces and external
+    definitions. Their presence does not establish a naming convention for
+    unrelated new code.
+- Understand the actual types before adding conversions. Check the underlying
+  type, width, signedness, pointer qualification, and interface contract.
+  Equal sizes alone do not make two types, or pointers to them, interchangeable.
+  Choose suitable types and existing conversion utilities first. A necessary
+  conversion should express a real boundary; hiding a cast in a macro or a
+  helper does not establish that the conversion is correct.
+  - Distinguish fixed-width values from native-width values, byte sizes from
+    character counts, and requested sizes from buffer capacities. Check integer
+    promotions, alignment, and layout assumptions where they matter.
+  - Qualifiers and synchronization have specific meanings. A volatile pointer
+    and a pointer to volatile data are different; volatile access, atomic
+    operations, compiler barriers, and hardware barriers are not interchangeable.
+- Use comments primarily to document interfaces: parameters, return values,
+  ownership, output state on failure, and calling requirements. Let names,
+  types, and control flow explain the implementation. When an implementation
+  comment is necessary, explain a non-obvious reason or constraint rather than
+  narrating the next statement. Do not compensate for unclear code by adding
+  step-by-step commentary.
+- Similar-looking operations are not automatically the same abstraction.
+  Explicit handling can be easier to review when resources have different
+  roles or lifetimes. Arrays and tables remain appropriate for genuine
+  collections with meaningful indexing. Likewise, a short forwarding function
+  can be useful when it defines a platform or interface boundary; its value is
+  not determined by the number of statements it contains.
+- Read declarations together with implementations and callers. Verify units,
+  capacity, termination, failure behavior, and resource ownership instead of
+  inferring them from a function name. Reuse the project's existing facilities,
+  checking the dependency version actually used by the project.
+  - Preserve the existing ABI, calling convention, data layout, and error model.
+    An implementation written in C++ does not require exposing C++ types or
+    ownership conventions through a C interface.
+  - Do not import assumptions from a desktop application into a freestanding
+    component, or assume that a restriction of one layer applies to every other
+    layer. Existing code is a reference to understand, not proof that every
+    local exception or third-party convention should be copied.
+- Review operations in execution order. Consider when state becomes visible,
+  which operations can invalidate earlier assumptions, who owns a resource
+  after a transfer, and whether cleanup changes the original error. Failure
+  does not universally mean that outputs should be cleared or that every
+  resource should be released: follow the particular interface contract.
+  - Keep distinctions between error conditions and between a successful result
+    and a false condition. Do not publish success before required initialization
+    finishes, or mistake safe static initialization for thread-safe mutation.
+  - Make validation match its purpose. Arithmetic range checks do not establish
+    that memory is mapped or accessible. Check overflow, overlap, encoding, and
+    termination according to the operation, rather than adding checks merely
+    because they look defensive.
+- Preserve behavior outside the scope of a replacement or workaround. Handle
+  the cases that the new implementation can correctly support and retain the
+  established fallback for other cases. Do not silently broaden an encoding
+  contract, weaken an existing policy, or change output and exit-code semantics
+  as an incidental part of a fix.
+- A small change should have a small, justified scope, not merely a short diff.
+  Avoid unrelated abstractions and behavior changes, but do not omit necessary
+  failure handling to reduce line count. Before submitting, make sure you can
+  explain both what each added line does and why it belongs in this project.
+  Build and test in the supported environment, including failure and fallback
+  paths, and review the patch yourself. Successful compilation and tests do not
+  establish that an abstraction, type choice, or coding style is appropriate.
